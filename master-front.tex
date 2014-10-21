@@ -1,0 +1,74 @@
+\input{prekux}
+
+\setmathsf[Path=fonts/dejavu/]{DejaVuSans.ttf}
+
+\renewcommand{\chapnumfont}{\LARGE\sffamily}
+\renewcommand{\printchapternum}{\chapnumfont \colorbox{natgreen}{\textcolor{white}{\hspace{.2em}\thechapter\hspace{.2em}}}\hspace{1em}}
+
+
+\author{Kristoffer Levin Hansen}
+\title{Searching for gamma-gamma contact interaction with the ATLAS detector at LHC}
+
+\hypersetup{pdfpagelayout=TwoColumnRight,pdfdisplaydoctitle=true}
+
+\begin{document}
+\begin{english}
+
+\hyphenation{CompHEP}
+\hyphenation{CalcHEP}
+\hyphenation{LanHEP}
+\hyphenation{ATLAS}
+\begin{titlingpage}{
+\definecolor{kugray}{RGB}{102,102,102}
+\definecolor{natgreen}{RGB}{50,93,61}
+\thispagestyle{empty}
+\newlength{\topma}\setlength{\topma}{-1in}\addtolength{\topma}{-\headsep}\addtolength{\topma}{-\voffset}\addtolength{\topma}{11mm}
+\newlength{\sidema}\setlength{\sidema}{-1in}\addtolength{\sidema}{-\hoffset}\addtolength{\sidema}{-\oddsidemargin}\addtolength{\sidema}{-\marginparsep}\addtolength{\sidema}{15mm}
+\newlength{\textwa}\setlength{\textwa}{\paperwidth}\addtolength{\textwa}{-35mm}\addtolength{\textwa}{-\textwidth}
+\newlength{\textha}\setlength{\textha}{-\textheight}\addtolength{\textha}{\paperheight}\addtolength{\textha}{-11mm}\addtolength{\textha}{-.1\paperheight}
+\changepage{\textha}{\textwa}{}{\sidema}{}{-\topmargin}{-\headheight}{\topma}{}
+%\setlength{\parindent}{0pt}
+\noindent\begin{minipage}[t]{.8\textwidth}
+\noindent\raggedright \textcolor{kugray}{\fontspec[Path=fonts/garamond/]{GaramondPremrPro.otf}\addfontfeature{LetterSpace=13.0}\fontsize{17}{17}\selectfont\textsc{niels bohr institute}}
+
+\vspace{.2em}\textcolor{kugray}{\fontspec[Path=fonts/garamond/]{GaramondPremrPro.otf}\addfontfeature{LetterSpace=13.0}\fontsize{14}{17}\selectfont\textsc{university of copenhagen}}
+\end{minipage}\hfill\begin{minipage}[t]{32mm}\raggedleft \vspace{16mm} \includegraphics[height=44mm]{KUnat.pdf}
+\end{minipage}
+
+
+\newlength{\markbump}\setlength{\markbump}{.3\paperwidth}\addtolength{\markbump}{-11mm}
+\newlength{\markdown}\setlength{\markdown}{-75mm}\addtolength{\markdown}{0em}\addtolength{\markdown}{\paperheight}\addtolength{\markdown}{.15\paperwidth}
+\noindent\makebox[0pt][l]{\hspace{\markbump}\raisebox{-\markdown}[0pt][0pt]{\includegraphics[height=.9\paperwidth]{atlaskugrid.pdf}}}\makebox[0pt][r]{\raisebox{3.2mm}[0pt][0pt]{\textcolor{natgreen}{\rule{.06\paperwidth}{.7pt}}}}\makebox[0pt][l]{\raisebox{3.2mm}[0pt][0pt]{\textcolor{natgreen}{\rule{.95\paperwidth}{.7pt}}}}
+
+
+
+
+
+\bigskip
+
+{\sffamily
+{\LARGE \textbf{ }
+
+\vspace{2em}}
+
+{\Huge \textbf{Searching for {\fontspec[Path=fonts/dejavu/,Scale=MatchLowercase,BoldItalicFont={DejaVuSansCondensed-BoldOblique.ttf},BoldFont=DejaVuSansCondensed-Bold.ttf,ItalicFont=DejaVuSansCondensed-Oblique.ttf]{DejaVuSansCondensed.ttf}\textit{γγ}} contact interactions with }}
+
+{\Huge \textbf{the ATLAS detector at the LHC}
+\vspace{7em}
+
+{\Large \begin{tabular}{ll}
+Submitted by: &Kristoffer Levin Hansen\\
+& 
+\end{tabular}
+
+\vspace{2em}
+
+\begin{tabular}{c}Supervisor: Jørgen Beck Hansen \end{tabular}}
+
+\vfill
+
+\today}
+
+}\end{titlingpage}
+\end{english}
+\end{document}

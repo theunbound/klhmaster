@@ -1,0 +1,85 @@
+\input{prekux}
+
+\begin{document}
+\begin{english}
+
+Given a state $\ket{\phi_k}$, which represents a particle with a definite four--momentum $k$, we can write
+\[\ket{\phi_k}=\int\frac{d^4k}{(2\pi)^4}\tilde\phi(k)\ket{k}.\]
+The transition aplitude for two such states can then be written as
+\[\braket{\phi_1}{\phi_A}=\int\frac{d^4k_1}{(2\pi)^4}\frac{d^4k_A}{(2\pi)^4}\bra{k_1}\tilde\phi(k_1)\tilde\phi(k_A)\ket{k_A}.\]
+As shown in eq.~\eqref{e.Dq}, the integrand can also be written as
+\[\int\mathcal D\phi\, \phi(k_1)\phi(k_A)e^{iS[\phi]}.\]
+Inserting the expansion of $e^{iS}$, the first term is
+\[\int\mathcal D\phi\,\phi(k_1)\phi(k_A)e^{i\int dk\phi(k^2-m^2)\phi},\]
+which is a Gaussian integral. Assuming the paritcipating momenta are identical, it has the solution\footnote{Boundary, boyndary...?} \cite{griffiths:gauss}
+\[\frac{\delta^4(k_A-k_1)}{k^2-m^2}\int\mathcal D\phi\,e^{i\int dk\,\tilde\phi(k^2-m^2)\tilde\phi},\] 
+where the delta function has been introduced to ensure that $k_A=k_1$, which is to say we impose momentum conservation. The remaining integral is a constant independent of $\phi$, which is absorbed in the normalisation. The remaining expression is the propagator in momentum space. 
+ 
+When we return to carrying out the $k$ integrals, we will find that there is a singularity at $k^2=m^2$, which can be avoided by slightly modifying the integration path. Feynman's prescription for modifying the path yields the expression $(k^2-m^2+i\epsilon)^{-1}$, the Feynman propagator in momentum space. 
+
+The second term in the expansion of $e^{iS}$ yields\footnote{Here, $\phi^n$ is shorthand for a product of $n$ $\tilde\phi$ functions of seperate momenta.} 
+\[-\frac{i\lambda}{4!}\delta^4(p_1+p_2+p_3+p_4)\int\mathcal D\phi\,\phi^6e^{\int dk \phi(k^2-m^2)\phi}.\] 
+Solving the Gaussian integral gives a sum of terms of the form 
+\(-\frac{i\lambda}{4!}\delta^4(p_1+p_2+p_3+p_4)\frac{\delta^4(k_1-p_1)}{{k_1}^2-m^2}\frac{\delta^4(p_2-p_3)}{{p_2}^2-m^2}\frac{\delta^4(p_4-k_A)}{{k_A}^2-m^2},\label{1t1f}\)
+where the momenta are paired in all possible combinations. There are $6!$ possible combinations, but they fall into only two structurally distinct groups, as illustrated in figure~\ref{fey1t1o2}.
+
+\begin{figure}[htb]
+\begin{minipage}{.65\textwidth}
+\begin{footnotesize}\begin{center}
+\begin{tikzpicture}
+\draw (-3,0) node[left]{$1$} -- 
+      ++(1,.5) to[in=45,out=135,min distance=15mm,looseness=8] ++(0,0) --
+      ++(1,-.5) node[right]{$A$};
+\draw (1,.2) node[left]{$1$} -- ++(2,0) node[right]{$A$} 
+      ++(-1,.5) to[in=45,out=-45,min distance=15mm,looseness=8] 
+      ++(0,0) to[in=225,out=135,min distance=15mm,looseness=8] ++(0,0);
+\end{tikzpicture}
+\end{center}\end{footnotesize}
+\end{minipage}
+\hfill
+\begin{minipage}{.3\textwidth}
+\begin{center}\begin{footnotesize}
+\begin{tikzpicture}
+\draw (-1,0) node[left]{$1$} -- (1,0) node[right]{$A$};
+\end{tikzpicture}
+\end{footnotesize}\end{center}
+\end{minipage}
+\begin{minipage}[t]{.65\textwidth}
+\caption{The two structurally distinct groups of terms in the solution of the second term in the expansion of $e^{iS}$ for the $1\rightarrow1$ transition amplitude, illustrated by drawing the propagators as lines connecting either the in- and outgoing states $A$ and $1$ or a vertex connecting four lines, which represents the $\delta^4(p_1+p_2+p_3+p_4)$ function. \label{fey1t1o2}}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{.3\textwidth}
+\caption{The first term drawn with the same method as fig.~\ref{fey1t1o2}.\label{fey1t1o1}}
+\end{minipage}
+\end{figure}
+
+Using the same method, the first term in the expansion is the somewhat less interesting one shown in fig.~\ref{fey1t1o1}.
+
+These are Feynman diagrams, and, using the Feynman rules laid out in figure~\ref{phi4rules}, we can reverse the procedure and extract the terms needed to calculate the transition amplitude.
+
+Looking at eq.~\eqref{1t1f}, one of the internal $p$ momenta can not be fixed to the external $k$ momenta, which leaves this term proportional to a diverging integral, associated with the looping line in the left diagram in fig.~\ref{fey1t1o2}. There is an established method for renormalising these divergent terms, however for these purposes, we note simply that non-divergent terms result from the lowest orders in the expansion, and become more common at higher orders, terms can alternatively be orderd by the number of loops in a term. The non-divergent, loopless terms are referred to in the scheme as leading order (LO) terms.
+
+\begin{figure}[htb]
+\hfill
+\begin{tikzpicture}
+\draw (-3,1) -- (-1,-1) (-3,-1) -- (-1,1);
+\node[right] at (-1,0) {$=-i\lambda$};
+\end{tikzpicture}
+\hfill
+\begin{tikzpicture}
+\node[right] at (-1,0) {$=\dfrac{1}{k^2-m^2}$};
+\draw (-3,0) -- (-1,0);
+\node at (0,-1) {};
+\node at (0,1) {};
+\end{tikzpicture}
+\hfill \phantom{d}
+\caption{The building blocks for Feynman diagrams in $\phi^4$ theory. Once constructed, find the momentum of each propagator by imposing momentum conservation at each vertex. Any momentum that cannot be related to one of the external momenta is integrated over.
+\label{ph4rules}}
+\end{figure}
+
+\section{Feynman diagrams}
+
+
+
+\end{english}
+\end{document}

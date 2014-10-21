@@ -1,0 +1,150 @@
+\begin{infilsf}
+\begin{sffamily}\begin{scriptsize}
+\pgfdeclarelayer{back}
+\pgfsetlayers{back,main}
+\begin{tikzpicture}[yscale=1.8,xscale=0.35]
+
+\tikzstyle{quark}=[font=\footnotesize,white,circle,draw=white,fill=natgreen,inner sep=0pt,minimum size=12pt]
+\tikzstyle{gauge}=[font=\footnotesize,white,circle,draw=white,fill=natcomp,inner sep=0pt,minimum size=12pt]
+\tikzstyle{higgs}=[font=\footnotesize,white,circle,draw=white,fill=natyellow,inner sep=0pt,minimum size=12pt]
+\tikzstyle{lepton}=[font=\footnotesize,white,circle,draw=white,fill=natblue,inner sep=0pt,minimum size=12pt]
+\tikzstyle{quarko}=[fill=white,circle,draw=natgreen,inner sep=0pt,minimum size=16pt]
+\tikzstyle{gaugeo}=[fill=white,circle,draw=natcomp,inner sep=0pt,minimum size=16pt]
+\tikzstyle{higgso}=[fill=white,circle,draw=natyellow,inner sep=0pt,minimum size=16pt]
+\tikzstyle{leptono}=[fill=white,circle,draw=natblue,inner sep=0pt,minimum size=16pt]
+\tikzstyle{inter}=[kugray!50, ultra thick,cap=rect]
+\tikzstyle{under}=[line width=3pt,white]
+
+\draw (-3.5,1.8) -- (-3.5,-1.5) -- (-1.7,-1.5) [snake=zigzag] -- (-.3,-1.5) [snake=none] --  (21,-1.5) -- (21,1.8) -- cycle;
+\draw (-3.5,0) node[left] {0} -- +(8pt,0);
+\draw (-3.5,1) node[left] {1} -- +(8pt,0);
+\draw (-3.5,-1) node[left] {-1} -- +(8pt,0);
+\draw (-2,-1.5) -- +(0,2.5pt) +(0,-.9em) node[above] {0};
+\foreach \x in {0,1}
+\draw (\x*2.303,-1.5) -- +(0,2.5pt) 
+    +(0.693,0) -- +(0.693,1.5pt) +(1.1,0) -- +(1.1,1.5pt) 
+    +(1.39,0) -- +(1.39,1.5pt) +(1.61,0) -- +(1.61,1.5pt) +(1.79,0) -- +(1.79,1.5pt)
+    +(1.95,0) -- +(1.95,1.5pt) +(2.08,0) -- +(2.08,1.5pt) +(2.2,0) -- +(2.2,1.5pt);
+\foreach \x in {2,3,...,8}
+\draw (\x*2.303,-1.5) -- +(0,2.5pt) +(0,-.9em) node[above] {$10^{\x}$}
+    +(0.693,0) -- +(0.693,1.5pt) +(1.1,0) -- +(1.1,1.5pt) 
+    +(1.39,0) -- +(1.39,1.5pt) +(1.61,0) -- +(1.61,1.5pt) +(1.79,0) -- +(1.79,1.5pt)
+    +(1.95,0) -- +(1.95,1.5pt) +(2.08,0) -- +(2.08,1.5pt) +(2.2,0) -- +(2.2,1.5pt);
+\draw (0,-1.5) -- +(0,2.5pt) +(0,-.9em) node[above] {1};
+\draw (2.303,-1.5) -- +(0,2.5pt) +(0,-.9em) node[above] {10};
+\draw (9*2.303,-1.5) -- +(0,2.5pt) +(0,-.9em) node[above] {$10^9$};
+\node at (-4.8,1.7) [rotate=90,left] {Electromagnetic charge [e]};
+\node at (21,-1.8) [left] {Mass [eV/c$^2$]};
+\draw (7.74,0.667) node [quarko] (u) {} node {\tikz {\fill[natgreen] (0,0) -- ++(0,8pt) arc (90:-90:8pt) -- cycle; \draw +(180:8pt);}} node [quark] {u};
+\draw (8.48,-0.333) node [quarko] (d) {} node {\tikz {\fill[natgreen] (0,0) -- ++(0,8pt) arc (90:-90:8pt) -- cycle; \draw +(180:8pt);}} node [quark] {d};
+\draw (14.06,0.667) node [quarko] (s) {} node {\tikz {\fill[natgreen] (0,0) -- ++(0,8pt) arc (90:-90:8pt) -- cycle; \draw +(180:8pt);}} node [quark] {s};
+\draw (11.46,-0.333) node [quarko] (c) {} node {\tikz {\fill[natgreen] (0,0) -- ++(0,8pt) arc (90:-90:8pt) -- cycle; \draw +(180:8pt);}} node [quark] {c};
+\draw (18.97,0.667) node [quarko] (t) {} node {\tikz {\fill[natgreen] (0,0) -- ++(0,8pt) arc (90:-90:8pt) -- cycle; \draw +(180:8pt);}} node [quark] {t};
+\draw (15.25,-0.333) node [quarko] (b) {} node {\tikz {\fill[natgreen] (0,0) -- ++(0,8pt) arc (90:-90:8pt) -- cycle; \draw +(180:8pt);}} node [quark] {b};
+\draw (-2,0) ++(100:6.5pt) ++(-4.47pt,0) node (gamma) [gaugeo] {} node {\tikz {\shade[top color=white,bottom color=natcomp] (0,0)  +(-80:12pt) -- +(-45:8pt) arc (-45:-115:8pt) -- cycle; \filldraw[natcomp] (0,0) circle (8pt); \draw +(100:12pt);}} node [gauge] {$\gamma$};
+\draw (-2,0) ++(-80:6.5pt) ++(4.47pt,0) node [gaugeo] (g) {} node {\tikz {\shade[top color=natcomp,bottom color=white] +(100:12pt) -- +(135:8pt) arc (135:65:8pt) -- cycle; \filldraw[natcomp] (0,0) circle (8pt); \draw +(-80:12pt);}} node [gauge] {g};
+\draw (-2,0) node {\tikz \fill[natcomp] circle (1pt);};
+\draw (18.33,0) ++(100:6.5pt) ++(-4.47pt,0) node [gaugeo] (Z) {} node {\tikz {\shade[top color=white,bottom color=natcomp] (0,0)  +(-80:12pt) -- +(-45:8pt) arc (-45:-115:8pt) -- cycle; \filldraw[natcomp] (0,0) circle (8pt); \draw +(100:12pt);}} node [gauge] {Z};
+\draw (18.20,1) node [gaugeo] (W+) {} node {\tikz {\filldraw[natcomp] (0,0) circle (8pt);}} node [gauge] {\tiny W$^+$};
+\draw (18.20,-1) node [gaugeo] (W-) {} node {\tikz {\filldraw[natcomp] (0,0) circle (8pt);}} node [gauge] {\tiny W$^-$};
+\draw (18.65,0)  ++(-80:6.5pt) ++(4.47pt,0) node [higgso] (H) {} node {\tikz {\shade[top color=natyellow,bottom color=white] +(100:12pt) -- +(135:8pt) arc (135:65:8pt) -- cycle; \draw +(-80:12pt); \draw[natyellow] (0,0) circle (8pt);}} node [higgs] {H};
+\draw (18.33,0) node {\tikz \fill[natcomp] circle (1pt);};
+\draw (18.65,0) node {\tikz \fill[natyellow] circle (1pt);};
+\draw (0.79,0) node [leptono] (ve) {} node {\tikz {\fill[natblue] (0,0) -- ++(0,8pt) arc (90:-90:8pt) -- cycle; \draw +(180:8pt);}} node [lepton] {$\nu_{\text e}$};
+\draw (5.14,0) node [leptono] (vmu) {} node {\tikz {\fill[natblue] (0,0) -- ++(0,8pt) arc (90:-90:8pt) -- cycle; \draw +(180:8pt);}} node [lepton] {$\nu_\mu$};
+\draw (9.65,0) node [leptono] (vtau) {} node {\tikz {\fill[natblue] (0,0) -- ++(0,8pt) arc (90:-90:8pt) -- cycle; \draw +(180:8pt);}} node [lepton] {$\nu_\tau$};
+\draw (6.24,-1) node [leptono] (e) {} node {\tikz {\fill[natblue] (0,0) -- ++(0,8pt) arc (90:-90:8pt) -- cycle; \draw +(180:8pt);}} node [lepton] {e};
+\draw (11.57,-1) node [leptono] (mu) {} node {\tikz {\fill[natblue] (0,0) -- ++(0,8pt) arc (90:-90:8pt) -- cycle; \draw +(180:8pt);}} node [lepton] {$\mu$};
+\draw (14.39,-1) node [leptono] (tau) {} node {\tikz {\fill[natblue] (0,0) -- ++(0,8pt) arc (90:-90:8pt) -- cycle; \draw +(180:8pt);}} node [lepton] {$\tau$};
+
+\begin{pgfonlayer}{back}
+\node at (12,1) [inner sep=0] (uqs) {};
+\node at (20.7,.6) [inner sep=0] (qgnode) {};
+\draw [inter] (u) to[out=0,in=270,max distance=7pt]  (uqs);
+\draw [inter] (s) to[out=170,in=270,max distance=4pt] (uqs);
+\draw [inter] (t) to[out=190,in=270,max distance=25pt] (uqs);
+\draw [inter] (d) to[out=5,in=270,max distance=30pt] (uqs);
+\draw [inter] (c) to[out=60,in=270,max distance=10pt] (uqs);
+\draw [inter] (b) to[out=170,in=270,max distance=20pt] (uqs)
+                  to[out=90,in=40,max distance=17pt] (g);
+\draw (g) node[below right] {\tikz {\draw [inter] (0,0) to[in=-40,out=-90,min distance=20pt] (0,0);}};
+\draw [inter] (uqs) to[out=90,in=30,max distance=15pt] (gamma);
+\draw [inter] (uqs) to[out=90,in=150,max distance=7pt] (W+);
+\draw [inter] (uqs) .. controls (12,1.4) and (20.7,1.7) .. (qgnode.south)
+                    to[out=270,in=10,max distance=7pt] (Z);
+\draw [inter] (qgnode) to[out=270,in=20,max distance=10pt] (H);
+\draw [inter] (qgnode) to[out=270,in=20,max distance=30pt] (W-);
+
+\draw [under] (gamma) -- ++(15,0) node [inner sep=0] (gamw) {};
+\draw [under] (gamw.west) to[out=0,in=90,max distance=30pt] (W-);
+\draw [under] (gamw.west) to[out=0,in=250,max distance=20pt] (W+);
+\draw [inter] (gamma) -- (gamw.east);
+\draw [inter] (gamw.west) to[out=0,in=250,max distance=20pt] (W+);
+\draw [inter] (gamw.west) to[out=0,in=90,max distance=30pt] (W-);
+
+\node at (17,-.3) [inner sep=0] (wz-) {};
+\node at (17,.6) [inner sep=0] (wz+) {};
+\draw [under] (wz-) -- (wz+) to[out=270,in=160,max distance=10pt] (Z);
+\draw [under] (H) to[out=30,in=-5,min distance=30pt] (W+);
+\draw [inter] (W-) to[out=160,in=270,max distance=10pt] (wz-)
+           to (wz+.north) to[out=90,in=200,max distance=10pt] (W+);
+\node [above right] at (W+) {\tikz {
+    \draw[under] (0,0) to[out=40,in=90,min distance=20pt] (0,0);
+    \draw[inter] (0,0) to[out=40,in=90,min distance=20pt] (0,0);}};
+\draw [inter] (wz-) to[out=90,in=200,max distance=10pt] (Z);
+\draw [inter] (wz+) to[out=270,in=160,max distance=10pt] (Z);
+\draw [inter] (W-) -- (H);
+\draw (W-) node[below right] {\tikz {\draw [inter] (0,0) to[in=-40,out=-90,min distance=20pt] (0,0);}};
+\draw [inter] (H) to[out=50,in=-10,max distance=5pt] (Z);
+\draw [inter] (H) to[out=30,in=-5,min distance=30pt] (W+);
+
+\draw (tau) ++(1.5,.25) node [inner sep=0] (lepga) {};
+\draw [inter] (tau) to[out=70,in=180,max distance=3pt] (lepga)
+                    to[out=0,in=270,max distance=10pt] (wz-);
+\draw [inter] (mu) to[out=70,in=180,max distance=3pt] ++(1.5,.25) -- (lepga);
+\draw [inter] (e) to[out=70,in=180,max distance=3pt] ++(1.5,.25)
+              node [inner sep=0] (ega) {} -- (lepga);
+\draw [inter] (lepga) to[out=0,in=152,max distance=10pt] (W-);
+
+\draw (vmu) ++(-1.5,-.25) node [inner sep=0] (neul) {};
+\draw [inter] (vmu) to[out=250,in=0,max distance=3pt] (neul);
+\draw [inter] (vtau) to[out=185,in=0,min distance = 30pt] (neul);
+\draw [inter] (ve) -- ++(0,-.5) node [inner sep=0] (neud) {};
+\draw [inter] (neul.east) to[out=180,in=90,max distance=7pt] (neud);
+\draw [inter] (neud.north) to [out=270,in=180,max distance=10pt] (ega);
+
+\draw (g) ++(-1,0) node [inner sep=0] (gamlep) {};
+\draw [inter] (e) to [out=250,in=0,max distance=3pt] ++(-1.5,-.25)
+              node (lepneu) [inner sep=0] {};
+\draw [inter] (mu) to[out=250,in=0,max distance=3pt] ++(-1.5,-.25) -- (lepneu);
+\draw [inter] (tau) to[out=250,in=0,max distance=3pt] ++(-1.5,-.25) -- (lepneu);
+\draw [inter] (lepneu.east) to[out=180,in=270,max distance=20pt] (neud.north);
+\draw [inter] (lepneu) to[out=180,in=270,max distance=30pt] (gamlep);
+\draw [inter] (gamma) to[out=230,in=90] (gamlep.south);
+\end{pgfonlayer}
+
+\draw[inter,cap=round] (-2,1) -- (0,1) node[right,kugray] {Interactions};
+
+\draw (-1,1.4) node [quarko] (n) {} node {\tikz {\fill[natgreen] (0,0) -- ++(0,8pt) arc (90:-90:8pt) -- cycle; \draw +(180:8pt);}} node [quark] {n};
+\node at (n) {\tikz {\draw [white,postaction={decorate,decoration={text along path,text align=center,text={|\tiny|Spin}}}] ++(270:10pt) arc (270:90:10pt); \draw (-1,0) (1,0);}};
+\begin{scope}
+\clip (n.center) -- ++(2,0) -- ++(0,.2) -- ++(-2,0) -- cycle;
+\draw (n) node [gaugeo] {} node {\tikz {\filldraw[natcomp] (0,0) circle (8pt);}} node [gauge] {n};
+\end{scope}
+\begin{scope}
+\clip (n.center) -- ++(2,0) -- ++(0,-.2) -- ++(-2,0) -- cycle;
+\draw (n) node [leptono] {} node {\tikz {\fill[natblue] (0,0) -- ++(0,8pt) arc (90:-90:8pt) -- cycle; \draw +(180:8pt);}} node [lepton] {n};
+\end{scope}
+\begin{scope}
+\clip (n.center) -- ++(-2,0) -- ++(0,-.2) -- ++(2,0) -- cycle;
+\draw (n) node [higgso] {} node {\tikz {\shade[top color=natyellow,bottom color=white] +(100:12pt) -- +(135:8pt) arc (135:65:8pt) -- cycle; \draw +(-80:12pt); \draw[natyellow] (0,0) circle (8pt);}} node [higgs] {n};
+\end{scope}
+
+\draw (n) ++(160:20pt) node [right,natgreen] {\tiny Quarks};
+\draw (n) ++(-160:20pt) node [right,natyellow] {\tiny Higgs boson};
+\draw (n) ++(0:20pt) node [above right,natcomp] {\tiny Gauge bosons};
+\draw (n) ++(0:20pt) node [below right,natblue] {\tiny Leptons};
+
+\end{tikzpicture}
+\end{scriptsize}\end{sffamily}
+\end{infilsf}

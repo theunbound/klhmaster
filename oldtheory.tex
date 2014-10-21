@@ -1,0 +1,21 @@
+Moving to quantum mechanics, the notion of a system travelling along a singular path between configurations no longer applies, which leaves us to consider all possible paths that a system may take from an initial to a final state. Since quantum mechanics already tells us that the probability of a system going from one state to another is given by a transition amplitude, we may think of that amplitude as the sum of transition amplitudes along each path between the two states, related to the action for a path by\footnote{For completeness, this is actually $A=e^{iS/\hbar}$, however this thesis will follow convention in this area, and use the notation where $\hbar = c = 1$.}
+\[A=e^{iS}.\label{e.A}\]
+We expect this to relate back to the classical case by having paths close to the classically stationary path give similar contributions, while paths far from it tend to cancel one another out.
+
+Consider a particle with position $q$ at time $t$ and position $q\prime$ at $t\prime$ \cite{sred:tramp}. The transition amplitude between the two states can be calculated as
+\[\obraket{q\prime}{e^{-i\hat H(t\prime-t)}}{q},\]
+where $\hat H$ is the Hamiltonian of the system. By splitting the time interval into an arbitrary number of arbitrarily short time intervals, and inserting for each time interval a complete set of position and momentum states,
+\[\int dq \ket{q}\bra{q}\quad\textrm{and}\quad\int dp \ket{p}\bra{p},\]
+we get a product of factors of the form\footnote{Strictly speaking, this assumes the Hamiltonian to be of the form $\hat H=\hat p/2m+V(\hat q)$, however the extension to a general Hamiltonian gives nearly the same result.}
+\[\int dq_1\,dp_1\,\bra{q_2}e^{-i\hat p^2/2m(t_2-t_1)}\ket{p_1}\bra{p_1}e^{-i\hat V(\hat q)(t_2-t_1)}\ket{q_1},\]
+which can be simplified to
+\[\int dq_1\,\frac{dp_1}{2\pi}\,e^{ip_1(q_2-q_1)}e^{-i\hat (t_2-t_1)H}.\]
+Going to the limit where time steps $t_2-t_1\rightarrow0$, the transition amplitude can now be written as
+\(\int\,\mathcal Dq\,\mathcal Dp\,\exp\left[i\int_t^{t\prime}dt\,[p(t)\dot q(t)-H(p(t),q(t))]\right],\label{e.Dq}\)
+where the integral is over all paths with position $q$ at time $t$ and position $q\prime$ at time $t\prime$. We recognise the expression in the innermost integral from eq.~\eqref{htol}.
+
+The Lagrangian has the added feature that, for a local theory, it is possible to write it as a spatial integral over the Lagrangian density:
+\[L=\int \,d^3x\,\mathcal L.\]
+Thus, the action can be written as
+\(S=\int\,d^4x\,\mathcal L,\label{e.S}\)
+which is manifestly Lorenz invariant, so long as $\mathcal L$ is a Lorenz scalar. Given the ubiquity of local quantum field theories, it is common to drop `density' from the name, and refer to $\mathcal L$ as the Lagrangian.

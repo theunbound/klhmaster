@@ -1,0 +1,655 @@
+\pgfdeclareplotmark{cross} {
+\pgfpathmoveto{\pgfpoint{-0.3\pgfplotmarksize}{\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{+0.3\pgfplotmarksize}{\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{+0.3\pgfplotmarksize}{0.3\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{+1\pgfplotmarksize}{0.3\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{+1\pgfplotmarksize}{-0.3\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{+0.3\pgfplotmarksize}{-0.3\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{+0.3\pgfplotmarksize}{-1.\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{-0.3\pgfplotmarksize}{-1.\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{-0.3\pgfplotmarksize}{-0.3\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{-1.\pgfplotmarksize}{-0.3\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{-1.\pgfplotmarksize}{0.3\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{-0.3\pgfplotmarksize}{0.3\pgfplotmarksize}}
+\pgfpathclose
+\pgfusepathqstroke
+}
+\pgfdeclareplotmark{cross*} {
+\pgfpathmoveto{\pgfpoint{-0.3\pgfplotmarksize}{\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{+0.3\pgfplotmarksize}{\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{+0.3\pgfplotmarksize}{0.3\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{+1\pgfplotmarksize}{0.3\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{+1\pgfplotmarksize}{-0.3\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{+0.3\pgfplotmarksize}{-0.3\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{+0.3\pgfplotmarksize}{-1.\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{-0.3\pgfplotmarksize}{-1.\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{-0.3\pgfplotmarksize}{-0.3\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{-1.\pgfplotmarksize}{-0.3\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{-1.\pgfplotmarksize}{0.3\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{-0.3\pgfplotmarksize}{0.3\pgfplotmarksize}}
+\pgfpathclose
+\pgfusepathqfillstroke
+}
+\pgfdeclareplotmark{newstar} {
+\pgfpathmoveto{\pgfqpoint{0pt}{\pgfplotmarksize}}
+\pgfpathlineto{\pgfqpointpolar{44}{0.5\pgfplotmarksize}}
+\pgfpathlineto{\pgfqpointpolar{18}{\pgfplotmarksize}}
+\pgfpathlineto{\pgfqpointpolar{-20}{0.5\pgfplotmarksize}}
+\pgfpathlineto{\pgfqpointpolar{-54}{\pgfplotmarksize}}
+\pgfpathlineto{\pgfqpointpolar{-90}{0.5\pgfplotmarksize}}
+\pgfpathlineto{\pgfqpointpolar{234}{\pgfplotmarksize}}
+\pgfpathlineto{\pgfqpointpolar{198}{0.5\pgfplotmarksize}}
+\pgfpathlineto{\pgfqpointpolar{162}{\pgfplotmarksize}}
+\pgfpathlineto{\pgfqpointpolar{134}{0.5\pgfplotmarksize}}
+\pgfpathclose
+\pgfusepathqstroke
+}
+\pgfdeclareplotmark{newstar*} {
+\pgfpathmoveto{\pgfqpoint{0pt}{\pgfplotmarksize}}
+\pgfpathlineto{\pgfqpointpolar{44}{0.5\pgfplotmarksize}}
+\pgfpathlineto{\pgfqpointpolar{18}{\pgfplotmarksize}}
+\pgfpathlineto{\pgfqpointpolar{-20}{0.5\pgfplotmarksize}}
+\pgfpathlineto{\pgfqpointpolar{-54}{\pgfplotmarksize}}
+\pgfpathlineto{\pgfqpointpolar{-90}{0.5\pgfplotmarksize}}
+\pgfpathlineto{\pgfqpointpolar{234}{\pgfplotmarksize}}
+\pgfpathlineto{\pgfqpointpolar{198}{0.5\pgfplotmarksize}}
+\pgfpathlineto{\pgfqpointpolar{162}{\pgfplotmarksize}}
+\pgfpathlineto{\pgfqpointpolar{134}{0.5\pgfplotmarksize}}
+\pgfpathclose
+\pgfusepathqfillstroke
+}
+\begin{tikzpicture}[x=.05\textwidth,y=0.05\textwidth]
+\definecolor{c}{rgb}{1,1,1};
+\draw [color=c, fill=c] (0,0) rectangle (20,13.5632);
+\draw [color=c, fill=c] (2,1.35632) rectangle (18,12.2069);
+\definecolor{c}{rgb}{0,0,0};
+\draw [c] (2,1.35632) -- (2,12.2069) -- (18,12.2069) -- (18,1.35632) -- (2,1.35632);
+\definecolor{c}{rgb}{1,1,1};
+\draw [color=c, fill=c] (2,1.35632) rectangle (18,12.2069);
+\definecolor{c}{rgb}{0,0,0};
+\draw [c] (2,1.35632) -- (2,12.2069) -- (18,12.2069) -- (18,1.35632) -- (2,1.35632);
+\definecolor{c}{named}{natgreen};
+\draw [c] (2.16,11.8875) -- (2.16,11.8923);
+\draw [c] (2.16,11.8923) -- (2.16,11.8971);
+\draw [c] (2,11.8923) -- (2.16,11.8923);
+\draw [c] (2.16,11.8923) -- (2.32,11.8923);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natgreen};
+\draw [c] (2.48,10.0242) -- (2.48,10.0294);
+\draw [c] (2.48,10.0294) -- (2.48,10.0346);
+\draw [c] (2.32,10.0294) -- (2.48,10.0294);
+\draw [c] (2.48,10.0294) -- (2.64,10.0294);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natgreen};
+\draw [c] (2.8,8.91669) -- (2.8,8.93319);
+\draw [c] (2.8,8.93319) -- (2.8,8.94915);
+\draw [c] (2.64,8.93319) -- (2.8,8.93319);
+\draw [c] (2.8,8.93319) -- (2.96,8.93319);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natgreen};
+\draw [c] (3.12,8.1494) -- (3.12,8.18535);
+\draw [c] (3.12,8.18535) -- (3.12,8.21882);
+\draw [c] (2.96,8.18535) -- (3.12,8.18535);
+\draw [c] (3.12,8.18535) -- (3.28,8.18535);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natgreen};
+\draw [c] (3.44,7.47859) -- (3.44,7.54697);
+\draw [c] (3.44,7.54697) -- (3.44,7.60688);
+\draw [c] (3.28,7.54697) -- (3.44,7.54697);
+\draw [c] (3.44,7.54697) -- (3.6,7.54697);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natgreen};
+\draw [c] (3.76,6.97623) -- (3.76,7.07638);
+\draw [c] (3.76,7.07638) -- (3.76,7.15935);
+\draw [c] (3.6,7.07638) -- (3.76,7.07638);
+\draw [c] (3.76,7.07638) -- (3.92,7.07638);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natgreen};
+\draw [c] (4.08,6.57241) -- (4.08,6.63874);
+\draw [c] (4.08,6.63874) -- (4.08,6.69708);
+\draw [c] (3.92,6.63874) -- (4.08,6.63874);
+\draw [c] (4.08,6.63874) -- (4.24,6.63874);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natgreen};
+\draw [c] (4.4,6.19062) -- (4.4,6.19674);
+\draw [c] (4.4,6.19674) -- (4.4,6.20279);
+\draw [c] (4.24,6.19674) -- (4.4,6.19674);
+\draw [c] (4.4,6.19674) -- (4.56,6.19674);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natgreen};
+\draw [c] (4.72,5.77919) -- (4.72,5.78855);
+\draw [c] (4.72,5.78855) -- (4.72,5.79773);
+\draw [c] (4.56,5.78855) -- (4.72,5.78855);
+\draw [c] (4.72,5.78855) -- (4.88,5.78855);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natgreen};
+\draw [c] (5.04,5.40576) -- (5.04,5.41951);
+\draw [c] (5.04,5.41951) -- (5.04,5.43289);
+\draw [c] (4.88,5.41951) -- (5.04,5.41951);
+\draw [c] (5.04,5.41951) -- (5.2,5.41951);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natgreen};
+\draw [c] (5.36,5.05923) -- (5.36,5.07889);
+\draw [c] (5.36,5.07889) -- (5.36,5.09779);
+\draw [c] (5.2,5.07889) -- (5.36,5.07889);
+\draw [c] (5.36,5.07889) -- (5.52,5.07889);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natgreen};
+\draw [c] (5.68,4.67112) -- (5.68,4.70046);
+\draw [c] (5.68,4.70046) -- (5.68,4.72812);
+\draw [c] (5.52,4.70046) -- (5.68,4.70046);
+\draw [c] (5.68,4.70046) -- (5.84,4.70046);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natgreen};
+\draw [c] (6,4.3082) -- (6,4.35085);
+\draw [c] (6,4.35085) -- (6,4.39005);
+\draw [c] (5.84,4.35085) -- (6,4.35085);
+\draw [c] (6,4.35085) -- (6.16,4.35085);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natgreen};
+\draw [c] (6.32,3.92695) -- (6.32,3.99012);
+\draw [c] (6.32,3.99012) -- (6.32,4.046);
+\draw [c] (6.16,3.99012) -- (6.32,3.99012);
+\draw [c] (6.32,3.99012) -- (6.48,3.99012);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natgreen};
+\draw [c] (6.64,3.61518) -- (6.64,3.70225);
+\draw [c] (6.64,3.70225) -- (6.64,3.77604);
+\draw [c] (6.48,3.70225) -- (6.64,3.70225);
+\draw [c] (6.64,3.70225) -- (6.8,3.70225);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natgreen};
+\draw [c] (6.96,3.404) -- (6.96,3.51219);
+\draw [c] (6.96,3.51219) -- (6.96,3.60058);
+\draw [c] (6.8,3.51219) -- (6.96,3.51219);
+\draw [c] (6.96,3.51219) -- (7.12,3.51219);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natgreen};
+\draw [c] (7.28,3.08032) -- (7.28,3.23108);
+\draw [c] (7.28,3.23108) -- (7.28,3.34592);
+\draw [c] (7.12,3.23108) -- (7.28,3.23108);
+\draw [c] (7.28,3.23108) -- (7.44,3.23108);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natgreen};
+\draw [c] (7.6,2.28769) -- (7.6,2.62373);
+\draw [c] (7.6,2.62373) -- (7.6,2.82031);
+\draw [c] (7.44,2.62373) -- (7.6,2.62373);
+\draw [c] (7.6,2.62373) -- (7.76,2.62373);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natgreen};
+\draw [c] (7.92,1.69237) -- (7.92,2.28769);
+\draw [c] (7.92,2.28769) -- (7.92,2.54696);
+\draw [c] (7.76,2.28769) -- (7.92,2.28769);
+\draw [c] (7.92,2.28769) -- (8.08,2.28769);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natgreen};
+\draw [c] (8.24,1.35632) -- (8.24,1.95164);
+\draw [c] (8.24,1.95164) -- (8.24,2.28769);
+\draw [c] (8.08,1.95164) -- (8.24,1.95164);
+\draw [c] (8.24,1.95164) -- (8.4,1.95164);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natgreen};
+\draw [c] (8.56,1.35632) -- (8.56,1.95164);
+\draw [c] (8.56,1.95164) -- (8.56,2.28769);
+\draw [c] (8.4,1.95164) -- (8.56,1.95164);
+\draw [c] (8.56,1.95164) -- (8.72,1.95164);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natgreen};
+\draw [c] (8.88,1.35632) -- (8.88,1.95164);
+\draw [c] (8.88,1.95164) -- (8.88,2.28769);
+\draw [c] (8.72,1.95164) -- (8.88,1.95164);
+\draw [c] (8.88,1.95164) -- (9.04,1.95164);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natgreen};
+\draw [c] (9.2,1.35632) -- (9.2,1.95164);
+\draw [c] (9.2,1.95164) -- (9.2,2.28769);
+\draw [c] (9.04,1.95164) -- (9.2,1.95164);
+\draw [c] (9.2,1.95164) -- (9.36,1.95164);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natgreen};
+\draw [c] (9.84,1.69237) -- (9.84,2.28769);
+\draw [c] (9.84,2.28769) -- (9.84,2.54696);
+\draw [c] (9.68,2.28769) -- (9.84,2.28769);
+\draw [c] (9.84,2.28769) -- (10,2.28769);
+\definecolor{c}{rgb}{0,0,0};
+
+\draw [c] (2,1.35632) -- (18,1.35632);
+\draw [anchor= east] (18,0.0) node[ rotate=0]{$p_T^{\gamma_1}$ [GeV]};
+\draw [c] (2,1.68184) -- (2,1.35632);
+\draw [c] (2.4,1.51908) -- (2.4,1.35632);
+\draw [c] (2.8,1.51908) -- (2.8,1.35632);
+\draw [c] (3.2,1.51908) -- (3.2,1.35632);
+\draw [c] (3.6,1.51908) -- (3.6,1.35632);
+\draw [c] (4,1.68184) -- (4,1.35632);
+\draw [c] (4.4,1.51908) -- (4.4,1.35632);
+\draw [c] (4.8,1.51908) -- (4.8,1.35632);
+\draw [c] (5.2,1.51908) -- (5.2,1.35632);
+\draw [c] (5.6,1.51908) -- (5.6,1.35632);
+\draw [c] (6,1.68184) -- (6,1.35632);
+\draw [c] (6.4,1.51908) -- (6.4,1.35632);
+\draw [c] (6.8,1.51908) -- (6.8,1.35632);
+\draw [c] (7.2,1.51908) -- (7.2,1.35632);
+\draw [c] (7.6,1.51908) -- (7.6,1.35632);
+\draw [c] (8,1.68184) -- (8,1.35632);
+\draw [c] (8.4,1.51908) -- (8.4,1.35632);
+\draw [c] (8.8,1.51908) -- (8.8,1.35632);
+\draw [c] (9.2,1.51908) -- (9.2,1.35632);
+\draw [c] (9.6,1.51908) -- (9.6,1.35632);
+\draw [c] (10,1.68184) -- (10,1.35632);
+\draw [c] (10.4,1.51908) -- (10.4,1.35632);
+\draw [c] (10.8,1.51908) -- (10.8,1.35632);
+\draw [c] (11.2,1.51908) -- (11.2,1.35632);
+\draw [c] (11.6,1.51908) -- (11.6,1.35632);
+\draw [c] (12,1.68184) -- (12,1.35632);
+\draw [c] (12.4,1.51908) -- (12.4,1.35632);
+\draw [c] (12.8,1.51908) -- (12.8,1.35632);
+\draw [c] (13.2,1.51908) -- (13.2,1.35632);
+\draw [c] (13.6,1.51908) -- (13.6,1.35632);
+\draw [c] (14,1.68184) -- (14,1.35632);
+\draw [c] (14.4,1.51908) -- (14.4,1.35632);
+\draw [c] (14.8,1.51908) -- (14.8,1.35632);
+\draw [c] (15.2,1.51908) -- (15.2,1.35632);
+\draw [c] (15.6,1.51908) -- (15.6,1.35632);
+\draw [c] (16,1.68184) -- (16,1.35632);
+\draw [c] (16.4,1.51908) -- (16.4,1.35632);
+\draw [c] (16.8,1.51908) -- (16.8,1.35632);
+\draw [c] (17.2,1.51908) -- (17.2,1.35632);
+\draw [c] (17.6,1.51908) -- (17.6,1.35632);
+\draw [c] (18,1.68184) -- (18,1.35632);
+\draw [c] (2,1.68184) -- (2,1.35632);
+\draw [c] (18,1.68184) -- (18,1.35632);
+\draw [anchor=base] (2 ,0.708736) node[ rotate=0]{0};
+\draw [anchor=base] (4 ,0.708736) node[ rotate=0]{500};
+\draw [anchor=base] (6 ,0.708736) node[ rotate=0]{1000};
+\draw [anchor=base] (8 ,0.708736) node[ rotate=0]{1500};
+\draw [anchor=base] (10,0.708736) node[ rotate=0]{2000};
+\draw [anchor=base] (12,0.708736) node[ rotate=0]{2500};
+\draw [anchor=base] (14,0.708736) node[ rotate=0]{3000};
+\draw [anchor=base] (16,0.708736) node[ rotate=0]{3500};
+\draw [anchor=base] (18,0.708736) node[ rotate=0]{4000};
+\draw [c] (2,1.35632) -- (2,12.2069);
+\draw [anchor= east] (-0.4,12.2069) node[ rotate=90]{$\di\sigma/\di p_T^{\gamma_1}$ [pb/GeV]};
+\draw [c] (2.24,1.41384) -- (2,1.41384);
+\draw [c] (2.24,1.47094) -- (2,1.47094);
+\draw [c] (2.48,1.52202) -- (2,1.52202);
+\draw [anchor= east] (1.844,1.52202) node[ rotate=0]{$10^{-10}$};
+\draw [c] (2.24,1.85806) -- (2,1.85806);
+\draw [c] (2.24,2.05464) -- (2,2.05464);
+\draw [c] (2.24,2.19411) -- (2,2.19411);
+\draw [c] (2.24,2.30229) -- (2,2.30229);
+\draw [c] (2.24,2.39068) -- (2,2.39068);
+\draw [c] (2.24,2.46542) -- (2,2.46542);
+\draw [c] (2.24,2.53015) -- (2,2.53015);
+\draw [c] (2.24,2.58726) -- (2,2.58726);
+\draw [c] (2.48,2.63834) -- (2,2.63834);
+\draw [anchor= east] (1.844,2.63834) node[ rotate=0]{$10^{-9}$};
+\draw [c] (2.24,2.97438) -- (2,2.97438);
+\draw [c] (2.24,3.17095) -- (2,3.17095);
+\draw [c] (2.24,3.31042) -- (2,3.31042);
+\draw [c] (2.24,3.41861) -- (2,3.41861);
+\draw [c] (2.24,3.507) -- (2,3.507);
+\draw [c] (2.24,3.58173) -- (2,3.58173);
+\draw [c] (2.24,3.64647) -- (2,3.64647);
+\draw [c] (2.24,3.70357) -- (2,3.70357);
+\draw [c] (2.48,3.75465) -- (2,3.75465);
+\draw [anchor= east] (1.844,3.75465) node[ rotate=0]{$10^{-8}$};
+\draw [c] (2.24,4.0907) -- (2,4.0907);
+\draw [c] (2.24,4.28727) -- (2,4.28727);
+\draw [c] (2.24,4.42674) -- (2,4.42674);
+\draw [c] (2.24,4.53492) -- (2,4.53492);
+\draw [c] (2.24,4.62331) -- (2,4.62331);
+\draw [c] (2.24,4.69805) -- (2,4.69805);
+\draw [c] (2.24,4.76279) -- (2,4.76279);
+\draw [c] (2.24,4.81989) -- (2,4.81989);
+\draw [c] (2.48,4.87097) -- (2,4.87097);
+\draw [anchor= east] (1.844,4.87097) node[ rotate=0]{$10^{-7}$};
+\draw [c] (2.24,5.20701) -- (2,5.20701);
+\draw [c] (2.24,5.40359) -- (2,5.40359);
+\draw [c] (2.24,5.54306) -- (2,5.54306);
+\draw [c] (2.24,5.65124) -- (2,5.65124);
+\draw [c] (2.24,5.73963) -- (2,5.73963);
+\draw [c] (2.24,5.81436) -- (2,5.81436);
+\draw [c] (2.24,5.8791) -- (2,5.8791);
+\draw [c] (2.24,5.9362) -- (2,5.9362);
+\draw [c] (2.48,5.98728) -- (2,5.98728);
+\draw [anchor= east] (1.844,5.98728) node[ rotate=0]{$10^{-6}$};
+\draw [c] (2.24,6.32333) -- (2,6.32333);
+\draw [c] (2.24,6.5199) -- (2,6.5199);
+\draw [c] (2.24,6.65937) -- (2,6.65937);
+\draw [c] (2.24,6.76755) -- (2,6.76755);
+\draw [c] (2.24,6.85595) -- (2,6.85595);
+\draw [c] (2.24,6.93068) -- (2,6.93068);
+\draw [c] (2.24,6.99542) -- (2,6.99542);
+\draw [c] (2.24,7.05252) -- (2,7.05252);
+\draw [c] (2.48,7.1036) -- (2,7.1036);
+\draw [anchor= east] (1.844,7.1036) node[ rotate=0]{$10^{-5}$};
+\draw [c] (2.24,7.43964) -- (2,7.43964);
+\draw [c] (2.24,7.63622) -- (2,7.63622);
+\draw [c] (2.24,7.77569) -- (2,7.77569);
+\draw [c] (2.24,7.88387) -- (2,7.88387);
+\draw [c] (2.24,7.97226) -- (2,7.97226);
+\draw [c] (2.24,8.047) -- (2,8.047);
+\draw [c] (2.24,8.11173) -- (2,8.11173);
+\draw [c] (2.24,8.16884) -- (2,8.16884);
+\draw [c] (2.48,8.21992) -- (2,8.21992);
+\draw [anchor= east] (1.844,8.21992) node[ rotate=0]{$10^{-4}$};
+\draw [c] (2.24,8.55596) -- (2,8.55596);
+\draw [c] (2.24,8.75253) -- (2,8.75253);
+\draw [c] (2.24,8.892) -- (2,8.892);
+\draw [c] (2.24,9.00019) -- (2,9.00019);
+\draw [c] (2.24,9.08858) -- (2,9.08858);
+\draw [c] (2.24,9.16331) -- (2,9.16331);
+\draw [c] (2.24,9.22805) -- (2,9.22805);
+\draw [c] (2.24,9.28515) -- (2,9.28515);
+\draw [c] (2.48,9.33623) -- (2,9.33623);
+\draw [anchor= east] (1.844,9.33623) node[ rotate=0]{$10^{-3}$};
+\draw [c] (2.24,9.67228) -- (2,9.67228);
+\draw [c] (2.24,9.86885) -- (2,9.86885);
+\draw [c] (2.24,10.0083) -- (2,10.0083);
+\draw [c] (2.24,10.1165) -- (2,10.1165);
+\draw [c] (2.24,10.2049) -- (2,10.2049);
+\draw [c] (2.24,10.2796) -- (2,10.2796);
+\draw [c] (2.24,10.3444) -- (2,10.3444);
+\draw [c] (2.24,10.4015) -- (2,10.4015);
+\draw [c] (2.48,10.4525) -- (2,10.4525);
+\draw [anchor= east] (1.844,10.4525) node[ rotate=0]{$10^{-2}$};
+\draw [c] (2.24,10.7886) -- (2,10.7886);
+\draw [c] (2.24,10.9852) -- (2,10.9852);
+\draw [c] (2.24,11.1246) -- (2,11.1246);
+\draw [c] (2.24,11.2328) -- (2,11.2328);
+\draw [c] (2.24,11.3212) -- (2,11.3212);
+\draw [c] (2.24,11.3959) -- (2,11.3959);
+\draw [c] (2.24,11.4607) -- (2,11.4607);
+\draw [c] (2.24,11.5178) -- (2,11.5178);
+\draw [c] (2.48,11.5689) -- (2,11.5689);
+\draw [anchor= east] (1.844,11.5689) node[ rotate=0]{$10^{-1}$};
+\draw [c] (2.24,11.9049) -- (2,11.9049);
+\draw [c] (2.24,12.1015) -- (2,12.1015);
+\definecolor{c}{named}{natcomp};
+\draw [c] (2.16,11.8856) -- (2.16,11.8904);
+\draw [c] (2.16,11.8904) -- (2.16,11.8952);
+\draw [c] (2,11.8904) -- (2.16,11.8904);
+\draw [c] (2.16,11.8904) -- (2.32,11.8904);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natcomp};
+\draw [c] (2.48,10.0294) -- (2.48,10.0347);
+\draw [c] (2.48,10.0347) -- (2.48,10.0399);
+\draw [c] (2.32,10.0347) -- (2.48,10.0347);
+\draw [c] (2.48,10.0347) -- (2.64,10.0347);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natcomp};
+\draw [c] (2.8,8.89246) -- (2.8,8.90939);
+\draw [c] (2.8,8.90939) -- (2.8,8.92575);
+\draw [c] (2.64,8.90939) -- (2.8,8.90939);
+\draw [c] (2.8,8.90939) -- (2.96,8.90939);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natcomp};
+\draw [c] (3.12,8.17106) -- (3.12,8.20617);
+\draw [c] (3.12,8.20617) -- (3.12,8.2389);
+\draw [c] (2.96,8.20617) -- (3.12,8.20617);
+\draw [c] (3.12,8.20617) -- (3.28,8.20617);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natcomp};
+\draw [c] (3.44,7.6188) -- (3.44,7.67761);
+\draw [c] (3.44,7.67761) -- (3.44,7.73004);
+\draw [c] (3.28,7.67761) -- (3.44,7.67761);
+\draw [c] (3.44,7.67761) -- (3.6,7.67761);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natcomp};
+\draw [c] (3.76,7.0926) -- (3.76,7.17317);
+\draw [c] (3.76,7.17317) -- (3.76,7.24224);
+\draw [c] (3.6,7.17317) -- (3.76,7.17317);
+\draw [c] (3.76,7.17317) -- (3.92,7.17317);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natcomp};
+\draw [c] (4.08,6.92406) -- (4.08,6.97058);
+\draw [c] (4.08,6.97058) -- (4.08,7.01302);
+\draw [c] (3.92,6.97058) -- (4.08,6.97058);
+\draw [c] (4.08,6.97058) -- (4.24,6.97058);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natcomp};
+\draw [c] (4.4,6.69661) -- (4.4,6.70191);
+\draw [c] (4.4,6.70191) -- (4.4,6.70714);
+\draw [c] (4.24,6.70191) -- (4.4,6.70191);
+\draw [c] (4.4,6.70191) -- (4.56,6.70191);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natcomp};
+\draw [c] (4.72,6.52669) -- (4.72,6.533);
+\draw [c] (4.72,6.533) -- (4.72,6.53922);
+\draw [c] (4.56,6.533) -- (4.72,6.533);
+\draw [c] (4.72,6.533) -- (4.88,6.533);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natcomp};
+\draw [c] (5.04,6.37906) -- (5.04,6.3864);
+\draw [c] (5.04,6.3864) -- (5.04,6.39363);
+\draw [c] (4.88,6.3864) -- (5.04,6.3864);
+\draw [c] (5.04,6.3864) -- (5.2,6.3864);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natcomp};
+\draw [c] (5.36,6.29659) -- (5.36,6.30458);
+\draw [c] (5.36,6.30458) -- (5.36,6.31245);
+\draw [c] (5.2,6.30458) -- (5.36,6.30458);
+\draw [c] (5.36,6.30458) -- (5.52,6.30458);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natcomp};
+\draw [c] (5.68,6.2044) -- (5.68,6.2132);
+\draw [c] (5.68,6.2132) -- (5.68,6.22184);
+\draw [c] (5.52,6.2132) -- (5.68,6.2132);
+\draw [c] (5.68,6.2132) -- (5.84,6.2132);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natcomp};
+\draw [c] (6,6.15153) -- (6,6.16081);
+\draw [c] (6,6.16081) -- (6,6.16992);
+\draw [c] (5.84,6.16081) -- (6,6.16081);
+\draw [c] (6,6.16081) -- (6.16,6.16081);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natcomp};
+\draw [c] (6.32,6.06498) -- (6.32,6.07514);
+\draw [c] (6.32,6.07514) -- (6.32,6.08508);
+\draw [c] (6.16,6.07514) -- (6.32,6.07514);
+\draw [c] (6.32,6.07514) -- (6.48,6.07514);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natcomp};
+\draw [c] (6.64,5.9746) -- (6.64,5.98574);
+\draw [c] (6.64,5.98574) -- (6.64,5.99664);
+\draw [c] (6.48,5.98574) -- (6.64,5.98574);
+\draw [c] (6.64,5.98574) -- (6.8,5.98574);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natcomp};
+\draw [c] (6.96,5.89078) -- (6.96,5.90293);
+\draw [c] (6.96,5.90293) -- (6.96,5.91478);
+\draw [c] (6.8,5.90293) -- (6.96,5.90293);
+\draw [c] (6.96,5.90293) -- (7.12,5.90293);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natcomp};
+\draw [c] (7.28,5.81052) -- (7.28,5.82372);
+\draw [c] (7.28,5.82372) -- (7.28,5.83657);
+\draw [c] (7.12,5.82372) -- (7.28,5.82372);
+\draw [c] (7.28,5.82372) -- (7.44,5.82372);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natcomp};
+\draw [c] (7.6,5.72127) -- (7.6,5.73575);
+\draw [c] (7.6,5.73575) -- (7.6,5.7498);
+\draw [c] (7.44,5.73575) -- (7.6,5.73575);
+\draw [c] (7.6,5.73575) -- (7.76,5.73575);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natcomp};
+\draw [c] (7.92,5.61992) -- (7.92,5.63598);
+\draw [c] (7.92,5.63598) -- (7.92,5.65154);
+\draw [c] (7.76,5.63598) -- (7.92,5.63598);
+\draw [c] (7.92,5.63598) -- (8.08,5.63598);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natcomp};
+\draw [c] (8.24,5.49325) -- (8.24,5.51156);
+\draw [c] (8.24,5.51156) -- (8.24,5.5292);
+\draw [c] (8.08,5.51156) -- (8.24,5.51156);
+\draw [c] (8.24,5.51156) -- (8.4,5.51156);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natcomp};
+\draw [c] (8.56,5.3527) -- (8.56,5.37386);
+\draw [c] (8.56,5.37386) -- (8.56,5.39414);
+\draw [c] (8.4,5.37386) -- (8.56,5.37386);
+\draw [c] (8.56,5.37386) -- (8.72,5.37386);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natcomp};
+\draw [c] (8.88,5.26369) -- (8.88,5.28689);
+\draw [c] (8.88,5.28689) -- (8.88,5.30903);
+\draw [c] (8.72,5.28689) -- (8.88,5.28689);
+\draw [c] (8.88,5.28689) -- (9.04,5.28689);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natcomp};
+\draw [c] (9.2,5.05791) -- (9.2,5.08659);
+\draw [c] (9.2,5.08659) -- (9.2,5.11367);
+\draw [c] (9.04,5.08659) -- (9.2,5.08659);
+\draw [c] (9.2,5.08659) -- (9.36,5.08659);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natcomp};
+\draw [c] (9.52,4.97359) -- (9.52,5.00488);
+\draw [c] (9.52,5.00488) -- (9.52,5.03427);
+\draw [c] (9.36,5.00488) -- (9.52,5.00488);
+\draw [c] (9.52,5.00488) -- (9.68,5.00488);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natcomp};
+\draw [c] (9.84,4.75873) -- (9.84,4.79777);
+\draw [c] (9.84,4.79777) -- (9.84,4.83391);
+\draw [c] (9.68,4.79777) -- (9.84,4.79777);
+\draw [c] (9.84,4.79777) -- (10,4.79777);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natcomp};
+\draw [c] (10.16,4.59536) -- (10.16,4.64156);
+\draw [c] (10.16,4.64156) -- (10.16,4.68375);
+\draw [c] (10,4.64156) -- (10.16,4.64156);
+\draw [c] (10.16,4.64156) -- (10.32,4.64156);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natcomp};
+\draw [c] (10.48,4.42071) -- (10.48,4.47603);
+\draw [c] (10.48,4.47603) -- (10.48,4.52568);
+\draw [c] (10.32,4.47603) -- (10.48,4.47603);
+\draw [c] (10.48,4.47603) -- (10.64,4.47603);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natcomp};
+\draw [c] (10.8,4.1795) -- (10.8,4.25042);
+\draw [c] (10.8,4.25042) -- (10.8,4.31227);
+\draw [c] (10.64,4.25042) -- (10.8,4.25042);
+\draw [c] (10.8,4.25042) -- (10.96,4.25042);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natcomp};
+\draw [c] (11.12,3.83045) -- (11.12,3.932);
+\draw [c] (11.12,3.932) -- (11.12,4.01592);
+\draw [c] (10.96,3.932) -- (11.12,3.932);
+\draw [c] (11.12,3.932) -- (11.28,3.932);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natcomp};
+\draw [c] (11.44,3.52123) -- (11.44,3.6607);
+\draw [c] (11.44,3.6607) -- (11.44,3.76888);
+\draw [c] (11.28,3.6607) -- (11.44,3.6607);
+\draw [c] (11.44,3.6607) -- (11.6,3.6607);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natcomp};
+\draw [c] (11.76,3.35609) -- (11.76,3.52123);
+\draw [c] (11.76,3.52123) -- (11.76,3.64418);
+\draw [c] (11.6,3.52123) -- (11.76,3.52123);
+\draw [c] (11.76,3.52123) -- (11.92,3.52123);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natcomp};
+\draw [c] (12.08,2.93082) -- (12.08,3.18518);
+\draw [c] (12.08,3.18518) -- (12.08,3.35115);
+\draw [c] (11.92,3.18518) -- (12.08,3.18518);
+\draw [c] (12.08,3.18518) -- (12.24,3.18518);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natcomp};
+\draw [c] (12.4,2.8094) -- (12.4,3.09679);
+\draw [c] (12.4,3.09679) -- (12.4,3.276);
+\draw [c] (12.24,3.09679) -- (12.4,3.09679);
+\draw [c] (12.4,3.09679) -- (12.56,3.09679);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natcomp};
+\draw [c] (12.72,1.35632) -- (12.72,2.31652);
+\draw [c] (12.72,2.31652) -- (12.72,2.65256);
+\draw [c] (12.56,2.31652) -- (12.72,2.31652);
+\draw [c] (12.72,2.31652) -- (12.88,2.31652);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{named}{natcomp};
+\draw [c] (16.24,1.35632) -- (16.24,2.31652);
+\draw [c] (16.24,2.31652) -- (16.24,2.65256);
+\draw [c] (16.08,2.31652) -- (16.24,2.31652);
+\draw [c] (16.24,2.31652) -- (16.4,2.31652);
+\definecolor{c}{rgb}{0,0,0};
+
+\definecolor{c}{rgb}{1,1,1};
+\draw [c] (10,9.91379) -- (10,11.954) -- (17.5862,11.954) -- (17.5862,9.91379) -- (10,9.91379);
+\draw [c] (10,9.91379) -- (17.5862,9.91379);
+\draw [c] (17.5862,9.91379) -- (17.5862,11.954);
+\draw [c] (17.5862,11.954) -- (10,11.954);
+\draw [c] (10,11.954) -- (10,9.91379);
+\draw [anchor=base west] (11.8966,11.2144) node[ rotate=0]{Standard Model};
+\draw [c, fill=c] (10.2845,11.0869) -- (11.6121,11.0869) -- (11.6121,11.801) -- (10.2845,11.801);
+\definecolor{c}{named}{natgreen};
+\draw [c] (10.2845,11.444) -- (11.6121,11.444);
+\definecolor{c}{rgb}{0,0,0};
+
+\draw [anchor=base west] (11.8966,10.4943) node[ rotate=0]{$\Lambda = 1.0$ TeV};
+\definecolor{c}{rgb}{1,1,1};
+\draw [c, fill=c] (10.2845,10.0668) -- (11.6121,10.0668) -- (11.6121,10.7809) -- (10.2845,10.7809);
+\definecolor{c}{named}{natcomp};
+\draw [c] (10.2845,10.7239) -- (11.6121,10.7239);
+\definecolor{c}{rgb}{0,0,0};
+
+\end{tikzpicture}

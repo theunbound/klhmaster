@@ -1,0 +1,882 @@
+\input{prekux.tex}
+
+\begin{document}
+\begin{english}
+\begin{titlingpage}
+{
+\definecolor{kugray}{RGB}{102,102,102}
+\definecolor{natgreen}{RGB}{50,93,61}
+\thispagestyle{empty}
+\newlength{\topma}\setlength{\topma}{-1in}\addtolength{\topma}{-\headsep}\addtolength{\topma}{-\voffset}\addtolength{\topma}{11mm}
+\newlength{\sidema}\setlength{\sidema}{-1in}\addtolength{\sidema}{-\hoffset}\addtolength{\sidema}{-\oddsidemargin}\addtolength{\sidema}{-\marginparsep}\addtolength{\sidema}{15mm}
+\newlength{\textwa}\setlength{\textwa}{\paperwidth}\addtolength{\textwa}{-35mm}\addtolength{\textwa}{-\textwidth}
+\newlength{\textha}\setlength{\textha}{-\textheight}\addtolength{\textha}{\paperheight}\addtolength{\textha}{-11mm}\addtolength{\textha}{-.1\paperheight}
+\changepage{\textha}{\textwa}{}{\sidema}{}{-\topmargin}{-\headheight}{\topma}{}
+%\setlength{\parindent}{0pt}
+\noindent\begin{minipage}[t]{.8\textwidth}
+\noindent\raggedright \textcolor{kugray}{\fontspec[Path=fonts/garamond/]{GaramondPremrPro.otf}\addfontfeature{LetterSpace=13.0}\fontsize{17}{17}\selectfont\textsc{niels bohr institute}}
+
+\vspace{.2em}\textcolor{kugray}{\fontspec[Path=fonts/garamond/]{GaramondPremrPro.otf}\addfontfeature{LetterSpace=13.0}\fontsize{14}{17}\selectfont\textsc{university of copenhagen}}
+\end{minipage}\hfill\begin{minipage}[t]{32mm}\raggedleft \vspace{16mm} \includegraphics[height=44mm]{KUnat.pdf}
+\end{minipage}
+
+
+\newlength{\markbump}\setlength{\markbump}{.3\paperwidth}\addtolength{\markbump}{-11mm}
+\newlength{\markdown}\setlength{\markdown}{-75mm}\addtolength{\markdown}{0em}\addtolength{\markdown}{\paperheight}\addtolength{\markdown}{.15\paperwidth}
+\noindent\makebox[0pt][l]{\hspace{\markbump}\raisebox{-\markdown}[0pt][0pt]{\includegraphics[height=.9\paperwidth]{atlaskugrid.pdf}}}\makebox[0pt][r]{\raisebox{3.2mm}[0pt][0pt]{\textcolor{natgreen}{\rule{.06\paperwidth}{.7pt}}}}\makebox[0pt][l]{\raisebox{3.2mm}[0pt][0pt]{\textcolor{natgreen}{\rule{.95\paperwidth}{.7pt}}}}
+
+
+
+
+
+\bigskip
+
+{\sffamily
+{\textbf{ }
+
+\vspace{2em}}
+
+{\huge \textbf{Master's thesis}
+
+\vspace{.3em}}
+
+{\Large Kristoffer Levin Hansen}
+
+\vspace{3em}
+
+{\Huge Searching for {\fontspec[Path=fonts/dejavu/,Scale=MatchLowercase,BoldItalicFont={DejaVuSansCondensed-BoldOblique.ttf},BoldFont=DejaVuSansCondensed-Bold.ttf,ItalicFont=DejaVuSans-Oblique.ttf]{DejaVuSansCondensed.ttf}\textit{γγ}} contact interactions with 
+
+the ATLAS detector at the LHC}
+\vspace{7em}
+
+{\Large Academic advisor: Jørgen Beck Hansen}
+\vfill
+
+\today}
+\clearpage}
+\thispagestyle{empty}
+  \phantom{p}
+\vspace{1.16\textwidth}
+
+\begin{center}
+\includegraphics[width=.1\textwidth]{star1}
+\end{center}
+\clearpage
+\end{titlingpage}
+\frontmatter
+
+\tableofcontents
+\mainmatter
+
+\chapter{Introduction}
+
+Since the late 1960s, our---at times evolving---understanding of the properties and interactions of the fundamental particles has been summarised by the Standard Model. An overview of a selection of these properties and interactions is given in fig.~\ref{SMsum}.
+
+\begin{figure}[hbt]
+\begin{minipage}[b]{.74\textwidth}
+\input{figures/smover}
+\end{minipage}
+\hfill\begin{minipage}[b]{.25\textwidth}
+\caption{An overview of the particles of the Standard Model. The particles are arranged by mass and charge. Colour indicates particle type, the filling of the border indicates the spin of particles and lines are drawn between those particles that the Standard Model describes interactions between. The currently known maximum bounds on neutrino masses have been used to place the neutrinos in the mass direction. Table values from \cite{wikism}.\label{SMsum}}
+\end{minipage}
+\end{figure}
+
+In its current form, the Standard Model makes no attempt to explain any physics beyond this.\footnote{The overview in figure~\ref{SMsum} includes massive neutrinos, which have been found experimentally, even though the Standard Model does not at present include them. There are, however, several proposed methods of extending the SM to do so.} The most obvious missing element is gravity, which continues to resist grand unification. Other missing elements include a number of phenomena from cosmology, such as dark matter and dark energy, which may or may not be explained by particles or forces that a complete theory of fundamental particles and forces can be expected to include.
+
+Within these limits, the Standard Model has been remarkably successful, withstanding decades of experimental tests, correctly predicting the existence and properties of a number of particles.\footnote{Most recently, the existence of the Higgs boson was confirmed experimentally. At the time of writing, confirmation of its predicted properties is still a work in progress.} Those successes not withstanding, there are some issues within the Standard Model.
+
+As it is formulated, the SM depends on at least 19 numerical constants,\footnote{Not counting any additional constants needed to account for neutrino masses.} the value of which must be determined experimentally, since the model offers no insight into the origin of or relations between these constants. Worse still, as formulated in the SM, higher order corrections will tend to increase the Higgs mass, with no constraint save the Planck energy. This is one example of the hierarchy problem. The implication is that either some unknown physics exist between the Higgs mass scale and the Planck scale to constrain the Higgs mass, or the bare mass and couplings of the Higgs boson is very finely tuned to cancel the higher order contributions.
+
+In the first case, we will obviously want to search for evidence of the unknown mechanism. In the latter case, we might expect there to be some underlying mechanism that ensures that the bare Higgs mass and the other free parameters of the SM have the proper value. Again, we will want to search for physics outside the SM, as a clue to what that underlying mechanism is.
+
+There is also the possibility that neither of those mechanisms exist, since the Standard Model, strictly speaking, does not require them. In that case, searching for, and not finding any, new physics is still a valuable, albeit less illuminating, result.
+
+In this thesis, we shall approach the task of searching for physics beyond the Standard Model by introducing to it an extension via the effective Lagrangian approach. Specifically, we will introduce a $q\bar q\rightarrow\gamma\gamma$ point interaction, and then simulating collision experiments with the new interaction at various strengths, to see how the outcome is affected. We can then, finally, compare the results of those pseudoexperiments to the results of actual collision experiments performed at CERN's Large Hadron Collider, and look for the same effects there.
+
+\chapter{Theory}
+
+While the detailed procedure for going from a general notion of expanding the Standard Model to creating a specific set of pseudoexperiments with which to compare experimental results are not part of the main thrust of this thesis, and will in any case be handled by various software tools in practice, what will follow is a brief overview of that process.
+
+Since the new interaction will be introduced into the SM by the effective Lagrangian approach, the Lagrangian formulation of the Standard Model as a quantum field theory will be the starting point.
+
+\section{The Lagrangian formulation of QFT}
+In classical mechanics \cite{goldstein}, the Lagrangian formulation describes the path taken by a system between a given initial and final state---a particle with an initial and a final position, say---by finding the path that minimises the action $S$, which is defined as the integral along a given path over the Lagrangian $L$:
+\[S[q]=\int_\textrm{path}dtL[q,\dot{q}],\]
+where $q$ is a generalised coordinate. In this picture, the Lagrangian encapsulates the dynamics of the system. It is related to the Hamiltonian $H$ by
+\(L = p\dot q- H,\label{htol}\)
+where $p$ is momentum.
+
+In quantum mechanics, the picture of a system travelling along a single, well-defined path from an initial to a final configuration no longer applies. In stead, a probability of going from an initial state $\ket{q}$ to a final state $\ket{q\prime}$ can be found as the absolute square of the transition amplitude\footnote{At this point, we should note that the common notation where $\hbar = c = 1$ will be used from this chapter onwards.} \cite{sred:tramp}
+\[A=\bra{q\prime}e^{-i\hat H(t\prime-t)}\ket{q\phantom\prime},\]
+where $\hat H$ is the Hamiltonian of the system. Since the idea of a singular path for the system was abandoned, in stead imagine the system travelling along each possible path simultaneously, each with its own transition amplitude. The total transition amplitude, then, is the sum of all the individual transition amplitudes. This can be connected to the classical case by supposing that, for a system with a classical limit, the transition amplitudes of paths close to the classical path will tend to amplify one another, while paths far from it will tend to cancel out.
+
+Through some notational gymnastics, which involve carving the path integral into an infinite number of time steps, each integrated over every possible configuration, and imposing some conditions on the Lagrangian, it can be shown \cite{sred:tramp} that the expression above can be written as
+\(A=\int\,\mathcal Dq\,\exp\left[i\int_t^{t^\prime}dt\,[p(t)\dot q(t)-H(p(t),q(t))]\right],\label{e.Dq}\)
+where the integral is over all paths with position $q$ at time $t$ and position $q\prime$ at time $t\prime$. We recognise the expression in the innermost integral from eq.~\eqref{htol}.
+
+For a local theory, it is possible to write the Lagrangian as a spatial integral over the Lagrangian density:
+\[L=\int \,d^3x\,\mathcal L.\]
+Thus, the action can be written as
+\(S=\int\,d^4x\,\mathcal L,\label{e.S}\)
+which, unlike the previous expression for $S$, is manifestly Lorenz invariant, so long as $\mathcal L$ is a Lorenz scalar. Given the ubiquity of local quantum field theories, it is common in quantum field theory to drop `density' from the name, and refer to $\mathcal L$ as the Lagrangian.
+
+Finally, to get the field theory aspect, replace the generalised coordinate $q$ with a field configuration ``coordinate'' $\phi(x)$, which depends on the Lorenz vector $x$. In short, \eqref{e.Dq} can then be written as
+\(A=\int\mathcal D\phi\, e^{iS[\phi]}.\label{e.Dphi}\)
+
+As was the case in classical mechanics, the behaviour of a theory is fully described by its Lagrangian (density), and several models can be combined by adding together their respective Lagrangians. So it is that the Standard Model is described by the SM Lagrangian $\mathcal L_{SM}$, which can be considered as a sum of several, more specific, Lagrangians that describe the separate sectors of the SM. However, before we venture too deeply into the Standard Model, we shall first consider an alternate way of looking at the content of the Lagrangian.
+
+\section{Feynman diagrams}
+When studying individual processes described by a theory, Feynman diagrams are a useful tool. So useful, in fact, that much of the software developed to simulate processes is designed around them. To see how they work, consider the simple model described by the Lagrangian
+\[\mathcal L= \half\partial^\mu\phi\partial_\mu\phi-\half m^2\phi^2-\frac{\lambda}{4!}\phi^4=\phi[\partial^2-m^2]\phi-\frac{\lambda}{4!}\phi^4\]
+This is an example of a $\phi^4$ theory. The first terms in this Lagrangian, which involves two $\phi$s, describes a field propagating into another field, and the other one, which involves 4 $\phi$s, describes and interaction between four fields.
+
+The goal will be to calculate the transition amplitude for a state $\ket{\phi_a}$ going to some other state $\ket{\phi_A}$. One procedure for doing so, which is inspired by \cite{wiki.feydiag}, is to start by writing the state as
+\[\ket{\phi}=\int\frac{d^4k}{(2\pi)^4}\tilde\phi(k)\ket{k},\]
+where $k$ is a four-momentum. Using eq.~\eqref{e.Dphi}, the transition amplitude can be expressed as
+\(A\propto\int\frac{d^4k_A}{(2\pi)^4}\frac{d^4k_a}{(2\pi)^4}\int\mathcal D\phi\,\phi(k_A)\phi(k_a)e^{iS}.\label{transa}\)
+
+To express $S$ in terms of momenta, we go back to the Lagrangian and express $\phi$ in terms of its Fourier modes:
+\[\phi(x)=\int\frac{d^4k}{(2\pi)^4}e^{ikx}\tilde\phi(k)\]
+The Lagrangian is now
+\begin{align*}\mathcal L=&-\int\frac{d^4k}{(2\pi)^4}\frac{d^4k\prime}{(2\pi)^4} e^{i(k+k\prime)x}\tilde\phi(k)[kk\prime +m^2]\tilde\phi(k\prime)\\
+&-\frac{\lambda}{4!}\int\frac{d^4p_1\,d^4p_2\,d^4p_3\,d^4p_4}{(2\pi)^{16}}e^{i(p_1+p_2+p_3+p_4)x}\tilde\phi(p_1)\tilde\phi(p_2)\tilde\phi(p_3)\tilde\phi(p_4).
+\end{align*}
+Inserting this into eq.~\eqref{e.S}, it becomes clear that $x$ only appears as a phase factor, which means that integrating over $x$ only produces delta functions:
+\begin{align*}
+S=&\int\frac{d^4k}{(2\pi)^4}\tilde\phi(-k)(k^2-m^2)\tilde\phi(k)\\
+&-\frac{\lambda}{4!}\int\frac{d^4p_1\,d^4p_2\,d^4p_3\,d^4p_4}{(2\pi)^{16}}\tilde\phi(p_1)\tilde\phi(p_2)\tilde\phi(p_3)\tilde\phi(p_4)\delta(p_1+p_2+p_3+p_4),
+\end{align*}
+where, in the first term, the delta function identified $k\prime=-k$. The first term of the action describes the free part of the theory, and the second term describes the interacting part, so we will call them $S_F$ and $S_I$, respectively. Using this expression in place of $S$, we can Taylor expand in $\lambda$:
+\[e^{iS}=e^{i(S_F+S_I)}=e^{iS_F}\left(1-iS_I+\frac{(-iS_I)^2}{2}+\frac{(-iS_I)^3}{3!}+\frac{(-iS_I)^4}{4!}+\cdots\right)\]
+This assumes that $\lambda$ is small enough to make the interaction merely a pertubation of the theory.
+
+
+Inserting this back into eq.~\eqref{transa}, we get an expression for the transition amplitude expanded in powers of $\lambda$. If we call these terms $A_n$, so that $A\propto\sum_{n=0}^\infty A_n$, the first term of the expansion is
+\[A_0=\int\frac{d^4k_A}{(2\pi)^4}\frac{d^4k_a}{(2\pi)^4}\underbrace{\int\mathcal D\phi\,\phi(k_A)\phi(k_a)e^{iS_F}}_{D_0}.\]
+Looking more closely at the part labelled $D_0$ above, we can expand it to find that
+\[D_0=\int\mathcal D\phi\,\phi(k_A)\phi(k_a)e^{\int\frac{d^4k}{(2\pi)^4}\phi(k)[k^2-m^2]\phi(-k)},\]
+which is a Gaussian (functional) integral \cite{armbjorn}:
+\[\int d^nx\,x^k\cdots x^{2N}e^{-\half x^iA_{ij}x^j}.\label{gausint}\]
+As such, the integral has the following solution, provided that the participating momenta are identical:
+\[D_0=\half\frac{\delta^4(k_a-k_A)}{k^2-m^2}\int\mathcal D\phi\,e^{iS_F},\]
+where the delta function is introduced to ensure that the momenta are identical, as required. Introducing this delta function is equivalent to imposing momentum conservation. The remaining integral over the free action corresponds to the vacuum $0\rightarrow0$ process in free theory, and is a constant with respect to $\phi$. This constant can be interpreted as the vacuum energy content of all space, which we will nevertheless simply divide out:
+\[A\propto\int\frac{d^4k_A}{(2\pi)^4}\frac{d^4k_a}{(2\pi)^4}\,\frac{\int\mathcal D\phi\,\phi(k_A)\phi(k_a)e^{iS}}{\int\mathcal D\phi\,e^{iS_F}}\]
+With this, we find that 
+\[D_0=\frac{\delta^4(k_a-k_A)}{k^2-m^2},\]
+which is the propagator in momentum space.
+
+
+Were we to carry out the momentum integrations over $D_0$, there would evidently be a singularity at $k^2=m^2$. This singularity can be avoided by slightly modifying the integration path. There are several ways of doing this, including Feynman's prescription, which yields the expression $1/(k^2-m^2+i\epsilon)$, the Feynman propagator in momentum space. 
+
+
+The second term in the expansion is
+\[A_1=\int\frac{d^4k_A}{(2\pi)^4}\frac{d^4k_a}{(2\pi)^4}\left(\prod_{n=1}^4\frac{d^4p_n}{(2\pi)^4}\right)\,D_1,\]
+where\footnote{Here, $\phi^n$ is shorthand for a product of $n$ $\tilde\phi$ functions of separate momenta.}
+\[D_1=-\frac{i\lambda}{4!}\delta^4(p_1+p_2+p_3+p_4)\frac{\int\mathcal D\phi\,\phi^6e^{iS_F}}{\int\mathcal D\phi\,e^{iS_F}}.\] 
+Solving the Gaussian integral tell us that $D_1$ is equal to a sum of terms of the form 
+\(-\ono{3!2^3}\frac{i\lambda}{4!}\delta^4(p_1+p_2+p_3+p_4)\frac{\delta^4(k_1-p_1)}{{k_1}^2-m^2}\frac{\delta^4(p_2-p_3)}{{p_2}^2-m^2}\frac{\delta^4(p_4-k_A)}{{k_A}^2-m^2},\label{1t1f}\)
+where the momenta are paired in all possible combinations. There are $6!$ different combinations, but they fall into only two groups of topologically inequivalent diagrams, as illustrated in figure~\ref{fey1t1o2}.
+
+
+\begin{figure}[htb]
+\begin{minipage}{.65\textwidth}
+\begin{footnotesize}\begin{center}
+\begin{tikzpicture}
+\draw (-3,.2) node[left]{$a$} -- 
+      ++(1,0) to[in=45,out=135,min distance=15mm,looseness=8] ++(0,0) --
+      ++(1,0) node[right]{$A$};
+\draw (1,.2) node[left]{$a$} -- ++(2,0) node[right]{$A$} 
+      ++(-1,.5) to[in=45,out=-45,min distance=15mm,looseness=8] 
+      ++(0,0) to[in=225,out=135,min distance=15mm,looseness=8] ++(0,0);
+\end{tikzpicture}
+\end{center}\end{footnotesize}
+\end{minipage}
+\hfill
+\begin{minipage}{.3\textwidth}
+\begin{center}\begin{footnotesize}
+\begin{tikzpicture}
+\draw (-1,0) node[left]{$a$} -- (1,0) node[right]{$A$};
+\end{tikzpicture}
+\end{footnotesize}\end{center}
+\end{minipage}
+\begin{minipage}[t]{.65\textwidth}
+\caption{The two topologically inequivalent diagrams that can be constructed from the second term in the expansion of the $1\rightarrow1$ transition amplitude in eq.~\eqref{1t1f}. They are drawn by imagining the ingoing and outgoing states as labelled points, and drawing a line from one of these states to the state that its momentum is set equal to by the delta function in a propagator. The delta function over four momenta from the $\phi^4$ term is drawn as a vertex where exactly four lines come together.\label{fey1t1o2}
+}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{.3\textwidth}
+\caption{The first term drawn with the same method as fig.~\ref{fey1t1o2}.\label{fey1t1o1}}
+\end{minipage}
+\end{figure}
+
+
+This way of illustrating the terms is called a Feynman diagram. The single, somewhat less complicated, Feynman diagram associated with the first term in the expansion is shown in fig.~\ref{fey1t1o1}.
+
+By topologically inequivalent diagrams, we mean diagrams that cannot be rearranged to be identical with one another without disconnecting a line from a vertex\footnote{In the parlance of the topic, two topologies are inequivalent when there does not exist a continuous map that takes one into the other. However, to properly define all the terns in the previous sentence, we would need to venture beyond the scope of this thesis.}. In this context the ingoing and outgoing state labels are attached to the external lines. This becomes important when working with more in- and outgoing states and/or more vertices.
+
+To count how may of each of the diagrams in fig.~\ref{fey1t1o2} there are, we note that there are $4!$ different ways of connecting lines to a vertex, each of the three lines can be drawn in both directions, giving a factor $2^3$, and the lines may be drawn in any order, giving a factor $3!$. These factors cancel out the factor $1/(3!2^3)$ from the solution of the Gaussian integral and the factor $1/4!$ from the $\phi^4$ term in the Lagrangian. Sadly, this way of counting diagrams doesn't give the correct number. In the left diagram, the factor 2 related to reversing the direction of the looping line counts diagrams that were already included in the $4!$ ways of connecting the vertex. In the right diagram, this is true for both of the looping lines, along with an additional factor 2 counting the order in which the looping lines are drawn, which was also already included in the factor $4!$ associated with the vertex, for a total overcounting of a factor $8$. These overcountings arise whenever there are symmetries in the diagrams, which allow us to reach the same diagram by two different manipulations. Note, though, that the symmetries that are responsible for these overcountings are apparent just by looking at it.
+
+Looking at eq.~\eqref{1t1f}, one of the internal $p$ momenta can not be fixed to the external $k$ momenta, which leaves this term proportional to a diverging integral, associated with the looping line in the left diagram in fig.~\ref{fey1t1o2}. There are established methods for renormalising these divergent terms, however for the present purposes, we note simply that for any process, there will among the lowest order terms that describe it be a tree level\footnote{In graph theory, a tree is a connected, loop-free graph.} diagram, which is then the leading order diagram for that process. Because we are working in a pertubative regime by assumption, loop-level diagrams of that process will act as higher order corrections to that leading order term.
+
+Knowing all this, it should be clear that enough information is available in a Feynman diagram to allow us to recover the terms in the expression for the transition amplitude that it represents. That being the case, it is possible to reverse the procedure by which we found the Feynman diagrams in the first place, and extract the expression for the transition amplitude from a set of Feynman diagrams. We can even start with constructing the Feynman diagrams, and recover the expression from them, thus bypassing the derivation above.
+
+
+\begin{figure}[htb]
+\hfill
+\begin{tikzpicture}
+\draw (-3,1) -- (-1,-1) (-3,-1) -- (-1,1);
+\node[right] at (-1,0) {$=-i\lambda$};
+\end{tikzpicture}
+\hfill
+\begin{tikzpicture}
+\node[right] at (-1,0) {$=\dfrac{1}{k^2-m^2}$};
+\draw (-3,0) -- (-1,0);
+\node at (0,-1) {};
+\node at (0,1) {};
+\end{tikzpicture}
+\hfill \phantom{d}
+\caption{The building blocks for Feynman diagrams in $\phi^4$ theory. Once constructed, find the momentum of each propagator by imposing momentum conservation at each vertex. Any momentum that cannot be related to one of the external momenta is integrated over.
+\label{phi4rules}}
+\end{figure}
+
+
+The rules for constructing the Feynman diagrams---the Feynman rules---are fairly straightforward.
+
+\begin{enumerate}
+\item Construct all topologically inequivalent diagrams in which the ingoing and outgoing states for the process in question and the proper number of vertices for the present order in $\lambda$ are connected by propagator lines.
+\item Impose momentum conservation at all vertices and across all propagators. As was already noted once, this is equivalent to introducing delta functions over the momenta.
+\item Determine the symmetry factor for each diagram.
+\item Construct for each diagram its value by taking the product of the values for each element of the diagram from figure~\ref{phi4rules}. Integrate over all momenta that have not been related to external momenta with measure $d^4p/(2\pi)^4$. Divide by the symmetry factor associated with the diagram.
+\end{enumerate}
+
+
+For example, the $2\rightarrow2$ transition amplitude to zeroth order in $\lambda$ is given by the Feynman diagrams in figure~\ref{efeydig1}.
+
+\begin{figure}[hbt]
+\begin{footnotesize}\begin{center}
+\begin{tikzpicture}
+\draw (-4,1) node[left]{$a$} -- (-2,1) node[right]{$A$};
+\draw (-4,-1) node[left]{$b$} -- (-2,-1) node[right]{$B$};
+\draw (0,0) node{{\normalsize $+$}};
+\draw (2,1) node[left]{$a$} -- (4,-1) node[right]{$B$};
+\draw[line width=5pt,white] (2,-1) -- (4,1) ;
+\draw (2,-1) node[left]{$b$} -- (4,1) node[right]{$A$};
+\end{tikzpicture}
+\end{center}\end{footnotesize}
+\caption{The Feynman diagrams associated with the first term in the expansion of the $2\rightarrow2$ transition amplitude. Once again, connected states are required to have the same momentum, however with more particles going into and coming out of the process, there are more than one way of connecting the ingoing and outgoing states.
+\label{efeydig1}}
+\end{figure}
+
+The value of these diagrams, using the rules, is
+\[\frac{\delta^4(k_1-k_A)}{{k_1}^2-m^2}\frac{\delta^4(k_2-k_B)}{{k_2}^2-m^2}+\frac{\delta^4(k_1-k_B)}{{k_1}^2-m^2}\frac{\delta^4(k_2-k_A)}{{k_2}^2-m^2},\]
+which is indeed what we would get from solving the Gaussian integral. At the next order in $\lambda$, we can build the diagrams in fig.~\ref{efeydig2}.
+
+\begin{figure}[hbt]
+\begin{footnotesize}
+\begin{minipage}{.09\textwidth}
+\normalsize \hfill
+\end{minipage}
+\begin{minipage}{.9\textwidth}
+\begin{center}
+\begin{tikzpicture}[scale=.75]
+\draw (-6.5,0) to [in=225,out=315,min distance=25mm,looseness=8] (-6.5,0) to [in=135,out=45,min distance=25mm,looseness=8] (-6.5,0);
+\draw (-5,0) node{\normalsize$\times$};
+\draw (-4,0) node{$\left(\text{\tikz[scale=.75] \draw (0,1) (0,-1);}\right.$};
+\draw (-3,1) node[left]{$a$} -- (-1,1) node[right]{$A$};
+\draw (-3,-1) node[left]{$b$} -- (-1,-1) node[right]{$B$};
+\draw (0,0) node{{\normalsize $+$}};
+\draw (1,1) node[left]{$a$} -- (3,-1) node[right]{$B$};
+\draw[line width=5pt,white] (1,-1) -- (3,1) ;
+\draw (1,-1) node[left]{$b$} -- (3,1) node[right]{$A$};
+\draw (4,0) node{$\left)\text{\tikz[scale=.75] \draw (0,1) (0,-1);}\right.$};
+\draw (5.5,0);
+\end{tikzpicture}
+\end{center}
+\end{minipage}
+
+\vspace{.5em}
+
+\begin{minipage}{.09\textwidth}
+\normalsize $+$
+\end{minipage}
+\begin{minipage}{.9\textwidth}
+\begin{center}
+\begin{tikzpicture}[scale=.75]
+\draw (1,1) node[left]{$a$} -- ++(2,0) node[right]{$A$}
+      ++(-2,-2) node[left]{$b$} -- 
+      ++(1,0) to[in=45,out=135,min distance=15mm,looseness=8] ++(0,0) --
+      ++(1,0) node[right]{$B$};
+\draw (4,0) node{\normalsize $+$};
+\draw (5,1) node[left]{$a$} -- 
+      ++(1,0) to[in=225,out=315,min distance=15mm,looseness=8] ++(0,0) --
+      ++(1,0) node[right]{$A$}
+      ++(-2,-2) node[left]{$b$} -- 
+      ++(2,0) node[right]{$B$};
+\draw (8,0) node{\normalsize $+$};
+\draw (9,1) node(p1)[left]{$a$} -- ++(2,-2) node[right]{$B$};
+\draw[line width=5pt,white] (p1.east) ++(0,-2) -- ++(2,2);
+\draw (p1.east) ++(0,-2) node[left]{$b$} --
+      +(.5,.5) to[in=180,out=90,min distance=15mm,looseness=8] +(0.5,0.5) --
+      ++(1.5,1.5) node[right]{$A$};
+\draw (12,0) node{\normalsize $+$};
+\draw (13,1) node(p2)[left]{$a$} -- 
+      +(.5,-.5) to[in=180,out=270,min distance=15mm,looseness=8] +(0.5,-0.5) --
+      ++(1.5,-1.5) node[right]{$B$};
+\draw[line width=5pt,white] (p2.east) ++(0,-2) -- ++(2,2);
+\draw (p2.east) ++(0,-2) node[left]{$b$} --
+      ++(2,2) node[right]{$A$};
+\end{tikzpicture}
+\end{center}
+\end{minipage}
+
+\vspace{.5em}
+
+\begin{minipage}{.09\textwidth}
+\normalsize $+$
+\end{minipage}
+\begin{minipage}{.9\textwidth}
+\begin{center}
+\begin{tikzpicture}[scale=.75]
+\draw (1,1) node[left]{$a$} -- (3,-1) node[right]{$B$};
+\draw (1,-1) node[left]{$b$} -- (3,1) node[right]{$A$};
+\end{tikzpicture}
+\end{center}
+\end{minipage}
+
+\end{footnotesize}
+\caption{The Feynman diagrams associated with the second term in the expansion of the $2\rightarrow2$ transition amplitude. The joining of four momenta by the last delta function is illustrated by having four lines meet in a point.
+\label{efeydig2}}
+\end{figure}
+
+Of these diagrams, those in the first two lines are simply those of fig.~\ref{efeydig1} with loops added, and can be considered the one-loop, or next-to leading order, part of those processes.
+ The last diagram is the only one that we have not seen before, and it introduces a new feature. In all the diagrams we have examined so far, momentum conservation has required that one of the final states be exactly identical to one of the initial states. Not so in the final diagram, where the delta function at the vertex only requires that the sum of momenta, here defined so that positive momenta flow toward the vertex, is zero. In $S$-matrix notation, where the transition matrix $S$, which transits an initial state into a final state, can be written as
+\[S=1+iT,\]
+this last diagram is the first part of the non-trivial $T$-matrix.
+
+As for the disconnected vacuum bubble seen in the top row, and in fig.~\ref{fey1t1o2}, note that the diagram(s) that the vacuum bubble multiplies are the diagrams for the process from the preceeding orders. At higher orders in the expansion, we will find it as a repeated pattern that the diagrams from the previous orders reoccur, multiplied with various combinations of vacuum bubble diagrams. Combining the vacuum bubble contributions on any one diagram at all orders, we find that they can be written as the exponential of the sum of all possible vacuum bubbles \cite{sred:freediagexp}. The same result can be reached by writing
+\[\int\mathcal D\phi\,e^{i(S_F+S_I)},\]
+the expression for the $0\rightarrow0$ process to all orders. Since this is another constant, we can divide it out like we did with the vacuum normalisation, making the expression for the transition amplitude now
+\[A\propto\int\frac{d^4k_A}{(2\pi)^4}\frac{d^4k_a}{(2\pi)^4}\frac{\int\mathcal D\phi\,\phi(k_A)\phi(k_a)e^{iS}}{\int\mathcal D\phi\,e^{iS}}.\]
+
+With that, we find that the non-trivial part of the expression, the $T$-matrix from above, can be found by taking only the connected diagrams---the diagrams in which it is possible to go from any one part to any other along connected lines---into account. Using just this process in the transition amplitude, we can calculate the probability of the system going to some final state specifically through the process described by this diagram. That probability will depend on $\lambda$, which means that if we have a way of distinguishing those events in a detector that went through this process from those that did not---looking at just the diagrams found so far, the fact that the latest diagram allows exchange of momentum between the two particles would make those events stand out from the rest---provided that contributions from even higher order terms do not muddle the picture too much, we would be able to say something about the value of $\lambda$.
+
+The treatment so far obviously deals with a very simple model. The development of the full Standard Model is the subject of entire textbooks \cite{srednicki}, and we will not go into further detail here.
+
+The practical upshot, though, is that the Feynman rules extend to cover the Standard Model by introducing several types of fields, which can be represented in Feynman diagrams by some new styles of lines (dashed, wavy, curled, etc.). Charge is introduced by adding a direction to the lines associated with charged particles---since reversing the charge of a particle is equivalent to reversing the time direction. These new field interact in several new types of vertices, weighted by three coupling constants: the electromagnetic coupling $\alpha_\text{QED}$, the weak coupling constant $\alpha_W$ and the strong coupling constant $\alpha_s$. With this, we can show the Standard Model processes that produce the preponderance of two-photon final states with the two diagrams in figure~\ref{smfeyn}.
+
+
+\begin{figure}[htb]
+\parbox[t]{.45\textwidth}{\begin{center}\begin{footnotesize}\begin{tikzpicture} [>=triangle 45]
+\draw[>-] (-1,1) -- (0,1);
+\draw[->] (0,1) -- (0,0);
+\draw[<-] (-1,-1) -- (0,-1) -- (0,0);
+\draw (-2,1) node[left] {$q$} -- (-1,1);
+\draw (-2,-1)  node[left] {$\bar q$} -- (-1,-1);
+\draw[snake=coil,segment aspect=0] (0,1) -- (2,1) node[right] {$\gamma$};
+\draw[snake=coil,segment aspect=0] (0,-1) -- (2,-1) node[right] {$\gamma$}; 
+\end{tikzpicture}
+\end{footnotesize}\end{center}
+\subcaption{SM contribution at tree level. \label{lofeyn}}}\hfill
+\parbox[t]{.52\textwidth}{\begin{center}\begin{footnotesize}
+\begin{tikzpicture} [>=triangle 45]
+\draw[>-] (1,1) node[below]{$q$} -- (2,1);
+\draw[decorate, decoration={coil,amplitude=2pt, segment length=2.68pt}] 
+    (-2,1) node[left]{$g$} -- (0,1) ;
+\draw[decorate, decoration={coil,amplitude=2pt, segment length=2.68pt}] 
+    (-2,-1) node[left]{$g$} -- (0,-1); 
+\draw[<-] (1,-1) node[above]{$\bar q$} -- (2,-1);
+\draw (0,1) -- (1,1);
+\draw (0,-1) -- (1,-1);
+\draw[-<] (0,1) -- (0,0);
+\draw (0,0) -- (0,-1);
+\draw[->] (2,1) -- (2,0);
+\draw (2,0) -- (2,-1);
+\draw[decorate, decoration={snake}] (2,1) -- (4,1) node[right]{$\gamma$};
+\draw[decorate, decoration={snake}] (2,-1) -- (4,-1) node[right]{$\gamma$};
+\end{tikzpicture}
+\end{footnotesize}\end{center}
+\subcaption{SM contribution at loop level. $g$s mark gluons.\label{boxdiag}}}\hfill
+\caption{ Feynman diagrams for the two leading Standard Model processes that produce a $\gamma\gamma$ final state.\label{smfeyn}}
+\end{figure}
+
+We can get a feel for the relative strength of these two diagrams by turning to two sets of simulated collisions available from the ATLAS collaboration.
+%\footnote{The internal ATLAS names are \verbatim{mc12_8TeV.129180.Pythia8_AU2CTEQ6L1_gammagamma_2DP20.merge.NTUP_PHOTON.e1199_s1479_s1470_r3542_r3549_p1344} and \verbatim{mc12_8TeV.146800.Pythia8_AU2CTEQ6L1_GamGamBox_pT35pT20.merge.NTUP_PHOTON.e1222_s1469_s1470_r3542_r3549_p1344}.}
+Plotted in figure~\ref{boxpart} are the distribution of the invariant masses of photon pairs, defined as \cite{marshaw:invmass}
+\begin{align*} 
+M_{\gamma\gamma}&=\sqrt{(E_1+E_2)^2+|\mathbf p_1+\mathbf p_2|^2},
+\intertext{which, in the case of massless particles, can be rewritten as}
+&=\sqrt{2p_1p_2(1-\cos\theta)}. \label{sinvmass}
+\end{align*}
+
+\begin{figure}[hbt]
+\begin{minipage}[b]{.69\textwidth}
+\begin{sffamily}
+\input{figures/boxpart}
+\end{sffamily}
+\end{minipage}
+\begin{minipage}[b]{.3\textwidth}
+\caption{The distribution of invariant masses of Standard Model diphoton events as predicted by simulation. The box contribution gives just those events produced by the box diagram in fig.~\ref{boxdiag}. These are ATLAS datasets produced with pythia8 \cite{pythia}, and normalised to the luminosity of the data sample. \label{boxpart}}
+\end{minipage}
+\end{figure}
+
+\section{The effective Lagrangian approach}
+
+As was established before we ventured in to the world of Feynman diagrams, the SM Lagrangian consists of a sum of terms, each of which describes the behaviour of or interactions between the sectors of the Standard Model. It is no great stretch, then, to consider expanding the Standard Model by adding a new term to the Lagrangian, which describes some new physics. Doing so, however, is not unproblematic.
+
+It is a property of the Standard Model\footnote{[Or it is a requirement on the Standard Model. Claiming that the SM is \emph{inherently} unitary might be something of a stretch.]} that it is unitary, meaning that the total probability of a given state to propagate into any of the possible final states evaluates to 1. Clearly, one cannot simply add any new term to the Standard Model Lagrangian without breaking this unitarity. Rather than going through the painstaking process of ensuring that the new term we will add to the SM preserves its unitarity, we will in stead build on the assumption that new physics exists at high mass scales, and think of the SM Lagrangian as simply the zeroth order term in a series expansion of some larger model. There will then be higher order corrections to the Standard Model, in some mass scale $\Lambda$ that the expansion is performed in. 
+In that case, the SM is no longer assumed to be a complete model, and moreover, the expanded model is not even expected to be a complete model to an order in $\Lambda$, which allows us to sidestep the issue of unitarity.
+This approach only works if the mass scale is significantly larger than the energies at which the Standard Model is being probed, since the higher order contributions would otherwise have a detectable influence in the lower energy range where the parameters of the SM are determined, meaning that the original assumption of the SM Lagrangian as a zeroth order term in an expansion in $\Lambda$ is no longer valid.
+
+With this assumed plethora of possible higher order terms, a single possible new term can be added without worring about maintaining the integrity of the SM. The specific term considered here, which describes the $q\bar q\rightarrow\gamma\gamma$ contact interaction which is the focus of this thesis, takes the form \cite{rizzo}
+\(\mathcal L_n = \frac{2ie^2}{\Lambda^4}Q_q^2F^{\mu\sigma}F^\nu_\sigma\overline{q}\gamma_\mu\partial_\nu q,\label{rizzo}\)
+where $e$ is the elementary charge, $Q_q$ is the quark charge of quark $q$ and $\Lambda$, as discussed, is the associated mass scale. The power of $\Lambda$ is chosen to give the correct mass dimension of the term: in natural units,\footnote{Where $\hbar = c = 1$.} the action is unitless. The Lagrangian is integrated over 4 lengths to give the action, which means it must have a length dimension of $-4$ itself. Finally, in natural units, we can equate a unit of length with a unit of inverse mass\footnote{Because in natural units, \[[\text{length}]=[\text{length}]\frac{c}{\hbar}=[\text{length}]\frac{\left[\frac{\text{length}}{\text{time}}\right]}{\left[\frac{\text{length}^2\text{ mass}}{\text{time}}\right]}=\left[\frac{\text{length}^2\text{ time}}{\text{length}^2\text{ time}\text{ mass}}\right]=[\text{mass}]^{-1}. \]}, which means that the Lagrangian must have mass dimension 4. The factors $F^{\mu\sigma}F^\nu_\sigma$ and $\overline{q}\gamma_\mu\partial_\nu q$ each contribute a mass dimension of 4, so the mass scale, which has dimension of mass, must get a power of $-4$.
+
+\begin{figure}[hbt]\begin{center}
+{\footnotesize\begin{tikzpicture} [>=triangle 45]
+\draw[>-] (-1,.5) -- (0,0);
+\draw[<-] (-1,-.5) -- (0,0);
+\draw (-2,1) node[left] {$u_{ap,2}$} -- (-1,.5);
+\draw (-2,-1)  node[left] {$\bar u_{bq,1}$} -- (-1,-.5);
+\draw[snake=coil,segment aspect=0,line before snake=3mm] (0,0) -- (2,1) node[right] {$\gamma_{\mu,3}$};
+\draw[snake=coil,segment aspect=0,line before snake=3mm] (0,0) -- (2,-1) node[right] {$\gamma_{\nu,4}$}; 
+\node at (1,0) [right] {\footnotesize$=\dfrac{8 e{}^2}{9 \Lambda^4} \delta_{p q} \big(p_2^\rho p_3^\rho p_4^\sigma g^{\mu \nu} \gamma_{a b}^\sigma -p_2^\mu p_3^\nu p_4^\rho \gamma_{a b}^\rho -p_2^\rho p_3^\rho p_4^\mu \gamma_{a b}^\nu +p_2^\mu p_3^\rho p_4^\rho \gamma_{a b}^\nu $};
+\node at (2.3,-.6) [right] {$+p_2^\rho p_3^\sigma p_4^\rho g^{\mu \nu} \gamma_{a b}^\sigma -p_2^\nu p_3^\rho p_4^\mu \gamma_{a b}^\rho -p_2^\rho p_3^\nu p_4^\rho \gamma_{a b}^\mu +p_2^\nu p_3^\rho p_4^\rho \gamma_{a b}^\mu \big)$};
+\end{tikzpicture}
+}\end{center}
+\caption{An example of a Feynman rule as created by entering the new term from eq.~\eqref{rizzo} into LanHEP\cite{lanhep}. It gives the coupling constant of the four-point interaction between an up- and an antiup-quark, and two photons. $p_n$ represents the four-momentum of particle $n$, $\gamma_{ab}^\mu$ is the $\gamma$-matrix, $g^{\mu\nu}$ is the metric tensor, $\delta_{pq}$ is the Kronecker delta, $e$ is the elementary charge and $\Lambda$ is the associated mass scale.\label{rule}}
+\end{figure}
+
+The effect of the new term is to introduce several Feynman rules of the type shown in fig.~\ref{rule}.
+
+\begin{new}
+These new processes may interfere constructively or destructively with the Standard Model contributions to this process. The effects of both on the distribution of invariant masses of photon pairs are illustrated in figure~\ref{interf}.
+
+\begin{figure}[hbt]
+\begin{minipage}[b]{.69\textwidth}
+\begin{infilsf} \tiny \makebox[0pt][l]{
+\hspace{-1em}\input{figures/interference}
+}\end{infilsf} \end{minipage}
+\hfill\begin{minipage}[b]{.3\textwidth}
+\caption{The effect on the distribution of the invariant masses of the produced photon pairs of introducing the new term into the Lagrangian at various values of the mass scale $\Lambda$, assuming constructive (non-grayed) and destructive (grayed) interference with the SM contribution. Note that the distributions that assume destructive interference produce fewer events than those that assume constructive interference at the same value of $\Lambda$. These Monte Carlo samples were produced with CalcHEP.
+\label{interf}}
+\end{minipage}
+\end{figure}
+
+Given that the distribution of invariant masses contain more events in the sensitive region if we assume constructive interference, a lower bound on the value of $\Lambda$ that we discover while using this assumption will lie below the lower bound that we would find, had we assumed destructive interference. Therefore, we will move forward assuming that the new term interferes constructively with the Standard Model.
+\end{new}
+
+One possible interpretation of this new four-point interaction is as a zero-range approximation of a process like the one shown in fig.~\ref{across}, involving some unknown mediating particle \cite{marshaw:zerorange}.
+
+\begin{figure}[htb]
+\parbox[t]{.45\textwidth}{\begin{center}\begin{footnotesize}\begin{tikzpicture} [>=triangle 45]
+\draw[>-] (-1,.5) -- (0,0);
+\draw[<-] (-1,-.5) -- (0,0);
+\draw (-2,1) node[left] {$q$} -- (-1,.5);
+\draw (-2,-1)  node[left] {$\bar q$} -- (-1,-.5);
+\draw[snake=coil,segment aspect=0] (0,0) -- (2,1) node[right] {$\gamma$};
+\draw[snake=coil,segment aspect=0] (0,0) -- (2,-1) node[right] {$\gamma$}; 
+\end{tikzpicture}
+\end{footnotesize}\end{center}
+\subcaption{Point $q\bar q \gamma\gamma$ interaction.\label{cross}}}\hfill
+\parbox[t]{.45\textwidth}{\begin{center}\begin{footnotesize}
+\begin{tikzpicture} [>=triangle 45]
+\draw[->] (-2,1) node[left] {$q$} -- (-1.5,.5);
+\draw[-<] (-2,-1) node[left] {$\bar q$}  -- (-1.5,-.5);
+\draw (-1.5,.5) -- (-1,0);
+\draw (-1.5,-.5) -- (-1,0);
+\draw[dashed] (-1,0) -- node[below] {$X$} (0,0);
+\draw[snake=coil, segment aspect=0] (0,0) -- (1,1)node[right] {$\gamma$};
+\draw[snake=coil, segment aspect=0] (0,0) -- (1,-1)node[right] {$\gamma$};
+\end{tikzpicture}
+\end{footnotesize}\end{center}
+\subcaption{The $q\bar q \gamma\gamma$ interaction with mediating particle $X$.\label{across}}}\hfill
+\caption{Feynman diagrams of the relevant contact interaction. (a) is the interaction described by the new term in the Lagrangian, while (b) is the type of interaction this can be considered a zero-range approximation of.\label{feyns}}
+\end{figure}
+
+\section{The cross section}
+Using the methods developed so far, we can calculate the transition amplitudes, and hence the probabilities, associated with single processes. However, by long standing tradition, particle physics is interested in the cross section $\sigma$.
+
+To understand the cross section, consider as an analogy the case of firing a single projectile at a single target. We might at this point imagine an arrow and a bulls-eye or an electron and an atomic nucleus in a piece of gold film. The probability of hitting the target is then the cross sectional area of the target divided by the cross sectional area $A$ of the space where the projectile might fly. Adding the possibility of a number, $N_P$, of projectiles being fired at a number, $N_T$, of different, non-overlapping targets, the number, $N$, of hits is calculated as
+\[N=\frac{N_P N_T \sigma}{A}.\]
+If we apply this picture to a quantum mechanical system, we are mixing the kinematic probability for two particles coming close enough to interact with the dynamic probability of a particular interaction occurring. We can fix this by expressing the probability $\mathcal P$ as a function of the separation between the interacting particles, given by the impact parameter $\mathbf b$, a 2-D vector, and then integrating over all $\mathbf b$. Then, we can write
+\[\sigma=\int d^2b\,\mathcal P(\mathbf b)\propto\mathcal P(\text{in}\rightarrow\text{out})=\left|\braket{\phi\cdots\phi_\text{out}}{\phi\cdots\phi_\text{in}}\right|^2.\]
+In this way, we can calculate the cross section of some process from its transition amplitude.
+
+From an experimental point of view, $N_P$, $N_T$ and $A$ all depend on the immediate conditions within the accelerator. They can be combined into the luminosity $\mathscr L$, which in a proton collider contains information about how many protons are brought to an interaction point at a time, and how densely they are packed. By multiplying the luminosity with the cross section of a process, we get the frequency with which that process occurs in the detector. Integrating the luminosity over time, we get the integrated luminosity, which can be thought of as a measure of how many opportunities for interactions there have been over the period of time being integrated over, independent of the fine details of how the experiment was run\footnote{One notable example of a non-fine detail of an experiment: beam energy.}.
+
+\section{Colliding protons \label{sec.pdfth}}
+In the processes described so far, the starting point has been the interaction of a quark and an antiquark. And while being able to single out such a process experimentally would certainly be nice, single quarks sadly do not occur in nature. Because quakrs are colour charged particles, they are subject a phenomenon known as colour confinement, which requires that colour charge always occur in bundles which are colour neutral when viewed from the outside. For our purposes, protons are an abundant, stable and easy-to-handle colour-neutral bundle of quarks and gluons, which we use in collisions in place of the naked quarks that the problem formulation really calls for. This way of thinking obviously completely ignore the several advantages that a hadron collider possesses.
+
+\begin{figure}[hbt]
+\includegraphics[width=.55\textwidth]{pdf}\hfill\parbox[b]{.44\textwidth}{
+\caption{Parton distribution function obtained from the \textsc{cteq} collaboration. It gives the probability of extracting a specific quark from a proton with a certain fraction, $x$ of its energy. From \cite{scien2}.\label{pdff}}}
+\end{figure}
+
+While protons contain no antiquarks as valence quarks, every proton is surrounded by a `sea' of virtual particles. At a given energy scale $Q^2$, there is a certain probability for extracting one of these sea quarks in an interaction, given by the Parton Distribution Functions (PDFs), a selection of which is shown in fig.~\ref{pdff}. These functions are found experimentally by several collaborations. This thesis will deal mainly with the CTEQ set of PDFs.
+
+Including this step in the calculation leads to the following expression, which gives the cross section for a diphoton event resulting from a proton-proton collision, $\sigma(pp\rightarrow\gamma\gamma)$ in terms of the $\sigma(q\bar q \rightarrow \gamma\gamma)$ cross section that we have determined thus far:
+\[\sigma(pp\rightarrow\gamma\gamma)=\sum_q\iint dx_1\,dx_2\,f_q(x_1,Q^2)f_{\bar q}(x_2,Q^2)\sigma(q\bar q\rightarrow\gamma\gamma),\label{pdf}\]
+where $f_q$ is the PDF for parton $q$.
+
+
+\chapter{Simulation studies}\label{ch.mc}
+
+Now that the theoretical description of the processes under study is in place, we might imagine that obtaining a prediction of the distributions of events that we expect to see in a given experiment is a simple matter of carrying out the integrals found in the previous chapter. Unfortunately, the integrals in question defy analytical solution, which leaves us with the option of integrating numerically. Specifically, we will use the Monte Carlo method for numerical integration, which prescribes inserting a random value drawn from a suitable distribution into the integrand in place of the variable of integration, and then calculating the value of the integrand. Each result estimates the value of the integral, and by averaging a large number of estimates, an incrementally better estimate is obtained.
+
+Since all of the variables that are integrated over have physical significance, choosing specific values for the variables of integration can be viewed as equivalent to laying out the kinematics of a single hypothetical event. Repeatedly estimating the value of the integral a sufficient number of times to obtain a result of passable accuracy from the Monte Carlo integration process in effect leaves us with a large set of simulated events. In particle physics, this process goes by Monte Carlo simulation, and the software packages that are designed to carry out these calculations are called event generators.
+
+\section{Event generators}
+
+The event generator used for the bulk of the work in this thesis is CalcHEP \cite{calchep}. Other choices of event generators include MadGraph \cite{madgraph5} and pythia \cite{pythia}. To illustrate the behaviour of these different generators with respect to one another, figure~\ref{evgen} plots distributions of invariant mass ($M_{\gamma\gamma}$) and transverse momentum ($p_T$) of a set of simulated events generated by each one.
+
+\begin{figure}[hbtp]
+\begin{minipage}[b]{.69\textwidth}
+\begin{infilsf} \tiny
+\makebox[0pt][l]{\input{figures/genspt}}
+\end{infilsf}
+\end{minipage}
+\begin{minipage}[b]{.3\textwidth}
+\subcaption{The distribution of transverse momentum of the most energetic photon ($\gamma_1$) of the generated photon pair. The MadGraph sample has very little statistics in the area just below 500 GeV, which results in values that deviate significantly from the other two distributions, but also have large errors. All three distributions are compatible with one another within their errors.}
+
+\phantom{p}
+\end{minipage}
+\begin{minipage}[b]{.69\textwidth}
+\begin{infilsf} \tiny
+\makebox[0pt][l]{\input{figures/gens}}
+\end{infilsf}
+\end{minipage}
+\begin{minipage}[b]{.3\textwidth}
+\subcaption{The distribution of the invariant mass of the generated photon pair ($M_{\gamma\gamma}$). The low pT MadGraph sample seems to have produced a single event with an abnormally high $M_{\gamma\gamma}$, which sticks out in that bin at 1500 GeV. The error in that bin is also much larger that that on the surrounding bins, however, due to technical limitations, the error bar is not visible in the ratio plot, even though it does reach below 1. In the area with high statistics between 1000 and 2000 GeV, the MadGraph sample shows a consistent bias below the other two, which becomes statistically significant in a few bins.}
+
+\phantom{p}
+\end{minipage}
+\caption{The distributions of $p_T$ and $M_{\gamma\gamma}$ of events generated by three different event generators, along with a ratio plot produced by dividing the content of each bin with the content of the corresponding bin of the CalcHEP distribution. The break in uncertainty around 1000 GeV is due to the use of stratified sampling, in which seperate samples were produced for photons with less than and greater than 500 GeV in $p_T$. The MadGraph samples show a consistent bias below the samples produced by the other two event generators. In the $p_T^{\gamma_1}$ sample, the bias is covered by the statistical uncertainty, however there are a few bins in the $M_{\gamma\gamma}$ sample, where the bias does protrude into statistical significance [so much so, that I should probably stop measuring by eye, and figure out how to quantify that thing. It is going to need to be a systematic uncertianty, probably.]
+\label{evgen}}
+\end{figure}
+
+These plots, and those to follow in this chapter, owe a lot to the analysis validation software RIVET\footnote{\textbf{R}obust \textbf{I}ndependent \textbf{V}alidation of \textbf{E}xperiment and \textbf{T}heory.} \cite{rivet}.
+
+By default, CalcHEP defines the energy scale $Q^2$, on which the running of the strong coupling constant, $\alpha_S$, depends, differently than pythia and MadGraph do. To achieve the result in figure~\ref{evgen}, this default was changed to 
+\[Q^2=\frac{p_T(\gamma_1)^2+p_T(\gamma_2)^2}{2},\]
+which matches the setting in the other two event generators.
+
+We conclude that there is no significant systematic deviation between the distribution of Standard Model events produced by these three event generators. [Or at least, we hope that we will be able to conclude that, once we have actually attempted to do some calculation on this point.]
+
+\section{Feynman rule calculators}
+The event generators introduced above assemble events based on sets of Feynman rules (in a computerised format), so to generate events from a model that includes the new contact interaction, the new term in the Lagrangian that describes the contact interaction must be expressed as a set of Feynman rules (in the correct computerised format). As was hinted at when the Feynman diagrams that describes the new interaction were introduced in figure~\ref{rule}, there exist automated ways of carrying out this conversion. For this thesis, the tool used was LanHEP \cite{lanhep}, which was designed as a companion to CalcHEP's antecedant CompHEP, and as such, it and CalcHEP interface readily. Alternatives exist, however, such as the Mathematica package FeynRules \cite{feynrules}. 
+
+LanHEP takes as input a Lagrangian written in a format similar to \LaTeX's math language, and produces a set of Feynman rules usable by CalcHEP.
+
+With the ability to produce sets of events with varying values of $\Lambda$, the mass scale of the contact interaction, the opportunity presents itself to create simulated distributions of events for several potential observables with which we might discriminate the effects of the contact interaction. Figure~\ref{discr} capitalises on this opportunity.
+
+\begin{figure}[hbt]
+\begin{minipage}[b]{.499\textwidth}
+\begin{infilsf}\tiny
+\hspace{-.9em}\makebox[.96\textwidth]{\input{figures/sigcos}}
+\end{infilsf}
+\subcaption{Significance: 30.4 \label{sigcos}}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{.499\textwidth}
+\begin{infilsf} \tiny
+\makebox[.96\textwidth]{\input{figures/sigpt}}
+\end{infilsf}
+\subcaption{Significance: 671.5}
+\end{minipage}
+\begin{minipage}[t]{.499\textwidth}
+\begin{infilsf} \tiny \phantom{p}
+
+\vspace{-1em}
+\makebox[.96\textwidth]{\input{figures/sigmgg} }
+\end{infilsf}
+\subcaption{Significance: 971.5}
+\end{minipage}\hfill
+\begin{minipage}[t]{.45\textwidth}
+\caption{Three different observables that could potentially be used to discriminate between models: the cosine of $\theta_{\gamma_1}$, the scattering angle of the leading photon (measured, in this case, in the Collins-Soper frame \cite{collinssoper}), $p_T^{\gamma_1}$, the transverse momentum of the leading (most energetic) photon and $M_{\gamma\gamma}$, the invariant mass of the photon pair. Two samples are generated with CalcHEP, one for the Standard Model case, and one for a contact interaction with a mass scale $\Lambda = 1.0$ TeV. The significance is calculated as the difference in bin content between the two distributions divided by the root-sum-square of the errors on the bins, summed over all bins where both distributions have non-zero content.
+\label{discr}}
+\end{minipage}
+\end{figure}
+
+Given the significances quoted in that figure, $M_{\gamma\gamma}$, the invariant mass, is the obvious choice for a discriminating variable. It has the additional advantage over the other two methods that it does not depend on identifying the leading---most energetic---photon of the pair. In a truth sample such as this, making such an identification does not present a problem, however when considering the effects on a photon of passing through the material of the detector, it becomes problematic to claim that the photon that leaves the largest energy deposit in the calorimeter is also the photon that left the hard event with the greatest amount of energy.
+
+One argument against the measure of significance used in figure~\ref{discr} is that it rewards observables where both distributions have many non-zero bins, which is the result of a choice made about how the data is represented, rather than something intrinsic to the data. However, since the per-bin differences are weighted by the error on each bin, we expect that a distribution with a single bin with a very significant difference between bin contents is scored similarly to a distribution with a large number of bins with relatively insignificant differences between bin contents. This speaks in this method's favour, since we could create a distribution like the first one by combining the bins of the latter distribution, assuming the differences between the distributions are in the same direction for all the bins.
+
+Backed by these considerations, we will use invariant mass as the discriminating variable going forward.
+
+[Note to self: sum of $|p_T|$? Hvis du kommer til at kede dig...]
+
+Meanwhile, figure~\ref{sigcos} shows no discernible difference between the SM sample and the sample generated with a 1 TeV mass scale contact interaction. Samples generated at lower mass scales do show a significant difference, although it changes only the scale, and not the shape, of the distribution. [Possibly a plot?]
+
+\section{Parton Distribution Functions}
+As described in section~\ref{sec.pdfth}, we use a set of experimentally determined functions called Parton Distribution Functions (PDFs) to describe the probability of extracting a given parton from a proton. Given that the PDFs are not exact analytical models, we must account for the uncertainty associated with the method by which  PDFs are determined. To estimate that uncertainty, we compare the distribution in invariant masses of events generated by CalcHEP using the CTEQ6 set of PDFs, which are the events that will be used moving forward, with events generated using the alternative MRST2002nlo set of PDF, which is the only alternative PDF available in CalcHEP.
+
+\begin{figure}[hbt]
+\begin{minipage}[b]{.69\textwidth}
+\begin{infilsf}
+\hspace{-.8cm}\input{figures/mrst}
+\end{infilsf}
+\end{minipage}
+\begin{minipage}[b]{.3\textwidth}
+\caption{Comparing the distribution of invariant masses of events produced by CalcHEP with the CTEQ6 (grayed) and MRST2002nlo (non-grayed) PDFs at different values of $\Lambda$. This is to give an idea of the systematic uncertainty on this distribution due to the choice of PDF. Table~\ref{mrsttab} summarizes the fractional variation in predicted events by $\Lambda$ and invariant mass range. The invariant mass ranges used, indicated by the dashed lines in this plot, are discussed in the text. \label{mrst}}
+\end{minipage}
+\end{figure}
+\begin{table}[hbt]
+\begin{minipage}[b]{.69\textwidth}
+\begin{infilsf}{\footnotesize
+\begin{center}
+\arrayrulecolor{natgreen}
+\begin{tabular}[b]{cr!{\color{white}|}r!{\color{white}|}r!{\color{white}|}r}\hline
+&&\multicolumn{3}{c}{ \color{natgreen}{\bfseries $M_{\gamma\gamma}$ range [GeV]} } \\
+&&\multicolumn{1}{c!{\color{white}\vrule}}{\bfseries [100:1000)} & \multicolumn{1}{c!{\color{white}\vrule}}{\bfseries [1000:3000)} & \multicolumn{1}{c}{\bfseries [3000:5000)} \\ %\cline{3-5}
+& \textbf{0.75} & 16.9 \% & 11.1 \% & 31.9 \% \\
+&\textbf{1.00} & 16.3 \% & 7.7 \% & 32.2 \% \\
+\multirow{-3}{*}{\rotatebox[origin=c]{90}{\color{natgreen}{\bfseries $\Lambda$ [TeV]}}} &\textbf{$\infty$} & 16.8 \% & 3.4 \% & 51.1 \%\\\hline
+\end{tabular}
+\end{center}}\end{infilsf}
+\end{minipage}
+\begin{minipage}[b]{.3\textwidth}
+\caption{The fractional deviation between the distribution of simulated events produced by CalcHEP with the CTEQ6 PDF versus the MSRT2002nlo PDF plotted in fig~\ref{mrst}. This will form one of the systematic uncertainties on the final result. \label{mrsttab}}
+\end{minipage}
+\end{table}
+
+The resulting distributions are plotted in fig~\ref{mrst}, and the difference between the sample generated using the CTEQ6 PDF set and the MRST2002 PDF set are quantified in table~\ref{mrsttab}, broken up into three invariant mass ranges: a low range with a great deal of statistics and very little separation between the three models, a middle range with good statistics and good separation between the models, and a high range where statistics start to run out, especially for the SM sample. These deviations will be included in the analysis as a systematic uncertainty.
+
+\begin{figure}[htb]
+\includegraphics[width=\textwidth]{figures/Zep-soft}
+\caption{An illustration of the processes that may surround an interesting event in a proton-proton collision, and the steps required to arrive at a final particle content of that event. In this figure, the dark gray blobs represent the incoming protons and the large red blob represents a hard quark-quark interaction. As illustrated here, the products of such a hard interaction may carry colour charge as well, in which case these products too would need to undergo hadronisation, which, in turn, would show up in the detector as jets. However, since the end product of the process currently under study is photons, which are colourless, that will not be the case here. The upper portion of the figure illustrates the evolution of a secondary gluon interaction, which, though a number of gluon emissions, produces a selection of quark final states that must be gathered into colourless clusters and finally into hadrons. Both stages may undergo further evolution or decay during the process. The final collection of hadrons, which will be reasonably well collimated, form a jet of particles in the detector. Similar jet-forming processes may also attach to particles emitted as initial or final state radiation. This figure reproduced from \cite{zep}. For further details on these surrounding processes and their computational representation, see eg \cite{pythman}.
+\label{zep}}
+\end{figure}
+
+\section{Extended event}
+The events produced by the event generator(s) represent the physical process that occurs in the point where two protons interact. Given the limits on our ability to see such interactions, we need to exptend the scope of physical processes in the simulation, to the point where the resulting event information represents something that we might realistically pick up with a detector.
+
+The initial and final particle states are fixed in the event generator, however in reality, both initial and final states might easily undergo decay or emission before or after the event occurs, altering the particle content and kinematics of the event. Such initial and final state radiation must be modelled to give an accurate picture of what a detector might see.
+
+Further, final state particles with colour charge will not remain isolated due to colour confinement. These particles will develop a jet of other coloured particles, so that the colour charge becomes obscured to outside observation. The simulation of the process by which colour charged particles combine into colour neutral hadrons is simulated is called hadronisation. Since we are dealing with photons in the final state in the present analysis, this step is not crucial in the events generated to study this process specifically, however $\pi^0$ mesons, one of the major backgrounds to the photon signal, are produced in this way. 
+
+A schematic summary of these processes, along with the steps that the simulation software that models these processes will usually be divided into, is presented in figure~\ref{zep}. In this thesis, the extension of the hard events provided by CalcHEP with these surrounding processes will be carried out in pythia8 \cite{pythia}. Figure~\ref{pythify} illustrates the effect that these surrounding processes have on the distribution of invariant masses.
+
+\begin{figure}[hbt]
+\centering
+\begin{minipage}[b]{.69\textwidth}\hspace{-1.5em}\makebox[0pt][l]{
+\noindent\begin{infilsf}
+\tiny
+\input{figures/bfpyth}
+\end{infilsf}}
+\end{minipage}\hfill
+%\begin{minipage}[b]{.\textwidth}
+\caption{The distribution of invariant masses in the event samples generated by CalcHEP at three values of $\Lambda$, and the same event samples after extending them in surrounding processes with pythia. Below, the ratio plots were created by dividing the content in each bin of the distributions with the content of the corresponding bin in the distribution for the hard process. The errors on the bins were derived through standard error propagation. Once again, the effect of the use of stratified sampling is visible as a jump in the magnitude of the erros around 1000 GeV. The ratio plots make it clear that the effect on this particular observable of creating the extended events is simply to remove a fraction of the events. This is reasonable, since the effect of adding final state radiatio to a hard event is to alter the final state particle content for a fraction of those events, and since we require two final state photons to calculate an invariant mass, final states that do not contain two photons are discarded. We can conclude from this figure that the selection of events with altered final state particle content does not depend on the invariant mass of the photons in the event, nor does the process of extending the event alter the distribution of photon invariant masses.
+\label{pythify}}
+%\end{minipage}
+\end{figure}
+
+This constant difference in distributions between the hard and extended event samples does not apply for all observables. Figure~\ref{pythicos} illustrates how the distribution of cos $\theta_{\gamma_1}$, the scattering angle for the leading photon is skewed slightly toward lower values, meaning a greater proportion of large scattering angles. This could be an effect of extended events having their kinematics altered so that the leading photon in the extended event is not the same as the leading photon in the hard event, so that the subleading photon, which scatter in the opposite direction from the leading photon, spill into the leading photon sample. This would also explain why the invariant mass sample, which is not sensitive to the identification of a leading photon, is not affected.
+
+\begin{figure}[hbt]
+\begin{minipage}[b]{.65\textwidth}
+\begin{infilsf} \tiny \makebox[0pt][l]{
+\hspace{-1em}\input{figures/pythicos}
+}\end{infilsf}
+\end{minipage}
+\hfill\begin{minipage}[b]{.3\textwidth}
+\caption{A plot of the distribution of the cosine of the scattering angle $\theta$ (in the CS frame, see fig.~\ref{discr} caption) of the leading photon in the set of events generated by CalcHEP in the SM scenario before (green) and after (red) being extended with pythia. Aside from the same constant faction of lost events as was also seen in fig.~\ref{pythify}, we note that the distribution contains events with lower $\cos\theta_{\gamma_1}$ than were present in the set of generated events.
+\label{pythicos}}
+\end{minipage}
+\end{figure}
+
+Since the main process under study does not involve coloured final states, we do not expect that these surrounding processes will be a significant source of systematic uncertainty or bias, We are supported in this assumption by the findings in figure~\ref{pythify}. To further support that expectation we might attempt to add the extended processes with a different software package, however [that would require us to spend time figuring out how such a thing works...]
+
+\section{Detector simulation}
+At this point, we have a precise picture of every detail of a number of hypothetical events. In that way, it is very unlike the picture that the detector will give us of the events that actually happen in the experiment.
+
+The actual events will be viewed through the `lens' of the ATLAS detector, which only sees the particles passing through it as energy deposits in various detector elements, and the computer algorithms used to reconstruct the particles that caused those deposits\footnote{This description of the ATLAS detector will be expanded upon in chapter~\ref{ch.exp}.}. Additionally, the particles found as the end product of the interactions by pythia can potentially interact with the material that makes up the detector, and decay, split or convert before or during their detection, and the detector may not fully or accurately detect all the particles that pass through it.
+
+Because of this, it is necessary to also simulate how the detector interacts with the final state particles we found in the previous section, to properly relate that information with experimental data. Additionally, since the same software that reconstructs particle information from detector data is used to reconstruct simulated particle information from simulated detector data, the end product of the simulated events will be in the same format, containing the same variables, as the data available from the experiment.
+
+Once this final step is completed, we will have a set of hypothetical events as we imagine they would look if they were to happen in the experiment---a set of pseudo-experiments.
+
+Since creating such pseudo-experiments is necessary for a large portion of analyses that wish to make use of ATLAS data, the ATLAS collaboration has created a (reasonably) standardised set of programs for carrying out this final step in creating them, called GEANT4~\cite{geant4}. The effect that detector simulation has on the invariant mass distribution of the event samples created above is shown in figure~\ref{geant-beaf}.
+
+\begin{figure}[hbt]
+\begin{minipage}[b]{.69\textwidth}
+\begin{infilsf} \tiny
+\input{figures/geant-beaf}
+\end{infilsf}
+\end{minipage}
+\hfill\begin{minipage}[b]{.3\textwidth}
+\caption{A plot comparing the event samples produced by CalcHEP and pythia with the results of running those event through the detector simulation available through GEANT4. We not a clear trend toward fewer reconstructed photon pairs at higher invariant masses. \label{geant-beaf}}
+\end{minipage}
+\end{figure}
+
+Alternatively, we might extrapolate a systematic description of how the detector affects distributions of events from performing this simulation on several event sets, and apply that description to any new distribution of events as a simple correction[, and if we were going to compare the two methods, this would be the place for it...]
+
+\section{Pileup and energy smearing}
+
+Those are thing as well. We, you and I, need to figure out what we did about them and why. Won't that be fun?
+
+\chapter{Experiment}\label{ch.exp}
+
+The possible effects of the modifications to the Standard Model described in the previous chapters are investigated by analysing experimental data from the ATLAS\footnote{An acronym of \textbf{A} \textbf{T}oroidal \textbf{L}HC \textbf{A}pparatu\textbf{s}.} experiment at the Large Hadron Collider at \textsc{Cern} in Geneva.
+
+\section{The Large Hadron Collider}
+From a distance, the LHC is a machine that accelerates protons to very hhigh velocities, and then smashing them together. The smashing happens at four fixed points, the interaction points, each of which are at the centre of one of the LHC's four detectors, one of which is ATLAS.
+
+\begin{figure}[hbtp]
+\begin{center}
+\includegraphics[width=.8\textwidth]{Cernrings}
+\end{center}
+\begin{minipage}[b]{\textwidth}
+\caption{The CERN accelerator complex \cite{cernbro}, which accelerates the protons or ions used in collision experiments through several accelerators with progressively higher energies. The paths protons can take through the machine are marked with light gray triangles. The dark gray triangles mark the paths taken by lead ions when the Collider runs proton--lead or lead--lead collision experiments. Protons are `created' by ionising hydrogen and then injected by \textcolor{Purple}{LINAC 2} into the \textcolor{Plum}{Booster ring}. From there, protons are accelerated by the Proton Synchrotron (\textcolor{Magenta}{PS}) and then the Super Protron Synchrotron (\textcolor{RoyalBlue}{SPS}) before finally being sent into the \textcolor{MidnightBlue}{LHC} ring.}
+\label{cernrings}
+\end{minipage}
+\end{figure}
+
+At a slightly highar level of detail, the LHC is a circular particle accelerator, 27~km in circumference, located in the undergound tunnel under the Cern site in Geneva, and extending into nearby France, dug for the earlier LEP\footnote{\textbf{L}arge \textbf{E}lectron--\textbf{P}roton Collider} Experiment. Within the ring, powerful magnets keep the proton beams confined within the beam pipes, while radiofrequency cavities ensure that the beams achieve and maintain the energy required for the LHC's operation. In 2012, when the data used in this thesis was recorded, that energy was 4~TeV, however the machine was originally designed for 7~TeV beams. The LHC, however, is only the last stage of the even larger machine, which is shown diagrammatically in Fig.~\ref{cernrings}, which accelerates protons from rest to LHC energies. Incidentally, two of the intermediate accelerator rings, the PS and the SPS were once themselves CERN's main colliders.
+
+Although the LHC was designed for proton beams of 7~TeV, which would then collide with a total energy of 14~TeV, a few accidents during commissioning meant that it has not reached that energy yet. The data that will be used in this thesis, which was taken in 2012, was created with 4~TeV beams, for a collision energy of 8~TeV.
+
+\section{The ATLAS detector}
+The LHC's two counter-moving proton beams\footnote{Or heavy ion beams, or both, depending on the type of experiments being run during a particular period.} intersect at four points around the LHC ring. The LHC's four detectors are each build around one of these interaction points. The ATLAS detector, along with the CMS\footnote{The \textbf{C}ompact \textbf{M}uon \textbf{S}olenoid.} detector, is a general purpose detector designed to capture as much information as possible about collision events. For this purpose, the ATLAS detector is made up of three concentric layers. From innermost to outermost, these are: the tracking system, the calorimeter system and the muon tracking system. Large magnets are used to apply a magnetic field across the detector, which bends the paths of charged particles. The momentum of such a particle can then be deduced from the radius of the curvature of its track.
+
+\begin{figure}[hbtp]
+\begin{minipage}[b]{.69\textwidth}
+\includegraphics[width=2\textwidth]{AllAtlas2}
+\end{minipage}
+\begin{minipage}[b]{.3\textwidth}
+\caption{A conceptual sketch of the entire ATLAS detector \cite{atlasweb}. The overall structure is of a layered cylinder centerred on the interaction point. We refer to those parts of the detector that make up the wall of the cylinder as the barrel section, and to the ends of the cylinder as the endcap.}
+\end{minipage}
+\label{allatlas}
+\end{figure}
+
+ATLAS defines its own coordinate system, centred on the interaction point, where the position in the angular direction, perpendicular to the beam pipe, is measured by the coordinate $\phi$ and the angle to the beam pipe is measured in pseudorapidity $\eta$, is defined as
+\(\eta=-\ln[\tan(\theta/2)],\)
+where $\theta$ is the angle to the beam pipe in radians \cite{green:eta}. The pseudorapidity $\eta$ is a simple transformation of $\theta$, it is 0 at $\theta=\pi/2$, $\infty$ at $\theta=0$ and $-\infty$ at $\theta=\pi$, but is chosen for its similarity to rapidity, $y$, which is additive under Lorenz boosts \cite{green:y}.
+
+The tracking system senses charged particles by the ionisation they leave as they pass through the material of the detector. The innermost layers of the tracking system are made up of semi-conducting chips, which can track particles with a high resolution, but are also expensive, and introduce a lot of mass into the detector. The silicon tracker is further divided into the inner pixel detector and the outer strip detector. The pixel detector can pinpoint a signal very precisely, at the cost of a very large amount of readout data. The pixel detector is responsible for around half of the detector's readout channels. The strip detector works on the same principle, but sacrifices resolution in one direction to more practically conver a larger volume. The outer part of the detector uses drift tubes, which are thin, gas-filled straws with a wire carrying a high voltage strung along its centre line. Gas molecules ionised by a passing charged particle will drift to the wire, where they deposit an electrical signal. The time it takes for a deposited charge to drift to the central wire will depend on the distance between the wire and the particle path. Although there is no way of measuring this time objectively, combining timing information from all the straws in a track helps to narrow down the possible particle path. Because the inner detector is immersed in a magnetic field, charged particles will be deflected, and follow a curved path. By observing the direction and radius of this curvature, we can deduce the sign of the charge and the momentum of a particle.
+
+Excepting the pixel detector, the tracking detectors only tell us that they were passed by a charged particle somewhere along their length. Finding the path of a particle through the tracking detector means fitting a track to the registered hits. Such tracks will usually be expected to begin at the interaction point and end at a deposit in the calorimeter, although detecting b-quarks specifically involves finding vertices slightly removed from the interaction point, and converted photons may begin a track anywhere in the detector. The shape of the detectors means that overlapping tracks and tracks that activate the same detector introduce some potential ambiguity into the process.
+
+Like the tracking system, the calorimeter is divided into two parts: the electromagnetic calorimeter and the hadronic calorimeter. Since the (for the topic of this thesis) crucial photons are most decidedly not hadronic, the EM calorimeter, which is the innermost of the two, will receive a more detailed treatment shortly. However, the purpose of both types of calorimeter is to completely absorb the particles that hit them, and measure the energy they deposit. In ATLAS, all of the calorimeters are sampling calorimeters, which means that layers of absorbing material are sandwiched between layers of sensitive material. As an energetic particle interacts with the absorbing material, it will set off a shower of particles that can be detected in the sensitive layers. The thickness of absorbing material that the sower penetrates will give the energy of the original particle. The barrel section of the hadronic calorimeter is a scintillator calorimeter, meaning that the sensitive layers of the calorimeter is made up of materials that luminesce when exposed to ionising radiation. The absorbing layers of this calorimeter are iron. This type of calorimeter has been chosen as a cost-effective way of covering the large volume that the barrel hadronic calorimeter needs to fill. In the endcap region, the hadronic calorimeters are Liquid Argon (LAr) calorimeters, as are the EM calorimeters, meaning that the sensing material is liquid argon. The absorbing materials in these calorimeters are a combination of iron and lead.
+
+Muons, along with neutrinos, are one of only a few types of particles that can reliably penetrate through both calorimeters although unlike muons, detecting neutrinos directly is something of a hopeless cause. ATLAS' outermost detector system is designed to identify and measure the momentum of muons. Since muons are charged particles, the same types of detector as was used in the inner detector can be used again, but spread out over a much larger volume to compensate for the smaller deflection that a magnetic field of a given strength can impart on muons due to their high mass.
+
+\subsection{The electromagnetic calorimeter}
+
+As the most important tool for detecting photons in ATLAS, the electromagnetic calorimeter deserves a description in slightly greater detail.
+
+\begin{figure}[hbtp]
+\begin{minipage}[b]{.59\textwidth}
+    \begin{center}
+    \includegraphics[width=\textwidth]{larpic}
+    \end{center}
+\end{minipage}
+~\begin{minipage}[b]{.4\textwidth}
+    \begin{center}
+    \includegraphics[width=\textwidth]{shower}
+    \end{center}
+\end{minipage}
+
+\begin{minipage}[t]{.59\textwidth}
+    \begin{center}
+    \subcaption{A section of the LAr calorimeter.}
+    \end{center}
+\end{minipage}
+~\begin{minipage}[t]{.4\textwidth}
+    \begin{center}
+    \subcaption{Illustration of a particle shower within the LAr calorimeter. \label{shower}}
+    \end{center}
+\end{minipage}
+
+\begin{minipage}[b]{.59\textwidth}
+    \begin{center}
+    \includegraphics[width=\textwidth]{emcalover}
+    \subcaption{Schematic showing the placement of the LAr calorimeters in ATLAS.}
+    \end{center}
+\end{minipage}
+\begin{minipage}[b]{.4\textwidth}
+\caption{Several figures \cite{atlasweb} that illustratie the structure and functioning of the LAr calorimeters. These are sampling calorimeters, which have an absorbing medium (lead or steel) with layers of detecting medium (liquid argon) inserted regularly to keep track of the developing shower shape. In ATLAS, the absorbing medium is made in an accordian shape, visible in (a) and (b), which allows the necessary electronics to be placed on the surface of the absorbing plates, rather than interrupting the calorimeter with non-sensitive signalling pathways.}
+\label{calostruc}
+\end{minipage}
+\end{figure}
+
+The purpose of the EM calorimeter is to attempt to capture those particles that interact electromagnetically and measure their energy. High-energy photons interacting with matter will loose energy almost exclusive through pair production, which converts it into a n electron-positron pair, so long as they have sufficient energy---at least as much as the rest mass of the particles being produced---to do so. Meanwhile, electrons and positrons with high energy moving through matter will loose energy almost exclusively through bremsstrahlung, the loss of kinetic energy by photon emission. Thus, both photons and (anti-)electrons will produce the same sort of signature as they loose energy in the calorimeter, splitting into or emitting new particles, which in turn produce even more particels, in a cascade that expands through the calorimeter, until no more photons with enough energy for pair production can be produced. In the ATLAS calorimeter, this process results in a shower of particles with a shape such as the on illustrated in fig.~\ref{shower}. The depth to which the shower can penetrate an absorbing material will depend on the energy of the initial particle \cite{fernow:sampcal}. The typical distance that a particle has to travel before undergoing one of these processes---the radiation length---are quite similar, and give a natural thickness for the absorption layers of the calorimeter. The active layer, following the same principle as the drift straws in the inner detector, uses a high voltage plate to collect the ionisation charge left in the liquid argon that fills the space between the absorption plates by the passage of high-energy charged particles. The accordian shape of the layers in ATLAS' LAr calorimeters allows the readout electronics to run along their surface, rather than needing to have separate, non-sensitive, channels for them.
+
+Obviously, it is possible for the cascade that the EM calorimeter relies upon to be initiated by any of the material ahead of the calorimeter. To partially account for this possibility, the first sensitive layer, called the presampler, sits in front of the first absorption layer. Photons that convert because of an interaction with material in the inner detector will obviously behave quite differently from unconverted photons, given that it is now an electron-positron pair. Reconstructing these converted photons is a separate task, which we will come back to.
+
+\begin{figure}[hbtp]
+\begin{minipage}[b]{.69\textwidth}
+\includegraphics[width=\textwidth]{caldiv}
+\end{minipage}
+\begin{minipage}[b]{.3\textwidth}
+\caption{The division of the EM calorimeter into detecting cells \cite{egede}. The first layer is divided into thin strips for the greatest resolution in the $\eta$ direction, and is sometimes referred to the strip layer. The second layer is divided into roughly square cells, and comprises the bulk of the depth of the detector. The last layer is presumed to only be reached by the very most energetic particles, and can have a coarser division without loosing resolution. This diagram is of the calorimeter at $\eta = 0$, closest to the interaction point. At higher $|\eta|$, the towers angle, so that they are still pointed toward the interaction point.}
+\label{caldiv}
+\end{minipage}
+\end{figure}
+
+The calorimeter is divided into three readout layers, which are split into readout bins as illustrated in fig.~\ref{caldiv}. The first layer is at times referred to as the strip layer, after the narrow bins shaped to achieve the maximum resolution in the $\eta$ direction.
+
+The design of the calorimeter, with some resolution in depth, makes it possible to say something about the shape of the shower as well as the energy deposited. This is useful when different particles may leave differently shaped showers, and makes it possible to say something about the direction from which a particle entered the calorimeter, which is especially useful when dealing with photons, which otherwise leave no way of determining their path in the detector.
+
+\subsection{Photon reconstruction}
+
+Having both the tracker and the calorimeter to show the presence of particles, we can pick out candidates for unconverted photons as those deposits in the EM calorimeter that can not be associated with the end point of one of the tracks found in the tracker. This sample of unconverted photons will doubtless be contaminated with other types of neutral particles, which we will attempt to clean out with subsequent cuts.
+
+Converted photons---photons that undergo pair production because of an interaction with material before the EM calorimeter---will appear in the inner detector as particle tracks that do not extend back to the interaction point. Ideally, the detector would be able to resolve that track of both of the particles created in the photon conversion, in which case it would be able to establish the conversion vertex at their intersection. [However, for a number of reasons, such as the two tracks being too close to one another for the detector to separate, or one of the pair being produced with too low a momentum for the detector to resolve, the detector may not have resolved both particles. This being the case, we must also accept single tracks that do not extend all the way to the interaction point as possible converted photons. This sample too may be contaminated with other types of neutral particles, as well as misidentified electrons.
+
+We can to some extent discriminate between real and impostor photons by looking at the shape shape of the shower in the calorimeter. Since the only information we get from the calorimeter is the magnitude of deposits in each cell, we put together the following shower shape variables from that information to characterise the shape of each shower \cite{Carminati}:
+
+\begin{itemize}
+\item $R_\text{had}$, the ratio of energy deposited in the hadronic calorimeter to the cluster energy in the EM calorimeter. Hadronic jets are expected to penetrate deeper into the hadronic calormieter than EM jets.
+\item In the middle EM calorimeter layer, we expect non-EM showers to spread wider than electromagnetic ones. The variables that measure the shape of the shower in this layer are
+\begin{itemize}
+\item $R_\eta$, the ratio in $\eta$ of cell energies in 3 $\times$ 7 versus 7 $\times$ 7 cells.
+\item $R_\phi$, the ratio in $\phi$ of cell energies in 3 $\times$ 7 versus 7 $\times$ 7 cells.
+\item $w_{\eta 2}$, the width of the shower in the $\eta$ direction in the mid layer.
+\end{itemize}
+\item The strip layer, with its greater resolution in $\eta$, can pick out some of the internal structure of a jet. Hadron showers tend to show more than one maximum. Variables that measure the shape in the strip layer are
+\begin{itemize}
+\item $w_{s3}$, the shower width for three strips around the maximum strip.
+\item $w_{s\text{ tot}}$, the total lateral shower width in the strip layer.
+\item $F_\text{side}$, the faction of energy deposited outside a core of 3 central strips, but within 7 strips.
+\item $\Delta E$, the difference in energy of the strip with the second largest energy deposited and the strip with the smallest energy deposited between the two leading strips.
+\item $E_\text{ratio}$, the ratio of the energy difference associated with the
+largest and second largest energy deposits over the
+sum of these energies.
+\end{itemize}
+\end{itemize}
+
+The cuts made in these variables vary with $\eta$, and separate cuts exist for converted and unconverted photons. For the exact values used, see \cite{Carminati}. The cuts in $R_\text{had}$, $R_\eta$ and $w_{\eta2}$ collectively from the loose selection criteria, while the combination of all the cuts forms the tight selection criteria. These selections will become important later in the analysis. More immediately, though, they will allow us to record photon events in the first place.
+
+\subsection{Triggering and data collection}
+When in full operation, the LHC will deliver a bunch crossing in ATLAS' interaction point every 50~ns. Reading out the whole detector produces 1.6~MB of information, which, if the detector was to be read out completely with every crossing, would produce a data rate of 32~TB/s.\footnote{For perspective, that is approximately equal to the estimated global IP traffic rate in 2015, according to \cite{wolframip}.} Clearly, recording every collision is impossible. To trim down that data quantity, the detector uses a system that examines every collision for potentially interesting events, and triggers event recording if it finds one. In ATLAS, this trigger system has three levels \cite{detectorpaper}.
+
+The level-1 trigger, which must perform selection at the same cadence as the collision events occur, runs on specialised hardware built into the calorimeter and muon systems, and evaluates the worthiness of an event based solely on the information available to them locally. As an example, the level-1 trigger used to select data for this thesis, called \texttt{2g40\_loose}, requires that the EM calorimeter has recorded at least two deposits of 40 GeV transverse energy, which fulfils the loose shower shape cuts. These hardware triggers reduce the event frequency from 20 MHz to 100 kHz.
+
+The level-2 trigger has access to full precision data from all parts of the detector, and runs on a dedicated computing cluster close to the detector. It combines information from all parts of the detector to better determine if the deposits identified by the level-1 trigger are actually interesting events. Staying with photon candidates in the EM calorimeter, this trigger might use information from the hadronic calorimeter to separate out hadronic jets, or tracking information from the inner detector to distinguish between neutral and charged particles. This trigger reduces the data rate to below 10 kHz.
+
+The level-3 trigger---or the event filter---looks at fully reconstructed events and calculated and derived physical properties, such as transverse momentum, which allows it to cut in those quantities to further refine the event selection. This trigger brings the data rate down to the final rate of around 300 Hz on average. The output rate varies, since the rates with which interesting events occur are purely random, and the final data rate can peak up to 600 Hz for short periods.
+
+Unfortunately, there is no direct relationship between the frequency of an event type, and how interesting that event type is to analyses. For this reason, some triggers that produce more output than we are interested\footnote{Detailing how the level of interest in a particular event type is defined quickly strays into the area of ATLAS internal politics, which are most definitely beyond the scope of this thesis.} in keeping are prescaled, so that only some predetermined fraction of events that pass are stored. Given the importance of diphoton events in the Higgs search, the trigger used for this analysis has not been prescaled.
+
+[Those events that make it through the selection process are stored, with all the direct and derived information that has been recorded or calculated about them, for later analysis. To further that end, ATLAS has a number of working groups---for this anlysis, the working group who's work is built on is the E/gamma WG---who perform part of that analysis by selecting events that are interesting for a specific range of analyses, and preparing physics data relevant to those analyses, which is saved in a format readable by ROOT, CERN's own analysis software package\footnote{Which was described in chapter~\ref{ch.mc}.}, while discarding less relevant data, such as the raw readout data from the detector.]
+
+\chapter{Data}
+In which the procedure of going from ``raw'' data to analysable graphs
+are described, and the data-driven background subtraction methods are
+introduced and applied. The MC chapter is chapter~\ref{ch.mc}.
+
+\chapter{Analysis}
+All of the bits so far are put together, and a limit on the size of
+$\Lambda$ is found.
+
+\chapter{Conclusion}
+The found limit is re-iterated, and the caveats on its prescisioin are
+listed. Implications are gone through, and proposals for improvements
+are made.
+
+\renewcommand{\bibname}{References}
+\bibliographystyle{plainurl}
+\bibliography{cite}
+
+\end{english}
+\end{document}

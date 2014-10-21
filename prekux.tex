@@ -1,0 +1,160 @@
+\documentclass[a4paper,11pt,openany]{memoir}
+\usepackage{amsmath}
+%\usepackage[sc,osf]{mathpazo}
+%\usepackage[garamond]{mathdesign}
+\usepackage{fontspec}
+\usepackage[math-style=TeX]{unicode-math}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\usepackage{polyglossia}
+\defaultfontfeatures{Mapping=tex-text}
+\setmainfont[   Path=fonts/xits/,
+                BoldFont={xits-bold.otf},
+                ItalicFont={xits-italic.otf},
+                BoldItalicFont={xits-bolditalic.otf}
+            ]{xits-regular.otf}
+\setsansfont[   Path=fonts/frutiger/,
+                Scale=MatchLowercase,
+                BoldFont={FrutigerLTStd-Bold.otf},
+                ItalicFont={FrutigerLTStd-Italic.otf},
+                BoldItalicFont={FrutigerLTStd-BoldItalic.otf}
+            ]{FrutigerLTStd-Roman.otf}
+            
+\setmathfont{xits-math.otf}
+\setmathfont[version=roman,range=\mathcal,Path=fonts/]{latinmodern-math.otf}
+%\setmathfont[range=\mathcal,Scale=MatchUppercase]{Lynda Cursive}
+%\setmathfont[range=\mathup]{Garamond Premier Pro}
+%\setmathfont[range=\mathit]{Garamond Premier Pro}
+\setdefaultlanguage{danish}
+\setotherlanguage[variant=british]{english}
+
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{graphicx,epic,eepic}
+\usepackage{tkz-graph,tkz-euclide}
+\usetikzlibrary{calc,intersections,shapes.geometric,decorations.pathmorphing}
+\usetikzlibrary{snakes,patterns,plotmarks,decorations.text}
+\renewcommand*{\VertexSmallMinSize}{4pt}
+\usepackage{tabulary}
+\usepackage{pdfpages}
+\usepackage{wrapfig}
+\usepackage{pifont}
+\usepackage{multirow}
+\usepackage{colortbl}
+
+%\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+\renewcommand\bibname{References}
+\renewcommand{\(}{\begin{equation}}
+\renewcommand{\)}{\end{equation}}
+\newcommand{\vet}[1]{\underline{#1}}
+\newcommand{\mtx}[1]{\underline{\underline{#1}}}
+\newcommand{\ono}[1]{\frac{1}{#1}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\thehead}{}
+\newcommand{\head}[1]{\renewcommand{\thehead}{#1}}
+\newcommand{\theohead}{}
+\newcommand{\ohead}[1]{\renewcommand{\theohead}{#1}}
+\newcommand{\thetnote}{}
+\newcommand{\tnote}[1]{\renewcommand{\thetnote}{#1}}
+\newcommand{\bra}[1]{\left\langle #1 \right|}
+\newcommand{\ket}[1]{\left| #1 \right\rangle}
+\newcommand{\braket}[2]{\left\langle#1\middle|#2\right\rangle}
+\newcommand{\obraket}[3]{\left\langle#1\middle|#2\middle|#3\right\rangle}
+\newcommand{\emf}{\mathcal{E}}
+\newcommand{\di}{\text{d}}
+
+\newenvironment{infilsf}{
+    \begin{sffamily}
+    \setmathfont[range=\mathup/{num},
+                 Scale=MatchLowercase,
+                 Path=fonts/frutiger/,
+                 ]{FrutigerLTStd-Roman.otf}
+    \setmathfont[range=\mathit/{latin,Latin},
+                 Scale=MatchLowercase,
+                 Path=fonts/frutiger/,
+                    ]{FrutigerLTStd-Italic.otf}
+    \setmathfont[range=\mathit/{greek,Greek},
+                 Scale=MatchLowercase,
+                 Path=fonts/dejavu/,
+                    ]{DejaVuSans-Oblique.ttf}
+    \setmathfont[range=\mathup/{greek,Greek},
+                 Scale=MatchLowercase,
+                 Path=fonts/dejavu/,
+                    ]{DejaVuSans.ttf}
+%    \setmathfont[range=\text,
+%                 Scale=MatchLowercase,
+%                 Path=fonts/frutiger/,
+%                    ]{FrutigerLTStd-Roman.otf}
+}{
+    \setmathfont{xits-math.otf}
+    \setmathfont[range=\mathcal,Path=fonts/]{latinmodern-math.otf}
+    \end{sffamily}
+}
+
+\newenvironment{new}{\color{Blue}}{}
+
+\definecolor{kugray}{RGB}{102,102,102}
+\definecolor{kugray1}{RGB}{52,52,52}
+\definecolor{natgreen}{RGB}{50,93,61}
+\definecolor{natgreen1}{RGB}{105,146,115}
+\definecolor{natgreen2}{RGB}{161,168,171}
+\definecolor{natcomp}{RGB}{93,50,82}
+\definecolor{natcomp1}{RGB}{172,99,154}
+\definecolor{natcomp2}{RGB}{195,154,186}
+\definecolor{natlcomp}{HTML}{5d323d}
+\definecolor{natrcomp}{HTML}{52325d}
+\definecolor{natyellow}{HTML}{5d3d32}
+\definecolor{natblue}{HTML}{32525d}
+
+\makepagestyle{fancy}
+
+\makepsmarks{fancy}{%
+\nouppercaseheads
+\createmark{chapter}{left}{nonumber}{}{}
+\createmark{section}{right}{shownumber}{}{ \space}
+\createplainmark{toc}{both}{\contentsname}
+\createplainmark{lof}{both}{\listfigurename}
+\createplainmark{lot}{both}{\listtablename}
+\createplainmark{bib}{both}{\bibname}
+\createplainmark{index}{both}{\indexname}
+\createplainmark{glossary}{both}{\glossaryname}}
+
+\makeoddhead{fancy}
+   {}{}{}
+\makeoddfoot{fancy}{\makebox[0pt][r]{\raisebox{15pt}[20pt]{\textcolor{natgreen}{\rule{1.1\spinemargin}{1pt}}}\makebox[0pt][l]{\raisebox{15pt}[20pt]{\textcolor{natgreen}{\rule{\paperwidth}{1pt}}}}}\textcolor{kugray}{\textsf{\rightmark}}}{}{\textcolor{kugray}{\textsf{\thepage}}}
+\makeevenfoot{fancy}{\textcolor{kugray}{\textsf{\thepage}}}{}{\textcolor{kugray}{\textsf{\leftmark}}\makebox[0pt][l]{\raisebox{15pt}{\textcolor{natgreen}{\rule{1.1\spinemargin}{1pt}}}}\makebox[0pt][r]{\raisebox{15pt}{\textcolor{natgreen}{\rule{\paperwidth}{1pt}}}}}
+\setlength{\footskip}{40pt}
+\pagestyle{fancy}
+\aliaspagestyle{chapter}{fancy}
+
+\captionnamefont{\sffamily\color{natgreen}\bfseries} \captiontitlefont{\footnotesize} \captionstyle{\\}
+\renewcommand*{\printchaptername}{}
+\renewcommand*{\chapternamenum}{}
+\renewcommand*{\afterchapternum}{}
+\renewcommand{\chapnumfont}{\chaptitlefont\sffamily\HUGE}
+\renewcommand{\printchapternum}{\chapnumfont \colorbox{natgreen}{\textcolor{white}{\hspace{.2em}\thechapter\hspace{.2em}}}\hspace{1em}}
+\setsecheadstyle{\large\bfseries}
+\setsubsecheadstyle{\bfseries}
+\setsubsubsecheadstyle{}
+\setsecnumformat{\textsf{\color{natgreen}\csname the#1\endcsname\quad}}
+\maxsecnumdepth{subsubsection}
+\renewcommand{\labelenumi}{\sffamily\bfseries\color{natgreen}\theenumi.}
+\renewcommand{\labelitemi}{\color{natgreen}\ding{110}}
+\renewcommand{\labelitemii}{\color{natgreen}\textbullet}
+\setcounter{tocdepth}{2}
+
+\setlength{\arrayrulewidth}{2pt}
+
+\newsubfloat{figure}
+
+\hyphenation{be-stem-mes}
+\hyphenation{rest-klas-se-sæt-ning}
+\hyphenation{Ham-il-ton}
+\hyphenation{ATLAS}
+\hyphenation{Atlas}
+\hyphenation{CERN}
+\hyphenation{i-den-ti-cal}
+\hyphenation{pro-vid-ed}
+\hyphenation{Calc-HEP}
+\usepackage[pdfusetitle]{hyperref}
+\urlstyle{sf}
