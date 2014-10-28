@@ -73,7 +73,7 @@ the ATLAS detector at the LHC}
 
 Since the late 1960s, our---at times evolving---understanding of the properties and interactions of the fundamental particles has been summarised by the Standard Model. An overview of a selection of these properties and interactions is given in fig.~\ref{SMsum}.
 
-\begin{figure}[hbt]
+\begin{figure}[htp]
 \begin{minipage}[b]{.74\textwidth}
 \input{figures/smover}
 \end{minipage}
@@ -253,7 +253,7 @@ The rules for constructing the Feynman diagrams---the Feynman rules---are fairly
 
 For example, the $2\rightarrow2$ transition amplitude to zeroth order in $\lambda$ is given by the Feynman diagrams in figure~\ref{efeydig1}.
 
-\begin{figure}[hbt]
+\begin{figure}[htp]
 \begin{footnotesize}\begin{center}
 \begin{tikzpicture}
 \draw (-4,1) node[left]{$a$} -- (-2,1) node[right]{$A$};
@@ -272,7 +272,7 @@ The value of these diagrams, using the rules, is
 \[\frac{\delta^4(k_1-k_A)}{{k_1}^2-m^2}\frac{\delta^4(k_2-k_B)}{{k_2}^2-m^2}+\frac{\delta^4(k_1-k_B)}{{k_1}^2-m^2}\frac{\delta^4(k_2-k_A)}{{k_2}^2-m^2},\]
 which is indeed what we would get from solving the Gaussian integral. At the next order in $\lambda$, we can build the diagrams in fig.~\ref{efeydig2}.
 
-\begin{figure}[hbt]
+\begin{figure}[htp]
 \begin{footnotesize}
 \begin{minipage}{.09\textwidth}
 \normalsize \hfill
@@ -409,7 +409,7 @@ M_{\gamma\gamma}&=\sqrt{(E_1+E_2)^2+|\mathbf p_1+\mathbf p_2|^2},
 &=\sqrt{2p_1p_2(1-\cos\theta)}. \label{sinvmass}
 \end{align*}
 
-\begin{figure}[hbt]
+\begin{figure}[htp]
 \begin{minipage}[b]{.69\textwidth}
 \begin{sffamily}
 \input{figures/boxpart}
@@ -432,7 +432,7 @@ With this assumed plethora of possible higher order terms, a single possible new
 \(\mathcal L_n = \frac{2ie^2}{\Lambda^4}Q_q^2F^{\mu\sigma}F^\nu_\sigma\overline{q}\gamma_\mu\partial_\nu q,\label{rizzo}\)
 where $e$ is the elementary charge, $Q_q$ is the quark charge of quark $q$ and $\Lambda$, as discussed, is the associated mass scale. The power of $\Lambda$ is chosen to give the correct mass dimension of the term: in natural units,\footnote{Where $\hbar = c = 1$.} the action is unitless. The Lagrangian is integrated over 4 lengths to give the action, which means it must have a length dimension of $-4$ itself. Finally, in natural units, we can equate a unit of length with a unit of inverse mass\footnote{Because in natural units, \[[\text{length}]=[\text{length}]\frac{c}{\hbar}=[\text{length}]\frac{\left[\frac{\text{length}}{\text{time}}\right]}{\left[\frac{\text{length}^2\text{ mass}}{\text{time}}\right]}=\left[\frac{\text{length}^2\text{ time}}{\text{length}^2\text{ time}\text{ mass}}\right]=[\text{mass}]^{-1}. \]}, which means that the Lagrangian must have mass dimension 4. The factors $F^{\mu\sigma}F^\nu_\sigma$ and $\overline{q}\gamma_\mu\partial_\nu q$ each contribute a mass dimension of 4, so the mass scale, which has dimension of mass, must get a power of $-4$.
 
-\begin{figure}[hbt]\begin{center}
+\begin{figure}[htp]\begin{center}
 {\footnotesize\begin{tikzpicture} [>=triangle 45]
 \draw[>-] (-1,.5) -- (0,0);
 \draw[<-] (-1,-.5) -- (0,0);
@@ -452,7 +452,7 @@ The effect of the new term is to introduce several Feynman rules of the type sho
 \begin{new}
 These new processes may interfere constructively or destructively with the Standard Model contributions to this process. The effects of both on the distribution of invariant masses of photon pairs are illustrated in figure~\ref{interf}.
 
-\begin{figure}[hbt]
+\begin{figure}[htp]
 \begin{minipage}[b]{.69\textwidth}
 \begin{infilsf} \tiny \makebox[0pt][l]{
 \hspace{-1em}\input{figures/interference}
@@ -509,7 +509,7 @@ From an experimental point of view, $N_P$, $N_T$ and $A$ all depend on the immed
 \section{Colliding protons \label{sec.pdfth}}
 In the processes described so far, the starting point has been the interaction of a quark and an antiquark. And while being able to single out such a process experimentally would certainly be nice, single quarks sadly do not occur in nature. Because quakrs are colour charged particles, they are subject a phenomenon known as colour confinement, which requires that colour charge always occur in bundles which are colour neutral when viewed from the outside. For our purposes, protons are an abundant, stable and easy-to-handle colour-neutral bundle of quarks and gluons, which we use in collisions in place of the naked quarks that the problem formulation really calls for. This way of thinking obviously completely ignore the several advantages that a hadron collider possesses.
 
-\begin{figure}[hbt]
+\begin{figure}[htp]
 \includegraphics[width=.55\textwidth]{pdf}\hfill\parbox[b]{.44\textwidth}{
 \caption{Parton distribution function obtained from the \textsc{cteq} collaboration. It gives the probability of extracting a specific quark from a proton with a certain fraction, $x$ of its energy. From \cite{scien2}.\label{pdff}}}
 \end{figure}
@@ -531,7 +531,7 @@ Since all of the variables that are integrated over have physical significance, 
 
 The event generator used for the bulk of the work in this thesis is CalcHEP \cite{calchep}. Other choices of event generators include MadGraph \cite{madgraph5} and pythia \cite{pythia}. To illustrate the behaviour of these different generators with respect to one another, figure~\ref{evgen} plots distributions of invariant mass ($M_{\gamma\gamma}$) and transverse momentum ($p_T$) of a set of simulated events generated by each one.
 
-\begin{figure}[hbtp]
+\begin{figure}[htp]
 \begin{minipage}[b]{.69\textwidth}
 \begin{infilsf} \tiny
 \hspace{-1ex}\makebox[0pt][l]{\input{figures/genspt2}}
@@ -572,7 +572,7 @@ LanHEP takes as input a Lagrangian written in a format similar to \LaTeX's math 
 
 With the ability to produce sets of events with varying values of $\Lambda$, the mass scale of the contact interaction, the opportunity presents itself to create simulated distributions of events for several potential observables with which we might discriminate the effects of the contact interaction. Figure~\ref{discr} capitalises on this opportunity.
 
-\begin{figure}[hbt]
+\begin{figure}[htp]
 \begin{minipage}[b]{.499\textwidth}
 \begin{infilsf}\tiny
 \hspace{-.9em}\makebox[.96\textwidth]{\input{figures/sigcos}}
@@ -614,7 +614,7 @@ Meanwhile, figure~\ref{sigcos} shows no discernible difference between the SM sa
 \section{Parton Distribution Functions}
 As described in section~\ref{sec.pdfth}, we use a set of experimentally determined functions called Parton Distribution Functions (PDFs) to describe the probability of extracting a given parton from a proton. Given that the PDFs are not exact analytical models, we must account for the uncertainty associated with the method by which  PDFs are determined. To estimate that uncertainty, we compare the distribution in invariant masses of events generated by CalcHEP using the CTEQ6 set of PDFs, which are the events that will be used moving forward, with events generated using the alternative MRST2002nlo set of PDF, which is the only alternative PDF available in CalcHEP.
 
-\begin{figure}[hbt]
+\begin{figure}[htp]
 \begin{minipage}[b]{.69\textwidth}
 \begin{infilsf}
 \hspace{-.8cm}\input{figures/mrst}
@@ -624,7 +624,7 @@ As described in section~\ref{sec.pdfth}, we use a set of experimentally determin
 \caption{Comparing the distribution of invariant masses of events produced by CalcHEP with the CTEQ6 (grayed) and MRST2002nlo (non-grayed) PDFs at different values of $\Lambda$. This is to give an idea of the systematic uncertainty on this distribution due to the choice of PDF. Table~\ref{mrsttab} summarizes the fractional variation in predicted events by $\Lambda$ and invariant mass range. The invariant mass ranges used, indicated by the dashed lines in this plot, are discussed in the text. \label{mrst}}
 \end{minipage}
 \end{figure}
-\begin{table}[hbt]
+\begin{table}[htp]
 \begin{minipage}[b]{.69\textwidth}
 \begin{infilsf}{\footnotesize
 \begin{center}
@@ -660,7 +660,7 @@ Further, final state particles with colour charge will not remain isolated due t
 
 A schematic summary of these processes, along with the steps that the simulation software that models these processes will usually be divided into, is presented in figure~\ref{zep}. In this thesis, the extension of the hard events provided by CalcHEP with these surrounding processes will be carried out in pythia8 \cite{pythia}. Figure~\ref{pythify} illustrates the effect that these surrounding processes have on the distribution of invariant masses.
 
-\begin{figure}[hbt]
+\begin{figure}[htp]
 \centering
 \begin{minipage}[b]{.69\textwidth}\hspace{-1.5em}\makebox[0pt][l]{
 \noindent\begin{infilsf}
@@ -676,7 +676,7 @@ A schematic summary of these processes, along with the steps that the simulation
 
 This constant difference in distributions between the hard and extended event samples does not apply for all observables. Figure~\ref{pythicos} illustrates how the distribution of cos $\theta_{\gamma_1}$, the scattering angle for the leading photon is skewed slightly toward lower values, meaning a greater proportion of large scattering angles. This could be an effect of extended events having their kinematics altered so that the leading photon in the extended event is not the same as the leading photon in the hard event, so that the subleading photon, which scatter in the opposite direction from the leading photon, spill into the leading photon sample. This would also explain why the invariant mass sample, which is not sensitive to the identification of a leading photon, is not affected.
 
-\begin{figure}[hbt]
+\begin{figure}[htp]
 \begin{minipage}[b]{.65\textwidth}
 \begin{infilsf} \tiny \makebox[0pt][l]{
 \hspace{-1em}\input{figures/pythicos}
@@ -705,7 +705,7 @@ The real detector has a finite energy resolution, which is not reflected in the 
 
 The effect that the detector simulation has on the invariant mass distribution of the event samples created above is shown in figure~\ref{geant-beaf}.
 
-\begin{figure}[hbt]
+\begin{figure}[htp]
 \begin{minipage}[b]{.69\textwidth}
 \begin{infilsf} \tiny
 \input{figures/geant-beaf}
@@ -726,7 +726,7 @@ Which is a thing. More information is forthcoming. Probably.
 
 The \textsc{atlas}\footnote{\textbf{A} \textbf{T}oroidal \textbf{L}HC \textbf{A}pparatu\textbf{s}.} experiment, which will provide that data that the theoretical models developed over the past few chapters are compared with, is part of the Large Hadron Collider at \textsc{cern}\footnote{\textbf{C}onseil \textbf{E}uropéen pour la \textbf{R}echerche \textbf{N}ucléaire. When the council tasked with creating the european nuclear research laboratory became the organisation tasked with running that laboratory, its name changed to Organisation Européenne pour la Recherche Nucléaire---the European Organisation for Nuclear Research, but the acronym stayed the same. Acronyms, it seems, are not only ubiquitous, but also immutable.} in Geneva.
 
-\begin{figure}[hbtp]
+\begin{figure}[htp]
 \begin{center}
 \includegraphics[width=.8\textwidth]{Cernrings}
 \end{center}
@@ -739,7 +739,7 @@ The \textsc{atlas}\footnote{\textbf{A} \textbf{T}oroidal \textbf{L}HC \textbf{A}
 \section{The Large Hadron Collider}
 Broadly speaking, the LHC is a machine built to bring hadrons to very high velocities, and then bring them to collide with one another, preferably in a way that we are able to observe the result. It is also quite large---the main ring is 27~km in circumference.
 
-Going into slightly more detail, the LHC holds two roughly ring-shaped pipes, within which two beams of protons\footnote{For the purposes of this thesis. The LHC also hosts heavy ion collision experiments, in which Pb nuclei are collided with one another or with protons.}, one moving in ether direction, are held by powerful magnets, and maintained at the appropriate kinetic energy by radiofrequency cavities. The main LHC ring is only the last in a series of machines, which are shown diagramatically in fig.~\ref{cernrings}, that accelerate protons from rest to LHC energies. Incidentally, two of the intermediate accelerator rings, the PS and the SPS were once themselves \textsc{cern}'s main colliders.
+Going into slightly more detail, the LHC holds two roughly ring-shaped pipes, within which two beams of protons\footnote{For the purposes of this thesis. The LHC also hosts heavy ion collision experiments, in which Pb nuclei are collided with one another, or with protons.}, one moving in ether direction, are held by powerful magnets, and maintained at the appropriate kinetic energy by radiofrequency cavities. The main LHC ring is only the last in a series of machines, which are shown diagramatically in fig.~\ref{cernrings}, that accelerate protons from rest to LHC energies. Incidentally, two of the intermediate accelerator rings, the PS and the SPS were once themselves \textsc{cern}'s main colliders.
 
 At four points around the ring, the beams are made to cross one another---which, as we know, is a dangerous thing to do, since it produces quite a bit of radiation when protons collide with one another. By studying the structure of that radiation, however, we can learn about the details of the interactions that happen when protons collide, which is the purpose of the detectors that are built around each of those interaction points.
 
@@ -748,7 +748,7 @@ Although the LHC was designed for proton beams of 7~TeV, which would then collid
 \section{The ATLAS detector}
 The \textsc{atlas} detector sits at one of the LHC's interaction points, and is, along with CMS\footnote{The \textbf{C}ompact \textbf{M}uon \textbf{S}olenoid.}, a general purpose detector, designed to capture as much information as possible about collision events. To do that, the ATLAS detector is made up of three concentric layers. From innermost to outermost, these are: the tracking system, the calorimeter system and the muon tracking system. Large magnets are used to apply a magnetic field across the detector, which bends the paths of charged particles. The momentum and charge sign of such a particle can then be deduced from the radius of the curvature of its track.
 
-\begin{figure}[hbtp]
+\begin{figure}[htp]
 \begin{minipage}[b]{.69\textwidth}
 \includegraphics[width=1\textwidth]{AllAtlasBig}
 \end{minipage}
@@ -758,7 +758,7 @@ The \textsc{atlas} detector sits at one of the LHC's interaction points, and is,
 \label{allatlas}
 \end{figure}
 
-\textsc{atlas} defines its own coordinate system, centred on the interaction point, where the position in the angular direction, perpendicular to the beam pipe, is measured by the coordinate $\phi$ and the angle to the beam pipe is measured in pseudorapidity $\eta$, which is defined as
+\textsc{Atlas} defines its own coordinate system, centred on the interaction point, where the position in the angular direction, perpendicular to the beam pipe, is measured by the coordinate $\phi$ and the angle to the beam pipe is measured in pseudorapidity $\eta$, which is defined as
 \(\eta=-\ln[\tan(\theta/2)],\)
 where $\theta$ is the angle to the beam pipe in radians \cite{green:eta}. The pseudorapidity $\eta$ is a simple transformation of $\theta$, it is 0 at $\theta=\pi/2$, $\infty$ at $\theta=0$ and $-\infty$ at $\theta=\pi$, but is chosen for its similarity to rapidity, $y$, which is additive under Lorenz boosts \cite{green:y}.
 
@@ -776,7 +776,7 @@ Muons, along with neutrinos, are among the few types of particles that can relia
 
 As the most important tool for detecting photons in ATLAS, the electromagnetic calorimeter deserves a more detailed description.
 
-\begin{figure}[hbtp]
+\begin{figure}[htp]
 \begin{minipage}[b]{.59\textwidth}
     \begin{center}
     \includegraphics[width=\textwidth]{larpic}
@@ -806,16 +806,33 @@ As the most important tool for detecting photons in ATLAS, the electromagnetic c
     \end{center}
 \end{minipage}
 \begin{minipage}[b]{.4\textwidth}
-\caption{Several figures \cite{atlasweb} that illustratie the structure and functioning of the LAr calorimeters. These are sampling calorimeters, which have an absorbing medium (lead or steel) with layers of detecting medium (liquid argon) inserted regularly to keep track of the developing shower shape. In ATLAS, the absorbing medium is made in an accordian shape, visible in (a) and (b), which allows the necessary electronics to be placed on the surface of the absorbing plates, rather than interrupting the calorimeter with non-sensitive signalling pathways.}
+\caption{Several figures \cite{atlasweb} that illustrate the design and functioning of the LAr calorimeters. These are sampling calorimeters, which have an absorbing medium (lead or steel) with layers of detecting medium (liquid argon) inserted regularly to keep track of the developing shower shape. In ATLAS, the absorbing medium is made in an accordion shape, visible in (a) and (b), which allows the necessary electronics to be placed on the surface of the absorbing plates, rather than interrupting the calorimeter with non-sensitive signalling equipment.}
 \label{calostruc}
 \end{minipage}
 \end{figure}
 
-The purpose of the EM calorimeter is to attempt to capture those particles that interact electromagnetically and measure their energy. High-energy photons interacting with matter will loose energy almost exclusive through pair production, which converts it into a n electron-positron pair, so long as they have sufficient energy---at least as much as the rest mass of the particles being produced---to do so. Meanwhile, electrons and positrons with high energy moving through matter will loose energy almost exclusively through bremsstrahlung, the loss of kinetic energy by photon emission. Thus, both photons and (anti-)electrons will produce the same sort of signature as they loose energy in the calorimeter, splitting into or emitting new particles, which in turn produce even more particels, in a cascade that expands through the calorimeter, until no more photons with enough energy for pair production can be produced. In the ATLAS calorimeter, this process results in a shower of particles with a shape such as the on illustrated in fig.~\ref{shower}. The depth to which the shower can penetrate an absorbing material will depend on the energy of the initial particle \cite{fernow:sampcal}. The typical distance that a particle has to travel before undergoing one of these processes---the radiation length---are quite similar, and give a natural thickness for the absorption layers of the calorimeter. The active layer, following the same principle as the drift straws in the inner detector, uses a high voltage plate to collect the ionisation charge left in the liquid argon that fills the space between the absorption plates by the passage of high-energy charged particles. The accordian shape of the layers in ATLAS' LAr calorimeters allows the readout electronics to run along their surface, rather than needing to have separate, non-sensitive, channels for them.
+The electromagnetic calorimeters make up the bulk of \textsc{atlas}' liquid argon (LAr) calorimeters (the endcap hadronic calorimeters are also LAr calorimeters). The absorbing material in these calorimeters are iron and lead, constructed in an accordion shape. The gaps between the absorbing plates are filled with the eponymous liquid argon. Plates carrying a high voltage charge are placed on the surface of the accordion plates, which attract the ionised trail left by the passage of high energy charged particles, and detect the charge they deposit, the same basic principle as the straw detectors in the tracker used. The accordion shape allows us to run readout electronics along the surface of the absorber plates, rather than needing to create gaps in the calorimeter for them.
 
-Obviously, it is possible for the cascade that the EM calorimeter relies upon to be initiated by any of the material ahead of the calorimeter. To partially account for this possibility, the first sensitive layer, called the presampler, sits in front of the first absorption layer. Photons that convert because of an interaction with material in the inner detector will obviously behave quite differently from unconverted photons, given that it is now an electron-positron pair. Reconstructing these converted photons is a separate task, which we will come back to.
+The purpose of this calorimeter is to capture those particles that interact electromagnetically, and measure their energy. High-energy photons interacting with matter will loose energy almost exclusively through pair production, which converts it into a n electron-positron pair---and electrons and positrons with high energy moving through matter will loose energy almost exclusively through bremsstrahlung---the loss of kinetic energy by photon emission. The typical distance that these particles travel before converting---the radiation lengths---are roughly the same for the two processes. Thus, both types of particles will set off nearly identical processes as they travel through a material, which is illustrated in fig.~\ref{emshower}, where more and more particles, each with a fraction of the energy of the original particle, are created, until the resulting particles fall below the threshold where they can be abosrbed by the material through excitation or ionisation. Given this, it is possible to measure the energy of one of these types of particle by the depth to which they penetrate an absorbing material, or, in a proportional detector, by the number of daughter particles created. The resulting particle cascade forms a shower structure in the detector, as illustrated in fig.~\ref{shower}.
 
-\begin{figure}[hbtp]
+\begin{figure}[htp]
+\begin{minipage}[b]{.69\textwidth}
+\begin{infilsf}\footnotesize
+\input{figures/emcasc}
+\end{infilsf}
+\end{minipage}\hfill
+\begin{minipage}[b]{.3\textwidth}
+\caption{A schematic description of an EM shower developing in an absorbing material. Here, a wavy line indicates a photon, a straight line indicates an electron, and a straight line with a `$+$' a positron. At each split, the two resulting particles carry away half the energy of the original particle. In a sampling calorimeter, a sensitive layer is typically inserted at intervals of one radiation length. \textsc{Atlas}' LAr calorimeters measure the magnitude of ionisation that is left in the liquid argon by the passage of the particle shower. Adapted from \cite{fernow:sampcal}.
+\label{emshower}
+}
+\end{minipage}
+\end{figure}
+
+There is obviously material in the detector ahead of the calorimeter, which a photon or electron may interact with. If the first particle emission happens before the particle enters the calorimeter, this will obviously affect how deep into the calorimeter the resulting shower penetrates. To partially account for this possibility, the first sensitive layer, called the presampler, sits in front of the first absorption layer.
+
+[Converted photons, seperate topic] Photons that convert because of an interaction with material in the inner detector will obviously behave quite differently from unconverted photons, given that it is now an electron-positron pair. Reconstructing these converted photons is a separate task, which we will come back to.
+
+\begin{figure}[htp]
 \begin{minipage}[b]{.69\textwidth}
 \includegraphics[width=\textwidth]{caldiv}
 \end{minipage}
@@ -876,7 +893,7 @@ It turns out that there is a good amount of overlap in the derived quantities th
 \chapter{Data}
 The ATLAS data that will be used for this thesis was taken in 2012, during the 8~TeV run of the LHC, during which ATLAS recorded 20.3~fb$^{1}$ of integrated luminosity.
 
-\begin{figure}[hbt]
+\begin{figure}[htp]
 \begin{minipage}[b]{.69\textwidth}
 \hspace{-1em}\includegraphics[width=\textwidth]{figures/intlumi}
 \end{minipage}\hfill\begin{minipage}[b]{.3\textwidth}
