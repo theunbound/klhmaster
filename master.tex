@@ -15,16 +15,16 @@
 \changepage{\textha}{\textwa}{}{\sidema}{}{-\topmargin}{-\headheight}{\topma}{}
 %\setlength{\parindent}{0pt}
 \noindent\begin{minipage}[t]{.8\textwidth}
-\noindent\raggedright \textcolor{kugray}{\fontspec[Path=fonts/garamond/]{GaramondPremrPro.otf}\addfontfeature{LetterSpace=13.0}\fontsize{17}{17}\selectfont\textsc{niels bohr institute}}
+\noindent\raggedright \textcolor{kugray}{\fontspec[Path=fonts/garamond/]{GaramondPremrPro.otf}\addfontfeature{LetterSpace=13.0}\fontsize{18}{17}\selectfont\textsc{niels bohr institute}}
 
-\vspace{.2em}\textcolor{kugray}{\fontspec[Path=fonts/garamond/]{GaramondPremrPro.otf}\addfontfeature{LetterSpace=13.0}\fontsize{14}{17}\selectfont\textsc{university of copenhagen}}
+\vspace{.2em}\textcolor{kugray}{\fontspec[Path=fonts/garamond/]{GaramondPremrPro.otf}\addfontfeature{LetterSpace=13.0}\fontsize{15}{17}\selectfont\textsc{university of copenhagen}}
 \end{minipage}\hfill\begin{minipage}[t]{32mm}\raggedleft \vspace{16mm} \includegraphics[height=44mm]{KUnat.pdf}
 \end{minipage}
 
 
-\newlength{\markbump}\setlength{\markbump}{.3\paperwidth}\addtolength{\markbump}{-11mm}
+\newlength{\markbump}\setlength{\markbump}{.3\paperwidth}\addtolength{\markbump}{-6mm}
 \newlength{\markdown}\setlength{\markdown}{-75mm}\addtolength{\markdown}{0em}\addtolength{\markdown}{\paperheight}\addtolength{\markdown}{.15\paperwidth}
-\noindent\makebox[0pt][l]{\hspace{\markbump}\raisebox{-\markdown}[0pt][0pt]{\includegraphics[height=.9\paperwidth]{atlaskugrid.pdf}}}\makebox[0pt][r]{\raisebox{3.2mm}[0pt][0pt]{\textcolor{natgreen}{\rule{.06\paperwidth}{.7pt}}}}\makebox[0pt][l]{\raisebox{3.2mm}[0pt][0pt]{\textcolor{natgreen}{\rule{.95\paperwidth}{.7pt}}}}
+\noindent\makebox[0pt][l]{\hspace{\markbump}\raisebox{-\markdown}[0pt][0pt]{\includegraphics[height=.85\paperwidth]{figures/atlaskugrid2.pdf}}}\makebox[0pt][r]{\raisebox{3.2mm}[0pt][0pt]{\textcolor{natgreen}{\rule{.06\paperwidth}{.7pt}}}}\makebox[0pt][l]{\raisebox{3.2mm}[0pt][0pt]{\textcolor{natgreen}{\rule{.95\paperwidth}{.7pt}}}}
 
 
 
@@ -726,15 +726,13 @@ Or maybe it isn't a thing. Who knows? Excitement!
 
 \chapter{Experiment}\label{ch.exp}
 
-With the model of the effect of the new contact interaction that we expect to observe in a collider experiment in hand, we can now turn to an actual collider experiment, and attempt to observe that effect.
+Knowing now what we expect to see in an experiment, given the models used, we now move to describing how we are able to see those phenomena.
 
-It can come as no surprise that this thesis will use the \textsc{atlas}\footnote{\textbf{A} \textbf{T}oroidal \textbf{L}HC \textbf{A}pparatu\textbf{s}.} experiment, which is part of the Large Hadron Collider at \textsc{cern}\footnote{\textbf{C}onseil \textbf{E}uropéen pour la \textbf{R}echerche \textbf{N}ucléaire. When the council tasked with creating the european nuclear research laboratory became the organisation tasked with running that laboratory, its name changed to Organisation Européenne pour la Recherche Nucléaire---the European Organisation for Nuclear Research, but the acronym stayed the same. Acronyms, it seems, are not only ubiquitous, but also immutable.} in Geneva.
+It can come as no surprise, given the title, that this thesis will use the \textsc{atlas}\footnote{\textbf{A} \textbf{T}oroidal \textbf{L}HC \textbf{A}pparatu\textbf{s}.} experiment, which is part of the Large Hadron Collider complex at \textsc{cern}\footnote{\textbf{C}onseil \textbf{E}uropéen pour la \textbf{R}echerche \textbf{N}ucléaire. When the council tasked with creating the european nuclear research laboratory became the organisation tasked with running that laboratory, its name changed to Organisation Européenne pour la Recherche Nucléaire---the European Organisation for Nuclear Research, but the acronym stayed the same. Acronyms, it seems, are not only ubiquitous, but also immutable.} in Geneva.
 
 \section{The Large Hadron Collider}
 
-The point of the Large Hadron Collider is to accelerate protons\footnote{Or heavy ions, on the occations when the LHC runs heavy ion collision experiments.} (which are a species of hadrons) to very high kinetic energies, and then bringing them to collide with other protons, which have similarly been accelerated to very high energies. As a necessity dictated by the goal of going to these very high energies, the accelerator is also quite large.
-
-This goal is achieved by confining beams of protons within two seperate beam pipes---one going in either direction---with a strong magnetic field. At points around the ring, the protons are accelerated to, and maintained at, the proper energy by electric fields in radiofrequency cavities. The LHC does not, however accelerate protons all the way from rest to collision energy. It is the last part of a multi-stage machine, which is shown in schematic form in fig.~\ref{cernrings}. As an interesting aside, two of the intermediate stages in this machine, the Proton Synchrotron and the Super Proton Synchrotron were at one point \textsc{cern}'s main accelerator.
+The purpose of the Large Hadron Collider is to accelerate protons\footnote{Or heavy ions, on the occations when the LHC runs heavy ion collision experiments.} (which are a species of hadrons) to very high kinetic energies, and then bringing them to collide with other protons, which have similarly been accelerated to very high energies. As a necessity dictated by have gone to these very high energies, the accelerator is also quite large.
 
 \begin{figure}[htp]
 \begin{center}
@@ -746,12 +744,14 @@ This goal is achieved by confining beams of protons within two seperate beam pip
 \end{minipage}
 \end{figure}
 
-At the LHC, the proper energy was intended to be 7 TeV per beam, however a few accidents when the machine was started has forced us to lower out ambitions for the time being. In 2012, when the data that will be used in this thesis was taken, the LHC ran at 4 TeV per beam, for a total collision energy of 8 TeV.
+The protons are accelerated to the appropriate energies by electric fields in radiofrequency cavities. They are then kept confined within the two beam pipes in the LHC ring---one for each of the two beams moving in either direction---by superconducting multipole magnets. The LHC does not, however, accelerate protons all the way from rest to its collision energy. It is the last part of a multi-stage machine, which is shown in schematic form in fig.~\ref{cernrings}. As an interesting aside, two of the intermediate stages in this machine, the Proton Synchrotron and the Super Proton Synchrotron were at one point \textsc{cern}'s main accelerator.
+
+At the LHC, the beam energy was intended to be 7 TeV per beam, however several accidents when the machine was started has forced us to lower out ambitions for the time being. In 2012, when the data that will be used in this thesis was taken, the LHC ran at 4 TeV per beam, for a total collision energy of 8 TeV.
 
 The two beam pipes cross another at four points around the LHC ring, the centres of the four detectors.
 
 \section{The ATLAS detector}
-The \textsc{atlas} detector sits at one of these interaction points, and is, along with CMS\footnote{The \textbf{C}ompact \textbf{M}uon \textbf{S}olenoid.}, a general purpose detector, designed to capture as much information as possible about collision events. To do that, the \textsc{atlas} detector uses three distinct types of detectors, arranged in concentric layers around the interaction point. From innermost to outermost, these are: the tracking system, the calorimeter system and the muon tracking system. The layout of the detector is shown in figure~\ref{allatlas}. For a more detailed description, see \cite{detectorpaper}.
+The \textsc{atlas} detector sits at one of these interaction points, and is, along with CMS\footnote{The \textbf{C}ompact \textbf{M}uon \textbf{S}olenoid.}, a general purpose detector, designed to capture as much information as possible about collision events. To that end, the \textsc{atlas} detector uses three distinct types of detectors, arranged in concentric layers around the interaction point. From innermost to outermost, these are: the tracking system, the calorimeter system and the muon tracking system. The layout of the detector is shown in figure~\ref{allatlas}. For a more detailed description, see \cite{detectorpaper}.
 
 \begin{figure}[htp]
 \begin{minipage}[b]{.69\textwidth}
@@ -769,17 +769,17 @@ where $\theta$ is the polar angle to the beam pipe in radians \cite{green:eta}. 
 
 Of the three detector types, the most important to the search for photons is the electromagnetic calorimeter.
 
-The muon tracker forms the outermost, and largest, part of the detector, since muons are one of only a small number of particles that can be expected to penetrate through the calorimeter layer regularly. Neutrinos will do so as well, however, capturing neutrinos with \textsc{atlas}' mere 90~000~t of material and 7~000 m$^3$ detector volume \cite{atlasweb} is something of a lost cause. Like the inner detector, the muon detector localises the track of a passing charged particle by picking up the ionisation trail it leaves in a sensitive material. Also like the inner detector, it ascertains the momentum and charge of passing charged particles by measuring their deflection by an applied magnetic field.
+The muon tracker forms the outermost, and most voluminous, part of the detector, since muons are one of only a small number of particles that can penetrate through the calorimeters on a regular basis. Neutrinos will do so as well, however, capturing neutrinos with \textsc{atlas}' mere 90~000~t of material and 7~000 m$^3$ detector volume \cite{atlasweb} is something of a lost cause. As is also the case with the inner detector, the muon detector localises the track of a passing charged particle by picking up the ionisation trail it leaves in a sensitive material. Also like the inner detector, it ascertains the momentum and charge of passing charged particles by measuring their deflection by an applied magnetic field.
 
-The inner detector uses two distinct detector technologies to localise the tracks of charged particles that pass through it. The innermost layer uses silicon semiconductor chips to detect the charge left in a track in a compact, high-precision system. The outer part of the inner detector uses drift straws---which pick up the ionisation charge left in an inert gas by attracting it to a high-voltage wire in the centre of the straw---to more economically, in terms of material, readout complexity and, well, economy, cover a larger volume.
+The inner detector uses two distinct detector technologies to localise the tracks of charged particles that pass through it. The innermost layers use silicon semiconductor chips to detect the charge left from a track, and is a compact, high--precision system. The outer part of the inner detector uses drift straws---which pick up the ionisation charge left in an inert gas by attracting it to a wire with a high voltage charge in the centre of the straw---to more economically, in terms of material, readout complexity and expense, cover a larger volume.
 
-Both the straw detector and part of the silicon detector, the strip detector, are very long structures, which can only report that a hit has occurred somewhere along its length. To compensate for this, successive layers of detector elements are placed at an angle to one another. The innermost layer of the silicon detector, the pixel detector, is also segmented lengthwise, and so does not require this. Still, the detector only provides a list of detector elements that have registered a hit. Particle tracks are fitted to these hits in one of the stages of the subsequent analysis of an event.
+Both the straw detector and the outer part of the silicon detector, the scilicon microstrip detector, have very long detector elements, which can only report that a hit has occurred somewhere along its length. To improve resolution the direciton parallel to these long detectors, successive layers of detector elements are placed at an angle to one another. The innermost layer of the silicon detector, the pixel detector, uses a pixel structure rather than a strip structure, and so has adequate resolution in all directions. With these detectors, readout from \atlas{} only consists of a list of detectors that have been hit. Particle tracks are reconstructed from these hits in the subsequent analysis of an event through fitting.
 
-There are two calorimeter systems in \textsc{atlas}. Both are supposed to stop the particles that pass through them, and measure the energy that they deposit. \textsc{Atlas} only uses sampling calorimeters, meaning that the absorbing material has sensitive layers inserted into it at intervals. These sensitive layers measure how deep into the absorbing material the particles penetrate, and thus how much energy the carried before entering the calorimeter. In the barrel section of the hadronic calorimeter---the outermost half of the calorimeter system, which is supposed to catch the, by assumption, hadronic events that penetrate the electromagnetic calorimeter, the inner half of the calorimeter system---the sensitive layers are scintillators, a material that luminesces when exposed to ionising radiation, and the absorbing layers are iron. The remaining calorimeters, which covers both the EM calorimeters and the endcap hadronic calorimeters, have both iron and lead as absorbing material, and liquid argon as the sensitive material. As with the straw detectors, activity in the liquid argon layers are detected by an electrode, which picks up the ionisation left in the argon by passing energetic particles.
+There are two calorimeter systems in \textsc{atlas}: the (inner) electromagnetic calorimeter and the (outer) hadronic calorimeter. Both function by stopping the particles that pass through them, and then measuring the energy they deposit. All calorimeters in \textsc{atlas} are sampling calorimeters, meaning that the absorbing material has sensitive layers inserted into it at intervals. These sensitive layers measure how deep into the absorbing material the particles penetrate, and thus how much energy the carried before entering the calorimeter. In the barrel section of the hadronic calorimeter, the sensitive layers are scintillators, a material that luminesces when exposed to ionising radiation, and the absorbing layers are iron. The remaining calorimeters, which covers both the EM calorimeters and the endcap hadronic calorimeters, have liquid argon as the sensitive material. As with the straw detectors, activity in the liquid argon layers are detected by an electrode, which picks up the ionisation left by passing energetic particles. The barrel section of the calorimeter has lead as an absorber, held in place by thin steel layers, however, in the endcap calorimeters, which are subjected to a stronger particle flux, the lead is replaced with copper, and in some cases tungsten, which is easier to cool.
 
 \subsection{The electromagnetic calorimeter}
 
-Since the details of the EM calorimeter will be important to the analysis, the description of that system will go into slightly greater detail.
+The EM calorimeter is the most important tool for detecting photons. As such, we devote an entire sub--section to describing it.
 
 \begin{figure}[htp]
 \begin{minipage}[b]{.59\textwidth}
@@ -787,7 +787,7 @@ Since the details of the EM calorimeter will be important to the analysis, the d
     \includegraphics[width=\textwidth]{larpic}\makebox[0em][r]{\textcolor{natgreen}{\rule{\textwidth}{1pt}}}
     \end{center}
 \end{minipage}
-~\begin{minipage}[b]{.4\textwidth}
+\begin{minipage}[b]{.4\textwidth}
     \begin{center}
     \includegraphics[width=\textwidth]{shower}\makebox[0em][r]{\textcolor{natgreen}{\rule{\textwidth}{1pt}}}
     \end{center}
@@ -807,16 +807,18 @@ Since the details of the EM calorimeter will be important to the analysis, the d
 \begin{minipage}[b]{.59\textwidth}
     \begin{center}
     \includegraphics[width=1\textwidth]{figures/CaloDiag.png}
-    \subcaption{Schematic showing the placement of the LAr calorimeters in ATLAS.}
+    \subcaption{Schematic showing the placement of the LAr calorimeters in \textsc{atlas}.}
     \end{center}
 \end{minipage}
 \begin{minipage}[b]{.4\textwidth}
-\caption{Several figures \cite{atlasweb} that illustrate the design and functioning of the LAr calorimeters. These are sampling calorimeters, which have an absorbing medium (lead or steel) with layers of detecting medium (liquid argon) inserted regularly to keep track of the developing shower shape. In \textsc{atlas}, the absorbing medium is made in an accordion shape, visible in (a) and (b), which allows the necessary electronics to be placed on the surface of the absorbing plates, rather than interrupting the calorimeter with non-sensitive signalling equipment.
+\caption{Several figures \cite{atlasweb} that illustrate the design and functioning of the LAr calorimeters. These are sampling calorimeters, which have an absorbing medium (lead or steel) with layers of detecting medium (liquid argon) inserted regularly to keep track of the developing shower shape. In \textsc{atlas}, rather than having flat layers, the absorbing ans sensitive materials are interleaved in an accordion shape, visible in (a) and (b), which allows the detector electronics to be placed on the surface of the absorbing plates, rather than interrupting the calorimeter with non-sensitive signalling equipment.
 \label{calostruc}}
 \end{minipage}
 \end{figure}
 
-The iron and lead absorbing material in these calorimeters are constructed in an accordion shape, where the gaps between the absorbing plates are filled with the eponymous liquid argon. The shape is visible in fig.~\ref{calostruc}. Plates carrying a high voltage charge are suspended in the middle of the space between accordion plates, which attract the ionised trail left by the passage of high energy charged particles, and detect the charge they deposit. The accordion shape allows readout electronics to run continuously in the outwards direction of the detector, which obviates the need to interrupt the detector with non-sensitive communication channels, which would be necessary if the detector was laid out in discreet layers. [no]
+The iron and lead absorbing material in these calorimeters are constructed in an accordion shape, with liquid argon filling the gaps. The shape is visible in fig.~\ref{calostruc}. Plates carrying a high voltage are suspended in the middle of the space between accordion plates, which attract the ionised trail left by the passage of high energy charged particles, and detect the charge they deposit. The accordion shape allows readout electronics to run continuously out of the detector, rather than being interspersed as discreet layers in the absorbing material. This layout removes the need to interrupt the detector with non--sensitive communication channels.
+
+For our purposes, the interesting quantities will be the energy deposited by photons and electrons. In the presence of matter, high--energy photons loose energy primarily through pair production, while electrons loose energy primarily through bremsstrahlung. The typical lengths travelled by both types of particle before undergoing such a process---their radiation lengths---depend on the material traversed, but are roughly equal to one another \cite{fernow:sampcal}. As illustrated in fig.~\ref{emshower}, both types of particles will undergo the same sort of evolution as they travel through an absorbing material, splitting into pairs of particles, each with a fraction of the energy of the parent particle, until the daughter particles fall below the energy where they can be absorbed by the material. This cascade of particles develops in a shower structure, as illustrated in fig.~\ref{shower}. Thus, we can measure the energy of the original particle both by how deep into the absorbing material it penetrates, or how many daughter particles it produces. \textsc{Atlas}' LAr calorimeters mainly use the second strategy.
 
 \begin{figure}[htp]
 \begin{minipage}[b]{.69\textwidth}
@@ -831,9 +833,9 @@ The iron and lead absorbing material in these calorimeters are constructed in an
 \end{minipage}
 \end{figure}
 
-For our purposes, the interesting quantities will be the energy deposited by photons and electrons. In the presence of matter, high--energy photons loose energy primarily through pair production, while electrons loose energy primarily through pair production. The typical lengths travelled by both types of particle before undergoing such an emission---their radiation lengths---depend on the material traversed, but are roughly equal to one another \cite{fernow:sampcal}. As illustrated in fig.~\ref{emshower}, both types of particle will undergo the same sort of evolution as they travel through an absorbing material, splitting into pairs of particles, each with a fraction of the energy of the parent particle, until the daughter particles fall below the energy where they can be absorbed by the material. This cascade of particles develops in a shower structure, as illustrated in fig.~\ref{shower}. Thus, we can measure the energy of the original particle both by how deep into the absorbing material it penetrates, or how many daughter particles it produces. \textsc{Atlas}' LAr calorimeters mainly use the second strategy.
+The shower can be initiated by material in the detector ahead of the calorimeter just as well as the material in the calorimeter. To account for this possibility, the first active layer, called the presampler, sits ahead of the first absorbing layer. Photons that undergo pair production sufficiently deep in the detector for the tracker to resolve at least one of the (anti--)electrons that are produced are treated as a separate object type, namely converted photons.
 
-The shower can be initiated by the material in the detector ahead of the calorimeter just as well as the material in the calorimeter. To account for this possibility, the first active layer, called the presampler, sit ahead of the first absorbing layer. In the specific case of photons that undergo pair production deep enough in the detector that the tracker can resolve at least one of the (anti--)electrons that are produced, we treat it as a separate object called a converted photon. Telling converted photons from genuine electrons is one of the main tasks in photon reconstruction.
+The calorimeter is divided into three layers, which are split into readout bins as illustrated in fig.~\ref{caldiv}. The first layer is very finely divided in the $\eta$ direction, and its readout cells will on occasion be referred to as `strips' in the `strip layer', as opposed to the `cells' in the other two layers. The energy deposited in the calorimeter is measured by the magnitude of the ionisation left in the active layers by the particle showers.
 
 \begin{figure}[htp]
 \begin{minipage}[b]{.69\textwidth}
@@ -845,38 +847,22 @@ The shower can be initiated by the material in the detector ahead of the calorim
 \end{minipage}
 \end{figure}
 
-The calorimeter is divided into three layers, which are split into readout bins as illustrated in fig.~\ref{caldiv}. The first layer is very finely divided in the $\eta$ direction, and its readout cells will on occasion be referred to as `strips' in the `strip layer', as opposed to the cells in the remaining layers. The energy deposited in the calorimeter is measured by the magnitude of the ionisation left in the active layers by the particle showers.
+The division of the calorimeter into layers gives us some resolution in depth when attempting to describe the shape of a shower. Showers initiated by different types of particles evolve in a slightly different way, which allows us discern the source of a shower by examining its shape. Additionally, with this shower shape information, we can extrapolate the direction from which a particle entered the calorimeter by looking at the shape of the shower, which is of particular importance when attempting to trace the origin of unconverted photons, which otherwise leave no trail in the detector.
 
-The division of the calorimeter into layers gives us some resolution in depth when attempting to describe the shape of a shower. As we shall return to later, the shower shape relates to the type of particle that initiated the shower, and allows us to discriminate between them to a degree. Of more immediate importance, with this shower shape information, we can extrapolate the direction from which a particle entered the calorimeter, which give us our only way of tracing the origin of unconverted photons, which otherwise leave no trail in the detector.
+\subsection{Photon identification}
+The detector, then, provides information about clusters of energy deposits in the calorimeter and tracks reconstructed from hits in the tracking detector, we are tasked with identifying those signals that have been left by photons.
 
-\subsection{Triggering and data collection}
-When in full operation for the 2012, 8~TeV run, the LHC delivered a bunch crossing in \textsc{atlas}' interaction point every 50~ns. Reading out the whole detector produces 1.6~MB of information, which, if the detector was to be read out completely with every crossing, would produce a data rate of 34~TB/s.\footnote{For perspective, that is approximately equal to the estimated global IP traffic rate in 2015, according to \cite{wolframip}.} Clearly, recording every collision is impossible. To trim down that data quantity, the detector uses a system that examines every collision for potentially interesting events, and triggers event recording if it finds one. In \textsc{atlas}, this trigger system has three levels \cite{detectorpaper}.
+We can build a set of candidates for deposits left by unconverted photons by taking those deposits in the calorimeter that do not have a track pointing to them. We expect converted photons to show up as pairs of electron tracks in the tracking detector that share a vertex away from the interaction point. However, we must account for the possibility that only one of the tracks are reconstructed, and so we also consider electrons tracks that only show hits in the straw detector as candidates for converted photons. These selection rules can then be written into a computer algorithm, which performs the event--by--event sorting for us \cite{phorec}.
 
-The level-1 trigger, which must perform selection at the same cadence as the collision events occur, runs on specialised hardware built into the calorimeter and muon systems, and evaluates the worthiness of an event based solely on the information available to them locally. As an example, the level-1 trigger used to select data for this thesis, called \texttt{2g40\_loose}, requires that the EM calorimeter has recorded at least two deposits of 40 GeV transverse energy, which fulfils the loose shower shape cuts. These hardware triggers reduce the event frequency from 20 MHz to 100 kHz.
-
-The level-2 trigger has access to full precision data from all parts of the detector, and runs on a dedicated computing cluster close to the detector. It combines information from all parts of the detector to better determine if the deposits identified by the level-1 trigger are actually interesting events. Staying with photon candidates in the EM calorimeter, this trigger might use information from the hadronic calorimeter to separate out hadronic jets, or tracking information from the inner detector to distinguish between neutral and charged particles. This trigger reduces the data rate to below 10 kHz.
-
-The level-3 trigger---or the event filter---looks at fully reconstructed events and calculated and derived physical properties, such as transverse momentum, which allows it to cut in those quantities to further refine the event selection. This trigger brings the data rate down to the final rate of around 300 Hz on average. The output rate varies, since the rates with which interesting events occur are purely random, and the final data rate can peak up to 600 Hz for short periods.
-
-Unfortunately, there is no direct relationship between the frequency of an event type, and how interesting that event type is to analyses. For this reason, some triggers that produce more output than we are interested\footnote{Detailing how the level of interest in a particular event type is defined quickly strays into the area of \textsc{atlas} internal politics, which are most definitely beyond the scope of this thesis.} in keeping are prescaled, so that only some predetermined fraction of events that pass are stored. Since diphoton events are important to the Higgs search, the trigger used to gather the data used in this analysis has been left unprescaled.
-
-It turns out that there is a good amount of overlap in the derived quantities that different analyses will need to calculate from the data that is stored by the trigger system. For this reason, the \textsc{atlas} collaboration encompasses several working groups that generate datasets that contain these shared quantities, and make then available to the analyses that need them. For the present analysis, we will use the \texttt{NTUP\_PHOTON} container, which the E/gamma working group is responsible for.
-
-\subsection{Photon reconstruction}
-
-Overall, there are two signatures in the detector that can be interpreted as having been left by a photon. First, an energy deposit in the calorimeter with no track in the tracking detector leading to it, which is assumed to be an unconverted photon.
-
-Converted photons are photons that succumb to pair production before they reach the EM calorimeter. Ideally, such conversions would appear in the tracking detector as a positron and an electron track that begin at a common vertex, however we must also account for the possibility that the second track was not reconstructed. To this end, any electron track that only exists in the straw detector [ugh!] will be considered a converted photon candidate by the reconstruction algorithm \cite{phorec}.
-
-The sample of potential photons will certainly be contaminated with deposits by other types of neutral particles---the most frequent offender being the $\pi^0$ meson, along with QCD jets that mimic converted photons. Extracting this background from the photon signal will be the purpose of a good fraction of the work to follow, however the first step in the process is to attempt to distinguish actual from impostor photons by the shape of the shower they leave in the calorimeter. To this end, the following shower shape variables are defined \cite{Carminati}:
+This set will of course be contaminated with events that were not caused by photons: $\pi^0$ mesons also create calorimeter hits with no associated track, and QCD jets can mimic converted photons, among other possibilities. To attempt to sort genuine photon events from impostor events, we study the shape of the shower left in the calorimeter. To that end, we define the following shower shape variables \cite{Carminati}:
 
 \begin{itemize}
-\item $R_\text{had}$, the ratio of energy deposited in the hadronic calorimeter to the cluster energy in the EM calorimeter. Hadronic jets are expected to penetrate deeper into the hadronic calormieter than EM jets.
-\item In the middle EM calorimeter layer, we expect non-EM showers to spread wider than electromagnetic ones. The variables that measure the shape of the shower in this layer are
+\item $R_\text{had}$, the ratio of energy deposited in the hadronic calorimeter to the cluster energy in the EM calorimeter. Hadronic showers are expected to penetrate deeper into the hadronic calormieter than EM showers.
+\item In the middle EM calorimeter layer, non-EM showers spread wider than electromagnetic ones. The variables that measure the shape of the shower in this layer are
 \begin{itemize}
 \item $R_\eta$, the ratio in $\eta$ of cell energies in 3 $\times$ 7 versus 7 $\times$ 7 cells.
 \item $R_\phi$, the ratio in $\phi$ of cell energies in 3 $\times$ 7 versus 7 $\times$ 7 cells.
-\item $w_{\eta 2}$, the width of the shower in the $\eta$ direction in the mid layer.
+\item $w_{\eta 2}$, the width of the shower in the $\eta$ direction.
 \end{itemize}
 \item The strip layer, with its greater resolution in $\eta$, can pick out some of the internal structure of a jet. Hadron showers tend to show more than one maximum. Variables that measure the shape in the strip layer are
 \begin{itemize}
@@ -885,12 +871,20 @@ The sample of potential photons will certainly be contaminated with deposits by 
 \item $F_\text{side}$, the faction of energy deposited outside a core of 3 central strips, but within 7 strips.
 \item $\Delta E$, the difference in energy of the strip with the second largest energy deposited and the strip with the smallest energy deposited between the two leading strips.
 \item $E_\text{ratio}$, the ratio of the energy difference associated with the
-largest and second largest energy deposits over the
-sum of these energies.
+largest and second largest energy deposits, over the sum of these energies.
 \end{itemize}
 \end{itemize}
 
-The cuts made in these variables vary with $\eta$, and separate cuts exist for converted and unconverted photons. For the exact values used, see \cite{Carminati}. The cuts in $R_\text{had}$, $R_\eta$ and $w_{\eta2}$ collectively from the loose selection criteria, while the combination of all the cuts forms the tight selection criteria. These selections will become important later in the analysis. More immediately, though, they will allow us to record photon events in the first place.
+These variables form the selection criteria by which we declare a photon candidate to be an actual photon. The full list of variables above forms the tight selection criteria, while a shorter list, consisting of $R_\text{had}$, $R_\eta$ and $w_{\eta2}$ form the loose selection criteria. Separate cut values in these variables exist for different $\eta$ ranges. For a complete description, see \cite{Carminati}.
+
+\subsection{Triggering and data collection}
+While in full operation for the 2012, 8~TeV run, the LHC delivered a bunch crossing in \textsc{atlas}' interaction point every 50~ns. Reading out the whole detector produces 1.6~MB of information, which, if the detector were read out completely with every crossing, would produce a data rate of 34~TB/s.\footnote{For perspective, that is approximately equal to the estimated global IP traffic rate in 2015, according to \cite{wolframip}.} However, since only a fraction of these collisions produce interesting physics events, we can reduce the data rate to less prohibitive levels simply by not recording data from collision that do not produce interesting events. To accomplish this, we need a system that examines events in the detector as they occur, and trigger recording whenever it sees an interesting event. In \textsc{atlas}, this trigger system has three levels \cite{detectorpaper}.
+
+The level--1 trigger genuinely does examine events as they occur in the detector. To do so, it runs on specialised hardware built in to the detectors, and as a result, it only has access to the raw information from the detectors to which it is attached. This means, for example, that track reconstruction is not available when the level--1 trigger deicdes whether or not to record an event. For this analysis, which looks for diphotons, we will use events that passed the \texttt{2g40\_loose} level--1 trigger, which requires that the EM calorimeter reports two hits with at least 40~GeV of transverse energy that pass the loose selection criteria.
+
+The next two trigger levels have access to more information and, crucially, more time to compute derived quantities in the reduced number of events that come through the level--1 trigger. With this, the event selection can be further refined, to the point where the final event rate peaks at 600 events per second, and averges 300 events per second.
+
+This limit to the readout rate can, unfortunately, not be reached by only removing uninteresting events. To stay within the limitations of the readout system, \atlas{} removes a fraction of the events that did pass the triggers, when they originate from a trigger that produces more events than it is considered worth keeping.\footnote{Explaining how it is decided whether data is worth keeping would veer into a discussion of \atlas{} internal politics, which is a topic beyond the scope of this thesis.} The diphoton channel is important to the search for the Higgs boson, however, so the triggers that produce diphotons events are not prescaled in this fashion.
 
 
 \chapter{Data}
@@ -900,7 +894,7 @@ The ATLAS data that will be used for this thesis was taken in 2012, during the 8
 \begin{minipage}[b]{.69\textwidth}
 \hspace{-1em}\includegraphics[width=\textwidth]{figures/intlumi}
 \end{minipage}\hfill\begin{minipage}[b]{.3\textwidth}
-\caption{A plot showing the integrated luminosity delivered by the LHC (green), recorded by ATLAS (yellow), and passing data quality cuts (blue), over the course of the 8 TeV run in 2012 \cite{publiclumi}.
+\caption{A plot showing the integrated luminosity delivered by the LHC (green), recorded by ATLAS (yellow), and fulfilling data quality criteria (blue), over the course of the 8 TeV run in 2012 \cite{publiclumi}.
 \label{intlumi}}
 \end{minipage}
 \end{figure}
