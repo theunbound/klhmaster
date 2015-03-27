@@ -1,1 +1,1 @@
-Copyright 2014 Kristoffer Levin Hansen
+Copyright 2015 Kristoffer Levin Hansen
