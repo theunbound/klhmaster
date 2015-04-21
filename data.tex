@@ -1,12 +1,9 @@
-\chapter{Data preparation}
+\subsection{Triggering and data collection}
+While in full operation for the 2012, 8~TeV run, the LHC delivered a bunch crossing in \textsc{atlas}' interaction point every 50~ns. Reading out the whole detector produces 1.6~MB of information, which, if the detector were read out completely with every crossing, would produce a data rate of 34~TB/s.\footnote{For perspective, that is approximately equal to the estimated global IP traffic rate in 2015, according to \cite{wolframip}.} However, since only a fraction of these collisions produce interesting physics events, we can reduce the data rate to less prohibitive levels simply by not recording data from collision that do not produce interesting events. To accomplish this, we need a system that examines events in the detector as they occur, and trigger recording whenever it sees an interesting event. In \textsc{atlas}, this trigger system has three levels, which are described in detail in \cite{detectorpaper}. 
 
-OK, so assume that NTUP\_PHOTON was intorduced above: We have available to us N\_P files containing the collision data relevant to us taken during Run II. Of the 20.3 fb$^{-1}$ of good data taken during 2012, that dataset comprises 18.3 fb$^{-1}$.
+The level--1 trigger genuinely does examine events as they occur in the detector. To do so, it runs on specialised hardware built in to the detectors, and as a result, it only has access to the raw information from the detectors to which it is attached. This means, for example, that track reconstruction is not available when the level--1 trigger deicdes whether or not to record an event. The next trigger level, level--2, is run on the full set of information on an event, on those events which pass the level--1 filter. The final trigger level works with fully reconstructed events and derived physical observables. This requres more time and processing power than is available at the previous levels, but it also identifies interesting events with the same quality of information as will be used in the subsequent analysis. All three triggers in combination cuts the final event rate to 300 events per second, with a peak rate of 600 events.
 
-So the detector spits some data out. By the time I, personally can get at them, the will already be in the \texttt{NTUP\_PHOTON} format. We do some skimming, to pare it down to just good physics data, and then some more skimming, by trigger and then by reconstructed diphotons... Hang on, I can look this up. Also, it seems, by $\eta$.
-
-I want, at this point, to tell you something about the data that I got out of the detector, and how I fiddled with it to get the specific histogram, that I'm going to use to get my number out in the end.
-
-Maybe at this stage, I should go back and remind myself what it is that I actually do...
+For this thesis, we shall use data taken during the 8~TeV run in 2012. The amount of data taken at any given time depends on the condiitions of the beam, which can be summarised in the instantaneous luminosity, and the conditions of the detector, which may only capture a fraction of the events produced at any given time. Figure~\ref{intlumi} gives the distribution of integrated and captured luminosity over the course of the year.
 
 \begin{figure}[htp]
 \begin{minipage}[b]{.69\textwidth}
@@ -16,6 +13,25 @@ Maybe at this stage, I should go back and remind myself what it is that I actual
 \label{intlumi}}
 \end{minipage}
 \end{figure}
+
+This limit to the readout rate can, unfortunately, not be reached by only removing uninteresting events. To stay within the limitations of the readout system, \atlas{} removes a fraction of the events that did pass the triggers, when they originate from a trigger that produces more events than it is considered worth keeping.\footnote{Explaining how it is decided whether data is worth keeping would veer into a discussion of \atlas{} internal politics, which is a topic beyond the scope of this thesis.} The diphoton channel is important to the search for the Higgs boson, however, so the triggers that produce diphotons events are not prescaled in this fashion.
+
+ For this analysis, which looks for diphotons, we will use events that passed the \texttt{2g40\_loose} level--1 trigger, which requires that the EM calorimeter reports two hits with at least 40~GeV of transverse energy that pass the loose selection criteria.
+
+The next two trigger levels have access to more information and, crucially, more time to compute derived quantities in the reduced number of events that come through the level--1 trigger. With this, the event selection can be further refined, to the point where the final event rate peaks at 600 events per second, and averges 300 events per second.
+
+The data that passes all the selection criteria will encompass every type of event that \atlas{} monitors for. Most of those events will be of types that we are not interested in for the present analysis. At the same time, the analysis will involve observables that are not given directly in the detector's output, but must be derived for them, such as the invariant mass. Other analyses will have similar requirements, and so \atlas{} provides collections of events relevant for an array of analyses, with relevant derived quantities computed and included, collected in a formant called ntuples. This analysis, which looks for photons\footnote{I hate to keep repeating myself on this point, but it keeps being relevant.}, takes its events from the \texttt{NTUP\_PHOTON} collection.
+
+
+\chapter{Data preparation}
+
+OK, so assume that NTUP\_PHOTON was intorduced above: We have available to us N\_P files containing the collision data relevant to us taken during Run II. Of the 20.3 fb$^{-1}$ of good data taken during 2012, that dataset comprises 18.3 fb$^{-1}$.
+
+So the detector spits some data out. By the time I, personally can get at them, the will already be in the \texttt{NTUP\_PHOTON} format. We do some skimming, to pare it down to just good physics data, and then some more skimming, by trigger and then by reconstructed diphotons... Hang on, I can look this up. Also, it seems, by $\eta$.
+
+I want, at this point, to tell you something about the data that I got out of the detector, and how I fiddled with it to get the specific histogram, that I'm going to use to get my number out in the end.
+
+Maybe at this stage, I should go back and remind myself what it is that I actually do...
 
 I'll just throw some section headings at you, for now.
 
