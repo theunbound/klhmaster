@@ -21,9 +21,16 @@ Unfortunately, the triggers that \atlas{} implements do not guarantee that the e
 
 For the present analysis, we will use events that passed the \texttt{2g40\_loose} level--1 trigger, which requires that the EM calorimeter reports two hits with at least 40~GeV of transverse energy that pass the loose selection criteria, described in the previous chapter.
 
-The datasets have been retrieved in the \texttt{NTUP\_PHOTON} format, which is streamlined to contain information relevant to photon analyses. The dataset used contains events corresponding to 18.301~fb$^{-1}$ of integrated luminosity.
+The datasets have been retrieved in the \texttt{NTUP\_PHOTON} format, which is streamlined to contain information relevant to photon analyses, and easily readable by \textsc{root}. The dataset used contains events corresponding to 18.301~fb$^{-1}$ of integrated luminosity.
 
-So the detector spits some data out. By the time I, personally can get at them, the will already be in the \texttt{NTUP\_PHOTON} format. We do some skimming, to pare it down to just good physics data, and then some more skimming, by trigger and then by reconstructed diphotons... Hang on, I can look this up. Also, it seems, by $\eta$.
+On each of the prospective photons in this dataset, we impose a series of selection criteria:
+
+\begin{itemize}
+\item \textbf{otx and phoCloan cut:} Object quality cuts, which cut out events too close to non-functioning or noisy detector elements, and events taken while the detector was in a non-optimal state.
+\item \textbf{ID cut:} Objects that did not pass photon identification, or do not satisfy the loose selection criteria after reconstruction, are eliminated.
+\item \textbf{kinematics cut:} Ensures that objects do not have $|\eta|$ greater than 2.37, which is the forward limit of the first layer of the EM calorimeter, or in the range between 1.37 and 1.52, which is the transition region between the barrel and endcap calorimeters. Also ensures $E_T$ greater than 50~GeV, which clears the turn--on curve of the \texttt{2g40\_loose} trigger.
+\item \textbf{N\_events cut:} Ensures that each event has at least two photons that pass the above criteria.
+\item \textbf{PV cut:} Ensures that the photon pair selected for analysis have the same primary vertex, and that that vertex has at least three tracks associated with it.c
 
 I want, at this point, to tell you something about the data that I got out of the detector, and how I fiddled with it to get the specific histogram, that I'm going to use to get my number out in the end.
 
