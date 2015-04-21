@@ -886,6 +886,8 @@ The next two trigger levels have access to more information and, crucially, more
 
 This limit to the readout rate can, unfortunately, not be reached by only removing uninteresting events. To stay within the limitations of the readout system, \atlas{} removes a fraction of the events that did pass the triggers, when they originate from a trigger that produces more events than it is considered worth keeping.\footnote{Explaining how it is decided whether data is worth keeping would veer into a discussion of \atlas{} internal politics, which is a topic beyond the scope of this thesis.} The diphoton channel is important to the search for the Higgs boson, however, so the triggers that produce diphotons events are not prescaled in this fashion.
 
+The data that passes all the selection criteria will encompass every type of event that \atlas{} monitors for. Most of those events will be of types that we are not interested in for the present analysis. At the same time, the analysis will involve observables that are not given directly in the detector's output, but must be derived for them, such as the invariant mass. Other analyses will have similar requirements, and so \atlas{} provides collections of events relevant for an array of analyses, with relevant derived quantities computed and included, collected in a formant called ntuples. This analysis, which looks for photons\footnote{I hate to keep repeating myself on this point, but it keeps being relevant.}, takes its events from the \texttt{NTUP\_PHOTON} collection.
+
 \input{data.tex}
 
 \chapter{Analysis}
