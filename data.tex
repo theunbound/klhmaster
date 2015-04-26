@@ -30,7 +30,7 @@ On each of the prospective photons in this dataset, we impose a series of select
 \item \textbf{ID cut:} Objects that did not pass photon identification, or do not satisfy the loose selection criteria after reconstruction, are eliminated.
 \item \textbf{kinematics cut:} Ensures that objects do not have $|\eta|$ greater than 2.37, which is the forward limit of the first layer of the EM calorimeter, or in the range between 1.37 and 1.52, which is the transition region between the barrel and endcap calorimeters. Also ensures $E_T$ greater than 50~GeV, which clears the turn--on curve of the \texttt{2g40\_loose} trigger.
 \item \textbf{N\_events cut:} Ensures that each event has at least two photons that pass the above criteria.
-\item \textbf{PV cut:} Ensures that the photon pair selected for analysis have the same primary vertex, and that that vertex has at least three tracks associated with it.
+%\item \textbf{PV cut:} Ensures that the photon pair selected for analysis have the same primary vertex, and that that vertex has at least three tracks associated with it.
 
 \end{itemize}
 
@@ -49,10 +49,10 @@ The number of objects remaining at each step of the cut procedure is plotted in 
 What remains after these cuts have been applied is a purer sample of photons than we had before, however the sample will still contain a background of events that do not come from the processes that we wish to study. An estimate of this background is required.
 
 \section{Data driven background estimation}
-Then, knowing that background events have snuck their way into our data sample, we venture into some data-driven background subtraction methods. These will, if and when they work, be:
+The background that remains in the signal sample after these criteria have been applied can be estimated in a number of ways. In chapter~\ref{ch.mc}, monte  carlo samples that simulate several physical processes that act as background to diphoton events were presented. Here, however, we shall attempt to quantify the magnitude of the background by examining the data.
 
 \subsection{The ABCD method}
-Our old friend. And:
+Also known as the two--dimensional sideband method. 
 
 \subsection{The S-frame method}
 Or however the hell you're supposed to render that. If it works.
