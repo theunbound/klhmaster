@@ -1,7 +1,7 @@
 \definecolor{ccfffb1}{RGB}{207,255,177}
 \definecolor{cff2121}{RGB}{255,33,33}
 
-
+\begin{infilsf}
 \begin{tikzpicture}[y=0.80pt,x=0.80pt,yscale=-1, inner sep=0pt, outer sep=0pt]
 \begin{scope}[cm={{1.25,0.0,0.0,-1.25,(-13.27413,426.52708)}}]
   \path (183.7010,35.0756) -- (184.8410,173.3622) .. controls (293.0398,-30.3271)
@@ -12,19 +12,19 @@
   \path[xscale=1.000,yscale=-1.000,fill=ccfffb1,rounded corners=0.0000cm]
     (103.2024,-173.6154) rectangle (184.1248,-35.3116);
       \path[cm={{1.0,0.0,0.0,-1.0,(482.08739,11.7195)}}] (0,0) node[above right]
-        (text32) {[GeV]};
-      \path[cm={{1.0,0.0,0.0,-1.0,(468.046,17.5792)}}] (0,0) node[above right]
-        (text44) {isol};
-      \path[cm={{1.0,0.0,0.0,-1.0,(468.046,8.05713)}}] (0,0) node[above right]
-        (text56) {T};
-      \path[cm={{1.0,0.0,0.0,-1.0,(460.721,11.7195)}}] (0,0) node[above right]
-        (text68) {E};
-      \path[cm={{1.0,0.0,0.0,-1.0,(10.2545,102.545)}}] (0,0) node[above right]
+        (text32) {$E_T^{isol}$ [GeV]};
+      %% \path[cm={{1.0,0.0,0.0,-1.0,(468.046,17.5792)}}] (0,0) node[above right]
+      %%   (text44) {isol};
+      %% \path[cm={{1.0,0.0,0.0,-1.0,(468.046,8.05713)}}] (0,0) node[above right]
+      %%   (text56) {T};
+      %% \path[cm={{1.0,0.0,0.0,-1.0,(460.721,11.7195)}}] (0,0) node[above right]
+      %%   (text68) {E};
+      \path[cm={{1.0,0.0,0.0,-1.0,(10.2545,102.545)}}] (0,0) node[above]
         (text272) {Candidate passes tight cut};
-      \path[cm={{1.0,0.0,0.0,-1.0,(20.5091,240.249)}}] (75.712936,0) node[above right]
+      \path[cm={{1.0,0.0,0.0,-1.0,(20.5091,240.249)}}] (75.712936,0) node[above]
         (text284) {Candidate fails tight cut};
   \path[xscale=1.000,yscale=-1.000,fill=black] (293.1788,-330.14844) node[above
-    right] (text3287) {L-L sample, 1. photon candidate};
+  ] (text3287) {\large L-L sample, 1. photon candidate};
   \path[draw=cff2121,fill=black,line width=0.640pt] (103.6535,173.3843) --
     (509.4882,173.3843);
   \path[draw=cff2121,fill=black,line join=round,line cap=butt,miter
@@ -354,3 +354,4 @@
 \end{scope}
 
 \end{tikzpicture}
+\end{infilsf}
