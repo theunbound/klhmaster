@@ -52,17 +52,42 @@ What remains after these cuts have been applied is a purer sample of photons tha
 The background that remains in the signal sample after these criteria have been applied can be estimated in a number of ways. In chapter~\ref{ch.mc}, monte  carlo samples that simulate several physical processes that act as background to diphoton events were presented. Here, however, we shall attempt to quantify the magnitude of the background by examining the data.
 
 \subsection{The ABCD method}
-Also known as the two--dimensional sideband method.
+Also known as the two--dimensional sideband method, illustrated in figure~\ref{abcd}.
 
-\begin{figure}[htp]
+\begin{figure}[hbp]
   \includegraphics[width=\textwidth]{figures/sideband}
-  \caption{This picture tells you tings about the ABCD method. Many things.
-    \label{abcd}}
+  \caption{Illustrating the two--step ABCD method using the `tight' selection criteria and the isolation energy: the full set of diphotons (the L-L sample) is split into four groups---A, B, C and D---according to the discriminating variables for the leading photon. Signal photons are now confined to the A region. The events in the C region can be used to estimate the shape, and the B and D region can be used to estimate the magnitude of the distribution of background events in the signal region. The procedure is then repeated for the subleading partner photons of the events in the A region. This gives an estimate of the distibution of background events in the combined signal (A--A) region. This figure adapted from \cite{fdirect}.}\label{abcd}
 \end{figure}
 
-\subsection{The S-frame method}
-Or however the hell you're supposed to render that. If it works.
+By taking two uncorrelated discriminating variables, we can split the distribution of one of them into two, according to the other discriminating variable, one sample with pure background events, and the other with signal and background events. Assuming that the shape of the distribution of background events is the same in the mixed signal and background sample as it is in the pure background sample, the shape of the distribution in the signal region of the background sample, this is the C region, is the same as the shape of the distribution of background events in the signal region of the mixed sample, the A region. The B and D regions contain only background events, so the magnitude of the background distribution in the A region can be found by comparing the sidebands. For more detail, see \cite{cmsabcd}
 
-Incidentally, the presence of pileup events probably means that we should run the MC events through this machinery as well. Even if we aren't filtering out the same things, we are filtering out \textit{some} of the same things, albeit, presumably, imperfectly(, natch). There are also things that aren't there, that we're not filtering out imperfectly, and so won't be there. But it's an imperfect world.
+For the diphoton sample, we will use the `tight' selection criteria, which were described in chapter~\ref{ch.ex}, and the transverse isolation energy, $E_T^{\text{isol}}$, the energy deposited in the calorimeter in a cone with radius $R\le0.4$, but outside $R\le0.2$, where
+\[R=\sqrt{\Delta\phi^2+\Delta\theta^2}.\]
+The signal region is cut at $E_T^{\text{isol}}\le3$ GeV. We allow a crosstalk region of 2 GeV, which means the background region is defined with $5\text{ GeV}\le E_T^{\text{isol}}\le25\text{ GeV}$. The distribution of $E_T^{\text{isol}}$ for leading photons and subleading photons in the `A' sample is given in figure~\ref{etiso}.
 
-This should leave us with the sample of events that we will use to estimate $\Lambda$.
+\begin{figure}[htp]
+\begin{minipage}[b]{.69\textwidth}
+\hspace{-1em}%\includegraphics[width=\textwidth]{figures/intlumi}
+\centering (a very impressive plot.)
+\end{minipage}\hfill\begin{minipage}[b]{.3\textwidth}
+\caption{The transverse isolation energy $E_T^{\text{isol}}\le3$ for the tight and non--tight photon selection of the leading photons, and for the set of subleading photons with partners in the `A' sample. The non--tight samples have been scaled so that the `D' region contains the same number of events as the `B' region. For both sets of samples, the shapes of the distributions match up match up after the scaling, which supports the assumption that the shape of the background distribution is the same in the signal region as well.
+\label{etiso}}
+\end{minipage}
+\end{figure}
+
+The same procedure is applied to the subleading partner photons to the leading photons in the `A' region, the ´A' sample in fig.~\ref{abcd}. This gives us the number of background events in the leading `A' sample and the number of background events in the subleading `A' sample. The final estimated background on the diphoton signal is the estimated fraction of background events in the leading `A' sample multiplied by the `A--A' subleading sample, plus the estimated background in this sample, minus the background fraction in the `A' sample times the estimated background on the `A--A' sample, which was double--counted.
+
+Performing this process for each bin in $M_{\gamma\gamma}$, we obtain the distribution of background events shown in figure~\ref{mggbck}. Note, though, that the plots of $E_T^{\text{isol}}\le3$ above showed the combined distribution for all $M_{\gamma\gamma}$ bins combined.
+
+\begin{figure}[htp]
+\begin{minipage}[b]{.69\textwidth}
+\hspace{-1em}%\includegraphics[width=\textwidth]{figures/intlumi}
+\centering (a very impressive plot.)
+\end{minipage}\hfill\begin{minipage}[b]{.3\textwidth}
+\caption{The distribution of background events in $M_{\gamma\gamma}$ estimated from data with the ABCD method, along with the distribution of dihpoton events given by the data.
+\label{mggbck}}
+\end{minipage}
+\end{figure}
+
+\section{Total background}
+Combining the estimate of the background obtained above with the simulated background samples described in chapter~\ref{ch.mc} ... compare the predicted distributions derived in chapter~\ref{ch.mc}
