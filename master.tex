@@ -15,9 +15,9 @@
 \changepage{\textha}{\textwa}{}{\sidema}{}{-\topmargin}{-\headheight}{\topma}{}
 %\setlength{\parindent}{0pt}
 \noindent\begin{minipage}[t]{.8\textwidth}
-\noindent\raggedright \textcolor{kugray}{\fontspec[Path=fonts/garamond/]{GaramondPremrPro.otf}\addfontfeature{LetterSpace=13.0}\fontsize{18}{17}\selectfont\textsc{niels bohr institute}}
+\noindent\raggedright \textcolor{kugray}{\fontspec[Path=fonts/garamond/]{GaramondPremrPro.otf}\addfontfeature{LetterSpace=13.0}\fontsize{18}{17}\selectfont\textsc{university of copenhagen}}
 
-\vspace{.2em}\textcolor{kugray}{\fontspec[Path=fonts/garamond/]{GaramondPremrPro.otf}\addfontfeature{LetterSpace=13.0}\fontsize{15}{17}\selectfont\textsc{university of copenhagen}}
+\vspace{.2em}\textcolor{kugray}{\fontspec[Path=fonts/garamond/]{GaramondPremrPro.otf}\addfontfeature{LetterSpace=13.0}\fontsize{15}{17}\selectfont\textsc{niels bohr institute}}
 \end{minipage}\hfill\begin{minipage}[t]{32mm}\raggedleft \vspace{16mm} \includegraphics[height=44mm]{figures/bionat.pdf}
 \end{minipage}
 
@@ -33,11 +33,12 @@
 \bigskip
 
 {\sffamily
+\begin{hangparas}{0em}{0}
 {\textbf{ }
 
 \vspace{2em}}
 
-{\huge \textbf{Master's thesis}
+{\LARGE \textbf{Master's thesis}
 
 \vspace{.3em}}
 
@@ -45,15 +46,17 @@
 
 \vspace{3em}
 
-{\Huge Searching for {\fontspec[Path=fonts/dejavu/,Scale=MatchLowercase,BoldItalicFont={DejaVuSansCondensed-BoldOblique.ttf},BoldFont=DejaVuSansCondensed-Bold.ttf,ItalicFont=DejaVuSans-Oblique.ttf]{DejaVuSansCondensed.ttf}\textit{γγ}} contact interactions with 
-
-the ATLAS detector at the LHC}
-\vspace{7em}
+{\Huge 
+Search for new physics in diphoton production with the ATLAS detector at the LHC
+}
+\vfill{}
 
 {\Large Academic advisor: Jørgen Beck Hansen}
-\vfill
+\vspace{28em}
 
-\today}
+\today
+\end{hangparas}
+}
 \clearpage}
 \thispagestyle{empty}
   \phantom{p}
@@ -101,7 +104,7 @@ While the detailed procedure for going from a general notion of expanding the St
 Since the new interaction will be introduced into the SM by the effective Lagrangian approach, the Lagrangian formulation of the Standard Model as a quantum field theory will be the starting point.
 
 \section{The Lagrangian formulation of QFT}
-In classical mechanics \cite{goldstein}, the Lagrangian formulation describes the path taken by a system between a given initial and final state---a particle with an initial and a final position, say---by finding the path that minimises the action $S$, which is defined as the integral along a given path over the Lagrangian $L$:
+In classical mechanics \cite{goldstein}, the Lagrangian formulation describes the path taken by a system between a given initial and final state---a particle with an initial and a final position, say---by finding the path between these states that minimises the action $S$, which is defined as the integral along a given path over the Lagrangian $L$:
 \[S[q]=\int_\textrm{path}dtL[q,\dot{q}],\]
 where $q$ is a generalised coordinate. In this picture, the Lagrangian encapsulates the dynamics of the system. It is related to the Hamiltonian $H$ by
 \(L = p\dot q- H,\label{htol}\)
@@ -400,7 +403,7 @@ The practical upshot, though, is that the Feynman rules extend to cover the Stan
 \caption{ Feynman diagrams for the two leading Standard Model processes that produce a $\gamma\gamma$ final state.\label{smfeyn}}
 \end{figure}
 
-We can get a feel for the relative strength of these two diagrams by turning to two sets of simulated collisions available from the ATLAS collaboration.
+We can get a feel for the relative strength of these two diagrams by turning to two sets of simulated collisions available from the \atlas{} collaboration.
 %\footnote{The internal ATLAS names are \verbatim{mc12_8TeV.129180.Pythia8_AU2CTEQ6L1_gammagamma_2DP20.merge.NTUP_PHOTON.e1199_s1479_s1470_r3542_r3549_p1344} and \verbatim{mc12_8TeV.146800.Pythia8_AU2CTEQ6L1_GamGamBox_pT35pT20.merge.NTUP_PHOTON.e1222_s1469_s1470_r3542_r3549_p1344}.}
 Plotted in figure~\ref{boxpart} are the distribution of the invariant masses of photon pairs, defined as \cite{marshaw:invmass}
 \begin{align*} 
