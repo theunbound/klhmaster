@@ -510,11 +510,17 @@ In this way, we can calculate the cross section of some process from its transit
 From an experimental point of view, $N_P$, $N_T$ and $A$ all depend on the immediate conditions within the accelerator. They can be combined into the luminosity $\mathscr L$, which in a proton collider contains information about how many protons are brought to an interaction point at a time, and how densely they are packed. By multiplying the luminosity with the cross section of a process, we get the frequency with which that process occurs in the detector. Integrating the luminosity over time, we get the integrated luminosity, which can be thought of as a measure of how many opportunities for interactions there have been over the period of time being integrated over, independent of the fine details of how the experiment was run\footnote{One notable example of a non-fine detail of an experiment: beam energy.}.
 
 \section{Colliding protons \label{sec.pdfth}}
-In the processes described so far, the starting point has been the interaction of a quark and an antiquark. And while being able to single out such a process experimentally would certainly be nice, single quarks sadly do not occur in nature. Because quakrs are colour charged particles, they are subject a phenomenon known as colour confinement, which requires that colour charge always occur in bundles which are colour neutral when viewed from the outside. For our purposes, protons are an abundant, stable and easy-to-handle colour-neutral bundle of quarks and gluons, which we use in collisions in place of the naked quarks that the problem formulation really calls for. This way of thinking obviously completely ignore the several advantages that a hadron collider possesses.
+In the processes described so far, the starting point has been the interaction of a quark and an antiquark. And while being able to single out such a process experimentally would certainly be nice, single quarks sadly do not occur in nature. Because quakrs are colour charged particles, they are subject a phenomenon known as colour confinement, which requires that colour charge always occur in bundles which are colour neutral when viewed from the outside. For our purposes, protons are an abundant, stable and easy-to-handle colour-neutral bundle of quarks and gluons, which we use in collisions in place of the naked quarks that the [problem formulation] really calls for. This way of thinking obviously completely ignore the several advantages that a hadron collider possesses.
 
 \begin{figure}[htp]
-\includegraphics[width=.55\textwidth]{pdf}\hfill\parbox[b]{.44\textwidth}{
-\caption{Parton distribution function obtained from the \textsc{cteq} collaboration. It gives the probability of extracting a specific quark from a proton with a certain fraction, $x$ of its energy. From \cite{scien2}.\label{pdff}}}
+\begin{minipage}[b]{.69\textwidth}
+\begin{infilsf} \tiny 
+\input{figures/cteq}
+\end{infilsf}
+\end{minipage}
+\hfill\begin{minipage}[b]{.3\textwidth}
+\caption{Parton distribution function obtained from the \textsc{cteq} collaboration. It expresses the probability of extracting a specific quark from a proton with a certain fraction, $x$, of its energy as a function of $x$ and $Q^2$. This illustration has $Q^2 = 100$ GeV$^2$. Adapted from \cite{durpdf}.\label{pdff}}}
+\end{minipage}
 \end{figure}
 
 While protons contain no antiquarks as valence quarks, every proton is surrounded by a `sea' of virtual particles. At a given energy scale $Q^2$, there is a certain probability for extracting one of these sea quarks in an interaction, given by the Parton Distribution Functions (PDFs), a selection of which is shown in fig.~\ref{pdff}. These functions are found experimentally by several collaborations. This thesis will deal mainly with the CTEQ set of PDFs.
