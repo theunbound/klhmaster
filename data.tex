@@ -72,14 +72,14 @@ The signal region is cut at $E_T^{\text{isol}}\le3$ GeV. We allow a crosstalk re
 \input{figures/etiso}
 \end{infilsf}
 \end{minipage}\hfill\begin{minipage}[b]{.3\textwidth}
-\caption{The transverse isolation energy $E_T^{\text{isol}}\le3$ for the tight and non--tight photon selection of the leading photons, and for the set of subleading photons with partners in the `A' sample. The non--tight samples have been scaled so that the `D' region contains the same number of events as the `B' region. For both sets of samples, the shapes of the distributions match up match up after the scaling, which supports the assumption that the shape of the background distribution is the same in the signal region as well.
+\caption{The transverse isolation energy $E_T^{\text{isol}}$ for the tight and non--tight photon selection of the leading photons, and for the set of subleading photons with partners in the `A' sample. The non--tight samples have been scaled so that the `D' region contains the same number of events as the `B' region. For both sets of samples, the shapes of the distributions match up match up after the scaling, which supports the assumption that the shape of the background distribution is the same in the signal region as well.
 \label{etiso}}
 \end{minipage}
 \end{figure}
 
 The same procedure is applied to the subleading partner photons to the leading photons in the `A' region, the `A' sample in fig.~\ref{abcd}. This gives us the number of background events in the leading `A' sample and the number of background events in the subleading `A' sample. The final estimated background on the diphoton signal is the estimated fraction of background events in the leading `A' sample multiplied by the `A--A' subleading sample, plus the estimated background in this sample, minus the background fraction in the `A' sample times the estimated background on the `A--A' sample, which was double--counted.
 
-Performing this process for each bin in $M_{\gamma\gamma}$, we obtain the distribution of background events shown in figure~\ref{mggbck}. Note, though, that the plots of $E_T^{\text{isol}}\le3$ above showed the combined distribution for all $M_{\gamma\gamma}$ bins combined.
+Performing this process for each bin in $M_{\gamma\gamma}$, we obtain the distribution of background events shown in figure~\ref{mggbck}. Note, though, that the plots of $E_T^{\text{isol}}$ above showed the combined distribution for all $M_{\gamma\gamma}$ bins combined.
 
 \begin{figure}[htp]
 \begin{minipage}[b]{.69\textwidth}
@@ -92,8 +92,28 @@ Performing this process for each bin in $M_{\gamma\gamma}$, we obtain the distri
 \end{minipage}
 \end{figure}
 
+\section{Comparison to SM MC}
+\Atlas{} provedes a variety of Monte Carlo event sets to which we can compare this result. In figure \ref{mcsets}, a combination of sets that simulate $\gamma\gamma$, $\gamma$-jet, single $\gamma$ and $Z\,\rightarrow\,ee$ events, which has been subjected to background estimation via the ABCD method just as the data sample was above, is compared to data.
+
+\begin{figure}
+\centering
+\includegraphics{}
+\caption{Caption}
+\label{mcsets}
+\end{figure}
+
+A good agreement between the two is observed.
+
+a set of monte carlo events that simulate the diphoton events that the standard model predicts will be produced in \atlas{}.
+
+
+
+best guess at a monte carlo sample containing all events that pass the selection criteria applied to data.
+
+which describes the data quite well.
+
 \section{Total background}
-In chapter~\ref{ch.mc} we obtained a set of predicted background events from several Monte Carlo samples of processes whose final products appear similar to diphotons in the detector. Subjecting those samples to the same background estimation process as the data sample underwent above, we obtain a prediction for the background events in the signal region, which are not removed by the data driven method. Combining this prediction with the estimated background, we obtain a distribution which represents the estimated difference between the data sample and the pure Monte Carlo sample also found in chapter~\ref{ch.mc}. Figure~\ref{tobck} compares these distributions.
+In chapter~\ref{ch.mc} [apparently not...] we obtained a set of predicted background events from several Monte Carlo samples of processes whose final products appear similar to diphotons in the detector. Subjecting those samples to the same background estimation process as the data sample underwent above, we obtain a prediction for the background events in the signal region, which are not removed by the data driven method. Combining this prediction with the estimated background, we obtain a distribution which represents the estimated difference between the data sample and the pure Monte Carlo sample also found in chapter~\ref{ch.mc}. Figure~\ref{tobck} compares these distributions.
 
 \begin{figure}[htp]
 \begin{minipage}[b]{.69\textwidth}
