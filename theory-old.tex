@@ -1,0 +1,344 @@
+\input{prekux}
+\begin{document}
+\begin{english}
+
+\chapter{Theory}
+In order to test the Standard Model by observing proton-proton collisions, we must be able to predict the outcome of such collisions using the SM.
+
+As the SM is a quantum field theory, what we can calculate is the probability $\mathcal P$ of going from some initial to some final state, the effect of which is that we only observe that outcome in the detector in a fraction of the events. At a high level, the collision experiment involves shooting things at other things, we can consider this analogous to the case where, out of a number of projectiles fired at some target, only as a fraction actually hit. That fraction that will obviously depend on the cross sectional area of the target. Indeed, the number of hits, $N$, will depend on the number of projectiles $N_P$, the number of targets $N_T$, the cross section $\sigma$ and the size of the area the projectiles can strike within $A$ as
+\[N=\frac{N_PN_T\sigma}{A}.\]
+From this, we deduce that the probability of a single projectile striking a single target equals $\sigma/A$. In this form, we are still mixing the kinematic probability for two particles coming close enough to interact with the dynamic probability of a particular interaction occurring. We can fix this by expressing the probability $\mathcal P$ as a function of the separation between the interacting particles, given by the impact parameter $\mathbf b$, and then integrating over all $\mathbf b$. Then, we can write
+\[\sigma=\int d^2b\,\mathcal P(\mathbf b)\propto\mathcal P(\text{in}\rightarrow\text{out})=\left|\braket{\phi\cdots\phi_\text{out}}{\phi\cdots\phi_\text{in}}\right|^2.\]
+In this way, we can calculate the cross section of some process from its transition amplitude.
+
+\section{The Lagrangian formulation of QFT}
+
+In classical mechanics \cite{goldstein}, the Lagrangian formulation describes the path taken by a system between a given initial and final state---a particle with an initial and a final position, say---by finding the path that minimises the action $S$, which is defined as the integral along a given path over the Lagrangian $L$:
+\[S[q]=\int_\textrm{path}dtL[q,\dot{q},\ldots],\]
+where $q$ is a generalised coordinate. In the picture, the Lagrangian encapsulates the dynamics of the system. It is related to the Hamiltonian $H$ by
+\(L = p\dot q- H,\label{htol}\)
+where $p$ is momentum.
+
+In quantum mechanics, the probability of going from one state to another is given as the absolute square of the transition amplitude \cite{sred:tramp},
+\[\bra{q\prime}e^{-i\hat H(t\prime-t)}\ket{q}\]
+where $\hat H$ is the Hamiltonian of the system. This can be written as
+\(\int\,\mathcal Dq\,\mathcal Dp\,\exp\left[i\int_t^{t\prime}dt\,[p(t)\dot q(t)-H(p(t),q(t))]\right],\label{e.Dq}\)
+where the integral is over all paths with position $q$ at time $t$ and position $q\prime$ at time $t\prime$. We recognise the expression in the innermost integral from eq.~\eqref{htol}. To relate this back to the classical case, we expect the paths close to the classical path to give a large contribution, while paths far from the classical path cancel out.
+
+The Lagrangian has the added feature that, for a local theory, it is possible to write it as a spatial integral over the Lagrangian density:
+\[L=\int \,d^3x\,\mathcal L.\]
+Thus, the action can be written as
+\(S=\int\,d^4x\,\mathcal L,\label{e.S}\)
+which is manifestly Lorenz invariant, so long as $\mathcal L$ is a Lorenz scalar. Given the ubiquity of local quantum field theories, it is common in this field to drop `density' from the name, and refer to $\mathcal L$ as the Lagrangian.
+
+With this, we have an expression for the cross section of a transition from one state to another in terms of the Lagrangian $\mathcal L$, which describes a physical model. Let us now use as an example, the simple model described by the following Lagrangian:
+\[\mathcal L= \half\partial^\mu\phi\partial_\mu\phi-\half m^2\phi^2-\frac{\lambda}{4!}\phi^4=\phi[\partial^2-m^2]\phi-\frac{\lambda}{4!}\phi^4\]
+This is an example of $\phi^4$ theory. From the form of the Lagrangian, we can spot a term that describes a propagator, and one for a four-way interaction. With this, we should be able to evaluate a transition amplitude by simply dropping this expression into eq.~\eqref{e.S} and \eqref{e.Dq} and writing
+\[A = \int\mathcal D\phi\,e^{iS[\phi]}.\label{e.Dphi}\]
+There is still some work left before this can be evaluated.
+
+Expressing $\phi(x)$ in terms of its Fourier modes,
+\[\phi(x)=\int\frac{d^4k}{(2\pi)^4}e^{ikx}\tilde\phi(k)\]
+(note that $x$ and $k$ are four-vectors), the Lagrangian becomes
+\begin{align*}\mathcal L=&-\int\frac{d^4k}{(2\pi)^4}\frac{d^4k\prime}{(2\pi)^4} e^{i(k+k\prime)x}\tilde\phi(k)[kk\prime +m^2]\tilde\phi(k\prime)\\
+&-\frac{\lambda}{4!}\int\frac{d^4k_1\,d^4k_2\,d^4k_3\,d^4k_4}{(2\pi)^{16}}e^{i(k_1+k_2+k_3+k_4)x}\tilde\phi(k_1)\tilde\phi(k_2)\tilde\phi(k_3)\tilde\phi(k_4)
+\end{align*}
+We find the action of this model by inserting this expression for $\mathcal L$ into eq.~\eqref{e.S}. $x$ only appears as a phase factor, which means that integrating over $x$ only produces delta functions:
+\begin{align*}
+S=&\int\frac{d^4k}{(2\pi)^4}\tilde\phi(-k)(k^2-m^2)\tilde\phi(k)\\
+&-\frac{\lambda}{4!}\int\frac{dk_1\,dk_2\,dk_3\,dk_4}{(2\pi)^3}\tilde\phi(k_1)\tilde\phi(k_2)\tilde\phi(k_3)\tilde\phi(k_4)\delta(k_1+k_2+k_3+k_4),
+\end{align*}
+where we used the delta-function in the first term to identify $k\prime=-k$. The first term of the action describes the free part of the theory, and the second term describes the interacting part, so we will call them $S_F$ and $S_I$, respectively. Working from this expression for $S$, we can Taylor expand the integrand in $\lambda$:
+\[e^{iS}=e^{i(S_F+S_I)}=e^{iS_F}\left(1-iS_I+\frac{(-iS_I)^2}{2}+\frac{(-iS_I)^3}{3!}+\frac{(-iS_I)^4}{4!}+\cdots\right)\]
+This assumes that $\lambda$ is sufficiently small, making the interaction term a small pertubation of the theory. Assuming this to be the case, the interacting theory is expressed as a series of corrections to the free theory.
+
+Given a state $\ket{\phi_k}$, which represents a particle with a definite four--momentum $k$, we can write
+\[\ket{\phi_k}=\int\frac{d^4k}{(2\pi)^4}\tilde\phi(k)\ket{k}.\]
+The transition amplitude for going from one such state to another can then be written, via eq.~\eqref{e.Dq}, as
+\[\braket{\phi_1}{\phi_A}=\int\mathcal D\phi\frac{d^4k_1}{(2\pi)^4}\frac{d^4k_A}{(2\pi)^4}\,\phi(k_1)\phi(k_A)e^{iS[\phi]}.\]
+Leaving the momentum integrals aside for the moment, and suppressing some factors of $2\pi$, which will eventually cancel out, the first term in the expansion of $e^{iS}$ gives the expression
+\[\int\mathcal D\phi\,\phi(k_1)\phi(k_A)e^{iS_F},\]
+which is a Gaussian integral. Assuming the participating momenta are identical, it has the solution \cite{griffiths:gauss}
+\[\frac{\delta^4(k_A-k_1)}{k^2-m^2}\int\mathcal D\phi\,e^{iS_F},\] 
+where the delta function has been introduced to ensure that $k_A=k_1$, meaning that momentum conservation is imposed. The remaining integral is a constant independent of $\phi$, which is absorbed in the normalisation. The remaining expression is the propagator in momentum space. 
+ 
+When we return to carrying out the $k$ integrals, we will find that there is a singularity at $k^2=m^2$, which can be avoided by slightly modifying the integration path. Feynman's prescription for modifying the path yields the expression $(k^2-m^2+i\epsilon)^{-1}$, the Feynman propagator in momentum space. 
+
+The second term in the expansion of $e^{iS}$ yields\footnote{Here, $\phi^n$ is shorthand for a product of $n$ $\tilde\phi$ functions of seperate momenta.} 
+\[-\frac{i\lambda}{4!}\delta^4(p_1+p_2+p_3+p_4)\int\mathcal D\phi\,\phi^6e^{iS_F}.\] 
+Solving the Gaussian integral gives a sum of terms of the form 
+\(-\frac{i\lambda}{4!}\delta^4(p_1+p_2+p_3+p_4)\frac{\delta^4(k_1-p_1)}{{k_1}^2-m^2}\frac{\delta^4(p_2-p_3)}{{p_2}^2-m^2}\frac{\delta^4(p_4-k_A)}{{k_A}^2-m^2},\label{1t1f}\)
+where the momenta are paired in all possible combinations. There are $6!$ different combinations, but they fall into only two topoligically inequivalent groups, as illustrated in figure~\ref{fey1t1o2}.
+
+\begin{figure}[htb]
+\begin{minipage}{.65\textwidth}
+\begin{footnotesize}\begin{center}
+\begin{tikzpicture}
+\draw (-3,0) node[left]{$1$} -- 
+      ++(1,.5) to[in=45,out=135,min distance=15mm,looseness=8] ++(0,0) --
+      ++(1,-.5) node[right]{$A$};
+\draw (1,.2) node[left]{$1$} -- ++(2,0) node[right]{$A$} 
+      ++(-1,.5) to[in=45,out=-45,min distance=15mm,looseness=8] 
+      ++(0,0) to[in=225,out=135,min distance=15mm,looseness=8] ++(0,0);
+\end{tikzpicture}
+\end{center}\end{footnotesize}
+\end{minipage}
+\hfill
+\begin{minipage}{.3\textwidth}
+\begin{center}\begin{footnotesize}
+\begin{tikzpicture}
+\draw (-1,0) node[left]{$1$} -- (1,0) node[right]{$A$};
+\end{tikzpicture}
+\end{footnotesize}\end{center}
+\end{minipage}
+\begin{minipage}[t]{.65\textwidth}
+\caption{The two structurally distinct groups of terms in the solution of the second term in the expansion of $e^{iS}$ for the $1\rightarrow1$ transition amplitude, illustrated by drawing the propagators as lines between either the in- and outgoing states $A$ and $1$ or a vertex connecting four lines, which represents the delta function of $p$-momenta.  There are $4!$ different ways to combine the ingoing lines, which means each interaction gets a symmetry factor of $4!$, which is neatly cancelled by the factor of $(4!)^{-1}$ in the original term.
+\label{fey1t1o2}}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{.3\textwidth}
+\caption{The first term drawn with the same method as fig.~\ref{fey1t1o2}.\label{fey1t1o1}}
+\end{minipage}
+\end{figure}
+
+Using the same method to illustrate the first term in the expansion gives the somewhat less interesting one shown in fig.~\ref{fey1t1o1}.
+
+\begin{figure}[htb]
+\hfill
+\begin{tikzpicture}
+\draw (-3,1) -- (-1,-1) (-3,-1) -- (-1,1);
+\node[right] at (-1,0) {$=-i\lambda$};
+\end{tikzpicture}
+\hfill
+\begin{tikzpicture}
+\node[right] at (-1,0) {$=\dfrac{1}{k^2-m^2}$};
+\draw (-3,0) -- (-1,0);
+\node at (0,-1) {};
+\node at (0,1) {};
+\end{tikzpicture}
+\hfill \phantom{d}
+\caption{The building blocks for Feynman diagrams in $\phi^4$ theory. Once constructed, find the momentum of each propagator by imposing momentum conservation at each vertex. Any momentum that cannot be related to one of the external momenta is integrated over.
+\label{phi4rules}}
+\end{figure}
+
+\underline{These are Feynman diagrams, and, using the Feynman rules laid out in figure~\ref{phi4rules}, the procedure can be reversed, so that first all those topologically inequivalent diagrams that have the right external connections are constructed using the components allowed by the Feynman rules, and then the value given to each such diagram is found, possibly multiplied by an symmerty factor, and used in later calculations.}
+
+Looking at eq.~\eqref{1t1f}, one of the internal $p$ momenta can not be fixed to the external $k$ momenta, which leaves this term proportional to a diverging integral, associated with the looping line in the left diagram in fig.~\ref{fey1t1o2}. There are established methods for renormalising these divergent terms, however for the present purposes, we note simply that non-divergent terms result from the lowest orders in the expansion, and become more common at higher orders, terms can alternatively be ordered by the number of loops in their diagrams. The non-divergent terms with loopless diagrams are referred to in the scheme as leading order (LO) terms, terms with single-loop diagrams are called next-to leading order (NLO), and so on.
+
+\section{Feynman diagrams}\footnote{The derivation in this section is inspired by \cite{wiki.feydiag}}
+
+Attempting this method in the case of a two particle state going to another two particle state, we can construct to zeroth order in $\lambda$, the Feynman diagrams in figure~\ref{efeydig1}.
+\begin{figure}[hbt]
+\begin{footnotesize}\begin{center}
+\begin{tikzpicture}
+\draw (-4,1) node[left]{$1$} -- (-2,1) node[right]{$A$};
+\draw (-4,-1) node[left]{$2$} -- (-2,-1) node[right]{$B$};
+\draw (0,0) node{{\normalsize $+$}};
+\draw (2,1) node[left]{$1$} -- (4,-1) node[right]{$B$};
+\draw[line width=5pt,white] (2,-1) -- (4,1) ;
+\draw (2,-1) node[left]{$2$} -- (4,1) node[right]{$A$};
+\end{tikzpicture}
+\end{center}\end{footnotesize}
+\caption{The Feynman diagrams associated with the first term in the expansion of the $2\rightarrow2$ transition amplitude. Once again, connected states are required to have the same momentum, however with more particles going into and coming out of the process, there are more than one way of connecting the ingoing and outgoing states.
+\label{efeydig1}}
+\end{figure}
+
+The value of these diagrams, using the rules, is
+\[\frac{\delta^4(k_1-k_A)}{{k_1}^2-m^2}\frac{\delta^4(k_2-k_B)}{{k_2}^2-m^2}+\frac{\delta^4(k_1-k_B)}{{k_1}^2-m^2}\frac{\delta^4(k_2-k_A)}{{k_2}^2-m^2},\]
+which is indeed what we would get from solving the Gaussian integral, up to some symmetry factors. At the next order in $\lambda$, we can build the diagrams in fig.~\ref{efeydig2}.
+
+\begin{figure}[hbt]
+\begin{footnotesize}\begin{center}
+\begin{tikzpicture}[scale=.75]
+\draw (-6.5,0) to [in=225,out=315,min distance=25mm,looseness=8] (-6.5,0) to [in=135,out=45,min distance=25mm,looseness=8] (-6.5,0);
+\draw (-5,0) node{\normalsize$\times$};
+\draw (-4,0) node{$\left(\text{\tikz[scale=.75] \draw (0,1) (0,-1);}\right.$};
+\draw (-3,1) node[left]{$1$} -- (-1,1) node[right]{$A$};
+\draw (-3,-1) node[left]{$2$} -- (-1,-1) node[right]{$B$};
+\draw (0,0) node{{\normalsize $+$}};
+\draw (1,1) node[left]{$1$} -- (3,-1) node[right]{$B$};
+\draw[line width=5pt,white] (1,-1) -- (3,1) ;
+\draw (1,-1) node[left]{$2$} -- (3,1) node[right]{$A$};
+\draw (4,0) node{$\left)\text{\tikz[scale=.75] \draw (0,1) (0,-1);}\right.$};
+\draw (5.5,0);
+\end{tikzpicture}
+
+\vspace{.5em}
+
+\begin{tikzpicture}[scale=.75]
+\draw (1,1) node[left]{$1$} -- ++(2,0) node[right]{$A$}
+      ++(-2,-2) node[left]{$2$} -- 
+      ++(1,0) to[in=45,out=135,min distance=15mm,looseness=8] ++(0,0) --
+      ++(1,0) node[right]{$B$};
+\draw (4,0) node{\normalsize $+$};
+\draw (5,1) node[left]{$1$} -- 
+      ++(1,0) to[in=225,out=315,min distance=15mm,looseness=8] ++(0,0) --
+      ++(1,0) node[right]{$A$}
+      ++(-2,-2) node[left]{$2$} -- 
+      ++(2,0) node[right]{$B$};
+\draw (8,0) node{\normalsize $+$};
+\draw (9,1) node(p1)[left]{$1$} -- ++(2,-2) node[right]{$B$};
+\draw[line width=5pt,white] (p1.east) ++(0,-2) -- ++(2,2);
+\draw (p1.east) ++(0,-2) node[left]{$2$} --
+      +(.5,.5) to[in=180,out=90,min distance=15mm,looseness=8] +(0.5,0.5) --
+      ++(1.5,1.5) node[right]{$A$};
+\draw (12,0) node{\normalsize $+$};
+\draw (13,1) node(p2)[left]{$1$} -- 
+      +(.5,-.5) to[in=180,out=270,min distance=15mm,looseness=8] +(0.5,-0.5) --
+      ++(1.5,-1.5) node[right]{$B$};
+\draw[line width=5pt,white] (p2.east) ++(0,-2) -- ++(2,2);
+\draw (p2.east) ++(0,-2) node[left]{$2$} --
+      ++(2,2) node[right]{$A$};
+\end{tikzpicture}
+
+\vspace{.5em}
+
+\begin{tikzpicture}[scale=.75]
+\draw (1,1) node[left]{$1$} -- (3,-1) node[right]{$B$};
+\draw (1,-1) node[left]{$2$} -- (3,1) node[right]{$A$};
+\end{tikzpicture}
+
+\end{center}\end{footnotesize}
+\caption{The Feynman diagrams associated with the second term in the expansion of the $2\rightarrow2$ transition amplitude. The joining of four momemta by the last delta function is illustrated by having four lines meet in a point.
+\label{efeydig2}}
+\end{figure}
+
+Of these diagrams, those in the first two lines are simply those of fig.~\ref{efeydig1} with loops added, and can be considered the one-loop, or next-to leading order, part of those processes. The only new diagram is the one in the last line, which describes an interaction between the two ingoing fields.
+
+The full development of all this into the Standard Model and its underlying framework, which has only been outlined here, is the subject of any number of texts (eg. \cite{srednicki}), and will not be given any further treatment here. The upshot is that the SM contribution to the $q\bar q\rightarrow\gamma\gamma$ process can now be summarised in a single, though admittedly bipartite, figure, namely fig.~\ref{smfeyn}, at least to next-to leading order.
+
+\begin{figure}[htb]
+\parbox[t]{.45\textwidth}{\begin{center}\begin{footnotesize}\begin{tikzpicture} [>=triangle 45]
+\draw[>-] (-1,1) -- (0,1);
+\draw[->] (0,1) -- (0,0);
+\draw[<-] (-1,-1) -- (0,-1) -- (0,0);
+\draw (-2,1) node[left] {$q$} -- (-1,1);
+\draw (-2,-1)  node[left] {$\bar q$} -- (-1,-1);
+\draw[snake=coil,segment aspect=0] (0,1) -- (2,1) node[right] {$\gamma$};
+\draw[snake=coil,segment aspect=0] (0,-1) -- (2,-1) node[right] {$\gamma$}; 
+\end{tikzpicture}
+\end{footnotesize}\end{center}
+\subcaption{SM contribution at tree level. \label{lofeyn}}}\hfill
+\parbox[t]{.52\textwidth}{\begin{center}\begin{footnotesize}
+\begin{tikzpicture} [>=triangle 45]
+\draw[>-] (-1,1) -- (0,1);
+\draw[decorate, decoration={coil,amplitude=2pt, segment length=2.68pt}] 
+    (0,1) -- node[below]{$g$} (2,1) ;
+\draw[decorate, decoration={coil,amplitude=2pt, segment length=2.68pt}] 
+    (2,1) -- node[left]{$g$} (2,-1);
+\draw[decorate, decoration={coil,amplitude=2pt, segment length=2.68pt}] 
+    (2,-1) -- node[above]{$g$} (0,-1); 
+\draw[decorate, decoration={coil,amplitude=2pt, segment length=2.68pt}] 
+    (0,-1) -- node[right]{$g$} (0,1);
+\draw[<-] (-1,-1) -- (0,-1);
+\draw (-2,1) node[left] {$q$} -- (-1,1);
+\draw (-2,-1)  node[left] {$\bar q$} -- (-1,-1);
+\draw[decorate, decoration={snake}] (2,1) -- (4,1) node[right]{$\gamma$};
+\draw[decorate, decoration={snake}] (2,-1) -- (4,-1) node[right]{$\gamma$};
+\end{tikzpicture}
+\end{footnotesize}\end{center}
+\subcaption{SM contribution at loop level. $g$s mark gluons.}}\hfill
+\caption{Feynman diagrams of the Standard Model contributions to the $q\bar q\rightarrow\gamma\gamma$ process up to next to leading order.\label{smfeyn}}
+\end{figure}
+
+
+We can calculate the invariant mass of a photon pair, defined as \cite{marshaw:invmass}
+\begin{align*} 
+M_{\gamma\gamma}&=\sqrt{(E_1+E_2)^2+|\mathbf p_1+\mathbf p_2|^2},
+\intertext{which, in the case of massless particles, can be rewritten as}
+&=\sqrt{2p_1p_2(1-\cos\theta)}. \label{sinvmass}
+\end{align*}
+The distribution of invariant mass for diphoton events can be used to characterise the underlying processes. Before any modifications to the SM are introduced, the distribution of invariant masses can be examined by producing a number of simulated pseudo-experiments, in this case using the event generator CalcHEP \cite{calchep}. The distribution is displayed in fig.~\ref{sminvm}.
+
+\begin{figure}[hbt]
+\begin{minipage}[b]{.69\textwidth}
+\input{cmener.tex}
+\end{minipage}
+\begin{minipage}[b]{.3\textwidth}
+\caption{The distribution of invariant masses of Standard Model diphoton events to leading order, as predicted by CalcHEP \cite{calchep} \label{sminvm}}
+\end{minipage}
+\end{figure}
+
+CalcHEP is a leading-order generator only, which means only diagrams of the type in fig.~\ref{lofeyn} are included. To gauge the effects of the next-to leading order diagram, we turn to the simulated event sets produced internally at ATLAS as shown in figure~\ref{sminvmnlo}. The use of such sets will be discussed more extensively in chapter~\ref{mcchap}.
+
+\begin{figure}[hbt]
+\begin{minipage}{.69\textwidth}
+\begin{sffamily}
+\input{boxdist}
+\end{sffamily}
+\end{minipage}
+\begin{minipage}[b]{.3\textwidth}
+\caption{The distribution of invariant masses of Standard Model diphoton events to leading order and next-to leading order. These are ATLAS datasets produced with pythia8 \cite{pythia} \label{sminvmnlo}}
+\end{minipage}
+\end{figure}
+
+\section{The effective Lagrangian approach}
+As already touched on in the introduction, there is the definite need to expand the Standard Model. The effective Lagrangian approach to that task assumes that the SM Lagrangian being merely the lowest order term in a series expansion of the true model. The full Lagrangian would then involve a (possibly) infinite series of higher order terms that describe as yet unknown physics. The expansion will be in some mass scale $\Lambda$, which is assumed to be much greater than the typical energy of the interactions being studied. If the two become comparable, the initial assumption, that the corrections to the Lagrangian are small, is violated. The addition of an extra term breaks the unitarity of the model, however, since we no longer claim to have a complete model, nor even a complete model to the order of the new term, this issue can be overlooked. Within this scheme, terms of higher order in $\Lambda$ can be added to the Lagrangian as proposed higher order corrections, and the effects on the predictions of the SM can be searched for in experiments.
+
+In this thesis, a $q\overline{q}\,\rightarrow\,\gamma\gamma$ contact interaction is considered. A Lagrangian describing such an interaction is \cite{rizzo}
+\(\mathcal L_n = \frac{2ie^2}{\Lambda^4}Q_q^2F^{\mu\sigma}F^\nu_\sigma\overline{q}\gamma_\mu\partial_\nu q,\label{rizzo}\)
+where $e$ is the elementary charge, $Q_q$ is the quark charge of quark $q$ and $\Lambda$, as discussed, is the associated mass scale. The power of $\Lambda$ is chosen to give the correct mass dimension of the term.\footnote{In natural units, for the action to be unitless, the lagrangian density must have mass dimension 4. The factors $F^{\mu\sigma}F^\nu_\sigma$ and $\overline{q}\gamma_\mu\partial_\nu q$ each contribute a mass dimension of 4, so the energy scale, which has dimension of mass, must get a power of $-4$.} This new term gives rise to new interactions, with Feynman diagrams of the type shown in fig.~\ref{rule}.
+
+\begin{figure}[hbt]\begin{center}
+{\footnotesize\begin{tikzpicture} [>=triangle 45]
+\draw[>-] (-1,.5) -- (0,0);
+\draw[<-] (-1,-.5) -- (0,0);
+\draw (-2,1) node[left] {$u_{ap,2}$} -- (-1,.5);
+\draw (-2,-1)  node[left] {$\bar u_{bq,1}$} -- (-1,-.5);
+\draw[snake=coil,segment aspect=0,line before snake=3mm] (0,0) -- (2,1) node[right] {$\gamma_{\mu,3}$};
+\draw[snake=coil,segment aspect=0,line before snake=3mm] (0,0) -- (2,-1) node[right] {$\gamma_{\nu,4}$}; 
+\node at (1,0) [right] {\footnotesize$=\dfrac{8 e{}^2}{9 \Lambda^4} \delta_{p q} \big(p_2^\rho p_3^\rho p_4^\sigma g^{\mu \nu} \gamma_{a b}^\sigma -p_2^\mu p_3^\nu p_4^\rho \gamma_{a b}^\rho -p_2^\rho p_3^\rho p_4^\mu \gamma_{a b}^\nu +p_2^\mu p_3^\rho p_4^\rho \gamma_{a b}^\nu $};
+\node at (2.3,-.6) [right] {$+p_2^\rho p_3^\sigma p_4^\rho g^{\mu \nu} \gamma_{a b}^\sigma -p_2^\nu p_3^\rho p_4^\mu \gamma_{a b}^\rho -p_2^\rho p_3^\nu p_4^\rho \gamma_{a b}^\mu +p_2^\nu p_3^\rho p_4^\rho \gamma_{a b}^\mu \big)$};
+\end{tikzpicture}
+}\end{center}
+\caption{An example of a Feynman rule as created by entering the new term from eq.~\eqref{rizzo} into LanHEP\cite{lanhep}. It gives the coupling constant of the four-point interaction between an up- and an antiup-quark, and two photons. $p_n$ represents the four-momentum of particle $n$, $\gamma_{ab}^\mu$ is the $\gamma$-matrix, $g^{\mu\nu}$ is the metric tensor, $\delta_{pq}$ is the Kronecker delta, $e$ is the elementary charge and $\Lambda$ is the associated mass scale.\label{rule}}
+\end{figure}
+
+The process of creating Feynman rules from a Lagrangian can be safely automated, so fig.~\ref{rule} gives an example of a Feynman rule created from \eqref{rizzo} by LanHEP \cite{lanhep}, a tool chosen for its good compatibility with CalcHEP.
+
+\begin{figure}[htb]
+\parbox[t]{.45\textwidth}{\begin{center}\begin{footnotesize}\begin{tikzpicture} [>=triangle 45]
+\draw[>-] (-1,.5) -- (0,0);
+\draw[<-] (-1,-.5) -- (0,0);
+\draw (-2,1) node[left] {$q$} -- (-1,.5);
+\draw (-2,-1)  node[left] {$\bar q$} -- (-1,-.5);
+\draw[snake=coil,segment aspect=0] (0,0) -- (2,1) node[right] {$\gamma$};
+\draw[snake=coil,segment aspect=0] (0,0) -- (2,-1) node[right] {$\gamma$}; 
+\end{tikzpicture}
+\end{footnotesize}\end{center}
+\subcaption{Point $q\bar q \gamma\gamma$ interaction.\label{cross}}}\hfill
+\parbox[t]{.45\textwidth}{\begin{center}\begin{footnotesize}
+\begin{tikzpicture} [>=triangle 45]
+\draw[->] (-2,1) node[left] {$q$} -- (-1.5,.5);
+\draw[-<] (-2,-1) node[left] {$\bar q$}  -- (-1.5,-.5);
+\draw (-1.5,.5) -- (-1,0);
+\draw (-1.5,-.5) -- (-1,0);
+\draw[dashed] (-1,0) -- node[below] {$X$} (0,0);
+\draw[snake=coil, segment aspect=0] (0,0) -- (1,1)node[right] {$\gamma$};
+\draw[snake=coil, segment aspect=0] (0,0) -- (1,-1)node[right] {$\gamma$};
+\end{tikzpicture}
+\end{footnotesize}\end{center}
+\subcaption{The $q\bar q \gamma\gamma$ interaction with mediating particle $X$.\label{across}}}\hfill
+\caption{Feynman diagrams of the relevant contact interaction, with time moving to the right. (a) is the interaction described by the new term in the Lagrangian, while (b) is the type of interaction this can be considered a zero-range approximation of.\label{feyns}}
+\end{figure}
+
+Here, only a contact interaction is considered, but a contact interaction can be thought of as a zero-range approximation for a process involving some mediating particle, as illustrated in fig.~\ref{feyns} \cite{marshaw:zerorange}.
+
+\section{Colliding protons}
+The previous section describes the desirable but unrealistic scenario where quarks are collided with antiquarks. Since we must to deal with the collider technology available at the moment, it is necessary to consider the added layer of complexity that comes from colliding protons.
+
+\begin{figure}[hbt]
+\includegraphics[width=.55\textwidth]{pdf}\hfill\parbox[b]{.44\textwidth}{
+\caption{Parton distribution function obtained from the \textsc{cteq} collaboration. It gives the probability of extracting a specific quark from a proton with a certain fraction, $x$ of its energy. From \cite{scien2}.\label{pdff}}}
+\end{figure}
+
+The first complication would seem to be the lack of antiquarks in ordinary protons, however, as fig.~\ref{pdff} shows, at high energies there is a certain probability for extracting a wide variety of quarks from protons. These extra quarks are referred to as sea quarks. The functions that relate the probability of extracting a certain parton from a proton with the energy scale $Q^2$ and the momentum fraction of the extracted parton $x$ are called Parton Distribution Functions (PDFs)\footnote{PDFs may, if you like being confused, be classified as a type of probability density function (pdf).}, and are determined experimentally. This thesis will mainly deal with the CTEQ set of PDFs, but there are others.
+
+This leads to the following equation, which relates the cross section of the interaction of interest, $\sigma(q\overline{q}\rightarrow\gamma\gamma)$ to the cross section of that process in proton-proton events, $\sigma(pp\rightarrow\gamma\gamma)$:
+\(\sigma(pp\rightarrow\gamma\gamma)=\sum_q\iint dx_1\,dx_2\,f_q(x_1,Q^2)f_{\bar q}(x_2,Q^2)\sigma(q\bar q\rightarrow\gamma\gamma),\label{pdf}\)
+where $f_q$ is the PDF for parton $q$.
+
+
+
+\end{english}
+\end{document}

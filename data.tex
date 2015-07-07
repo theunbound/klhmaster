@@ -1,32 +1,13 @@
-\subsection{Triggering and data collection}
-While in full operation for the 2012, 8~TeV run, the LHC delivered a bunch crossing in \textsc{atlas}' interaction point every 50~ns. Reading out the whole detector produces 1.6~MB of information, which, if the detector were read out completely with every crossing, would produce a data rate of 34~TB/s.\footnote{For perspective, that is approximately equal to the estimated global IP traffic rate in 2015, according to \cite{wolframip}.} However, since only a fraction of these collisions produce interesting physics events, we can reduce the data rate to less prohibitive levels simply by not recording data from collision that do not produce interesting events. To accomplish this, we need a system that examines events in the detector as they occur, and trigger recording whenever it sees an interesting event. In \textsc{atlas}, this trigger system has three levels, which are described in detail in \cite{detectorpaper}. 
-
-The level--1 trigger examines events in real time as they occur in the detector. To do so, the trigger logic is run on specialised hardware built in to the detectors. As a result, each trigger only has access to information from the detector its hardware is attached to. Chalorimeter triggers, for example, do not have access to information from the tracking system at the first trigger level. Also, computationally intensive tasks, such as track reconstruction, can not be completed in the window of time available to the level--1 trigger, and so are also not available. The next trigger level, level--2, is run on the full set of information from an event, on those events which pass the level--1 filter. The final trigger level works with fully reconstructed events and derived physical observables. This requres more time and processing power than is available at the previous levels, but it also identifies interesting events with the same quality of information as will be used in the subsequent analysis. All three triggers in combination cuts the final event rate to 300 events per second, with a peak rate of 600 events.
-
-For this thesis, we shall use data taken during the 8~TeV run in 2012. The amount of data taken at any given time depends on the conditions of the beam, which can be summarised in the instantaneous luminosity, and the conditions of the detector, which may only capture a fraction of the events produced at any given time. Figure~\ref{intlumi} gives the distribution of integrated and captured luminosity over the course of the year.
-
-\begin{figure}[htp]
-\begin{minipage}[b]{.69\textwidth}
-\hspace{-1em}\includegraphics[width=\textwidth]{figures/intlumi}
-\end{minipage}\hfill\begin{minipage}[b]{.3\textwidth}
-\caption{A plot showing the integrated luminosity delivered by the LHC (green), recorded by ATLAS (yellow), and fulfilling data quality criteria (blue), over the course of the 8 TeV run in 2012 \cite{publiclumi}.
-\label{intlumi}}
-\end{minipage}
-\end{figure}
-
-Unfortunately, the triggers that are implemented in \atlas{} do not guarantee that the event rate remains within the technical limitations of the readout system. To stay within those limits, \atlas{} prescales certian triggers, when they originate from a trigger that produces more events than it is considered worth keeping,\footnote{Explaining how it is decided whether data is worth keeping would veer into a discussion of \atlas{} internal politics, which is a topic beyond the scope of this thesis.} which means simply that a fraction of event that pass a trigger are not recorded. The diphoton channel is important to the search for the Higgs boson, however, so the triggers that produce diphotons events have not been prescaled.
-
-
 \chapter{Data preparation}
 
-For the present analysis, we will use events that passed the \texttt{2g40\_loose} level--1 trigger, which requires that the EM calorimeter reports two hits with at least 40~GeV of transverse energy that pass the loose selection criteria, described in the previous chapter.
+For the present analysis, we will use events that passed the \texttt{2g40\_loose} level--1 trigger, which requires that the EM calorimeter reports two energetic regions with at least 40~GeV of transverse energy that pass the loose selection criteria, described in the previous chapter.
 
 The datasets have been retrieved in the \texttt{NTUP\_PHOTON} format, which is streamlined to contain information relevant to photon analyses, and easily readable by \textsc{root}. The dataset used contains events corresponding to 18.301~fb$^{-1}$ of integrated luminosity.
 
 On each of the prospective photons in this dataset, we impose a series of selection criteria:
 
 \begin{itemize}
-\item \textbf{otx and phoCloan cut:} Object quality cuts, which cut out events too close to non-functioning or noisy detector elements, and events taken while the detector was in a non-optimal state.
+\item \textbf{otx and phoClean cut:} Object quality cuts, which cut out events too close to non-functioning or noisy detector elements, and events taken while the detector was in a non-optimal state.
 \item \textbf{ID cut:} Objects that did not pass photon identification, or do not satisfy the loose selection criteria after reconstruction, are eliminated.
 \item \textbf{kinematics cut:} Ensures that objects do not have $|\eta|$ greater than 2.37, which is the forward limit of the first layer of the EM calorimeter, or in the range between 1.37 and 1.52, which is the transition region between the barrel and endcap calorimeters. Also ensures $E_T$ greater than 50~GeV, which clears the turn--on curve of the \texttt{2g40\_loose} trigger.
 \item \textbf{N\_events cut:} Ensures that each event has at least two photons that pass the above criteria.
@@ -50,19 +31,47 @@ The number of objects remaining at each step of the cut procedure is plotted in 
 What remains after these cuts have been applied is a purer sample of photons than we had before, however the sample will still contain a background of events that do not come from the processes that we wish to study. An estimate of this background is required.
 
 \section{Data driven background estimation}
-The background that remains in the signal sample after these criteria have been applied can be estimated in a number of ways. In chapter~\ref{ch.mc}, monte  carlo samples that simulate several physical processes that act as background to diphoton events were presented. Here, however, we shall attempt to quantify the magnitude of the background by examining the data.
+The background that remains in the signal sample after these criteria have been applied can be estimated in a number of ways. In chapter~\ref{ch.mc}, Monte Carlo samples that simulate several physical processes that act as background to diphoton events were [will be have been: WIP] presented. Here, however, we shall attempt to quantify the magnitude of the background by examining the data.
 
 \subsection{The ABCD method}
-Also known as the two--dimensional sideband method, illustrated in figure~\ref{abcd}.
+We assume that it is possible to extrapolate the shape of the distribution of background events that pollute the signal sample from the distribution of events that occur well away from the signal region. The \textsc{abcd} method assumes that the distribution of background events has the same shape in the signal region as it does in a control region. There will still be a scale difference between the two, which can be determined by examining a different control region.
+
+This is also known as the two--dimensional sideband method \cite{cmsabcd}. The following description may be aided by the illustration in figure~\ref{abcd}.
+
 
 \begin{figure}[hbp]
   \includegraphics[width=\textwidth]{figures/sideband}
   \caption{Illustrating the two--step ABCD method using the `tight' selection criteria and the isolation energy: the full set of diphotons (the L-L sample) is split into four groups---A, B, C and D---according to the discriminating variables for the leading photon. Signal photons are now confined to the A region. The events in the C region can be used to estimate the shape, and the B and D region can be used to estimate the magnitude of the distribution of background events in the signal region. The procedure is then repeated for the subleading partner photons of the events in the A region. This gives an estimate of the distibution of background events in the combined signal (A--A) region. This figure adapted from \cite{fdirect}.}\label{abcd}
 \end{figure}
 
-By taking two uncorrelated discriminating variables, we can split the distribution of one of them into two, according to the other discriminating variable, one sample with pure background events, and the other with signal and background events. Assuming that the shape of the distribution of background events is the same in the mixed signal and background sample as it is in the pure background sample, the shape of the distribution in the signal region of the background sample, this is the C region, is the same as the shape of the distribution of background events in the signal region of the mixed sample, the A region. The B and D regions contain only background events, so the magnitude of the background distribution in the A region can be found by comparing the sidebands. For more detail, see \cite{cmsabcd}
+To reiterate, we need to examine our sample of signal and background data points in terms of two uncorrelated discriminating variables, call them $x$ and $y$. With this, we can split the data set into four regions:
 
-For the diphoton sample, we will use the `tight' selection criteria, which were described in chapter~\ref{ch.ex}, and the transverse isolation energy, $E_T^{\text{isol}}$, the energy deposited in the calorimeter in a cone with radius $R\le0.4$, but outside $R\le0.2$, where
+\begin{itemize}
+\item[{\bfseries\sffamily\color{natgreen}A:}] The signal region in both discriminating variables. This region should contain all signal events.
+\item[{\bfseries\sffamily\color{natgreen}B:}] The signal region in the $y$ variable, but not in $x$. We assume that the distribution of background events in $y$ in this regions will have the same shape as the distribution of background events in $y$ in the signal region, A.
+\item[{\bfseries\sffamily\color{natgreen}C:}] As above, but with $x$ and $y$ exchanged.
+\item[{\bfseries\sffamily\color{natgreen}D:}] The control region for both variables. Once again, we assume that the distribution of background events has the same shape for either variable as it does its signal region. We expect the distribution in $x$ to have the same shape in the D region as it does in the B region, for example.
+\end{itemize}
+
+Thus, the distribution in $x$ of background events in the A region, $A_{bck}$, is assumed to be the shape of the distribution of events in the C region, scaled so that the distribution of events in $x$ in the B and D regions have the same magnitude:
+\(A_{bck}=C\frac BD.\label{abckfind}\)
+The signal distribution must then be given as
+\(A_{sig}=A-A_{bck}.\label{asig}\)
+
+As we are working with events with two photons, both of which give rise to independent backgrounds, this procedure must be repeated for the subleading photons as well. For the subleading photon candidate, we look at the sample of photon candidates that are the subleading partner of a selected photon in the signal A region of the distribution of leading photon candidates. Carrying out the \textsc{abcd} procedure on the sample of subleading photons gives us $AA_{bck}$, an estimate of the number of selected photon pairs where the leading photon is in the A region and the subleading photon is a background event in the A region of the distribution of subleading photons with a partner in the A region (call this the AA region for short)\footnote{AAAAAAAAAAA!}. As above, the signal--signal region must be given by
+\[A_{sig}A_{sig} = A_{sig}A-A_{sig}A_{bck}.\]
+Inserting \eqref{asig} into this gives
+\begin{align*}A_{sig}A_{sig} &=(A-A_{bck})A-(A-A_{bck})A_{bck}\\ &=AA-A_{bck}A-AA_{bck}+A_{bck}A_{bck}\\&=AA-[AA]_{bck}.
+\end{align*}
+Of the terms that contribute to the total background $[AA]_{bkc}$, we already have $AA$ available. $AA_{bck}$ is determined by taking
+\[AA_{bck}=AC\frac{AB}{AD},\]
+analogous to how the $A_{bck}$ sample was determined in eq.~\eqref{abckfind}. We find $A_{bck}A$ and $A_{bck}A_{bck}$ by multiplying $AA$ and $AA_{bck}$ by
+\[f_{bck}=\frac{A_{bck}}{A},\]
+the fraction of background events in the leading photon A sample. Thus, the total estimated background in the AA region is given by
+\[[AA]_{bck}=\frac{A_{bck}}{A}(AA)+AA_{bck}-\frac{A_{bck}}{A}(AA_{bck}),\]
+which we can interpret as the number of data points where the leading photon was a background plus the number of data points where the subleading photon was a background, subtracted the number of data points where both photons were background events, which would have been double counted.
+
+For the diphoton sample, we will use the `tight' selection criteria, which were described in chapter~\ref{ch.exp}, and the transverse isolation energy, $E_T^{\text{isol}}$, the energy deposited in the calorimeter in a cone with radius $R\le0.4$, but outside $R\le0.2$, where
 \[R=\sqrt{\Delta\phi^2+\Delta\theta^2}.\]
 The signal region is cut at $E_T^{\text{isol}}\le3$ GeV. We allow a crosstalk region of 2 GeV, which means the background region is defined with $5\text{ GeV}\le E_T^{\text{isol}}\le25\text{ GeV}$. The distribution of $E_T^{\text{isol}}$ for leading photons and subleading photons in the `A' sample is given in figure~\ref{etiso}.
 
@@ -77,8 +86,6 @@ The signal region is cut at $E_T^{\text{isol}}\le3$ GeV. We allow a crosstalk re
 \end{minipage}
 \end{figure}
 
-The same procedure is applied to the subleading partner photons to the leading photons in the `A' region, the `A' sample in fig.~\ref{abcd}. This gives us the number of background events in the leading `A' sample and the number of background events in the subleading `A' sample. The final estimated background on the diphoton signal is the estimated fraction of background events in the leading `A' sample multiplied by the `A--A' subleading sample, plus the estimated background in this sample, minus the background fraction in the `A' sample times the estimated background on the `A--A' sample, which was double--counted.
-
 Performing this process for each bin in $M_{\gamma\gamma}$, we obtain the distribution of background events shown in figure~\ref{mggbck}. Note, though, that the plots of $E_T^{\text{isol}}$ above showed the combined distribution for all $M_{\gamma\gamma}$ bins combined.
 
 \begin{figure}[htp]
@@ -87,32 +94,32 @@ Performing this process for each bin in $M_{\gamma\gamma}$, we obtain the distri
 \input{figures/bck}
 \end{infilsf}
 \end{minipage}\hfill\begin{minipage}[b]{.3\textwidth}
-\caption{The distribution of background events in $M_{\gamma\gamma}$ estimated from data with the ABCD method, along with the distribution of dihpoton events given by the data.
+\caption{The distribution of background events in $M_{\gamma\gamma}$ estimated from data with the ABCD method, along with the distribution of diph11111oton events given by the data.
 \label{mggbck}}
 \end{minipage}
 \end{figure}
 
 \section{Comparison to SM MC}
-\Atlas{} provedes a variety of Monte Carlo event sets to which we can compare this result. In figure \ref{mcsets}, a combination of sets that simulate $\gamma\gamma$, $\gamma$-jet, single $\gamma$ and $Z\,\rightarrow\,ee$ events, which has been subjected to background estimation via the ABCD method just as the data sample was above, is compared to data.
+[Herfra er alting work in progress]
+
+\Atlas{} provides a variety of Monte Carlo event sets that describe physical processes that might produce events in the signal region. Among a larger selection of candidate sets, the four used to produce figure~\ref{mclist} were found to yield the greatest contribution after the selection criteria used for the data were applied to them\footnote{[Something, something, list of full names, maybe appendix on contributions from sets?]}. The greatest contribution comes from the MC set that describes the Standard Model $pp\,\rightarrow\,\gamma\gamma$ process. The remaining MC sets describe processes with $\gamma$--jet or single--$\gamma$ final states, and  $Z\,\rightarrow\,ee$ decays as the most significant among processes with $ee$ final states. These processes might produce false positives either by emitting hard photons through bremsstrahlung or by false identification of electrons as converted photons.
 
 \begin{figure}[htp]
 \begin{minipage}[b]{.69\textwidth}
 \begin{infilsf} \tiny
 \input{figures/mclist}
 \end{infilsf}
+\end{minipage}
+\begin{minipage}[b]{.3\textwidth}
 \caption{The invariant mass distribution of diphoton events from the \atlas{} Monte Carlo event sets that pass all selection criteria, along with the contribution from each included Monte Carlo set. All distributions have been normalised to the luminosity of the data sample.}
-\label{mcsets}
+\label{mclist}
+\end{minipage}
 \end{figure}
 
-A good agreement between the two is observed.
 
-a set of monte carlo events that simulate the diphoton events that the standard model predicts will be produced in \atlas{}.
+a set of monte carlo events that simulate the diphoton events that the standard model predicts will be produced in \atlas{}. These samples are chosen from a larger selection of MC samples as the only ones that provide a non--negligible contribution.
 
-
-
-best guess at a monte carlo sample containing all events that pass the selection criteria applied to data.
-
-which describes the data quite well.
+...which describes the data quite well.
 
 \section{Total background}
 In chapter~\ref{ch.mc} [apparently not...] we obtained a set of predicted background events from several Monte Carlo samples of processes whose final products appear similar to diphotons in the detector. Subjecting those samples to the same background estimation process as the data sample underwent above, we obtain a prediction for the background events in the signal region, which are not removed by the data driven method. Combining this prediction with the estimated background, we obtain a distribution which represents the estimated difference between the data sample and the pure Monte Carlo sample also found in chapter~\ref{ch.mc}. Figure~\ref{tobck} compares these distributions.
