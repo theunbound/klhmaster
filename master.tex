@@ -1,111 +1,19 @@
 % !TEX program = xelatex
 \input{prekux.tex}
 
+%\includeonly{data}
+
 \begin{document}
 \begin{english}
-\begin{titlingpage}
-{
-%\definecolor{kugray}{RGB}{102,102,102}
-%\definecolor{natgreen}{RGB}{50,93,61}
-\thispagestyle{empty}
-\newlength{\topma}\setlength{\topma}{-1in}\addtolength{\topma}{-\headsep}\addtolength{\topma}{-\voffset}\addtolength{\topma}{11mm}
-\newlength{\sidema}\setlength{\sidema}{-1in}\addtolength{\sidema}{-\hoffset}\addtolength{\sidema}{-\oddsidemargin}\addtolength{\sidema}{-\marginparsep}\addtolength{\sidema}{15mm}
-\newlength{\textwa}\setlength{\textwa}{\paperwidth}\addtolength{\textwa}{-35mm}\addtolength{\textwa}{-\textwidth}
-\newlength{\textha}\setlength{\textha}{-\textheight}\addtolength{\textha}{\paperheight}\addtolength{\textha}{-11mm}\addtolength{\textha}{-.1\paperheight}
-\changepage{\textha}{\textwa}{}{\sidema}{}{-\topmargin}{-\headheight}{\topma}{}
-%\setlength{\parindent}{0pt}
-\noindent\begin{minipage}[t]{.8\textwidth}
-\noindent\raggedright \textcolor{kugray}{\fontspec[Path=fonts/garamond/]{GaramondPremrPro.otf}\addfontfeature{LetterSpace=13.0}\fontsize{18}{17}\selectfont\textsc{university of copenhagen}}
+\include{front}
 
-\vspace{.2em}\textcolor{kugray}{\fontspec[Path=fonts/garamond/]{GaramondPremrPro.otf}\addfontfeature{LetterSpace=13.0}\fontsize{15}{17}\selectfont\textsc{niels bohr institute}}
-\end{minipage}\hfill\begin{minipage}[t]{32mm}\raggedleft \vspace{16mm} \includegraphics[height=44mm]{figures/bionat.pdf}
-\end{minipage}
+\include{theory}
 
+\include{sim}
 
-\newlength{\markbump}\setlength{\markbump}{.3\paperwidth}\addtolength{\markbump}{-6mm}
-\newlength{\markdown}\setlength{\markdown}{-75mm}\addtolength{\markdown}{0em}\addtolength{\markdown}{\paperheight}\addtolength{\markdown}{.15\paperwidth}
-\noindent\makebox[0pt][l]{\hspace{\markbump}\raisebox{-\markdown}[0pt][0pt]{\includegraphics[height=.85\paperwidth]{figures/atlaskugrid2.pdf}}}\makebox[0pt][r]{\raisebox{3.2mm}[0pt][0pt]{\textcolor{natgreen}{\rule{.06\paperwidth}{.7pt}}}}\makebox[0pt][l]{\raisebox{3.2mm}[0pt][0pt]{\textcolor{natgreen}{\rule{.95\paperwidth}{.7pt}}}}
+\include{experiment}
 
-
-
-
-
-\bigskip
-
-{\sffamily
-\begin{hangparas}{0em}{0}
-{\textbf{ }
-
-\vspace{2em}}
-
-{\LARGE \textbf{Master's thesis}
-
-\vspace{.3em}}
-
-{\Large Kristoffer Levin Hansen}
-
-\vspace{3em}
-
-{\Huge \raggedright
-Search for new physics in diphoton production with the ATLAS detector at the LHC
-}
-\vfill{}
-
-{\Large Academic advisor: Jørgen Beck Hansen}
-\vspace{28em}
-
-\today
-\end{hangparas}
-}
-\clearpage}
-\thispagestyle{empty}
-  \phantom{p}
-\vspace{1.16\textwidth}
-
-\begin{center}
-\includegraphics[width=.1\textwidth]{star1}
-\end{center}
-\clearpage
-\end{titlingpage}
-\frontmatter
-
-\tableofcontents
-\mainmatter
-
-\chapter{Introduction}
-
-Since the late 1960s, our---at times evolving---understanding of the properties and interactions of the fundamental particles has been summarised by the Standard Model. The Standard Model is formulated in the language of Quantum Field Theory\footnote{Quantum Field Theory is capitalised here in anticipation of it shortly becoming an acronym.}, and attempts to combine a theoretical model of quantum mechanical phenomena with an experimental understanding of the properties of fundamental particles and the couplings between them.
-
-An overview of a selection of these properties and interactions is given in fig.~\ref{SMsum}.
-
-\begin{figure}[htp]
-\begin{minipage}[b]{.745\textwidth}
-\input{figures/smover}
-\end{minipage}
-\hfill\begin{minipage}[b]{.25\textwidth}
-\caption{An overview of the particles of the Standard Model. The particles are arranged by mass and charge. Colour indicates particle type, the filling of the border indicates the spin of particles and lines are drawn between those particles that the Standard Model describes interactions between. The currently known maximum bounds on neutrino masses have been used to place the neutrinos in the mass direction. Table values from \cite{wikism}.\label{SMsum}}
-\end{minipage}
-\end{figure}
-
-In its current form, the Standard Model makes no attempt to explain any physics beyond this.\footnote{The overview in figure~\ref{SMsum} includes massive neutrinos, which have been found experimentally, even though the Standard Model does not at present include them. There are, however, several proposed methods of extending the SM to do so.} The most obvious missing element is gravity, which find no obvious expression in terms of Quantum Field Theory. Other seemingly missing elements come from astronomy, where a number of phenomena, such as dark matter and dark energy, which seem to require an explanation from within the realm of physics that the Standard Model describes, but for which the Standard Model offers no obvious source.
-
-Disregarding these issues, which may be considered external to the scope of the Standard Model, it has been remarkably successful as a model for high energy particle physics, withstanding decades of experimental tests and correctly predicting the existence and properties of several particles.\footnote{Most recently, the existence of the Higgs boson was confirmed experimentally. At the time of writing, confirmation of its predicted properties is still a work in progress.} In spite of those successes, the Standard Model is not without its issues.
-
-As it is formulated, the SM depends on at least 19 numerical constants,\footnote{Not counting any additional constants needed to account for neutrino masses.} the value of which must be determined experimentally, since the model offers no insight into the origin of or relations between them. Worse still, as the SM is a perturbative model, higher order corrections, which tend to increase the predicted Higgs mass with no constraint save the Planck energy, must be included in the theory. To arrive at the observed Higgs mass in spite of this tendency, either some unknown physics exist between the Higgs mass scale and the Planck scale to constrain the Higgs mass, or the bare mass and couplings of the Higgs boson are very finely tuned to cancel the higher order contributions. This is one example of the hierarchy problem.
-
-In the first case, we will obviously want to search for evidence of the postulated new, high-energy physics. In the latter case, we might expect\footnote{Or \emph{hope for}, depending on how invested we happen to be in the question of fine--tuning.} there to be some additional mechanism within the Standard Model that ensures that the bare Higgs mass and the other free parameters of the SM are given the proper value. Again, we will want to search for physics outside what is currently described by the SM, as a clue to what that mechanism might be.
-
-There is also the possibility that neither of those mechanisms exist, since the Standard Model, strictly speaking, does not require them. In that case, searching for, and finding no, new physics is still a valuable, albeit less illuminating, result.
-
-In this thesis, we shall approach the task of searching for physics beyond the Standard Model by introducing to it an extension via the effective Lagrangian approach. Specifically, we will introduce a $q\bar q\rightarrow\gamma\gamma$ point interaction, and then simulating collision experiments with the new interaction at various strengths, to see how the outcome is affected. We can then, finally, compare the results of those pseudoexperiments to the results of actual collision experiments performed at \textsc{cern}'s Large Hadron Collider, and look for signs of the same effects there.
-
-\input{theory}
-
-\input{sim.tex}
-
-\input{experiment}
-
-\input{data.tex}
+\include{data}
 
 \chapter{Analysis}
 All of the bits so far are put together, and a limit on the size of

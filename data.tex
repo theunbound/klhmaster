@@ -1,6 +1,6 @@
 \chapter{Data preparation}
 
-For the present analysis, we will use events that passed the \texttt{2g40\_loose} level--1 trigger, which requires that the EM calorimeter reports two energetic regions with at least 40~GeV of transverse energy that pass the loose selection criteria, described in the previous chapter.
+For the present analysis, we will use events that passed the \texttt{2g40\_loose} level--1 trigger, which requires that the EM calorimeter reports two energetic regions with at least 40~GeV of transverse energy that pass the loose selection criteria, described previously in chapter~\ref{ch.exp}.
 
 The datasets have been retrieved in the \texttt{NTUP\_PHOTON} format, which is streamlined to contain information relevant to photon analyses, and easily readable by \textsc{root}. The dataset used contains events corresponding to 18.301~fb$^{-1}$ of integrated luminosity.
 
@@ -50,7 +50,7 @@ To reiterate, we need to examine our sample of signal and background data points
 \item[{\bfseries\sffamily\color{natgreen}A:}] The signal region in both discriminating variables. This region should contain all signal events.
 \item[{\bfseries\sffamily\color{natgreen}B:}] The signal region in the $y$ variable, but not in $x$. We assume that the distribution of background events in $y$ in this regions will have the same shape as the distribution of background events in $y$ in the signal region, A.
 \item[{\bfseries\sffamily\color{natgreen}C:}] As above, but with $x$ and $y$ exchanged.
-\item[{\bfseries\sffamily\color{natgreen}D:}] The control region for both variables. Once again, we assume that the distribution of background events has the same shape for either variable as it does its signal region. We expect the distribution in $x$ to have the same shape in the D region as it does in the B region, for example.
+\item[{\bfseries\sffamily\color{natgreen}D:}] The control region for both variables. Once again, we assume that the distribution of background events has the same shape for either variable in the control region as it has in its signal region. We expect the distribution in $x$ to have the same shape in the D region as it does in the B region, for example.
 \end{itemize}
 
 Thus, the distribution in $x$ of background events in the A region, $A_{bck}$, is assumed to be the shape of the distribution of events in the C region, scaled so that the distribution of events in $x$ in the B and D regions have the same magnitude:
@@ -58,7 +58,7 @@ Thus, the distribution in $x$ of background events in the A region, $A_{bck}$, i
 The signal distribution must then be given as
 \(A_{sig}=A-A_{bck}.\label{asig}\)
 
-As we are working with events with two photons, both of which give rise to independent backgrounds, this procedure must be repeated for the subleading photons as well. For the subleading photon candidate, we look at the sample of photon candidates that are the subleading partner of a selected photon in the signal A region of the distribution of leading photon candidates. Carrying out the \textsc{abcd} procedure on the sample of subleading photons gives us $AA_{bck}$, an estimate of the number of selected photon pairs where the leading photon is in the A region and the subleading photon is a background event in the A region of the distribution of subleading photons with a partner in the A region (call this the AA region for short)\footnote{AAAAAAAAAAA!}. As above, the signal--signal region must be given by
+As we are working with events with two photons, both of which give rise to independent backgrounds, this procedure must be repeated for the subleading photons as well. For the subleading photon candidate, we look at the sample of photon candidates that are the subleading partner of a selected photon in the signal, A, region of the distribution of leading photon candidates. Carrying out the ABCD procedure on the sample of subleading photons gives us $AA_{bck}$, an estimate of the number of selected photon pairs where the leading photon is in the A region and the subleading photon is a background event in the A region of the distribution of subleading photons with a partner in the A region (call this the AA region for short)\footnote{AAAAAAAAAAA!}. As above, the signal--signal region must be given by
 \[A_{sig}A_{sig} = A_{sig}A-A_{sig}A_{bck}.\]
 Inserting \eqref{asig} into this gives
 \begin{align*}A_{sig}A_{sig} &=(A-A_{bck})A-(A-A_{bck})A_{bck}\\ &=AA-A_{bck}A-AA_{bck}+A_{bck}A_{bck}\\&=AA-[AA]_{bck}.
@@ -73,7 +73,7 @@ which we can interpret as the number of data points where the leading photon was
 
 For the diphoton sample, we will use the `tight' selection criteria, which were described in chapter~\ref{ch.exp}, and the transverse isolation energy, $E_T^{\text{isol}}$, the energy deposited in the calorimeter in a cone with radius $R\le0.4$, but outside $R\le0.2$, where
 \[R=\sqrt{\Delta\phi^2+\Delta\theta^2}.\]
-The signal region is cut at $E_T^{\text{isol}}\le3$ GeV. We allow a crosstalk region of 2 GeV, which means the background region is defined with $5\text{ GeV}\le E_T^{\text{isol}}\le25\text{ GeV}$. The distribution of $E_T^{\text{isol}}$ for leading photons and subleading photons in the `A' sample is given in figure~\ref{etiso}.
+The signal region is cut at $E_T^{\text{isol}}\le3$ GeV. We allow a crosstalk region of 2 GeV, which means the background region is defined with $5\text{ GeV}\le E_T^{\text{isol}}\le25\text{ GeV}$ [wait a minute...]. The distribution of $E_T^{\text{isol}}$ for leading photons and subleading photons in the `A' sample is given in figure~\ref{etiso}.
 
 \begin{figure}[htp]
 \begin{minipage}[b]{.69\textwidth}
@@ -81,7 +81,7 @@ The signal region is cut at $E_T^{\text{isol}}\le3$ GeV. We allow a crosstalk re
 \input{figures/etiso}
 \end{infilsf}
 \end{minipage}\hfill\begin{minipage}[b]{.3\textwidth}
-\caption{The transverse isolation energy $E_T^{\text{isol}}$ for the tight and non--tight photon selection of the leading photons, and for the set of subleading photons with partners in the `A' sample. The non--tight samples have been scaled so that the `D' region contains the same number of events as the `B' region. For both sets of samples, the shapes of the distributions match up match up after the scaling, which supports the assumption that the shape of the background distribution is the same in the signal region as well.
+\caption{The transverse isolation energy $E_T^{\text{isol}}$ for the tight and non--tight photon selection of the leading photons, and for the set of subleading photons with partners in the `A' sample. The non--tight samples have been scaled so that the D region contains the same number of events as the B region. For both sets of samples, the shapes of the distributions match up [quantify?] after the scaling, which supports the assumption that the shape of the background distribution is the same in the signal region as well.
 \label{etiso}}
 \end{minipage}
 \end{figure}
@@ -94,7 +94,7 @@ Performing this process for each bin in $M_{\gamma\gamma}$, we obtain the distri
 \input{figures/bck}
 \end{infilsf}
 \end{minipage}\hfill\begin{minipage}[b]{.3\textwidth}
-\caption{The distribution of background events in $M_{\gamma\gamma}$ estimated from data with the ABCD method, along with the distribution of diph11111oton events given by the data.
+\caption{The distribution of background events in $M_{\gamma\gamma}$ estimated from data with the ABCD method, along with the distribution of diphoton events given by the data.
 \label{mggbck}}
 \end{minipage}
 \end{figure}
@@ -102,7 +102,7 @@ Performing this process for each bin in $M_{\gamma\gamma}$, we obtain the distri
 \section{Comparison to SM MC}
 [Herfra er alting work in progress]
 
-\Atlas{} provides a variety of Monte Carlo event sets that describe physical processes that might produce events in the signal region. Among a larger selection of candidate sets, the four used to produce figure~\ref{mclist} were found to yield the greatest contribution after the selection criteria used for the data were applied to them\footnote{[Something, something, list of full names, maybe appendix on contributions from sets?]}. The greatest contribution comes from the MC set that describes the Standard Model $pp\,\rightarrow\,\gamma\gamma$ process. The remaining MC sets describe processes with $\gamma$--jet or single--$\gamma$ final states, and  $Z\,\rightarrow\,ee$ decays as the most significant among processes with $ee$ final states. These processes might produce false positives either by emitting hard photons through bremsstrahlung or by false identification of electrons as converted photons.
+The \atlas{} collaboration has produced a variety of Monte Carlo event sets that describe processes which might produce events that pass the selection cuts. Among a larger selection of candidate sets, the four [three? two!? one\textinterrobang\textinterrobang] used to produce figure~\ref{mclist} were found to yield the greatest contribution after the selection criteria used for the data were applied to them\footnote{[Something, something, list of full names, maybe appendix on contributions from sets?]}. The greatest contribution comes from the MC set that describes the Standard Model $pp\,\rightarrow\,\gamma\gamma$ process. The remaining MC sets describe processes with $\gamma$--jet or single--$\gamma$ final states, and  $Z\,\rightarrow\,ee$ decays as the most significant among processes with $ee$ final states. These processes might produce false positives either by emitting hard photons through bremsstrahlung or by false identification of electrons as converted photons.
 
 \begin{figure}[htp]
 \begin{minipage}[b]{.69\textwidth}
@@ -121,15 +121,14 @@ a set of monte carlo events that simulate the diphoton events that the standard 
 
 ...which describes the data quite well.
 
-\section{Total background}
-In chapter~\ref{ch.mc} [apparently not...] we obtained a set of predicted background events from several Monte Carlo samples of processes whose final products appear similar to diphotons in the detector. Subjecting those samples to the same background estimation process as the data sample underwent above, we obtain a prediction for the background events in the signal region, which are not removed by the data driven method. Combining this prediction with the estimated background, we obtain a distribution which represents the estimated difference between the data sample and the pure Monte Carlo sample also found in chapter~\ref{ch.mc}. Figure~\ref{tobck} compares these distributions.
+Subjecting those samples to the same background estimation process as the data sample underwent above, we obtain a prediction for the background events in the signal region, which are not removed by the data driven method. Combining this prediction with the estimated background, we obtain a distribution which represents the estimated difference between the data sample and the pure Monte Carlo sample also found in chapter~\ref{ch.mc}. Figure~\ref{tobck} compares these distributions.
 
 \begin{figure}[htp]
 \begin{minipage}[b]{.69\textwidth}
 \centering (a very impressive plot)
 \end{minipage}\hfill\begin{minipage}[b]{.3\textwidth}
 \caption{A very informative caption.
-\label{etiso}}
+\label{tobck}}
 \end{minipage}
 \end{figure}
 
