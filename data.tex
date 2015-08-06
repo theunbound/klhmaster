@@ -11,11 +11,11 @@ On each of the prospective photons in this dataset, we impose a series of select
 \item \textbf{ID cut:} Objects that did not pass photon identification, or do not satisfy the loose selection criteria after reconstruction, are eliminated.
 \item \textbf{kinematics cut:} Ensures that objects do not have $|\eta|$ greater than 2.37, which is the forward limit of the first layer of the EM calorimeter, or in the range between 1.37 and 1.52, which is the transition region between the barrel and endcap calorimeters. Also ensures $E_T$ greater than 50~GeV, which clears the turn--on curve of the \texttt{2g40\_loose} trigger.
 \item \textbf{N\_events cut:} Ensures that each event has at least two photons that pass the above criteria.
-%\item \textbf{PV cut:} Ensures that the photon pair selected for analysis have the same primary vertex, and that that vertex has at least three tracks associated with it.
+\item \textbf{PV cut:} Ensures that a photon pair can be associated with a primary vertex---that is, the must be at least one primary vertex within 3$\sigma$ of the reconstructed $z$ coordinate of the common vertex of the photon pair---which, additionally, must have at least 3 tracks associated with it, and be within 3$\sigma$ of the beam spot in the $x$ and $y$ coordinates.
 
 \end{itemize}
 
-The number of objects remaining at each step of the cut procedure is plotted in figure~\ref{cutflow}
+If more than one photon pair are selected in a single event, the pair with the most energetic leading, and if necessary, then most energetic subleadng, photon is selected.
 
 \begin{figure}[htp]
 \begin{minipage}[b]{.69\textwidth}
@@ -28,6 +28,8 @@ The number of objects remaining at each step of the cut procedure is plotted in 
 \end{minipage}
 \end{figure}
 
+The number of objects remaining at each step of the cut procedure is plotted in figure~\ref{cutflow}
+
 What remains after these cuts have been applied is a purer sample of photons than we had before, however the sample will still contain a background of events that do not come from the processes that we wish to study. An estimate of this background is required.
 
 \section{Data driven background estimation}
@@ -36,13 +38,12 @@ The background that remains in the signal sample after these criteria have been 
 \subsection{The ABCD method}
 We assume that it is possible to extrapolate the shape of the distribution of background events that pollute the signal sample from the distribution of events that occur well away from the signal region. The \textsc{abcd} method assumes that the distribution of background events has the same shape in the signal region as it does in a control region. There will still be a scale difference between the two, which can be determined by examining a different control region.
 
-This is also known as the two--dimensional sideband method \cite{cmsabcd}. The following description may be aided by the illustration in figure~\ref{abcd}.
-
-
 \begin{figure}[hbp]
   \includegraphics[width=\textwidth]{figures/sideband}
-  \caption{Illustrating the two--step ABCD method using the `tight' selection criteria and the isolation energy: the full set of diphotons (the L-L sample) is split into four groups---A, B, C and D---according to the discriminating variables for the leading photon. Signal photons are now confined to the A region. The events in the C region can be used to estimate the shape, and the B and D region can be used to estimate the magnitude of the distribution of background events in the signal region. The procedure is then repeated for the subleading partner photons of the events in the A region. This gives an estimate of the distibution of background events in the combined signal (A--A) region. This figure adapted from \cite{fdirect}.}\label{abcd}
+  \caption{Illustrating the two--step ABCD method, adapted from \cite{fdirect} using the `tight' selection criteria and the isolation energy: the full set of diphotons (the L-L sample) is split into four groups---A, B, C and D---according to the discriminating variables for the leading photon. Signal photons are now confined to the A region. The events in the C region can be used to estimate the shape, and the B and D region can be used to estimate the magnitude of the distribution of background events in the signal region. The procedure is then repeated for the subleading partner photons of the events in the A region. This gives an estimate of the distibution of background events in the combined signal (AA) region.}\label{abcd}
 \end{figure}
+
+This is also known as the two--dimensional sideband method \cite{cmsabcd}. The following description may be aided by the illustration in figure~\ref{abcd}.
 
 To reiterate, we need to examine our sample of signal and background data points in terms of two uncorrelated discriminating variables, call them $x$ and $y$. With this, we can split the data set into four regions:
 
@@ -58,17 +59,18 @@ Thus, the distribution in $x$ of background events in the A region, $A_{bck}$, i
 The signal distribution must then be given as
 \(A_{sig}=A-A_{bck}.\label{asig}\)
 
-As we are working with events with two photons, both of which give rise to independent backgrounds, this procedure must be repeated for the subleading photons as well. For the subleading photon candidate, we look at the sample of photon candidates that are the subleading partner of a selected photon in the signal, A, region of the distribution of leading photon candidates. Carrying out the ABCD procedure on the sample of subleading photons gives us $AA_{bck}$, an estimate of the number of selected photon pairs where the leading photon is in the A region and the subleading photon is a background event in the A region of the distribution of subleading photons with a partner in the A region (call this the AA region for short)\footnote{AAAAAAAAAAA!}. As above, the signal--signal region must be given by
-\[A_{sig}A_{sig} = A_{sig}A-A_{sig}A_{bck}.\]
+As we are working with events with two photons, both of which give rise to independent backgrounds, this procedure must be repeated for the subleading photons as well. For the subleading photon candidate, we look at the sample of photon candidates that are the subleading partner of a selected photon in the signal, A, region of the distribution of leading photon candidates. Carrying out the ABCD procedure on the sample of subleading photons gives us $AA_{bck}$, an estimate of the number of selected photon pairs where the leading photon is in the A region and the subleading photon is a background event in the A region of the distribution of subleading photons with a partner in the A region (call this the AA region for short)\footnote{AAAAAAAAAAA!}. As above, the number of events in the signal--signal region must be given by
+\(A_{sig}A_{sig} = A_{sig}A-A_{sig}A_{bck}.\)
 Inserting \eqref{asig} into this gives
-\begin{align*}A_{sig}A_{sig} &=(A-A_{bck})A-(A-A_{bck})A_{bck}\\ &=AA-A_{bck}A-AA_{bck}+A_{bck}A_{bck}\\&=AA-[AA]_{bck}.
-\end{align*}
-Of the terms that contribute to the total background $[AA]_{bkc}$, we already have $AA$ available. $AA_{bck}$ is determined by taking
-\[AA_{bck}=AC\frac{AB}{AD},\]
-analogous to how the $A_{bck}$ sample was determined in eq.~\eqref{abckfind}. We find $A_{bck}A$ and $A_{bck}A_{bck}$ by multiplying $AA$ and $AA_{bck}$ by
-\[f_{bck}=\frac{A_{bck}}{A},\]
+\(\begin{aligned}
+A_{sig}A_{sig} &=(A-A_{bck})A-(A-A_{bck})A_{bck}\\ &=AA-A_{bck}A-AA_{bck}+A_{bck}A_{bck}\\&=AA-[AA]_{bck}.
+\end{aligned}\)
+$AA$ is the number of events in the AA region, which is readily available. Of the terms that contribute to the total background $[AA]_{bkc}$, $AA_{bck}$, the total number of background subleading photons in the AA region, is determined by taking
+\(AA_{bck}=AC\frac{AB}{AD},\)
+analogous to how $A_{bck}$ sample was found in eq.~\eqref{abckfind}. We find $A_{bck}A$, the total number background leading photons in the AA region, and $A_{bck}A_{bck}$, the number of photon pairs in the AA region where both members are background photons, by multiplying $AA$ and $AA_{bck}$ by
+\(f_{bck}=\frac{A_{bck}}{A},\)
 the fraction of background events in the leading photon A sample. Thus, the total estimated background in the AA region is given by
-\[[AA]_{bck}=\frac{A_{bck}}{A}(AA)+AA_{bck}-\frac{A_{bck}}{A}(AA_{bck}),\]
+\([AA]_{bck}=\frac{A_{bck}}{A}(AA)+AA_{bck}-\frac{A_{bck}}{A}(AA_{bck}),\)
 which we can interpret as the number of data points where the leading photon was a background plus the number of data points where the subleading photon was a background, subtracted the number of data points where both photons were background events, which would have been double counted.
 
 For the diphoton sample, we will use the `tight' selection criteria, which were described in chapter~\ref{ch.exp}, and the transverse isolation energy, $E_T^{\text{isol}}$, the energy deposited in the calorimeter in a cone with radius $R\le0.4$, but outside $R\le0.2$, where
