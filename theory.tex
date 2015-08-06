@@ -31,7 +31,7 @@ Finally, to get the field theory aspect, replace the generalised coordinate $q$ 
 As was the case in classical mechanics, the behaviour of a theory is fully described by its Lagrangian (density), and several models can be combined by adding together their respective Lagrangians. So it is that the Standard Model is described by the SM Lagrangian $\mathcal L_{SM}$, which can be considered as a sum of several lesser Lagrangians that describe the separate sectors of the SM. However, before we venture too deeply into the Standard Model, we shall first consider an alternate way of looking at the content of the Lagrangian.
 
 \section{Feynman diagrams}
-When studying individual processes described by a theory, Feynman diagrams are a useful tool. So useful, in fact, that much of the software developed to simulate processes is formulated in terms of Feynman diagrams. To see how they work, consider the simple model described by the Lagrangian
+When studying individual processes described by a theory, Feynman diagrams are a useful tool. So useful, in fact, that much of the software developed to simulate processes is formulated in terms of Feynman diagrams. To see how they work, consider the simple model described by the Lagrangian \cite{sred:freediagexp}\footnote{Ignoring counterterms.}
 \[\mathcal L= \half\partial^\mu\phi\partial_\mu\phi-\half m^2\phi^2-\frac{\lambda}{4!}\phi^4=\phi[\partial^2-m^2]\phi-\frac{\lambda}{4!}\phi^4\]
 This is an example of a $\phi^4$ theory. The first terms in this Lagrangian, which involves two $\phi$s, describes a field propagating into another field, and the other one, which involves 4 $\phi$s, describes and interaction between four fields.
 
@@ -43,51 +43,49 @@ where $k$ is a four-momentum. Using eq.~\eqref{e.Dphi}, the transition amplitude
 To express $S$ in terms of momenta, we go back to the Lagrangian and express $\phi$ in terms of its Fourier modes:
 \[\phi(x)=\int\frac{d^4k}{(2\pi)^4}e^{ikx}\tilde\phi(k)\]
 The Lagrangian is now
-\begin{align*}\mathcal L=&-\int\frac{d^4k}{(2\pi)^4}\frac{d^4k\prime}{(2\pi)^4} e^{i(k+k\prime)x}\tilde\phi(k)[kk\prime +m^2]\tilde\phi(k\prime)\\
+\(\begin{aligned}\mathcal L=&-\int\frac{d^4k}{(2\pi)^4}\frac{d^4k\prime}{(2\pi)^4} e^{i(k+k\prime)x}\tilde\phi(k)[kk\prime +m^2]\tilde\phi(k\prime)\\
 &-\frac{\lambda}{4!}\int\frac{d^4p_1\,d^4p_2\,d^4p_3\,d^4p_4}{(2\pi)^{16}}e^{i(p_1+p_2+p_3+p_4)x}\tilde\phi(p_1)\tilde\phi(p_2)\tilde\phi(p_3)\tilde\phi(p_4).
-\end{align*}
+\end{aligned}\)
 Inserting this into eq.~\eqref{e.S}, it becomes clear that $x$ only appears as a phase factor, which means that integrating over $x$ only produces delta functions:
-\begin{align*}
+\(\begin{aligned}
 S=&\int\frac{d^4k}{(2\pi)^4}\tilde\phi(-k)(k^2-m^2)\tilde\phi(k)\\
 &-\frac{\lambda}{4!}\int\frac{d^4p_1\,d^4p_2\,d^4p_3\,d^4p_4}{(2\pi)^{16}}\tilde\phi(p_1)\tilde\phi(p_2)\tilde\phi(p_3)\tilde\phi(p_4)\delta(p_1+p_2+p_3+p_4),
-\end{align*}
+\end{aligned}\)
 where, in the first term, the delta function identified $k\prime=-k$. The first term of the action describes the free part of the theory, and the second term describes the interacting part, so we will call them $S_F$ and $S_I$, respectively. Using this expression in place of $S$, we can Taylor expand in $\lambda$:
-\[e^{iS}=e^{i(S_F+S_I)}=e^{iS_F}\left(1-iS_I+\frac{(-iS_I)^2}{2}+\frac{(-iS_I)^3}{3!}+\frac{(-iS_I)^4}{4!}+\cdots\right)\]
+\(e^{iS}=e^{i(S_F+S_I)}=e^{iS_F}\left(1-iS_I+\frac{(-iS_I)^2}{2}+\frac{(-iS_I)^3}{3!}+\frac{(-iS_I)^4}{4!}+\cdots\right)\)
 This assumes that $\lambda$ is small enough to make the interaction merely a pertubation of the theory.
 
 
 Inserting this back into eq.~\eqref{transa}, we get an expression for the transition amplitude expanded in powers of $\lambda$. If we call these terms $A_n$, so that $A\propto\sum_{n=0}^\infty A_n$, the first term of the expansion is
-\[A_0=\int\frac{d^4k_A}{(2\pi)^4}\frac{d^4k_a}{(2\pi)^4}\underbrace{\int\mathcal D\phi\,\phi(k_A)\phi(k_a)e^{iS_F}}_{D_0}.\]
+\(A_0=\int\frac{d^4k_A}{(2\pi)^4}\frac{d^4k_a}{(2\pi)^4}\underbrace{\int\mathcal D\phi\,\phi(k_A)\phi(k_a)e^{iS_F}}_{D_0}.\)
 Looking more closely at the part labelled $D_0$ above, we can expand it to find that
-\[D_0=\int\mathcal D\phi\,\phi(k_A)\phi(k_a)e^{\int\frac{d^4k}{(2\pi)^4}\phi(k)[k^2-m^2]\phi(-k)},\]
+\(D_0=\int\mathcal D\phi\,\phi(k_A)\phi(k_a)e^{\int\frac{d^4k}{(2\pi)^4}\phi(k)[k^2-m^2]\phi(-k)},\)
 which is a Gaussian (functional) integral \cite{armbjorn}:
 \[\int d^nx\,x^k\cdots x^{2N}e^{-\half x^iA_{ij}x^j}.\label{gausint}\]
 As such, the integral has the following solution, provided that the participating momenta are identical:
-\[D_0=\half\frac{\delta^4(k_a-k_A)}{k^2-m^2}\int\mathcal D\phi\,e^{iS_F},\]
+\(D_0=\half\frac{\delta^4(k_a-k_A)}{k^2-m^2}\int\mathcal D\phi\,e^{iS_F},\)
 where the delta function is introduced to ensure that the momenta are identical, as required. Introducing this delta function is equivalent to imposing momentum conservation. The remaining integral over the free action corresponds to the vacuum $0\rightarrow0$ process in free theory, and is a constant with respect to $\phi$. This constant can be interpreted as the vacuum energy content of all space, which we will nevertheless simply divide out:
-\[A\propto\int\frac{d^4k_A}{(2\pi)^4}\frac{d^4k_a}{(2\pi)^4}\,\frac{\int\mathcal D\phi\,\phi(k_A)\phi(k_a)e^{iS}}{\int\mathcal D\phi\,e^{iS_F}}\]
+\(A\propto\int\frac{d^4k_A}{(2\pi)^4}\frac{d^4k_a}{(2\pi)^4}\,\frac{\int\mathcal D\phi\,\phi(k_A)\phi(k_a)e^{iS}}{\int\mathcal D\phi\,e^{iS_F}}\)
 With this, we find that 
-\[D_0\Rightarrow\frac{\delta^4(k_a-k_A)}{k^2-m^2},\]
+\(D_0\Rightarrow\frac{\delta^4(k_a-k_A)}{k^2-m^2},\)
 which is the propagator in momentum space.
-
 
 Were we to carry out the momentum integrations over $D_0$, there would evidently be a singularity at $k^2=m^2$. This singularity can be avoided by slightly modifying the integration path. There are several ways of doing this, including Feynman's prescription, which yields the expression $1/(k^2-m^2+i\epsilon)$, the Feynman propagator in momentum space. 
 
-
 The second term in the expansion is
-\[A_1=\int\frac{d^4k_A}{(2\pi)^4}\frac{d^4k_a}{(2\pi)^4}\left(\prod_{n=1}^4\frac{d^4p_n}{(2\pi)^4}\right)\,D_1,\]
+\(A_1=\int\frac{d^4k_A}{(2\pi)^4}\frac{d^4k_a}{(2\pi)^4}\left(\prod_{n=1}^4\frac{d^4p_n}{(2\pi)^4}\right)\,D_1,\)
 where\footnote{Here, $\phi^n$ is shorthand for a product of $n$ $\tilde\phi$ functions of separate momenta.}
-\[D_1=-\frac{i\lambda}{4!}\delta^4(p_1+p_2+p_3+p_4)\frac{\int\mathcal D\phi\,\phi^6e^{iS_F}}{\int\mathcal D\phi\,e^{iS_F}}.\] 
+\(D_1=-\frac{i\lambda}{4!}\delta^4(p_1+p_2+p_3+p_4)\frac{\int\mathcal D\phi\,\phi^6e^{iS_F}}{\int\mathcal D\phi\,e^{iS_F}}.\) 
 Solving the Gaussian integral tell us that $D_1$ is equal to a sum of terms of the form 
 \(-\ono{3!2^3}\frac{i\lambda}{4!}\delta^4(p_1+p_2+p_3+p_4)\frac{\delta^4(k_a-p_1)}{{k_a}^2-m^2}\frac{\delta^4(p_2-p_3)}{{p_2}^2-m^2}\frac{\delta^4(p_4-k_A)}{{k_A}^2-m^2},\label{1t1f}\)
-where the momenta are paired in all possible combinations. There are $6!$ different combinations, but they fall into only two topologically inequivalent groups. The analogy to topology is expanded upon in figure~\ref{somethingorother}.
+where the momenta are paired in all possible combinations. There are $6!$ different combinations, but they fall into only two topologically inequivalent groups.
 
-To see the analogy to topology, consider illustrating the flow of momentum given by terms of the form of eq.~\eqref{1t1f} as connected lines.
+To see the topological classification of these terms, consider illustrating the flow of momentum given by terms of the form of eq.~\eqref{1t1f} as connected lines.
 
 Indeed, consider this illustration
 \(\text{
 \begin{footnotesize}
-\begin{tikzpicture}
+\begin{tikzpicture}[baseline=1.5em]
 \draw (1,.2) node[left]{$a$} -- ++(.2,0) ++(1.6,0) -- ++(.2,0) node[right]{$A$} 
       ++(-1,.5) -- +(45:.2) +(0,0) -- +(315:.2) +(0,0) -- +(225:.2) +(0,0) -- +(135:.2); 
      % ++(0,0) to[in=225,out=135,min distance=15mm,looseness=8] ++(0,0);
@@ -99,21 +97,19 @@ which lays out the external momenta $k_a$ and $k_A$ as line ends labelled $a$ an
 Connecting the external momentum $a$ to one of the internal momenta leaves no option but to connect the other external momentum to another one of the internal momenta, which leaves only one option for connecting the remaining two internal momenta, resulting in this diagram
 \(\text{
 \begin{footnotesize}
-\vspace{-1.5em}
-\begin{tikzpicture}
+\begin{tikzpicture}[baseline=1.5em]
 \draw (1,.2) node[left]{$a$} -- ++(.2,0) node(a) {} ++(1.6,0) node(A) {} -- ++(.2,0) node[right]{$A$} 
       ++(-1,.5) -- +(45:.2) node(p4) {} +(0,0) -- +(315:.2) node(p3) {} +(0,0) -- +(225:.2) node(p2) {} +(0,0) -- +(135:.2) node(p1) {}; 
 \draw[natgreen] (a) to[out=0,in=225] (p2) (A) to[out=180,in=315] (p3) (p4) to[in=135,out=45,looseness=4] (p1);
 \end{tikzpicture}
 \end{footnotesize}
 }.\label{tadpole}\)
-Note that the diagram can be drawn like this, regardless of which of the internal momenta are selected at each step, since we have neglected labelling the lines that emerge from the vertex. This gives us the topological equivalence of the diagrams that illustrate these $4!$ terms.
+Note that this diagram can be used to represent the described process regardless of which of the internal momenta are selected at each step, since we have neglected labelling the lines that emerge from the vertex. This is a result of the topological equivalence of the diagrams that illustrate these $4!$ terms.
 
 Making a choice distinct from the above, we can connect the external momentum $a$ to $A$, leaving the internal momenta to be connected to one another in any order, once again leaving $4!$ topologically equivalent options, and the diagram
 \(\text{
 \begin{footnotesize}
-\vspace{-2.5em}
-\begin{tikzpicture}
+\begin{tikzpicture}[baseline=1.5em]
 \draw (1,.2) node[left]{$a$} -- ++(.2,0) node(a) {} ++(1.6,0) node(A) {} -- ++(.2,0) node[right]{$A$} 
       ++(-1,.5) -- +(45:.2) node(p4) {} +(0,0) -- +(315:.2) node(p3) {} +(0,0) -- +(225:.2) node(p2) {} +(0,0) -- +(135:.2) node(p1) {}; 
 \draw[natgreen] (a) -- (A)  (p3) to[in=45,out=315,looseness=4] (p4) (p1) to[out=135,in=225,looseness=4] (p2);
@@ -130,7 +126,7 @@ This covers every possibility for connecting diagram~\eqref{unconn}, leaving us 
 distinct diagrams, which is also the number of distinct orderings of the momenta in eq.~\eqref{1t1f}, all of which can be drawn to look like either diagram~\eqref{tadpole} or \eqref{vacbub}. For the present purposes, we shall note that diagram~\eqref{tadpole} and \eqref{vacbub} are topologically inequivalent because they cannot be rearranged to look like one another without disconnecting a line from a vertex,\footnote{In the parlance of the topic, two topologies are inequivalent when there does not exist a continuous map that takes one into the other. However, to properly define all the terns in the previous sentence, we would need to venture somewhat beyond the scope of this thesis.}. In this context the ingoing and outgoing state labels are attached to the external lines. This becomes important when working with more in- and outgoing states and/or more vertices.
 
 Looking back on the $D_0$ term, we note that it fits into the scheme of diagrams with this, quite straightforward, diagram
-\[\text{
+\(\text{
 \begin{footnotesize}
 \begin{tikzpicture}
 \draw (1,.2) node[left]{$a$} -- ++(.2,0) node(a) {}
@@ -138,9 +134,9 @@ Looking back on the $D_0$ term, we note that it fits into the scheme of diagrams
 \draw[natgreen] (a) -- (A);
 \end{tikzpicture}
 \end{footnotesize}
-}.\]
+}.\)
 In fact, the $D_0$ term also carries the factor of $1/k^2-m^2$ that we see connected to the $\delta$--functions in eq.~\eqref{1t1f}. It seems natural, then, to associate the factor of $1/k^2-m^2$ with the lines in the diagrams above, thus having identified lines in our diagrams with the momentum space propagator. While we're at it, wa also associate the factor of $i\lambda$ with the vertex. This allows us to claim that the above diagram is completely equivalent to the $D_0$ term, and that the $D_1$ term can be expressed as
-\[D_1=\ono2\left(\text{
+\(D_1=\ono2\left(\text{
 \begin{footnotesize}
 \begin{tikzpicture}[baseline=1.5em]
 \draw (1,.2) node[left]{$a$} -- ++(.2,0) node(a) {} ++(1.6,0) node(A) {} -- ++(.2,0) node[right]{$A$} 
@@ -155,12 +151,12 @@ In fact, the $D_0$ term also carries the factor of $1/k^2-m^2$ that we see conne
       ++(-1,.5) -- +(45:.2) node(p4) {} +(0,0) -- +(315:.2) node(p3) {} +(0,0) -- +(225:.2) node(p2) {} +(0,0) -- +(135:.2) node(p1) {}; 
 \draw[natgreen] (a) -- (A)  (p3) to[in=45,out=315,looseness=4] (p4) (p1) to[out=135,in=225,looseness=4] (p2);}
 \end{footnotesize}
-}\right),\]
+}\right),\)
 where we have allowed the factors of $2^3$, $3!$ and $4!$ to cancel. The factors on each diagram are the symmetry factors of the diagrams, the number of ways we can reach the same diagram by two different transformations, and the factor by which each diagram counts less than $4!3!2^3$ terms, as we worked out above. These factors, it must be noted, are evident from the diagrams.
 
 It turns out, then, that the diagrams contain the same information as the equations we started out with. These diagrams are due to Richard Feynman, and as such are referred to as Feynman diagrams.
 
-Looking at eq.~\eqref{1t1f}, one of the internal $p$ momenta can not be fixed to the external $k$ momenta, which leaves this term proportional to a diverging integral, associated with the looping line in diagram~\eqref{tadpole}. There are established methods for renormalising these divergent terms, however for the present purposes, we note simply that for any process, there will among the lowest order terms that describe it be a tree level\footnote{In graph theory, a tree is a connected, loop-free graph.} diagram, which is then the leading order diagram for that process. Because we are working in a pertubative regime by assumption, loop-level diagrams of that process will act as higher order corrections to that leading order term.
+Looking at eq.~\eqref{1t1f}, one of the internal $p$ momenta can not be fixed to the external $k$ momenta, which leaves this term proportional to a diverging integral, associated with the looping line in diagram~\eqref{tadpole}. There are established methods for renormalising these divergent terms, however for the present purposes, we note simply that for any process, there will among the lowest order terms that describe it be a tree level\footnote{In graph theory, a tree is a connected, loop-free graph.} diagram, which is then the leading order diagram for that process. Because we are working in a perturbative regime by assumption, loop-level diagrams of that process will act as higher order corrections to that leading order term.
 
 Knowing how to construct the Feynman diagrams that describe the terms of the Lagrangian to some order, and knowing how to translate those Feynman diagrams, the possibility presents itself that we can derive the Lagrangian by constructing the proper diagrams, rather than going through the derivation above.
 
@@ -296,9 +292,9 @@ Of these diagrams, those in the first two lines are simply those of fig.~\ref{ef
 this last diagram is the first part of the non-trivial $T$-matrix.
 
 As for the disconnected vacuum bubble seen in the top row, and in diagram~\eqref{vacbub}, note that the diagram(s) that the vacuum bubble multiplies are the diagrams for the process from the preceeding orders. At higher orders in the expansion, we will find it as a repeated pattern that the diagrams from the previous orders reoccur, multiplied with various combinations of vacuum bubble diagrams. Combining the vacuum bubble contributions on any one diagram at all orders, we find that they can be written as the exponential of the sum of all possible vacuum bubbles \cite{sred:freediagexp}. The same result can be reached by writing
-\[\int\mathcal D\phi\,e^{i(S_F+S_I)},\]
+\(\int\mathcal D\phi\,e^{i(S_F+S_I)},\)
 the expression for the $0\rightarrow0$ process to all orders. Since this is another constant, we can divide it out like we did with the vacuum normalisation, making the expression for the transition amplitude now
-\[A\propto\int\frac{d^4k_A}{(2\pi)^4}\frac{d^4k_a}{(2\pi)^4}\frac{\int\mathcal D\phi\,\phi(k_A)\phi(k_a)e^{iS}}{\int\mathcal D\phi\,e^{iS}}.\]
+\(A\propto\int\frac{d^4k_A}{(2\pi)^4}\frac{d^4k_a}{(2\pi)^4}\frac{\int\mathcal D\phi\,\phi(k_A)\phi(k_a)e^{iS}}{\int\mathcal D\phi\,e^{iS}}.\)
 
 With that, we find that the non-trivial part of the expression, the $T$-matrix from above, can be found by taking only the connected diagrams---the diagrams in which it is possible to go from any one part to any other along connected lines---into account. Using just this process in the transition amplitude, we can calculate the probability of the system going to some final state specifically through the process described by this diagram. That probability will depend on $\lambda$, which means that if we have a way of distinguishing those events in a detector that went through this process from those that did not---looking at just the diagrams found so far, the fact that the latest diagram allows exchange of momentum between the two particles would make those events stand out from the rest---provided that contributions from even higher order terms do not muddle the picture too much, we would be able to say something about the value of $\lambda$.
 
@@ -347,7 +343,7 @@ Plotted in figure~\ref{boxpart} are the distribution of the invariant masses of 
 \begin{align*} 
 M_{\gamma\gamma}&=\sqrt{(E_1+E_2)^2+|\mathbf p_1+\mathbf p_2|^2},
 \intertext{which, in the case of massless particles, can be rewritten as}
-&=\sqrt{2p_1p_2(1-\cos\theta)}. \label{sinvmass}
+&=\sqrt{2p_1p_2(1-\cos\theta)}. \numberthis\label{sinvmass}
 \end{align*}
 
 \begin{figure}[htp]
@@ -363,13 +359,13 @@ M_{\gamma\gamma}&=\sqrt{(E_1+E_2)^2+|\mathbf p_1+\mathbf p_2|^2},
 
 \section{The effective Lagrangian approach}
 
-As was established before we ventured in to the world of Feynman diagrams, the SM Lagrangian consists of a sum of terms, each of which describes the behaviour of or interactions between the sectors of the Standard Model. It is no great stretch, then, to consider expanding the Standard Model by adding a new term to the Lagrangian, which describes some new physics. Doing so, however, is not unproblematic.
+As was established before the predeeding digression on Feynman diagrams, the SM Lagrangian consists of a sum of terms, each of which describes the behaviour of or interactions between the sectors of the Standard Model. It is no great stretch, then, to consider expanding the Standard Model by adding a new term to the Lagrangian, which describes some new physics. Doing so, however, is not unproblematic.
 
 It is a property of the Standard Model\footnote{[Or it is a requirement on the Standard Model. Claiming that the SM is \emph{inherently} unitary might be something of a stretch.]} that it is unitary, meaning that the total probability of a given state to propagate into any of the possible final states evaluates to 1. Clearly, one cannot simply add any new term to the Standard Model Lagrangian without breaking this unitarity. Rather than going through the painstaking process of ensuring that the new term we will add to the SM preserves its unitarity, we will in stead build on the assumption that new physics exists at high mass scales, and think of the SM Lagrangian as simply the zeroth order term in a series expansion of some larger model. There will then be higher order corrections to the Standard Model, in some mass scale $\Lambda$ that the expansion is performed in. 
-In that case, the SM is no longer assumed to be a complete model, and moreover, the expanded model is not even expected to be a complete model to an order in $\Lambda$, which allows us to sidestep the issue of unitarity.
+In that case, the SM is no longer assumed to be a complete model, and, moreover, the expanded model is not even expected to be a complete model to any given order in $\Lambda$, which allows us to sidestep the issue of unitarity.
 This approach only works if the mass scale is significantly larger than the energies at which the Standard Model is being probed, since the higher order contributions would otherwise have a detectable influence in the lower energy range where the parameters of the SM are determined, meaning that the original assumption of the SM Lagrangian as a zeroth order term in an expansion in $\Lambda$ is no longer valid.
 
-With this assumed plethora of possible higher order terms, a single possible new term can be added without worring about maintaining the integrity of the SM. The specific term considered here, which describes the $q\bar q\rightarrow\gamma\gamma$ contact interaction which is the focus of this thesis, takes the form \cite{rizzo}
+From this assumed plethora of possible higher order terms, we choose to consider a specific term, which describes the $q\bar q\rightarrow\gamma\gamma$ contact interaction which is the focus of this thesis. This term takes the form \cite{rizzo}
 \(\mathcal L_n = \frac{2ie^2}{\Lambda^4}Q_q^2F^{\mu\sigma}F^\nu_\sigma\overline{q}\gamma_\mu\partial_\nu q,\label{rizzo}\)
 where $e$ is the elementary charge, $Q_q$ is the quark charge of quark $q$ and $\Lambda$, as discussed, is the associated mass scale. The power of $\Lambda$ is chosen to give the correct mass dimension of the term: in natural units,\footnote{Where $\hbar = c = 1$.} the action is unitless. The Lagrangian is integrated over 4 lengths to give the action, which means it must have a length dimension of $-4$ itself. Finally, in natural units, we can equate a unit of length with a unit of inverse mass\footnote{Because in natural units, \[[\text{length}]=[\text{length}]\frac{c}{\hbar}=[\text{length}]\frac{\left[\frac{\text{length}}{\text{time}}\right]}{\left[\frac{\text{length}^2\text{ mass}}{\text{time}}\right]}=\left[\frac{\text{length}^2\text{ time}}{\text{length}^2\text{ time}\text{ mass}}\right]=[\text{mass}]^{-1}. \]}, which means that the Lagrangian must have mass dimension 4. The factors $F^{\mu\sigma}F^\nu_\sigma$ and $\overline{q}\gamma_\mu\partial_\nu q$ each contribute a mass dimension of 4, so the mass scale, which has dimension of mass, must get a power of $-4$.
 
@@ -435,9 +431,9 @@ One possible interpretation of this new four-point interaction is as a zero-rang
 
 
 \section{The cross section}
-Using the methods developed so far, we can calculate the transition amplitudes, and hence the probabilities, associated with single processes. However, by long standing tradition, particle physics is interested in the cross section $\sigma$.
+Using the methods developed so far, we can calculate the transition amplitudes, and hence the probabilities, associated with a single processes. However, by long standing tradition, particle physics is interested in the cross section $\sigma$.
 
-To understand the cross section, consider as an analogy the case of firing a single projectile at a single target. We might at this point imagine an arrow and a bulls-eye or an electron and an atomic nucleus in a piece of gold film. The probability of hitting the target is then the cross sectional area of the target divided by the cross sectional area $A$ of the space where the projectile might fly. Adding the possibility of a number, $N_P$, of projectiles being fired at a number, $N_T$, of different, non-overlapping targets, the number, $N$, of hits is calculated as
+To understand the cross section, consider as an analogy the case of firing a single projectile at a single target. We might at this point imagine an arrow and a bulls-eye or an electron and an atomic nucleus in a piece of gold film \cite{rutherford}. The probability of hitting the target is then the cross sectional area of the target divided by the cross sectional area $A$ of the space where the projectile might fly. Adding the possibility of a number, $N_P$, of projectiles being fired at a number, $N_T$, of different, non-overlapping targets, the number, $N$, of hits is calculated as
 \[N=\frac{N_P N_T \sigma}{A}.\]
 If we apply this picture to a quantum mechanical system, we are mixing the kinematic probability for two particles coming close enough to interact with the dynamic probability of a particular interaction occurring. We can fix this by expressing the probability $\mathcal P$ as a function of the separation between the interacting particles, given by the impact parameter $\mathbf b$, a 2-D vector, and then integrating over all $\mathbf b$. Then, we can write
 \[\sigma=\int d^2b\,\mathcal P(\mathbf b)\propto\mathcal P(\text{in}\rightarrow\text{out})=\left|\braket{\phi\cdots\phi_\text{out}}{\phi\cdots\phi_\text{in}}\right|^2.\]
@@ -445,7 +441,7 @@ In this way, we can calculate the cross section of some process from its transit
 
 From an experimental point of view, $N_P$, $N_T$ and $A$ all depend on the immediate conditions within the accelerator. They can be combined into the luminosity $\mathscr L$, which in a proton collider contains information about how many protons are brought to an interaction point at a time, and how densely they are packed. By multiplying the luminosity with the cross section of a process, we get the frequency with which that process occurs in the detector. Integrating the luminosity over time, we get the integrated luminosity, which can be thought of as a measure of how many opportunities for interactions there have been over the period of time being integrated over, independent of the fine details of how the experiment was run\footnote{One notable example of a non--fine detail of an experiment: beam energy.}.
 
-\section{Colliding protons \label{sec.pdfth}}
+\section{Considering protons \label{sec.pdfth}}
 In the processes described so far, the starting point has been the interaction of a quark and an antiquark. And while being able to single out such a process experimentally would certainly be nice, single quarks sadly do not occur in nature. Because quakrs are colour charged particles, they are subject a phenomenon known as colour confinement, which requires that colour charge always occur in bundles which are colour neutral when viewed from the outside. For our purposes, protons are an abundant, stable and easy--to--handle colour--neutral bundle of quarks and gluons, which we use in collisions in place of the naked quarks that would have been optimal for the present analysis.
 
 \begin{figure}[htp]
