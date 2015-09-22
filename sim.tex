@@ -47,10 +47,10 @@ The event generators introduced above assemble events based on sets of Feynman r
 
 LanHEP takes as input a Lagrangian written in a format similar to \LaTeX's math language, and produces a set of Feynman rules usable by CalcHEP.
 
-With the ability to produce sets of events with varying values of $\Lambda$, the mass scale of the contact interaction, the opportunity presents itself to create simulated distributions of events for several potential observables with which we might discriminate the effects of the contact interaction. To quantify the discriminating power of these observables, we define a figure of merit, and call it `significance', as
+With the ability to produce sets of events with varying values of $\Lambda$, the mass scale of the contact interaction, the opportunity presents itself to create simulated distributions of events for several potential observables with which we might discriminate the effects of the contact interaction. To quantify the discriminating power of these observables, we define a figure of merit, which we will call `significance', as
 \[S\equiv\sum_n \frac{|x_n-y_n|}{\sqrt{{\sigma_{x,n}}^2+{\sigma_{y,n}}^2}},\]
 where $x_n$ and $y_n$ are the content of the two distributions in bin $n$, and $\sigma_{x,n}$ and $\sigma_{y,n}$ are the uncertainties on the bin content of each of the two distributions in bin $n$, and the sum is over all bins.
-Figure~\ref{discr} capitalises on this opportunity.
+Results for a few selected variables are shown in figure~\ref{discr}.
 
 \begin{figure}[htp]
 \begin{minipage}[b]{.499\textwidth}
@@ -65,28 +65,35 @@ Figure~\ref{discr} capitalises on this opportunity.
 \begin{infilsf} \tiny
 \makebox[.96\textwidth]{\input{figures/sigp}}
 \end{infilsf}
+\vspace{-1em}
 \subcaption{Significance: 671.5}
 \end{minipage}
+
+\vspace{1em}
+
+\noindent
 \begin{minipage}[b]{.499\textwidth}
 \begin{infilsf} \tiny
-\makebox[.96\textwidth]{\input{figures/sigm} }
+\hspace{-.2em}\makebox[.96\textwidth]{\input{figures/sigm} }
 \end{infilsf}
-\subcaption{Significance: 971.5}
+\vspace{-1em}
+\subcaption{Significance: 963.2}
 \end{minipage}\hfill
 \begin{minipage}[b]{.499\textwidth}
 \begin{infilsf} \tiny
 \makebox[.96\textwidth]{\input{figures/sigpp}}
 \end{infilsf}
-\subcaption{Significance: 902.7}
+\vspace{-1em}
+\subcaption{Significance: 848.5}
 \end{minipage}
 \begin{minipage}[t]{\textwidth}
-\caption{Three different observables that could potentially be used to discriminate between models: the cosine of $\theta_{\gamma_1}$, the scattering angle of the leading photon (measured, in this case, in the Collins-Soper frame \cite{collinssoper}), $p_T^{\gamma_1}$, the transverse momentum of the leading (most energetic) photon and $M_{\gamma\gamma}$, the invariant mass of the photon pair. Two samples are generated with CalcHEP, one for the Standard Model case, and one for a contact interaction with a mass scale $\Lambda = 1.0$ TeV. The significance is calculated as the difference in bin content between the two distributions divided by the root--sum--square of the errors on the bins, summed over all bins where both distributions have non--zero content.
+\caption{The distributions of simulated events in four potential discriminating variables in event samples generated with Standard Model parameters, and with $\Lambda = 1.0$ TeV: (a) the cosine of $\theta_{\gamma_1}$, the scattering angle of the leading photon (measured, in this case, in the Collins-Soper frame \cite{collinssoper}), (b) $p_T^{\gamma_1}$, the transverse momentum of the leading (most energetic) photon, (c) $M_{\gamma\gamma}$, the invariant mass of the photon pair and (d) $|p_T|^{\gamma\gamma}$, the sum of magnitudes of $p_T$ of both photons. Both samples are generated with CalcHEP. The significance is calculated as the difference in bin content between the two distributions divided by the root--sum--square of the errors on the bins, summed over all bins where both distributions have non--zero content.
 \label{discr}}
 \end{minipage}
 \end{figure}
 
 
-Given the significances quoted in that figure, $M_{\gamma\gamma}$, the invariant mass, is the obvious choice for a discriminating variable. It has the additional advantage over the other two methods that it does not depend on identifying the leading---most energetic---photon of the pair. In a truth sample such as this, making such an identification does not present a problem, however when considering the effects on a photon of passing through the material of the detector, it becomes problematic to claim that the photon that leaves the largest energy deposit in the calorimeter is also the photon that left the hard event with the greatest amount of energy.
+Given the significances quoted in that figure, $M_{\gamma\gamma}$, the invariant mass, is the obvious choice for a discriminating variable. It has the additional advantage over the first two methods that it does not depend on identifying the leading---most energetic---photon of the pair. In a truth sample such as this, making such an identification does not present a problem, however when considering the effects on a photon of passing through the material of the detector, it becomes problematic to claim that the photon that leaves the largest energy deposit in the calorimeter is also the photon that left the hard event with the greatest amount of energy.
 
 One argument against the measure of significance used in figure~\ref{discr} is that it rewards observables where both distributions have many non-zero bins, which is the result of a choice made about how the data is represented, rather than something intrinsic to the data. However, since the per-bin differences are weighted by the error on each bin, we expect that a distribution with a single bin with a very significant difference between bin contents is scored similarly to a distribution with a large number of bins with relatively insignificant differences between bin contents. This speaks in this method's favour, since we could create a distribution like the first one by combining the bins of the latter distribution, assuming the differences between the distributions are in the same direction for all the bins.
 
