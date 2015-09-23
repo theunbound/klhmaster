@@ -111,29 +111,27 @@ As described in section~\ref{sec.pdfth}, we use a set of experimentally determin
 \end{infilsf}
 \end{minipage}
 \begin{minipage}[b]{.3\textwidth}
-\caption{Comparing the distribution of invariant masses of events produced by CalcHEP with the CTEQ6 (grayed) and MRST2002nlo (non-grayed) PDFs at different values of $\Lambda$. This is to give an idea of the systematic uncertainty on this distribution due to the choice of PDF. Table~\ref{mrsttab} summarizes the fractional variation in predicted events by $\Lambda$ and invariant mass range. The invariant mass ranges used, indicated by the dashed lines in this plot, are discussed in the text. \label{mrst}}
+\caption{Comparing the distribution of invariant masses of events produced by CalcHEP with the CTEQ6 (grayed) and MRST2002nlo (non--grayed) PDFs at different values of $\Lambda$, along with a ratio plot showing the differences between the distributions at each value of $\Lambda$. This is to give an idea of the systematic uncertainty on this distribution due to the choice of PDF. Table~\ref{mrsttab} summarizes the fractional variation in predicted events by $\Lambda$ and invariant mass range. The invariant mass ranges used, indicated by the dashed lines in this plot [which you've forgotten...], are discussed in the text. \label{mrst}}
 \end{minipage}
 \end{figure}
 \begin{table}[htp]
-\begin{minipage}[b]{.69\textwidth}
+\begin{minipage}[b]{\textwidth}
 \begin{infilsf}{\footnotesize
 \begin{center}
 \arrayrulecolor{natgreen}
 \begin{tabular}[b]{cr!{\color{white}|}r!{\color{white}|}r!{\color{white}|}r}\hline
 &&\multicolumn{3}{c}{ \color{natgreen}{\bfseries $M_{\gamma\gamma}$ range [GeV]} } \\
 &&\multicolumn{1}{c!{\color{white}\vrule}}{\bfseries [100:1000)} & \multicolumn{1}{c!{\color{white}\vrule}}{\bfseries [1000:3000)} & \multicolumn{1}{c}{\bfseries [3000:5000)} \\ %\cline{3-5}
-& \textbf{0.75} & 16.9 \% & 11.1 \% & 31.9 \% \\
-&\textbf{1.00} & 16.3 \% & 7.7 \% & 32.2 \% \\
-\multirow{-3}{*}{\rotatebox[origin=c]{90}{\color{natgreen}{\bfseries $\Lambda$ [TeV]}}} &\textbf{$\infty$} & 16.8 \% & 3.4 \% & 51.1 \%\\\hline
+& \textbf{0.75} & (13.1 ± 0.4) \% & (11.7 ± 0.5) \% & (31.9 ± 1.2) \% \\
+&\textbf{1.00} & (12.4 ± 1.0) \% & (3.1 ± 0.6) \% & (32.1 ± 1.7) \% \\
+\multirow{-3}{*}{\rotatebox[origin=c]{90}{\color{natgreen}{\bfseries $\Lambda$ [TeV]}}} &\textbf{$\infty$} & (12.0 ± 1.0) \% & (3.1 ± 0.6) \% & (56 ± 21) \%\\\hline
 \end{tabular}
 \end{center}}\end{infilsf}
 \end{minipage}
-\begin{minipage}[b]{.3\textwidth}
-\caption{The fractional deviation between the distribution of simulated events produced by CalcHEP with the CTEQ6 PDF versus the MSRT2002nlo PDF plotted in fig~\ref{mrst}. This will form one of the systematic uncertainties on the final result. \label{mrsttab}}
-\end{minipage}
+\caption{The fractional deviation between the distribution of simulated events produced by CalcHEP with the CTEQ6 PDF versus the MSRT2002nlo PDF plotted in fig~\ref{mrst}. The errors are derived from the statistical errors in those distributions. This will form one of the systematic uncertainties on the final result. Note in regards to the lower right number that the presence of zero--value bins in this part of the distributions may skew the error too low. The lesson here is that while the two PDFs agree reasonably well on the Standard Model prediction, they produce significantly diverging results when the new interaction term is introduced. \label{mrsttab}}
 \end{table}
 
-The resulting distributions are plotted in fig~\ref{mrst}, and the difference between the sample generated using the CTEQ6 PDF set and the MRST2002 PDF set are quantified in table~\ref{mrsttab}, broken up into three invariant mass ranges: a low range with a great deal of statistics and very little separation between the three models, a middle range with good statistics and good separation between the models, and a high range where statistics start to run out, especially for the SM sample. These deviations will be included in the analysis as a systematic uncertainty.
+The resulting distributions are plotted in fig~\ref{mrst}, and the difference between the sample generated using the CTEQ6 PDF set and the MRST2002 PDF set are quantified in table~\ref{mrsttab}, broken up into three invariant mass ranges: a low range with a great deal of statistics and very little separation between the three models, a middle range with good statistics and good separation between the models, and a high range where statistics start to run out, especially for the SM sample. Additionally, as we will return to in chapter~\ref{ch.data}, the data sample runs out of statistics below 2 TeV. Looking at the ratio plots in figure~\ref{mrst}, we must conclude that the predictions produced by the to PDFs differ in a non--trivial way, which depends on $\Lambda$. These deviations must be included in the analysis as a systematic uncertainty.
 
 \begin{figure}[htb]
 \includegraphics[width=\textwidth]{figures/Zep-soft}
