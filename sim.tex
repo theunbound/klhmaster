@@ -123,7 +123,7 @@ As described in section~\ref{sec.pdfth}, we use a set of experimentally determin
 &&\multicolumn{3}{c}{ \color{natgreen}{\bfseries $M_{\gamma\gamma}$ range [GeV]} } \\
 &&\multicolumn{1}{c!{\color{white}\vrule}}{\bfseries [100:1000)} & \multicolumn{1}{c!{\color{white}\vrule}}{\bfseries [1000:3000)} & \multicolumn{1}{c}{\bfseries [3000:5000)} \\ %\cline{3-5}
 & \textbf{0.75} & (13.1 ± 0.4) \% & (11.7 ± 0.5) \% & (31.9 ± 1.2) \% \\
-&\textbf{1.00} & (12.4 ± 1.0) \% & (3.1 ± 0.6) \% & (32.1 ± 1.7) \% \\
+&\textbf{1.00} & (12.4 ± 1.0) \% & (8.1 ± 0.5) \% & (32.1 ± 1.7) \% \\
 \multirow{-3}{*}{\rotatebox[origin=c]{90}{\color{natgreen}{\bfseries $\Lambda$ [TeV]}}} &\textbf{$\infty$} & (12.0 ± 1.0) \% & (3.1 ± 0.6) \% & (56 ± 21) \%\\\hline
 \end{tabular}
 \end{center}}\end{infilsf}
@@ -176,20 +176,22 @@ This constant difference in distributions between the hard and extended event sa
 \end{minipage}
 \end{figure}
 
-Since the main process under study does not involve coloured final states, we do not expect that these surrounding processes will be a significant source of systematic uncertainty or bias, We are supported in this assumption by the findings in figure~\ref{pythify}. To further support that expectation we might attempt to add the extended processes with a different software package, however [that would require us to spend time figuring out how such a thing works...]
+Since the main process under study does not involve coloured final states, we do not expect that these surrounding processes will be a significant source of systematic uncertainty or bias, We are supported in this assumption by the findings in figure~\ref{pythify}. To support that expectation beyond what is done here, one might attempt to add the extended processes with a different software package.
 
 \section{Detector simulation}
-At this point, we have a precise picture of every detail of a number of hypothetical events. In that way, it is very unlike the picture that the detector will give us of the events that actually happen in the experiment.
+At this point, we have a precise picture of every detail of a number of hypothetical events. In that way, it is very unlike the picture that the detector will give us of the events in the actual, physical experiment.
 
-The actual events will be viewed through the `lens' of the ATLAS detector, which only sees the particles passing through it as energy deposits in various detector elements, and the computer algorithms used to reconstruct the particles that caused those deposits\footnote{This description of the ATLAS detector will be expanded upon in chapter~\ref{ch.exp}.}. Additionally, the particles found as the end product of the interactions by pythia can potentially interact with the material that makes up the detector, and decay, split or convert before or during their detection, and the detector may not fully or accurately detect all the particles that pass through it.
+The actual events will be viewed through the `lens' of the \atlas{} detector. The detector only registers changes in voltage in its individual detector elements. The objects that analyses such as this will deal with---tracks, energy clusters and jets---are reconstructed from the raw reading in individual detector elements by computer algorithms\footnote{This summary of the \atlas{} detector will be expanded upon in chapter~\ref{ch.exp}.}. Additionally, the final state particles produced by the hard process, as simulated by pythia, could potentially interact with the material that makes up the detector and decay, split or convert before or during their detection, while the detector does not fully or accurately detect all the particles that pass through it. Because of this, it is necessary to also simulate how the detector interacts with the final state particles we generated in the previous section, to properly relate that information with experimental data.
 
-Because of this, it is necessary to also simulate how the detector interacts with the final state particles we generated in the previous section, to properly relate that information with experimental data. Additionally, since the same software that reconstructs particle information from detector data is used to reconstruct simulated particle information from simulated detector data, the end product of the simulated events will be in the same format, containing the same variables, as the data available from the experiment.
+Furthermore, the collisions that the LHC produces are not between single protons, but between bunches containing of the order 10$^{11}$ protons, which follow one another at 50 ns intervals. Because of this, particles produced by more than one proton collision will be present within the \atlas{} detector during the recording window for each bunch crossing, either from multiple protons in the current bunches interacting, or from the products of the previous or subsequent bunches intruding into the recording window. For the period in quenstion, the average number of interactions per crossing easily exceeds 20 \cite{publiclumi}. Collectively, we refer to these---for our purposes---extraneous events as pileup. The solution for reproducing the effects of pileup in simulated events is to randomly pick an appropriate number of generic pileup events from a dedicated set of simulated events, and add them on top of the interesting event, to approximate the complete product of a collision in the detector. Since the distribution of numbers of interaction to be added per event were specified before the 8~TeV run was completed, the expected distribution does not match the measued one exactly. To account for the difference, Monte Carlo events are reweighted by their number of interactions to correct for this deviation~\cite{pileuprew}.
+
+Since these steps must be followed every time a Monte Carlo set that approximates the \atlas{} experiment is produced, the information and computer programs needed to run them are provided in a standard package by the \atlas{} Collaboration. The simulation of the interaction between particles and the physical detector comes in the form of a geometry model for \textsc{geant4}, a program that can simulate the interaction betwee high--energy particles and matter.
+
+Once the simulation of detector response to a simulated event is done, it can be cast into the same format as the output from the detector system, containing the same variables describing the same types of objects.
 
 Once this final step is completed, we will have a set of hypothetical events as we imagine they would look if they were to happen in the experiment---a set of pseudo-experiments.
 
-Since creating such pseudo-experiments is necessary for a large portion of analyses that wish to make use of \atlas{} data, the \atlas{} collaboration has created a digital description of the physical structure of the \atlas{} detector. The interaction between particles emanating from the interaction and the detector is then simulated by the \textsc{geant}4~\cite{geant4} software.
-
-The real detector has a finite energy resolution, which is not reflected in the Monte Carlo events, for which we have an exact momentum. To overcome this, we smear the energies given by the simulation---that is shift the energies by a random amount chosen from a gaussian distribution with a width chosen to reflect the resolution of the detector.
+The real detector has a finite energy resolution, which is not reflected in the Monte Carlo events, for which we have an exact momentum. To overcome this, we smear the energies given by the simulation---that is shift the energies by a random amount chosen from a gaussian distribution with a width chosen to reflect the resolution of the detector~\cite{ecalib}.
 
 The effect that the detector simulation has on the invariant mass distribution of the event samples created above is shown in figure~\ref{geant-beaf}.
 
@@ -200,16 +202,10 @@ The effect that the detector simulation has on the invariant mass distribution o
 \end{infilsf}
 \end{minipage}
 \hfill\begin{minipage}[b]{.3\textwidth}
-\caption{A plot comparing the event samples produced by CalcHEP and pythia with the results of running those event through the detector simulation available through GEANT4. We note a clear trend toward fewer reconstructed photon pairs at higher invariant masses. \label{geant-beaf}}
+\caption{A plot comparing the event samples produced by CalcHEP and pythia with the results of running those event through the detector simulation available through \textsc{geant4}. We note a clear trend toward fewer reconstructed photon pairs at higher invariant masses. Since the new term begin studied alters the abundance of photon pair with high invariant masses, this effect would impact the final result of this analysis if not included. \label{geant-beaf}}
 \end{minipage}
 \end{figure}
 
-Alternatively, we might extrapolate a systematic description of how the detector affects distributions of events from performing this simulation on several event sets, and apply that description to any new distribution of events as a simple correction[, and if we were going to compare the two methods, this would be the place for it...]
+Unlike the corrections for surrounding processes applied to the Monte Carlo samples previously, which could be represented by a simple shift in magnitude, these plots demonstrate a non--trivial behaviour, which correlates with $M_{\gamma\gamma}$.
 
-\section{Pileup}
-
-[Which is a thing. More information is forthcoming. Probably.
-
-Or maybe it isn't a thing. Who knows? Excitement!
-
-It's definitely a thing. A lot of time went into that sentence.]
+These distributions, once normalised to the luminosity of the 8~TeV run, should be directly comparable to the experimental data.
