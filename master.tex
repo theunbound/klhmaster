@@ -1,7 +1,9 @@
 % !TEX program = xelatex
 \input{prekux.tex}
 
-%\includeonly{sim}
+\bibliography{cite}
+
+%\includeonly{experiment}
 
 \begin{document}
 \begin{english}
@@ -24,9 +26,7 @@ The found limit is re-iterated, and the caveats on its prescisioin are
 listed. Implications are gone through, and proposals for improvements
 are made.
 
-\renewcommand{\bibname}{References}
-\bibliographystyle{plainurl}
-\bibliography{cite}
+\printbibliography[title=References]
 
 \end{english}
 \end{document}

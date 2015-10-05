@@ -11,11 +11,11 @@ where $q$ is a generalised coordinate. In this picture, the Lagrangian encapsula
 \(L = p\dot q- H,\label{htol}\)
 where $p$ is momentum.
 
-In quantum mechanics, the picture of a system travelling along a single, well-defined path from an initial to a final configuration no longer applies. In stead, a probability of going from an initial state $\ket{q}$ to a final state $\ket{q\prime}$ can be found as the absolute square of the transition amplitude\footnote{At this point, we should note that the common notation where $\hbar = c = 1$ will be used from this chapter onwards.} \cite{sred:tramp}
+In quantum mechanics, the picture of a system travelling along a single, well-defined path from an initial to a final configuration no longer applies. In stead, a probability of going from an initial state $\ket{q}$ to a final state $\ket{q\prime}$ can be found as the absolute square of the transition amplitude\footnote{At this point, we should note that the common notation where $\hbar = c = 1$ will be used from this chapter onwards.} \cite{srednicki}
 \[A=\bra{q\prime}e^{-i\hat H(t\prime-t)}\ket{q\phantom\prime},\]
 where $\hat H$ is the Hamiltonian of the system. Since the idea of a singular path for the system was abandoned, in stead imagine the system travelling along each possible path simultaneously, each with its own transition amplitude. The total transition amplitude, then, is the sum of all the individual transition amplitudes. This can be connected to the classical case by supposing that, for a system with a classical limit, the transition amplitudes of paths close to the classical path will tend to amplify one another, while paths far from it will tend to cancel out.
 
-Through some notational gymnastics, which involve carving the path integral into an infinite number of time steps, each integrated over every possible configuration, and imposing some conditions on the Lagrangian, it can be shown \cite{sred:tramp} that the expression above can be written as
+Through some notational gymnastics, which involve carving the path integral into an infinite number of time steps, each integrated over every possible configuration, and imposing some conditions on the Lagrangian, it can be shown \cite{srednicki} that the expression above can be written as
 \(A=\int\,\mathcal Dq\,\exp\left[i\int_t^{t^\prime}dt\,[p(t)\dot q(t)-H(p(t),q(t))]\right],\label{e.Dq}\)
 where the integral is over all paths with position $q$ at time $t$ and position $q\prime$ at time $t\prime$. We recognise the expression in the innermost integral from eq.~\eqref{htol}.
 
@@ -31,7 +31,7 @@ Finally, to get the field theory aspect, replace the generalised coordinate $q$ 
 As was the case in classical mechanics, the behaviour of a theory is fully described by its Lagrangian (density), and several models can be combined by adding together their respective Lagrangians. So it is that the Standard Model is described by the SM Lagrangian $\mathcal L_{SM}$, which can be considered as a sum of several lesser Lagrangians that describe the separate sectors of the SM. However, before we venture too deeply into the Standard Model, we shall first consider an alternate way of looking at the content of the Lagrangian.
 
 \section{Feynman diagrams}
-When studying individual processes described by a theory, Feynman diagrams are a useful tool. So useful, in fact, that much of the software developed to simulate processes is formulated in terms of Feynman diagrams. To see how they work, consider the simple model described by the Lagrangian \cite{sred:freediagexp}\footnote{Ignoring counterterms.}
+When studying individual processes described by a theory, Feynman diagrams are a useful tool. So useful, in fact, that much of the software developed to simulate processes is formulated in terms of Feynman diagrams. To see how they work, consider the simple model described by the Lagrangian \cite{srednicki}\footnote{Ignoring counterterms.}
 \[\mathcal L= \half\partial^\mu\phi\partial_\mu\phi-\half m^2\phi^2-\frac{\lambda}{4!}\phi^4=\phi[\partial^2-m^2]\phi-\frac{\lambda}{4!}\phi^4\]
 This is an example of a $\phi^4$ theory. The first terms in this Lagrangian, which involves two $\phi$s, describes a field propagating into another field, and the other one, which involves 4 $\phi$s, describes and interaction between four fields.
 
@@ -340,7 +340,7 @@ Even so, the process of developing Feynman diagrams to represent terms in the La
 
 We can get a feel for the relative strength of these two diagrams by turning to two sets of simulated collisions available from the \atlas{} collaboration.
 %\footnote{The internal ATLAS names are \verbatim{mc12_8TeV.129180.Pythia8_AU2CTEQ6L1_gammagamma_2DP20.merge.NTUP_PHOTON.e1199_s1479_s1470_r3542_r3549_p1344} and \verbatim{mc12_8TeV.146800.Pythia8_AU2CTEQ6L1_GamGamBox_pT35pT20.merge.NTUP_PHOTON.e1222_s1469_s1470_r3542_r3549_p1344}.}
-Plotted in figure~\ref{boxpart} are the distribution of the invariant masses of photon pairs, defined as \cite{marshaw:invmass}
+Plotted in figure~\ref{boxpart} are the distribution of the invariant masses of photon pairs, defined as \cite{marshaw}
 \begin{align*} 
 M_{\gamma\gamma}&=\sqrt{(E_1+E_2)^2-|\mathbf p_1+\mathbf p_2|^2},
 \intertext{which, in the case of massless particles, can be rewritten as}
@@ -360,7 +360,7 @@ M_{\gamma\gamma}&=\sqrt{(E_1+E_2)^2-|\mathbf p_1+\mathbf p_2|^2},
 
 \section{The effective Lagrangian approach}
 
-The SM Lagrangian can be written as a sum of terms, each of which describes the behaviour of or interactions between the fields in the Standard Model \cite{sred:fullsm}, as we also exploited above, to write it in terms of Feynman diagrams. It is no great stretch, then, to consider expanding the Standard Model by adding a new term to the Lagrangian, which describes some new physics. Doing so, however, is not unproblematic.
+The SM Lagrangian can be written as a sum of terms, each of which describes the behaviour of or interactions between the fields in the Standard Model \cite{srednicki}, as we also exploited above, to write it in terms of Feynman diagrams. It is no great stretch, then, to consider expanding the Standard Model by adding a new term to the Lagrangian, which describes some new physics. Doing so, however, is not unproblematic.
 
 It is a property of the Standard Model\footnote{[Or it is a requirement on the Standard Model. Claiming that the SM is \emph{inherently} unitary might be something of a stretch.]} that it is unitary, meaning that the total probability of a given state to propagate into any of the possible final states evaluates to 1. Clearly, one cannot simply add any new term to the Standard Model Lagrangian without breaking this unitarity. Rather than going through the painstaking process of ensuring that the new term we will add to the SM preserves its unitarity, we will in stead build on the assumption that new physics exists at high mass scales, and think of the SM Lagrangian as simply the zeroth order term in a series expansion of some larger model. There will then be higher order corrections to the Standard Model, in some mass scale $\Lambda$ that the expansion is performed in. 
 In that case, the SM is no longer assumed to be a complete model, and, moreover, the expanded model is not even expected to be a complete model to any given order in $\Lambda$, which allows us to sidestep the issue of unitarity.
@@ -402,7 +402,7 @@ These new processes may interfere constructively or destructively with the Stand
 
 Given that the distribution of invariant masses contain more events in the sensitive region if we assume constructive interference, a lower bound on the value of $\Lambda$ that we discover while using this assumption will lie below the lower bound that we would find, had we assumed destructive interference. Therefore, we will move forward assuming that the new term interferes constructively with the Standard Model.
 
-One possible interpretation of this new four-point interaction is as a zero-range approximation of a process like the one shown in fig.~\ref{across}, involving some unknown mediating particle \cite{marshaw:zerorange}.
+One possible interpretation of this new four-point interaction is as a zero-range approximation of a process like the one shown in fig.~\ref{across}, involving some unknown mediating particle \cite{marshaw}.
 
 \begin{figure}[htb]
 \parbox[t]{.45\textwidth}{\begin{center}\begin{footnotesize}\begin{tikzpicture} [>=triangle 45]
