@@ -30,280 +30,150 @@ Finally, to get the field theory aspect, replace the generalised coordinate $q$ 
 
 As was the case in classical mechanics, the behaviour of a theory is fully described by its Lagrangian (density), and several models can be combined by adding together their respective Lagrangians. So it is that the Standard Model is described by the SM Lagrangian $\mathcal L_{SM}$, which can be considered as a sum of several lesser Lagrangians that describe the separate sectors of the SM. However, before we venture too deeply into the Standard Model, we shall first consider an alternate way of looking at the content of the Lagrangian.
 
-\section{Feynman diagrams}
-When studying individual processes described by a theory, Feynman diagrams are a useful tool. So useful, in fact, that much of the software developed to simulate processes is formulated in terms of Feynman diagrams. To see how they work, consider the simple model described by the Lagrangian \cite{srednicki}\footnote{Ignoring counterterms.}
-\[\mathcal L= \half\partial^\mu\phi\partial_\mu\phi-\half m^2\phi^2-\frac{\lambda}{4!}\phi^4=\phi[\partial^2-m^2]\phi-\frac{\lambda}{4!}\phi^4\]
-This is an example of a $\phi^4$ theory. The first terms in this Lagrangian, which involves two $\phi$s, describes a field propagating into another field, and the other one, which involves 4 $\phi$s, describes and interaction between four fields.
+\section{The Standard Model Lagrangian}
 
-The goal will be to calculate the transition amplitude for a state $\ket{\phi_a}$ going to some other state $\ket{\phi_A}$. One procedure for doing so, which is inspired by \cite{wiki.feydiag}, is to start by writing the state in terms of an integral over all momentum states $\ket{k}$:
-\[\ket{\phi}=\int\frac{d^4k}{(2\pi)^4}\tilde\phi(k)\ket{k},\]
-where $k$ is a four-momentum. Using eq.~\eqref{e.Dphi}, the transition amplitude can be expressed as
-\(A\propto\int\frac{d^4k_A}{(2\pi)^4}\frac{d^4k_a}{(2\pi)^4}\int\mathcal D\phi\,\phi(k_A)\phi(k_a)e^{iS}.\label{transa}\)
+The Lagrangian which describes the Standard Model, denoted $\mathcal{L}_{\text{\emph{SM}}}$, can, then, be considered a sum of a series of lesser Lagrangians. $\mathcal{L}_{\text{\emph{SM}}}$ can be divided into sectors in several ways, according to the needs of the author \cite{srednicki,wikism}. For this work, the sectors of the Standard Model shall be defined as follows,
+\[\mathcal{L}_{\text{\emph{SM}}}=\mathcal{L}_{\text{\emph{EW}}}+\mathcal{L}_{\text{\emph{QCD}}}+\mathcal{L}_{H},\]
+into sectors describing the electroweak part $\mathcal{L}_{\text{\emph{EW}}}$, the QuantumChromoDynamics part $\mathcal{L}_{\text{\emph{QCD}}}$ and the Higgs part $\mathcal{L}_{\text{\emph{H}}}$.
 
-To express $S$ in terms of momenta, we go back to the Lagrangian and express $\phi$ in terms of its Fourier modes:
-\[\phi(x)=\int\frac{d^4k}{(2\pi)^4}e^{ikx}\tilde\phi(k)\]
-The Lagrangian is now
-\(\begin{aligned}\mathcal L=&-\int\frac{d^4k}{(2\pi)^4}\frac{d^4k\prime}{(2\pi)^4} e^{i(k+k\prime)x}\tilde\phi(k)[kk\prime +m^2]\tilde\phi(k\prime)\\
-&-\frac{\lambda}{4!}\int\frac{d^4p_1\,d^4p_2\,d^4p_3\,d^4p_4}{(2\pi)^{16}}e^{i(p_1+p_2+p_3+p_4)x}\tilde\phi(p_1)\tilde\phi(p_2)\tilde\phi(p_3)\tilde\phi(p_4).
-\end{aligned}\)
-Inserting this into eq.~\eqref{e.S}, it becomes clear that $x$ only appears as a phase factor, which means that integrating over $x$ only produces delta functions:
+The electroweak Lagrangian can be expanded to read as follows:
+\[\mathcal{L}_\text{\emph{EW}}=-\ono4W^i_{\mu\nu}W_i^{\mu\nu}-\ono4B_{\mu\nu}B^{\mu\nu}+\sum_\psi\bar\psi\gamma^\mu \left(i\partial_\mu-{1\over2}g^\prime Y_\mathrm{W}B_\mu-{1\over2}g\sigma^a W^a_\mu\right)\psi,\]
+where $W^i_{\mu}$ and $B_{\mu}$ are the four ($i$ runs from 1 to 3) gauge fields of electroweak theory and $W^i_{\mu\nu}$ and $B_{\mu\nu}$ are their field strength tensors, the $\phi$ sum is over all left--handed fermionic (lepton and quark) fields, $\gamma_{\mu}$ is the Dirac matrices, $g$ and $g'$ are the coupling strengths of the theory, $Y_W$ is the weak hypercharge associated with the fermionic field and $\sigma_i$ are the Pauli matrices. The terms for right--handed fermions have been omitted.
+
+The physical $W^\pm_\mu$, $Z^0_\mu$ and $A_\mu$ fields, which manifest as the W and Z bosons and the photon, respectively, arise as mixtures of the gauge fields:
 \(\begin{aligned}
-S=&\int\frac{d^4k}{(2\pi)^4}\tilde\phi(-k)(k^2-m^2)\tilde\phi(k)\\
-&-\frac{\lambda}{4!}\int\frac{d^4p_1\,d^4p_2\,d^4p_3\,d^4p_4}{(2\pi)^{16}}\tilde\phi(p_1)\tilde\phi(p_2)\tilde\phi(p_3)\tilde\phi(p_4)\delta(p_1+p_2+p_3+p_4),
-\end{aligned}\)
-where, in the first term, the delta function identified $k\prime=-k$. The first term of the action describes the free part of the theory, and the second term describes the interacting part, so we will call them $S_F$ and $S_I$, respectively. Using this expression in place of $S$, we can Taylor expand in $\lambda$:
-\(e^{iS}=e^{i(S_F+S_I)}=e^{iS_F}\left(1-iS_I+\frac{(-iS_I)^2}{2}+\frac{(-iS_I)^3}{3!}+\frac{(-iS_I)^4}{4!}+\cdots\right)\)
-This assumes that $\lambda$ is small enough to make the interaction merely a pertubation of the theory.
+W_\mu^\pm&=\ono{\sqrt{2}} W^1_\mu\mp iW^2_\mu\\
+Z^0_\mu&=W^3_\mu\cos \theta_W-B_\mu\sin \theta_W\\
+A_\mu&=W^3_\mu\sin\theta_W+B_\mu\cos\theta_W,
+\end{aligned}\label{tophys}\)
+where $\theta_W$ is the Weinberg mixing angle, an empirically determined parameter of the model. It also relates the coupling strengths to the electromagnetic coupling constant $e$ though
+\[e=g'\cos\theta_W=g\sin\theta_W.\]
 
+Applying the relations in eqs.~\eqref{tophys} allows us to rewrite $\mathcal{L}_{\text{\emph{EW}}}$ to a form that depends solely on these physical fields. Focusing on terms that depend on
+\[F_{\mu\nu}=\partial_\mu A_\nu - \partial_\nu A_\mu,\]
+the electromagnetic field strength tensor, that come from just the first two terms in $\mathcal{L}_{\text{\emph{EW}}}$, produces
+\(\mathcal{L}_{\text{\emph{EW}}}=-\ono4 F^{\mu\nu}F_{\mu\nu}+ie F^{\mu\nu}W^{+}_\mu W^{-}_\nu+\cdots\label{ewfmn}\)
+The first of these terms describes the propagation of the $A_\mu$ field from one configuration to another, or, in more immediate terms, the propagation of photons through space. Fourier--transforming to momentum space allows us to write the action for this term as
+\(S_{\textit{EW}}=-\ono2\int\frac{d^4k}{(2\pi)^4}\tilde A_\mu(k)k^2\tilde A_\nu(-k)+\cdots,\)
+implying that the photon propagator in momentum space is
+\(\Delta(k)=\ono{k^2-i\epsilon},\label{phoprop}\)
+assuming that momentum conservation is imposed. Here, the modification of the denominator by $i\epsilon$ is included to avoid the pole at $k=0$. This particular way of dealing with poles in the integration of the propagators is due to Richard Feynman, making this the Feynman propagator.
 
-Inserting this back into eq.~\eqref{transa}, we get an expression for the transition amplitude expanded in powers of $\lambda$. If we call these terms $A_n$, so that $A\propto\sum_{n=0}^\infty A_n$, the first term of the expansion is
-\(A_0=\int\frac{d^4k_A}{(2\pi)^4}\frac{d^4k_a}{(2\pi)^4}\underbrace{\int\mathcal D\phi\,\phi(k_A)\phi(k_a)e^{iS_F}}_{D_0}.\)
-Looking more closely at the part labelled $D_0$ above, we can expand it to find that
-\(D_0=\int\mathcal D\phi\,\phi(k_A)\phi(k_a)e^{\int\frac{d^4k}{(2\pi)^4}\phi(k)[k^2-m^2]\phi(-k)},\)
-which is a Gaussian (functional) integral \cite{armbjorn}:
-\[\int d^nx\,x^k\cdots x^{2N}e^{-\half x^iA_{ij}x^j}.\label{gausint}\]
-As such, the integral has the following solution, provided that the participating momenta are identical:
-\(D_0=\half\frac{\delta^4(k_a-k_A)}{k^2-m^2}\int\mathcal D\phi\,e^{iS_F},\)
-where the delta function is introduced to ensure that the momenta are identical, as required. Introducing this delta function is equivalent to imposing momentum conservation. The remaining integral over the free action corresponds to the vacuum $0\rightarrow0$ process in free theory, and is a constant with respect to $\phi$. This constant can be interpreted as the vacuum energy content of all space, which we will nevertheless simply divide out:
-\(A\propto\int\frac{d^4k_A}{(2\pi)^4}\frac{d^4k_a}{(2\pi)^4}\,\frac{\int\mathcal D\phi\,\phi(k_A)\phi(k_a)e^{iS}}{\int\mathcal D\phi\,e^{iS_F}}\)
-With this, we find that 
-\(D_0\Rightarrow\frac{\delta^4(k_a-k_A)}{k^2-m^2},\)
-which is the propagator in momentum space.
+Also due to Richard Feynman is the notion that the terms in the Lagrangian can be represented graphically.
 
-Were we to carry out the momentum integrations over $D_0$, there would evidently be a singularity at $k^2=m^2$. This singularity can be avoided by slightly modifying the integration path. There are several ways of doing this, including Feynman's prescription, which yields the expression $1/(k^2-m^2+i\epsilon)$, the Feynman propagator in momentum space. 
+\section{Feynman diagrams}
+We represent the photon propagator given in eq.~\eqref{phoprop} graphically as shown in fig.~\ref{phoprop}.
 
-The second term in the expansion is
-\(A_1=\int\frac{d^4k_A}{(2\pi)^4}\frac{d^4k_a}{(2\pi)^4}\left(\prod_{n=1}^4\frac{d^4p_n}{(2\pi)^4}\right)\,D_1,\)
-where\footnote{Here, $\phi^n$ is shorthand for a product of $n$ $\tilde\phi$ functions of separate momenta.}
-\(D_1=-\frac{i\lambda}{4!}\delta^4(p_1+p_2+p_3+p_4)\frac{\int\mathcal D\phi\,\phi^6e^{iS_F}}{\int\mathcal D\phi\,e^{iS_F}}.\) 
-Solving the Gaussian integral tell us that $D_1$ is equal to a sum of terms of the form 
-\(-\ono{3!2^3}\frac{i\lambda}{4!}\delta^4(p_1+p_2+p_3+p_4)\frac{\delta^4(k_a-p_1)}{{k_a}^2-m^2}\frac{\delta^4(p_2-p_3)}{{p_2}^2-m^2}\frac{\delta^4(p_4-k_A)}{{k_A}^2-m^2},\label{1t1f}\)
-where the momenta are paired in all possible combinations. There are $6!$ different combinations, but they fall into only two topologically inequivalent groups.
-
-To see the topological classification of these terms, consider illustrating the flow of momentum given by terms of the form of eq.~\eqref{1t1f} as connected lines.
-
-Indeed, consider this illustration
-\(\text{
-\begin{footnotesize}
-\begin{tikzpicture}[baseline=1.5em]
-\draw (1,.2) node[left]{$a$} -- ++(.2,0) ++(1.6,0) -- ++(.2,0) node[right]{$A$ \normalsize,} 
-      ++(-1,.5) -- +(45:.2) +(0,0) -- +(315:.2) +(0,0) -- +(225:.2) +(0,0) -- +(135:.2); 
-     % ++(0,0) to[in=225,out=135,min distance=15mm,looseness=8] ++(0,0);
+\begin{figure}[hbtp]
+\begin{minipage}[c]{.69\textwidth}\centering\footnotesize
+\begin{tikzpicture}
+\draw[decorate, decoration={snake}] (0,0) -- node[midway,above] {$\gamma$} (2,0) ;
+\node[right] at (3,0) {$ = \dfrac{1}{k^2-i\epsilon}$};
 \end{tikzpicture}
-\end{footnotesize}
-}\label{unconn}\)
-which lays out the external momenta $k_a$ and $k_A$ as line ends labelled $a$ and $A$. The line ends associated with the four $p$--momenta of the four--point interaction, which must conserve momentum internally, are connected from the outset in what we shall call a vertex. What remains is to connect these momenta in pairs as required by the last three $\delta$--functions.
+\end{minipage}\hfill
+\begin{minipage}[c]{.3\textwidth}
+\caption{Feynman rule for the photon propagator.}
+\label{phoprop}
+\end{minipage}
+\end{figure}
 
-Connecting the external momentum $a$ to one of the internal momenta leaves no option but to connect the other external momentum to another one of the internal momenta, which leaves only one option for connecting the remaining two internal momenta, resulting in this diagram
-\(\text{
-\begin{footnotesize}
-\begin{tikzpicture}[baseline=1.5em]
-\draw (1,.2) node[left]{$a$} -- ++(.2,0) node(a) {} ++(1.6,0) node(A) {} -- ++(.2,0) node[right]{$A$ \normalsize.} 
-      ++(-1,.5) -- +(45:.2) node(p4) {} +(0,0) -- +(315:.2) node(p3) {} +(0,0) -- +(225:.2) node(p2) {} +(0,0) -- +(135:.2) node(p1) {}; 
-\draw[natgreen] (a) to[out=0,in=225] (p2) (A) to[out=180,in=315] (p3) (p4) to[in=135,out=45,looseness=4] (p1);
+The second term in eq.~\eqref{ewfmn} describes an interaction between the photon and the $W$ bosons, the graphical representation of which is given in fig.~\ref{wwgam}.
+
+\begin{figure}[htbp]
+\begin{minipage}[b]{.69\textwidth}\centering\footnotesize
+\begin{tikzpicture}
+\draw[decorate, decoration={snake, pre=lineto, pre length=5pt}] (0,0) -- +(1.5,0) node[right] {$\gamma$};
+\draw[decorate, decoration={snake, pre=lineto, pre length=5pt}](0,0) -- +(240:1.5) node[left] {$W^{+}$};
+\draw[decorate, decoration={snake, pre=lineto, pre length=5pt}](0,0) -- +(120:1.5) node[left] {$W^{-}$};
+\node[right] at (3,0) {$= ie$};
 \end{tikzpicture}
-\end{footnotesize}
-}\label{tadpole}\)
-Note that this diagram can be used to represent the described process regardless of which of the internal momenta are selected at each step, since we have neglected labelling the lines that emerge from the vertex. This is a result of the topological equivalence of the diagrams that illustrate these $4!$ terms.
+\end{minipage}\hfill
+\begin{minipage}[b]{.3\textwidth}
+\caption{Feynman rule for the $\gamma W^{+}W^{-}$ coupling.}
+\label{wwgam}
+\end{minipage}
+\end{figure}
 
-Making a choice distinct from the above, we can connect the external momentum $a$ to $A$, leaving the internal momenta to be connected to one another in any order, once again leaving $4!$ topologically equivalent options, and the diagram
-\(\text{
-\begin{footnotesize}
-\begin{tikzpicture}[baseline=1.5em]
-\draw (1,.2) node[left]{$a$} -- ++(.2,0) node(a) {} ++(1.6,0) node(A) {} -- ++(.2,0) node[right]{$A$ \normalsize.} 
-      ++(-1,.5) -- +(45:.2) node(p4) {} +(0,0) -- +(315:.2) node(p3) {} +(0,0) -- +(225:.2) node(p2) {} +(0,0) -- +(135:.2) node(p1) {}; 
-\draw[natgreen] (a) -- (A)  (p3) to[in=45,out=315,looseness=4] (p4) (p1) to[out=135,in=225,looseness=4] (p2);
+The full propagators for the remaining fields require the introduction of the Higgs Lagrangian, which gives the mass terms for those fields. The relevant terms from the Higgs Lagrangian, in terms of physical fields, as given in eq.~\eqref{tophys}, to get the terms
+\(\mathcal{L}_H=-\frac{g^2v^2}{4}W^{+\mu}W^{-}_\mu-\frac{g^2v^2}{8\cos\theta_W}Z^\mu Z_\mu,\)
+where $v/\sqrt{2}$ is the vacuum expectation value of the Higgs field, given the correct Gauge transformation. From this, we identify the mass terms
+\(m_W=\frac{g^2v^2}{2},\qquad m_Z=m_W\cos\theta_W.\)
+
+Including the mass terms in the action for, say, a free Z boson and Fourier--transforming gives us
+\[S_Z=?\int\frac{d^4k}{(2\pi)^4}\tilde Z_\mu(k)[k^2-m^2]\tilde Z\nu(-k) +\cdots,\]
+leading to the more general form of the Feynman propagator,
+\(\Delta(k)=\ono{k^2-m^2-i\epsilon},\)
+which is the factor associated with the remaining electroweak propagators, and the Higgs propagator, which are drawn as shown in figure~\ref{ewprops}, along with the gluon propagator produced by $\mathcal{L}_\textit{QCD}$, for completeness.
+
+\begin{figure}[hbtp]
+\begin{minipage}[b]{.69\textwidth}
+\centering\footnotesize
+\begin{tikzpicture}
+\draw[decorate, decoration={snake}] (0,0) -- node[above] {$\gamma$ / $Z^0$ / $W^\pm$} (2,0);
 \end{tikzpicture}
-\end{footnotesize}
-}\label{vacbub}\)
-
-Looking for more options, we might wish to begin with the $A$ external line rather then $a$. However, if we connect the $A$ external to any of the external momenta emanating from the vertex, we will inevitably end up with a diagram topologically equivalent to diagram~\eqref{tadpole}, only with the lines laid down in a different order. Indeed, the option of laying down the lines in any order gives us an additional $3!$ terms covered by diagram~\eqref{tadpole} and \eqref{vacbub}, which both have three lines in them. In the case of diagram~\eqref{vacbub} though, we do count a factor $2$ too many, since the exchange of lines connected to the vertex were already covered by the $4!$ ways we connected those lines to the vertex.
-
-Attempting to connect $A$ to $a$ leads us to diagrams equivalent to diagram~\eqref{vacbub}, only with the direction of the line between $a$ and $A$ reversed. In general, reversing the direction of the lines in our diagrams gives us a factor $2^3$ more diagrams for both types, although once again, we are including diagrams that were already counted in the $4!$ ways of connecting the vertex. In diagram~\eqref{tadpole} we overcount by a factor $2$ and in diagram~\eqref{vacbub} by a factor $2^2$.
-
-This covers every possibility for connecting diagram~\eqref{unconn}, leaving us with
-\[4!\,3!\,2^3\,\left(\ono2+\ono{2^3}\right)=4!\,6\,\,5=6!\]
-distinct diagrams, which is also the number of distinct orderings of the momenta in eq.~\eqref{1t1f}, all of which can be drawn to look like either diagram~\eqref{tadpole} or \eqref{vacbub}. For the present purposes, we shall note that diagram~\eqref{tadpole} and \eqref{vacbub} are topologically inequivalent because they cannot be rearranged to look like one another without disconnecting a line from a vertex,\footnote{In the parlance of the topic, two topologies are inequivalent when there does not exist a continuous map that takes one into the other. However, to properly define all the terns in the previous sentence, we would need to venture somewhat beyond the scope of this thesis.}. In this context the ingoing and outgoing state labels are attached to the external lines. This becomes important when working with more in- and outgoing states and/or more vertices.
-
-Looking back on the $D_0$ term, we note that it fits into the scheme of diagrams with this, quite straightforward, diagram
-\(\text{
-\begin{footnotesize}
-\begin{tikzpicture}[baseline=.5em]
-\draw (1,.2) node[left]{$a$} -- ++(.2,0) node(a) {}
-    ++(1.6,0) node(A) {} -- ++(.2,0) node[right]{$A$ \normalsize.};
-\draw[natgreen] (a) -- (A);
+\hspace{5em}
+\begin{tikzpicture}
+\draw (0,0) -- node[midway] {\tikz\draw[-triangle 45] (0,0) -- (.1,0);} node[midway,above] {$\ell$ / $\nu$ / $q$} (2,0);
 \end{tikzpicture}
-\end{footnotesize}
-}\)
-In fact, the $D_0$ term also carries the factor of $1/k^2-m^2$ that we see connected to the $\delta$--functions in eq.~\eqref{1t1f}. It seems natural, then, to associate the factor of $1/k^2-m^2$ with the lines in the diagrams above, thus having identified lines in our diagrams with the momentum space propagator. While we're at it, wa also associate the factor of $i\lambda$ with the vertex. This allows us to claim that the above diagram is completely equivalent to the $D_0$ term, and that the $D_1$ term can be expressed as
-\(D_1=\ono2\left(\text{
-\begin{footnotesize}
-\begin{tikzpicture}[baseline=1.5em]
-\draw (1,.2) node[left]{$a$} -- ++(.2,0) node(a) {} ++(1.6,0) node(A) {} -- ++(.2,0) node[right]{$A$} 
-      ++(-1,.5) -- +(45:.2) node(p4) {} +(0,0) -- +(315:.2) node(p3) {} +(0,0) -- +(225:.2) node(p2) {} +(0,0) -- +(135:.2) node(p1) {}; 
-\draw[natgreen] (a) to[out=0,in=225] (p2) (A) to[out=180,in=315] (p3) (p4) to[in=135,out=45,looseness=4] (p1);
+\vspace{1em}
+
+\begin{tikzpicture}
+\draw[dashed] (0,0) -- node[above] {$h$} (2,0);
 \end{tikzpicture}
-\end{footnotesize}
-}\right)+\ono{2^3}\left(\text{
-\begin{footnotesize}
-\tikz[baseline=1.5em]{
-\draw (1,.2) node[left]{$a$} -- ++(.2,0) node(a) {} ++(1.6,0) node(A) {} -- ++(.2,0) node[right]{$A$} 
-      ++(-1,.5) -- +(45:.2) node(p4) {} +(0,0) -- +(315:.2) node(p3) {} +(0,0) -- +(225:.2) node(p2) {} +(0,0) -- +(135:.2) node(p1) {}; 
-\draw[natgreen] (a) -- (A)  (p3) to[in=45,out=315,looseness=4] (p4) (p1) to[out=135,in=225,looseness=4] (p2);}
-\end{footnotesize}
-}\right),\)
-where we have allowed the factors of $2^3$, $3!$ and $4!$ in eq.~\eqref{1t1f} to cancel with the number of topologically equivalent terms covered by each diagram. The remaining factors on each diagram are their symmetry factors, the number of ways in which the same diagram can be reached by separate transformations. This is also the number of by which we overcounted, when working out the number of terms that each diagram represents above. The symmetry factors are inherent to the diagrams, not a product of the process by which they were constructed.
-
-It turns out, then, that these diagrams contain the same information as the equations we started out with. These diagrams are due to Richard Feynman, and as such are called Feynman diagrams.
-
-Looking at eq.~\eqref{1t1f}, at least one of the internal $p$ momenta can not be fixed to the external $k$ momenta, which leaves this term proportional to a diverging integral, associated with the looping line in diagram~\eqref{tadpole}. There are established methods for renormalising these divergent terms, however for the present purposes, we note simply that for any process, there will among the lowest order terms that describe it be a tree level\footnote{In graph theory, a tree is a connected, loop-free graph.} diagram, which is then the leading order diagram for that process. Because we are working in a perturbative regime by assumption, loop-level diagrams of that process can be considered part of the higher order corrections to that leading order term.
-
-Knowing how to construct the Feynman diagrams that describe the terms of the Lagrangian to some order, and knowing how to translate those Feynman diagrams, the possibility presents itself that we can derive the Lagrangian by constructing the proper diagrams, rather than going through the derivation above.
-
-To do so, we set down the following Feynman rules, the rules for constructing the proper set of Feynman diagrams:
-
-\begin{figure}[htb]
+\hspace{5em}
+\begin{tikzpicture}
+\draw[decorate, decoration={coil,amplitude=2pt, segment length=2.68pt}] (0,0) -- node[above] {$g$} (2,0);
+\end{tikzpicture}
+\end{minipage}
 \hfill
-\begin{tikzpicture}
-\draw (-3,1) -- (-1,-1) (-3,-1) -- (-1,1);
-\node[right] at (-1,0) {$=-i\lambda$};
-\end{tikzpicture}
-\hspace{5ex}
-\begin{tikzpicture}
-\node[right] at (-1,0) {$=\dfrac{1}{k^2-m^2}$};
-\draw (-3,0) -- (-1,0);
-\node at (0,-1) {};
-\node at (0,1) {};
-\end{tikzpicture}
-\hfill \phantom{d}
-\caption{The building blocks for Feynman diagrams in $\phi^4$ theory. Once constructed, find the momentum of each propagator by imposing momentum conservation at each vertex. Any momentum that cannot be related to one of the external momenta is integrated over.
-\label{phi4rules}}
+\begin{minipage}[b]{.3\textwidth}
+\caption{Showing how line shapes and SM particles are associated.}\label{ewprops}
+\end{minipage}
 \end{figure}
 
-\begin{enumerate}
-\item Construct all topologically inequivalent diagrams in which the ingoing and outgoing states for the process in question and the proper number of vertices for the present order in $\lambda$ are connected by propagator lines.
-\item Impose momentum conservation at all vertices and across all propagators. As was already noted once, this is equivalent to introducing delta functions over the momenta.
-\item Determine the symmetry factor for each diagram.
-\item Construct for each diagram its value by taking the product of the values for each element of the diagram from figure~\ref{phi4rules}. Integrate over all momenta that have not been related to external momenta with measure $d^4p/(2\pi)^4$. Divide by the symmetry factor associated with the diagram.
-\end{enumerate}
+In fig.~\ref{ewprops}, the notion that antiparticles are time--reversed particles is introduced, as indicated by the direction of the arrows.
 
-\begin{figure}[htp]
-\begin{footnotesize}\begin{center}
+The remainder of $\mathcal{L}_\textit{EW}$ gives rise to couplings of the types shown in fig.~\ref{restew}. For brevety, we do not show a complete listing of Feynman rules, only a condensed overview of possible vertices. For a complete listing, see eg. \cite{allfeynrules}. The couplings introduced by the QCD and Higgs sectors are given in figure~\ref{othercoups}.
+
+\begin{figure}[hbtp]\centering {\footnotesize
 \begin{tikzpicture}
-\draw (-4,1) node[left]{$a$} -- (-2,1) node[right]{$A$};
-\draw (-4,-1) node[left]{$b$} -- (-2,-1) node[right]{$B$};
-\draw (0,0) node{{\normalsize $+$}};
-\draw (2,1) node[left]{$a$} -- (4,-1) node[right]{$B$};
-\draw[line width=5pt,white] (2,-1) -- (4,1) ;
-\draw (2,-1) node[left]{$b$} -- (4,1) node[right]{$A$};
-\end{tikzpicture}
-\end{center}\end{footnotesize}
-\caption{The Feynman diagrams associated with the first term in the expansion of the $2\rightarrow2$ transition amplitude. Once again, connected states are required to have the same momentum, however with more particles going into and coming out of the process, there are more than one way of connecting the ingoing and outgoing states.
-\label{efeydig1}}
+\draw[decorate, decoration={snake, pre=lineto, pre length=5pt}] (0,0) -- +(1.5,0) node[right] {$Z$};
+\draw[decorate, decoration={snake, pre=lineto, pre length=5pt}](0,0) -- +(240:1.5) node[left] {$W^{+}$};
+\draw[decorate, decoration={snake, pre=lineto, pre length=5pt}](0,0) -- +(120:1.5) node[left] {$W^{-}$};
+\end{tikzpicture}\hspace{2em}
+\begin{tikzpicture}
+\draw[decorate, decoration={snake, pre=lineto, pre length=5pt}] (0,0) -- +(1.5,0) node[right] {$Z/\gamma$};
+\draw[](0,0) -- node[midway,sloped] {\tikz\draw[-triangle 45] (0,0)--(-.1,0);} +(240:1.5) node[left] {$f$};
+\draw[](0,0) -- node[midway,sloped] {\tikz\draw[-triangle 45] (0,0)--(.1,0);} +(120:1.5) node[left] {$f$};
+\end{tikzpicture}\hspace{2em}
+\begin{tikzpicture}
+\draw[decorate, decoration={snake, pre=lineto, pre length=5pt}] (0,0) -- +(1.5,0) node[right] {$W^\pm$};
+\draw[](0,0) -- node[midway,sloped] {\tikz\draw[-triangle 45] (0,0)--(-.1,0);} +(240:1.5) node[above left] {$\nu,\ell$};
+\draw[](0,0) -- node[midway,sloped] {\tikz\draw[-triangle 45] (0,0)--(.1,0);} +(120:1.5) node[above left] {$\ell,\nu$};
+\draw (0,0) +(240:1.5) node[below left] {$u,d$} (0,0) +(120:1.5) node[below left] {$d,u$};
+\end{tikzpicture}\hspace{2em}
+\begin{tikzpicture}
+\draw[decorate, decoration={snake, pre=lineto, pre length=5pt}](0,0) -- (-1.5,1) node[left] {$W^{+}$};
+\draw[decorate, decoration={snake, pre=lineto, pre length=5pt}](0,0) -- (-1.5,-1) node[left] {$W^{-}$};
+\draw[decorate, decoration={snake, pre=lineto, pre length=5pt}](0,0) -- (1.5,1) node[right] {$B$};
+\draw[decorate, decoration={snake, pre=lineto, pre length=5pt}](0,0) -- (1.5,-1) node[right] {$B$};
+\end{tikzpicture}\hspace{2em}
+}
+%\begin{tikzpicture}
+%\draw[decorate, decoration={snake, pre=lineto, pre length=5pt}](0,0) -- node[above] {$B$} %(2,0);
+%\end{tikzpicture}
+
+\caption{The Feynman rules of the electroweak Lagrangian, excluding those given in figures \ref{phoprop} and \ref{wwgam}. Here, $B$ may be any electroweak boson ($\gamma$, $Z^0$ or $W^{\pm}$, so long as charge is conserved. $f$ is any fermion, respecting that photons only couple to electrically charged fermions and $\ell,\nu,u,d$ are lepton--neutrino or up--type---down--type quark sets.} \label{restew}
 \end{figure}
 
+An advantage of representing the terms of the Lagrangian in this way is that it allows an easy identification and organisation of possible processes, and subsequently deduction of the action that governs the associated transition amplitude. This is because Feynman diagrams are required to conserve momentum and quantum numbers, and each of the elements of a Feynman diagram are directly associated with an element of the governing equation through Feynman rules, such as were given in fig.~\ref{phoprop} and \ref{wwgam}.
 
-For example, the $2\rightarrow2$ transition amplitude to zeroth order in $\lambda$ is given by the Feynman diagrams in figure~\ref{efeydig1}.
+For example, with the $f\bar f \rightarrow \gamma$ and the $q$ propagator already introduced, we may assemble the Feynman diagram in fig.~\ref{bornqq2gg} for a $q\bar q \rightarrow \gamma\gamma$ process.
 
-The value of these diagrams, using the rules, is
-\[\frac{\delta^4(k_1-k_A)}{{k_1}^2-m^2}\frac{\delta^4(k_2-k_B)}{{k_2}^2-m^2}+\frac{\delta^4(k_1-k_B)}{{k_1}^2-m^2}\frac{\delta^4(k_2-k_A)}{{k_2}^2-m^2},\]
-which is indeed what we would get from solving the Gaussian integral. 
-
-\begin{figure}[htp]
-\begin{footnotesize}
-\begin{minipage}{.09\textwidth}
-\normalsize \hfill
-\end{minipage}
-\begin{minipage}{.9\textwidth}
-\begin{center}
-\begin{tikzpicture}[scale=.75]
-\draw (-6.5,0) to [in=225,out=315,min distance=25mm,looseness=8] (-6.5,0) to [in=135,out=45,min distance=25mm,looseness=8] (-6.5,0);
-\draw (-5,0) node{\normalsize$\times$};
-\draw (-4,0) node{$\left(\text{\tikz[scale=.75] \draw (0,1) (0,-1);}\right.$};
-\draw (-3,1) node[left]{$a$} -- (-1,1) node[right]{$A$};
-\draw (-3,-1) node[left]{$b$} -- (-1,-1) node[right]{$B$};
-\draw (0,0) node{{\normalsize $+$}};
-\draw (1,1) node[left]{$a$} -- (3,-1) node[right]{$B$};
-\draw[line width=5pt,white] (1,-1) -- (3,1) ;
-\draw (1,-1) node[left]{$b$} -- (3,1) node[right]{$A$};
-\draw (4,0) node{$\left)\text{\tikz[scale=.75] \draw (0,1) (0,-1);}\right.$};
-\draw (5.5,0);
-\end{tikzpicture}
-\end{center}
-\end{minipage}
-
-\vspace{.5em}
-
-\begin{minipage}{.09\textwidth}
-\normalsize $+$
-\end{minipage}
-\begin{minipage}{.9\textwidth}
-\begin{center}
-\begin{tikzpicture}[scale=.75]
-\draw (1,1) node[left]{$a$} -- ++(2,0) node[right]{$A$}
-      ++(-2,-2) node[left]{$b$} -- 
-      ++(1,0) to[in=45,out=135,min distance=15mm,looseness=8] ++(0,0) --
-      ++(1,0) node[right]{$B$};
-\draw (4,0) node{\normalsize $+$};
-\draw (5,1) node[left]{$a$} -- 
-      ++(1,0) to[in=225,out=315,min distance=15mm,looseness=8] ++(0,0) --
-      ++(1,0) node[right]{$A$}
-      ++(-2,-2) node[left]{$b$} -- 
-      ++(2,0) node[right]{$B$};
-\draw (8,0) node{\normalsize $+$};
-\draw (9,1) node(p1)[left]{$a$} -- ++(2,-2) node[right]{$B$};
-\draw[line width=5pt,white] (p1.east) ++(0,-2) -- ++(2,2);
-\draw (p1.east) ++(0,-2) node[left]{$b$} --
-      +(.5,.5) to[in=180,out=90,min distance=15mm,looseness=8] +(0.5,0.5) --
-      ++(1.5,1.5) node[right]{$A$};
-\draw (12,0) node{\normalsize $+$};
-\draw (13,1) node(p2)[left]{$a$} -- 
-      +(.5,-.5) to[in=180,out=270,min distance=15mm,looseness=8] +(0.5,-0.5) --
-      ++(1.5,-1.5) node[right]{$B$};
-\draw[line width=5pt,white] (p2.east) ++(0,-2) -- ++(2,2);
-\draw (p2.east) ++(0,-2) node[left]{$b$} --
-      ++(2,2) node[right]{$A$};
-\end{tikzpicture}
-\end{center}
-\end{minipage}
-
-\vspace{.5em}
-
-\begin{minipage}{.09\textwidth}
-\normalsize $+$
-\end{minipage}
-\begin{minipage}{.9\textwidth}
-\begin{center}
-\begin{tikzpicture}[scale=.75]
-\draw (1,1) node[left]{$a$} -- (3,-1) node[right]{$B$};
-\draw (1,-1) node[left]{$b$} -- (3,1) node[right]{$A$};
-\end{tikzpicture}
-\end{center}
-\end{minipage}
-
-\end{footnotesize}
-\caption{The Feynman diagrams associated with the second term in the expansion of the $2\rightarrow2$ transition amplitude. The joining of four momenta by the last delta function is illustrated by having four lines meet in a point.
-\label{efeydig2}}
-\end{figure}
-
-At the next order in $\lambda$, we can build the diagrams in fig.~\ref{efeydig2}.
-
-Of these diagrams, those in the first two lines are simply those of fig.~\ref{efeydig1} with loops added, and can be considered the one-loop, or next-to leading order, part of those processes.
- The last diagram is the only one that we have not seen before, and it introduces a new feature. In all the diagrams we have examined so far, momentum conservation has required that one of the final states be exactly identical to one of the initial states. Not so in the final diagram, where the delta function at the vertex only requires that the sum of momenta, here defined so that positive momenta flow toward the vertex, is zero. In $S$-matrix notation, where the transition matrix $S$, which transits an initial state into a final state, can be written as
-\[S=1+iT,\]
-this last diagram is the first part of the non-trivial $T$-matrix.
-
-As for the disconnected vacuum bubble seen in the top row, and in diagram~\eqref{vacbub}, note that the diagram(s) that the vacuum bubble multiplies are the diagrams for the process from the preceeding orders. At higher orders in the expansion, we will find it as a repeated pattern that the diagrams from the previous orders reoccur, multiplied with various combinations of vacuum bubble diagrams. Combining the vacuum bubble contributions on any one diagram at all orders, we find that they can be written as the exponential of the sum of all possible vacuum bubbles \cite{sred:freediagexp}. The same result can be reached by writing
-\(\int\mathcal D\phi\,e^{i(S_F+S_I)},\)
-the expression for the $0\rightarrow0$ process to all orders. Since this is another constant, we can divide it out like we did with the vacuum normalisation, making the expression for the transition amplitude now
-\(A\propto\int\frac{d^4k_A}{(2\pi)^4}\frac{d^4k_a}{(2\pi)^4}\frac{\int\mathcal D\phi\,\phi(k_A)\phi(k_a)e^{iS}}{\int\mathcal D\phi\,e^{iS}}.\)
-
-With that, we find that the non-trivial part of the expression, the $T$-matrix from above, can be found by taking only the connected diagrams---the diagrams in which it is possible to go from any one part to any other along connected lines---into account. Using just this process in the transition amplitude, we can calculate the probability of the system going to some final state specifically through the process described by this diagram. That probability will depend on $\lambda$, which means that if we have a way of seeing how frequently the interaction occurs, we have a way of measuring $\labmda$. If we imagine a collider experiment with this type of physics, the fact that the interacting process is the only one that allows momentum exchange---to this order---means that this is the only process that allows imaginary particles to leave the imaginary beam axis, making this process rather easy to distinguish from the others.
-
-This simple model is, unsurprisingly, far too simple to describe reality. To begin to do so requires the development of the full Standard Model, which is the subject of entire textbooks \cite{srednicki}, and we will not go into further detail here.
-
-\begin{figure}[htb]
-\parbox[t]{.45\textwidth}{\begin{center}\begin{footnotesize}\begin{tikzpicture} [>=triangle 45]
+\begin{figure}[hbtp]
+\begin{minipage}[b]{.69\textwidth}
+\begin{center}\begin{footnotesize}
+\begin{tikzpicture} [>=triangle 45]
 \draw[>-] (-1,1) -- (0,1);
 \draw[->] (0,1) -- (0,0);
 \draw[<-] (-1,-1) -- (0,-1) -- (0,0);
@@ -313,9 +183,89 @@ This simple model is, unsurprisingly, far too simple to describe reality. To beg
 \draw[snake=coil,segment aspect=0] (0,-1) -- (2,-1) node[right] {$\gamma$}; 
 \end{tikzpicture}
 \end{footnotesize}\end{center}
-\subcaption{SM contribution at tree level. \label{lofeyn}}}\hfill
-\parbox[t]{.52\textwidth}{\begin{center}\begin{footnotesize}
-\begin{tikzpicture} [>=triangle 45]
+\end{minipage}\hfill
+\begin{minipage}[b]{.3\textwidth}
+\caption{A Feynman diagram for a $q\bar q \rightarrow \gamma\gamma$ process.}\label{bornqq2gg}
+\end{minipage}
+\end{figure}
+
+To evaluate this diagram, we require the Feynman rule for the $f\bar f \rightarrow \gamma$ vertex, given in fig.~\ref{ruleqqgam}
+
+\begin{figure}[hbtp]
+\begin{minipage}[b]{.69\textwidth}
+\centering\footnotesize
+\begin{tikzpicture}
+\draw[decorate, decoration={snake, pre=lineto, pre length=5pt}] (0,0) -- +(1,0) node[right] {$\gamma$};
+\draw[](0,0) -- node[midway,sloped] {\tikz\draw[-triangle 45] (0,0)--(-.1,0);} +(240:1) node[left] {$f$};
+\draw[](0,0) -- node[midway,sloped] {\tikz\draw[-triangle 45] (0,0)--(.1,0);} +(120:1) node[left] {$f$};
+\node[right] at (2,0) {$=eQ_f\gamma^\mu$};
+\end{tikzpicture}
+\end{minipage}\hfill
+\begin{minipage}[b]{.3\textwidth}
+\caption{Feynman rule for the fermion--fermion--photon coupling. $e$ is the unit charge and $Q_f$ is the charge of the fermion.}\label{ruleqqgam}
+\end{minipage}
+\end{figure}
+
+The Feynman diagram in fig.~\ref{bornqq2gg} is then equivalent to
+\(\frac{e^2Q_q^2\gamma^\mu\gamma^\nu}{k^2-m^2-i\epsilon},\)
+where $k$ is the momentum of the internal quark propagator. This relates to the transition amplitude by integrating over all participating momenta, keeping in mind that momenta must be conserved across all propagators and in every vertex.
+
+The couplings introduced by the QCD and Higgs sectors are given in figure~\ref{othercoups}.
+
+\begin{figure}[htbp]
+\centering\footnotesize
+\begin{tikzpicture}
+\draw[decorate, decoration={coil,amplitude=2pt, segment length=2.68pt, pre=lineto, pre length=5pt}] (0,0) -- +(1.5,0) node[right] {$g$};
+\draw[](0,0) -- node[midway,sloped] {\tikz\draw[-triangle 45] (0,0)--(-.1,0);} +(240:1.5) node[left] {$q$};
+\draw[](0,0) -- node[midway,sloped] {\tikz\draw[-triangle 45] (0,0)--(.1,0);} +(120:1.5) node[left] {$q$};
+\end{tikzpicture}\hspace{2em}
+\begin{tikzpicture}
+\draw[decorate, decoration={coil,amplitude=2pt, segment length=2.68pt, pre=lineto, pre length=5pt}] (0,0) -- +(1.5,0) node[right] {$g$};
+\draw[decorate, decoration={coil,amplitude=2pt, segment length=2.68pt, pre=lineto, pre length=5pt}](0,0) -- +(240:1.5) node[left] {$g$};
+\draw[decorate, decoration={coil,amplitude=2pt, segment length=2.68pt, pre=lineto, pre length=5pt}](0,0) -- +(120:1.5) node[left] {$g$};
+\end{tikzpicture}\hspace{2em}
+\begin{tikzpicture}
+\draw[decorate, decoration={coil,amplitude=2pt, segment length=2.68pt, pre=lineto, pre length=5pt}](0,0) -- (-1.5,1) node[left] {$g$};
+\draw[decorate, decoration={coil,amplitude=2pt, segment length=2.68pt, pre=lineto, pre length=5pt}](0,0) -- (-1.5,-1) node[left] {$g$};
+\draw[decorate, decoration={coil,amplitude=2pt, segment length=2.68pt, pre=lineto, pre length=5pt}](0,0) -- (1.5,1) node[right] {$g$};
+\draw[decorate, decoration={coil,amplitude=2pt, segment length=2.68pt, pre=lineto, pre length=5pt}](0,0) -- (1.5,-1) node[right] {$g$};
+\end{tikzpicture}\hspace{2em}
+\begin{tikzpicture}
+\draw[dashed] (0,0) -- +(1.5,0) node[right] {$h$};
+\draw[](0,0) -- node[midway,sloped] {\tikz\draw[-triangle 45] (0,0)--(-.1,0);} +(240:1.5) node[left] {$f$};
+\draw[](0,0) -- node[midway,sloped] {\tikz\draw[-triangle 45] (0,0)--(.1,0);} +(120:1.5) node[left] {$f$};
+\end{tikzpicture}\hspace{2em}
+\begin{tikzpicture}
+\draw[dashed] (0,0) -- +(1.5,0) node[right] {$h$};
+\draw[decorate, decoration={snake, pre=lineto, pre length=5pt}](0,0) -- +(240:1.5) node[left] {$Z^0$ / $W^\pm$};
+\draw[decorate, decoration={snake, pre=lineto, pre length=5pt}](0,0) -- +(120:1.5) node[left] {$Z^0$ / $W^\mp$};
+\end{tikzpicture}\hspace{2em}
+\begin{tikzpicture}
+\draw[dashed] (0,0) -- +(1.5,0) node[right] {$h$};
+\draw[dashed](0,0) -- +(240:1.5) node[left] {$h$};
+\draw[dashed](0,0) -- +(120:1.5) node[left] {$h$};
+\end{tikzpicture}\hspace{2em}
+\begin{tikzpicture}
+\draw[decorate, decoration={snake, pre=lineto, pre length=5pt}](0,0) -- (-1.5,1) node[left] {$Z^0$ / $W^\pm$};
+\draw[decorate, decoration={snake, pre=lineto, pre length=5pt}](0,0) -- (-1.5,-1) node[left] {$Z^0$ / $W^\pm$};
+\draw[dashed](0,0) -- (1.5,1) node[right] {$h$};
+\draw[dashed](0,0) -- (1.5,-1) node[right] {$h$};
+\end{tikzpicture}\hspace{2em}
+\begin{tikzpicture}
+\draw[dashed](0,0) -- (-1.5,1) node[left] {$h$};
+\draw[dashed](0,0) -- (-1.5,-1) node[left] {$h$};
+\draw[dashed](0,0) -- (1.5,1) node[right] {$h$};
+\draw[dashed](0,0) -- (1.5,-1) node[right] {$h$};
+\end{tikzpicture}\hspace{2em}
+\caption{Couplings introduced in $\mathcal{L}_\textit{QCD}$ and $\mathcal{L}_H$.}\label{othercoups}
+\end{figure}
+
+With these couplings in the mix, we can additionally construct the diagrams with $\gamma\gamma$ final states in figure~\ref{hiorder}.
+
+\begin{figure}[hbtp]
+\begin{minipage}[b]{.49\textwidth}
+\begin{center}\begin{footnotesize}
+\begin{tikzpicture} [>=triangle 45,scale=.8]
 \draw[>-] (1,1) node[below]{$q$} -- (2,1);
 \draw[decorate, decoration={coil,amplitude=2pt, segment length=2.68pt}] 
     (-2,1) node[left]{$g$} -- (0,1) ;
@@ -332,57 +282,59 @@ This simple model is, unsurprisingly, far too simple to describe reality. To beg
 \draw[decorate, decoration={snake}] (2,-1) -- (4,-1) node[right]{$\gamma$};
 \end{tikzpicture}
 \end{footnotesize}\end{center}
-\subcaption{SM contribution at loop level. $g$s mark gluons.\label{boxdiag}}}\hfill
-\caption{ Feynman diagrams for the two leading Standard Model processes that produce a $\gamma\gamma$ final state.\label{smfeyn}}
+\end{minipage}\hfill
+\begin{minipage}[b]{.49\textwidth}
+\centering\footnotesize
+\begin{tikzpicture}[scale=.7]
+\draw[dashed] (0,0) node[left] {$h$} -- (2,0);
+\draw (2,0) -- node[midway,sloped] {\tikz\draw[-triangle 45] (0,0)--(.1,0);} (4,1) --
+    node[midway,sloped] {\tikz\draw[-triangle 45] (0,0)--(.1,0);} (4,-1) --
+    node[midway,sloped] {\tikz\draw[-triangle 45] (0,0)--(.1,0);} (2,0);
+\node at (3.3,0) {$f$};
+\draw[decorate, decoration={snake, pre=lineto, pre length=5pt}] (4,1) -- (6,1) node[right] {$\gamma$};
+\draw[decorate, decoration={snake, pre=lineto, pre length=5pt}] (4,-1) -- (6,-1) node[right] {$\gamma$};
+\end{tikzpicture}
+\end{minipage}
+\caption{Single loop level Feynman diagrams with $\gamma\gamma$ final states.}\label{hiorder}
 \end{figure}
 
-Even so, the process of developing Feynman diagrams to represent terms in the Lagrangian that describe individual processes is also applicable to the full Standard Model. This requires that the Feynman rules are extended by introducing several types of fields, which can be represented in Feynman diagrams by some new styles of lines (dashed, wavy, curled, etc.). Charge is introduced by adding a direction to the lines associated with charged particles---since reversing the charge of a particle is equivalent to reversing the time direction. These new fields interact in several new types of vertices, weighted by three coupling constants: the electromagnetic coupling $\alpha_\text{QED}$, the weak coupling constant $\alpha_W$ and the strong coupling constant $\alpha_s$. With this individual Standard Model processes can also be represented by Feynman diagrams. The processes that produce the preponderance of two-photon final states with the two diagrams are shown in figure~\ref{smfeyn}.
+Both these diagrams introduce a new complication, in that the internal loops contain a momentum which is not fixed by momentum conservation in the vertices to external momenta. Thus, the momentum integration on this diagram will diverge. There exist well defined procedures for renormalising the contributions from these loop level diagrams, however, as this requires the development of next--to--leading order methods, we will consider them beyond our scope. We will in any case not be calculating contributions from higher than leading order diagrams directly.
 
-We can get a feel for the relative strength of these two diagrams by turning to two sets of simulated collisions available from the \atlas{} collaboration.
-%\footnote{The internal ATLAS names are \verbatim{mc12_8TeV.129180.Pythia8_AU2CTEQ6L1_gammagamma_2DP20.merge.NTUP_PHOTON.e1199_s1479_s1470_r3542_r3549_p1344} and \verbatim{mc12_8TeV.146800.Pythia8_AU2CTEQ6L1_GamGamBox_pT35pT20.merge.NTUP_PHOTON.e1222_s1469_s1470_r3542_r3549_p1344}.}
-Plotted in figure~\ref{boxpart} are the distribution of the invariant masses of photon pairs, defined as \cite{marshaw}
-\begin{align*} 
-M_{\gamma\gamma}&=\sqrt{(E_1+E_2)^2-|\mathbf p_1+\mathbf p_2|^2},
-\intertext{which, in the case of massless particles, can be rewritten as}
-&=\sqrt{2p_1p_2(1-\cos\theta)}. \numberthis\label{sinvmass}
-\end{align*}
+The rightmost diagram in fig.~\ref{hiorder} is one of the decay modes of the Higgs boson. As such, the invariant mass of the resulting photon pair will tend to distribute itself around the Higgs boson mass. In fact, this process was one of the main areas of focus in the recent search for the Higgs boson. This distribution of invarant masses, we will see in the following, is quite different from the signature of the event that are the subject of the present search. Thus, the contribution from this diagram will not figure in the analysis to follow.
 
-\begin{figure}[htp]
-\begin{minipage}[b]{.69\textwidth}
-\begin{sffamily}
-\input{figures/boxpart}
-\end{sffamily}
-\end{minipage}
-\begin{minipage}[b]{.3\textwidth}
-\caption{The distribution of invariant masses of Standard Model diphoton events as predicted by simulation. The box contribution gives just those events produced by the box diagram in fig.~\ref{boxdiag}. These are ATLAS datasets produced with pythia8 \cite{pythia}, and normalised to the luminosity of the data sample. \label{boxpart}}
-\end{minipage}
-\end{figure}
+The procedure outlined above, for constructing a collection of Feynman diagrams from a Lagrangian can be described in sufficient detail to be automated. For this thesis, we will use the tool LanHEP \cite{lanhep} for this purpose. This tool is chosen for its easy compatibility with the event generator which will be used in chapter~\ref{ch.mc}. Alternatives exist, such as FeynRules \cite{feynrules}.
+
+In stead, we will extend the Standard Model to encompass an additional $qq\leftarrow\gamma\gamma$ process via the effective Lagrangian approach.
 
 \section{The effective Lagrangian approach}
 
 The SM Lagrangian can be written as a sum of terms, each of which describes the behaviour of or interactions between the fields in the Standard Model \cite{srednicki}, as we also exploited above, to write it in terms of Feynman diagrams. It is no great stretch, then, to consider expanding the Standard Model by adding a new term to the Lagrangian, which describes some new physics. Doing so, however, is not unproblematic.
 
-It is a property of the Standard Model\footnote{[Or it is a requirement on the Standard Model. Claiming that the SM is \emph{inherently} unitary might be something of a stretch.]} that it is unitary, meaning that the total probability of a given state to propagate into any of the possible final states evaluates to 1. Clearly, one cannot simply add any new term to the Standard Model Lagrangian without breaking this unitarity. Rather than going through the painstaking process of ensuring that the new term we will add to the SM preserves its unitarity, we will in stead build on the assumption that new physics exists at high mass scales, and think of the SM Lagrangian as simply the zeroth order term in a series expansion of some larger model. There will then be higher order corrections to the Standard Model, in some mass scale $\Lambda$ that the expansion is performed in. 
+It is a property of the Standard Model
+%\footnote{[Or it is a requirement on the Standard Model. Claiming that the SM is \emph{inherently} unitary might be something of a stretch.]}
+that it is unitary, meaning that the total probability of a given state to propagate into any of the possible final states evaluates to 1. Clearly, one cannot simply add any new term to the Standard Model Lagrangian without breaking this unitarity. Rather than going through the painstaking process of ensuring that the new term we will add to the SM preserves its unitarity, we will in stead build on the assumption that new physics exists at high mass scales, and think of the SM Lagrangian as simply the zeroth order term in a series expansion of some larger model. There will then be higher order corrections to the Standard Model, in some mass scale $\Lambda$ that the expansion is performed in. 
 In that case, the SM is no longer assumed to be a complete model, and, moreover, the expanded model is not even expected to be a complete model to any given order in $\Lambda$, which allows us to sidestep the issue of unitarity.
-This approach is only valid if the mass scale is significantly larger than the energies at which the Standard Model is being probed, since the higher order contributions would otherwise have a detectable influence in the lower energy range where the parameters of the SM are determined, meaning that the original assumption of the SM Lagrangian as a zeroth order term in an expansion in $\Lambda$ is no longer valid.
+This approach is only valid if the mass scale is significantly larger than the energies at which the Standard Model is being probed. If the new term is to be considered , since the higher order contributions would otherwise have a detectable influence in the lower energy range where the parameters of the SM are determined, meaning that the original assumption of the SM Lagrangian as a zeroth order term in an expansion in $\Lambda$ is no longer valid.
 
 From this assumed plethora of possible higher order terms, we choose to consider a specific term, which describes the $q\bar q\rightarrow\gamma\gamma$ contact interaction which is the focus of this thesis. This term takes the form \cite{rizzo}
 \(\mathcal L_n = \frac{2ie^2}{\Lambda^4}Q_q^2F^{\mu\sigma}F^\nu_\sigma\overline{q}\gamma_\mu\partial_\nu q,\label{rizzo}\)
-where $e$ is the elementary charge, $Q_q$ is the quark charge of quark $q$ and $\Lambda$, as discussed, is the associated mass scale. The power of $\Lambda$ is chosen to give the correct mass dimension of the term: in natural units,\footnote{Where $\hbar = c = 1$.} the action is unitless. The Lagrangian is integrated over 4 lengths to give the action, which means it must have a length dimension of $-4$ itself. Finally, in natural units, we can equate a unit of length with a unit of inverse mass\footnote{Because in natural units, \[[\text{length}]=[\text{length}]\frac{c}{\hbar}=[\text{length}]\frac{\left[\frac{\text{length}}{\text{time}}\right]}{\left[\frac{\text{length}^2\text{ mass}}{\text{time}}\right]}=\left[\frac{\text{length}^2\text{ time}}{\text{length}^2\text{ time}\text{ mass}}\right]=[\text{mass}]^{-1}. \]}, which means that the Lagrangian must have mass dimension 4. The factors $F^{\mu\sigma}F^\nu_\sigma$ and $\overline{q}\gamma_\mu\partial_\nu q$ each contribute a mass dimension of 4, so the mass scale, which has dimension of mass, must get a power of $-4$.
+where $e$ is the elementary charge, $Q_q$ is the quark charge of quark $q$ and $\Lambda$, as discussed, is the associated mass scale. $n$ is for ``new''. The power of $\Lambda$ is chosen to give the correct mass dimension of the term: in natural units,\footnote{Where $\hbar = c = 1$.} the action is unitless. The Lagrangian is integrated over 4 lengths to give the action, which means it must have a length dimension of $-4$ itself. Finally, in natural units, we can equate a unit of length with a unit of inverse mass\footnote{Because in natural units, \[[\text{length}]=[\text{length}]\frac{c}{\hbar}=[\text{length}]\frac{\left[\frac{\text{length}}{\text{time}}\right]}{\left[\frac{\text{length}^2\text{ mass}}{\text{time}}\right]}=\left[\frac{\text{length}^2\text{ time}}{\text{length}^2\text{ time}\text{ mass}}\right]=[\text{mass}]^{-1}. \]}, which means that the Lagrangian must have mass dimension 4. The factors $F^{\mu\sigma}F^\nu_\sigma$ and $\overline{q}\gamma_\mu\partial_\nu q$ each contribute a mass dimension of 4, so the mass scale (which has dimension of mass) must get a power of $-4$.
 
 \begin{figure}[htp]\begin{center}
 {\footnotesize\begin{tikzpicture} [>=triangle 45]
 \draw[>-] (-1,.5) -- (0,0);
 \draw[<-] (-1,-.5) -- (0,0);
-\draw (-2,1) node[left] {$u_{ap,2}$} -- (-1,.5);
-\draw (-2,-1)  node[left] {$\bar u_{bq,1}$} -- (-1,-.5);
-\draw[snake=coil,segment aspect=0,line before snake=3mm] (0,0) -- (2,1) node[right] {$\gamma_{\mu,3}$};
-\draw[snake=coil,segment aspect=0,line before snake=3mm] (0,0) -- (2,-1) node[right] {$\gamma_{\nu,4}$}; 
-\node at (1,0) [right] {\footnotesize$=\dfrac{8 e{}^2}{9 \Lambda^4} \delta_{p q} \big(p_2^\rho p_3^\rho p_4^\sigma g^{\mu \nu} \gamma_{a b}^\sigma -p_2^\mu p_3^\nu p_4^\rho \gamma_{a b}^\rho -p_2^\rho p_3^\rho p_4^\mu \gamma_{a b}^\nu +p_2^\mu p_3^\rho p_4^\rho \gamma_{a b}^\nu $};
-\node at (2.3,-.6) [right] {$+p_2^\rho p_3^\sigma p_4^\rho g^{\mu \nu} \gamma_{a b}^\sigma -p_2^\nu p_3^\rho p_4^\mu \gamma_{a b}^\rho -p_2^\rho p_3^\nu p_4^\rho \gamma_{a b}^\mu +p_2^\nu p_3^\rho p_4^\rho \gamma_{a b}^\mu \big)$};
+\draw (-2,1) node[left] {$q$} -- (-1,.5);
+\draw (-2,-1)  node[left] {$\bar q$} -- (-1,-.5);
+\draw[snake=coil,segment aspect=0,line before snake=3mm] (0,0) -- (2,1) node[right] {$\gamma$};
+\draw[snake=coil,segment aspect=0,line before snake=3mm] (0,0) -- (2,-1) node[right] {$\gamma$}; 
+\node at (3,0) [right] {\footnotesize$=2\dfrac{Q^2 e{}^2}{\Lambda^4} 
+%\delta_{p q} \big(p_2^\rho p_3^\rho p_4^\sigma g^{\mu \nu} \gamma_{a b}^\sigma -p_2^\mu p_3^\nu p_4^\rho \gamma_{a b}^\rho -p_2^\rho p_3^\rho p_4^\mu \gamma_{a b}^\nu +p_2^\mu p_3^\rho p_4^\rho \gamma_{a b}^\nu $};
+%\node at (2.3,-.6) [right] {$+p_2^\rho p_3^\sigma p_4^\rho g^{\mu \nu} \gamma_{a b}^\sigma -p_2^\nu p_3^\rho p_4^\mu \gamma_{a b}^\rho -p_2^\rho p_3^\nu p_4^\rho \gamma_{a b}^\mu +p_2^\nu p_3^\rho p_4^\rho \gamma_{a b}^\mu \big)
+$};
 \end{tikzpicture}
 }\end{center}
-\caption{An example of a Feynman rule as created by entering the new term from eq.~\eqref{rizzo} into LanHEP\cite{lanhep}. It gives the coupling constant of the four-point interaction between an up- and an antiup-quark, and two photons. $p_n$ represents the four-momentum of particle $n$, $\gamma_{ab}^\mu$ is the $\gamma$-matrix, $g^{\mu\nu}$ is the metric tensor, $\delta_{pq}$ is the Kronecker delta, $e$ is the elementary charge and $\Lambda$ is the associated mass scale.\label{rule}}
+\caption{An example of a Feynman rule as created by entering the new term from eq.~\eqref{rizzo} into LanHEP\cite{lanhep}.\label{rule}}
 \end{figure}
 
 The effect of the new term is to introduce several Feynman rules of the type shown in fig.~\ref{rule}.
@@ -395,14 +347,14 @@ These new processes may interfere constructively or destructively with the Stand
 \hspace{-1em}\input{figures/interference}
 }\end{infilsf} \end{minipage}
 \hfill\begin{minipage}[b]{.3\textwidth}
-\caption{The effect on the distribution of the invariant masses of the produced photon pairs of introducing the new term into the Lagrangian at various values of the mass scale $\Lambda$, assuming constructive (non-grayed) and destructive (grayed) interference with the SM contribution. Note that the distributions that assume destructive interference produce fewer events than those that assume constructive interference at the same value of $\Lambda$. These Monte Carlo samples were produced with CalcHEP.
+\caption{The effect on the distribution of the invariant masses of the produced photon pairs of introducing the new term into the Lagrangian at various values of the mass scale $\Lambda$, assuming constructive (non-grayed) and destructive (grayed) interference with the SM contribution. Note that the distributions that assume destructive interference produce fewer events than those that assume constructive interference at the same value of $\Lambda$. These Monte Carlo samples were produced with CalcHEP \cite{calchep}.
 \label{interf}}
 \end{minipage}
 \end{figure}
 
 Given that the distribution of invariant masses contain more events in the sensitive region if we assume constructive interference, a lower bound on the value of $\Lambda$ that we discover while using this assumption will lie below the lower bound that we would find, had we assumed destructive interference. Therefore, we will move forward assuming that the new term interferes constructively with the Standard Model.
 
-One possible interpretation of this new four-point interaction is as a zero-range approximation of a process like the one shown in fig.~\ref{across}, involving some unknown mediating particle \cite{marshaw}.
+One possible interpretation of this new four-point interaction is as a zero-range approximation of a process like the one shown in fig.~\ref{across}, involving some unknown mediating particle with mass approximately equal to $\Lambda$ \cite{marshaw}. The proposed graviton is one candidate for such a particle.
 
 \begin{figure}[htb]
 \parbox[t]{.45\textwidth}{\begin{center}\begin{footnotesize}\begin{tikzpicture} [>=triangle 45]
@@ -457,7 +409,7 @@ In the processes described so far, the starting point has been the interaction o
 \end{minipage}
 \end{figure}
 
-While protons contain no antiquarks as valence quarks, every proton is surrounded by a `sea' of virtual particles. At a given energy scale $Q^2$, there is a certain probability for extracting one of these sea quarks in an interaction, given by the Parton Distribution Functions (PDFs), a selection of which is shown in fig.~\ref{pdff}. These functions are found experimentally by several collaborations. This thesis will deal mainly with the CTEQ set of PDFs.
+While protons contain no antiquarks as valence quarks, every proton also contains a `sea' of virtual particles. At a given energy scale $Q^2$, there is a certain probability for extracting one of these sea quarks (or gluons) with a fraction $x$ of the kinetic energy of the proton in an interaction. This probability is given by the Parton Distribution Functions (PDFs), a selection of which is shown in fig.~\ref{pdff}. These functions are found experimentally by several collaborations. This thesis will deal mainly with the CTEQ set of PDFs.
 
 Including this step in the calculation leads to the following expression, which gives the cross section for a diphoton event resulting from a proton-proton collision, $\sigma(pp\rightarrow\gamma\gamma)$ in terms of the $\sigma(q\bar q \rightarrow \gamma\gamma)$ cross section that we have determined thus far:
 \[\sigma(pp\rightarrow\gamma\gamma)=\sum_q\iint dx_1\,dx_2\,f_q(x_1,Q^2)f_{\bar q}(x_2,Q^2)\sigma(q\bar q\rightarrow\gamma\gamma),\label{pdf}\]
