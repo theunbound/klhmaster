@@ -103,11 +103,11 @@ Performing this process for each bin in $M_{\gamma\gamma}$, we obtain the distri
 
 \section{Comparison to SM MC}
 
-[NOTE: jet cleaning from gammagamma set!]
+The \atlas{} Collaboration has produced a large selection of Monte Carlo data sets from which we choose a selection to represent a Standard Model prediction.  These sets, like those that were created in chapter~\ref{ch.mc}, have been through a detector simulation step, so that detector response has been taken into account, and they are in the same format, and contain the same types of information, as the data sets produced by the \atlas{} detector. Thus, these sets can be subjected to the same event selection machinery as was developed for as the data above.
 
-The \atlas{} collaboration has produced a variety of Monte Carlo event sets that describe processes which might produce events that pass the selection cuts. Among a larger selection of candidate sets, the two which provide the most significant contribution within the signal region describe events with $\gamma-$jet final states, and event that feature a $Z\rightarrow ee$ decay. The invariant mass distributions, after selection criteria have been applied, are plotted in figure~\ref{mclist}, along with the signal and estimated background distributions found above, and the distribution of events found in the \atlas{} $qq\rightarrow\gamma\gamma$ MC set.
+The set we choose to represent $qq\rightarrow\gamma\gamma$ signal\footnote{ Full information in an appendix} would ideally be precisely comparable to the SM prediction we produced with CalcHEP in chapter~\ref{ch.mc}, however no such set turns out to be available. The set that is available includes a number of background processes, such as [... I'll get back to you on that]. In order to directly compare the \atlas{} $\gamma\gamma$ set with the CalcHEP set, we implement, in addition to the event selection already defined, a filter to sort out, event by event, all those events that did not produce two photons on their hard process.
 
-[three? two!? one\textinterrobang\textinterrobang] used to produce figure~\ref{mclist} were found to yield the greatest contribution after the selection criteria used for the data were applied to them\footnote{[Something, something, list of full names, maybe appendix on contributions from sets?]}. The greatest contribution comes from the MC set that describes the Standard Model $pp\,\rightarrow\,\gamma\gamma$ process. The remaining MC sets describe processes with $\gamma$--jet or single--$\gamma$ final states, and  $Z\,\rightarrow\,ee$ decays as the most significant among processes with $ee$ final states. These processes might produce false positives either by emitting hard photons through bremsstrahlung or by false identification of electrons as converted photons.
+To represent the background to the process under study, we examine a number of MC sets/footnote{An appendix...} for significant contributions that pass our selection criteria. Among these, the two which provide the most significant contribution within the signal region describe events with $\gamma-$jet final states, and event that feature a $Z\rightarrow ee$ decay. These processes might produce false positives either by emitting hard photons through bremsstrahlung or by false identification of electrons as converted photons. The invariant mass distributions are plotted in figure~\ref{mclist}, along with the signal and estimated background distributions found above, and the distribution of events found in the \atlas{} $qq\rightarrow\gamma\gamma$ MC set, after selection criteria have been applied.
 
 \begin{figure}[htp]
 \begin{minipage}[b]{.69\textwidth}
@@ -120,7 +120,7 @@ The \atlas{} collaboration has produced a variety of Monte Carlo event sets that
 \end{minipage}
 \end{figure}
 
-Here, the [gammajet set, I think we'll kick this to the appendix. Just don't forget!]
+Here, the $/gamma$jet MC set has been composited from five different MC sets with successively higher minimum cuts on $p_T$\footnote{ More in appendix}. We combine them by picking those events from a given set that have the sum of reconstructed $p_T$ greater than 2.3 times the initial low cut for the set, and less than 2.3 times the initial low cut for the next set. We choose a cut above the initial value to clear their turn--on curve.
 
 We note that the relative contribution from the $Z\rightarrow ee$ process is essentially negligible. It contains no events at all that pass the selection criteria, with an invariant mass above 300 GeV, which is well below where we expect to see an effect from the contact interaction. Thus, we will neglect this contribution going forward.
 

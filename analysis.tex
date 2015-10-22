@@ -1,6 +1,4 @@
-\chapter{Analysis}
-All of the bits so far are put together, and a limit on the size of
-$\Lambda$ is found.
+\chapter{Analysis}\label{ch.an}
 
 In chapter~\ref{ch.mc}, we produced, among others, a sample of Monte Carlo events that gives the SM prediction for the distribution of events. Since we discovered above, that the \atlas{} $\gamma\gamma$ Monte Carlo sample gives a distribution of events that matches data well, we will compare these two samples to asses how well our SM prediction matches data. In doing so, we encounter a few problems.
 
@@ -21,7 +19,7 @@ Since this appears to be a technical glitch, we will substitute a reweighting in
 
 [Uncertainty...] [Also, effect on Mgg...?]
 
-The second issue we encounter is in the distribution of $E_T^\text{iso}$, which is much broader in the CalcHEP MC set than in the \atlas{} one, as illustrated in figure~\ref{etpv}. Assuming that the distribution in the CalcHEP sample is just the one in the \atlas{} sample, but broadened, we develop a mapping function to reverse that effect. The result of applying this function is shown in fig.~\ref{etmap}.
+The second issue we encounter is in the distribution of $E_T^\text{iso}$, which is much broader in the CalcHEP MC set than in the \atlas{} one, as illustrated in figure~\ref{etpv}. Assuming that the distribution in the CalcHEP sample is just the one in the \atlas{} sample, but broadened and shifted slightly, we develop a mapping function to reverse that effect [\~$E_T^\text{iso}/4+0.2$ GeV]. The result of applying this function is shown in fig.~\ref{etmap}.
 
 \begin{figure}[htp]
 \begin{minipage}[b]{.49\textwidth}
@@ -46,20 +44,7 @@ The second issue we encounter is in the distribution of $E_T^\text{iso}$, which 
 
 These distributions are now very close to being identical. We correct the remaining discrepancy by reweighting the CalcHEP sample [uncertainty, effect on Mgg...?]
 
-Finally, the CalcHEP sample only included events produced by the tree level process, whereas the \atlas{} sample also includes the contribution from the box diagram shown in fig.~\ref{hiorder}. So, to meaningfully compare the two, we must know the contribution from the box diagram.
-
-\begin{figure}[htp]
-\begin{minipage}[b]{.69\textwidth}
-\begin{infilsf} \tiny
-\input{figures/ggcomp}
-\end{infilsf}
-\end{minipage}
-\begin{minipage}[b]{.3\textwidth}
-\caption{Comparing the \atlas{} distribution with mine. I have slightly fewer, but it'll be covered by the background.}\label{ggcomp}
-\end{minipage}
-\end{figure}
-
-[something something, fig.~\ref{boxmgg} runs out of statistics at 1\,000 GeV, something something, extrapolate by fit. Reference to function.]
+Finally, the CalcHEP sample only included events produced by the tree level process, whereas the \atlas{} sample also includes the contribution from the box diagram shown in fig.~\ref{hiorder}. So, to meaningfully compare the two, we must know the contribution from the box diagram. This, we glean from another \atlas{} MC sample\footnote{that would be that appendix again}, which provides a $M_{\gamma\gamma}$ distribution illustrated in fig.~\ref{boxmgg}. As with the estimated background, this distribution has insufficient statistics to accurately represent the shape of the distribution in the interesting region above 1\,000 GeV, forcing us to extrapolate the shape of this distribution as well.
 
 \begin{figure}[htp]
 \begin{minipage}[b]{.69\textwidth}
@@ -72,9 +57,20 @@ Finally, the CalcHEP sample only included events produced by the tree level proc
 \end{minipage}
 \end{figure}
 
+Adding this to the CalcHEP sample, we get the distribution in fig.~\ref{ggcomp}. As should be evident, there is still a deficit in the CalcHEP sample. This might be because the box diagram contribution added to the CalcHEP sample was produced by a different generator than was used to generate the \atlas{} $\gamma\gamma$ sample, or it might be due to interference between the diagrams which simply adding together samples does not capture. In any case, the difference will be obscure by the uncertainty on the $\gamma$jet sample, which must be added to both.
 
+\begin{figure}[htp]
+\begin{minipage}[b]{.69\textwidth}
+\begin{infilsf} \tiny
+\input{figures/ggcomp}
+\end{infilsf}
+\end{minipage}
+\begin{minipage}[b]{.3\textwidth}
+\caption{Comparing the \atlas{} distribution with the one produced by CalcHEP, combined with a distribution for the box diagram contribution.}\label{ggcomp}
+\end{minipage}
+\end{figure}
 
-[data background has same shape. Fit both. $\chi^2$ fit with probability \~$10^{-5}$, I think.]
+As the data background and box diagram distributions have the same sort of shape, it is natural to combine them before attempting to extrapolate a shape. The function we fit is [some power function... $\chi^2$ fit with probability \~$10^{-5}$, I think...] result in fig.~\ref{bckfit}.
 
 \begin{figure}[htp]
 \begin{minipage}[b]{.69\textwidth}
@@ -83,9 +79,23 @@ Finally, the CalcHEP sample only included events produced by the tree level proc
 \end{infilsf}
 \end{minipage}
 \begin{minipage}[b]{.3\textwidth}
-\caption{Extrapolating the truncated backgrounds by fitting a function.}\label{pvnnone}
+\caption{Extrapolating the truncated backgrounds by fitting a function.}\label{bckfit}
 \end{minipage}
 \end{figure}
 
+\section{ Fit}
+Recalling eq./eqref{rizzo}, we note that the contribution from the new term is proportional to a constant ($\Lambda^{-2}$) squared. Thus, the content of any bin must be expressible as a second order polynomial [...this should be in the theory chapter, or the sim chapter...]
 
-. The \atlas{} Monte Carlo set, which we found above reproduces the distribution of events in data well, also includes the process described by the box diagram, shown in fig.~\ref{hiorder}. So to compare the MC set from chapter~\ref{ch.mc} with the \atlas{} MC set, and with data, we must know the contribution from the box diagram. 
+[Something about the least likelihood method]
+
+Because the fit method is very sensitive to the statistical fluctuations from bin to bin in our predicted invariant mass distributions, we opt to remove those fluctuations by fitting the distributions with a function. Since we take it as a given that the shape of the distribution consists of a base shape plus an excess from the contact interaction, we will fit them with a common power law, plus a gaussian plus an exponential for each of the non--SM distributions [I have a formula around here somewhere...] the result of the fit is illustrated in fig.~\ref{simfit}
+
+\begin{figure}[hbt]
+\begin{infilsf}\tiny
+\input{figures/simfit}
+\end{infilsf}
+\caption{The functions fitted to each of the CalcHEP distributions with different $\Lambda$ values, which were produced in chapter~\ref{ch.mc}.}\label{simfit}
+\end{figure}
+
+[Without proper errors: Most likely $\Lambda$ is 12.0 TeV, lower limit is 1.32 TeV. The Standard Model survives.]
+
