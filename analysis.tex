@@ -21,7 +21,34 @@ Since this appears to be a technical glitch, we will substitute a reweighting in
 
 [Uncertainty...] [Also, effect on Mgg...?]
 
-The second issue we encounter
+The second issue we encounter is in the distribution of $E_T^\text{iso}$, which is much broader in the CalcHEP MC set than in the \atlas{} one, as illustrated in figure~\ref{etpv}. Assuming that the distribution in the CalcHEP sample is just the one in the \atlas{} sample, but broadened, we develop a mapping function to reverse that effect. The result of applying this function is shown in fig.~\ref{etmap}.
+
+\begin{figure}[htp]
+\begin{minipage}[b]{.49\textwidth}
+\begin{infilsf} \tiny 
+\input{figures/etpv}
+\end{infilsf}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{.49\textwidth}
+\begin{infilsf} \tiny 
+\input{figures/etmap}
+\end{infilsf}
+\end{minipage}
+\begin{minipage}[b]{.49\textwidth}
+\subcaption{Before application of mapping function.\label{etpv}}
+\end{minipage}\hfill
+\begin{minipage}[b]{.49\textwidth}
+\subcaption{After application of mapping function.\label{etmap}}
+\end{minipage}
+\caption{The distribution of $E_T^\text{iso}$ in the \atlas{} MC set compared with the distribution in the CalcHEP MC set. In \subcaptionref{etmap}, a mapping function which applies a scale and offset to the values for the CalcHEP MC has been applied.}
+\end{figure}
+
+These distributions are now very close to being identical. We correct the remaining discrepancy by reweighting the CalcHEP sample [uncertainty, effect on Mgg...?]
+
+Finally, the CalcHEP sample only included events produced by the tree level process, whereas the \atlas{} sample also includes the contribution from the box diagram shown in fig.~\ref{hiorder}. So, to meaningfully compare the two, we must know the contribution from the box diagram.
+
+[something something, a plot, something something, extrapolate by fit. Reference to function.]
 
 
 
