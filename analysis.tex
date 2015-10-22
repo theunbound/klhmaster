@@ -4,7 +4,26 @@ $\Lambda$ is found.
 
 In chapter~\ref{ch.mc}, we produced, among others, a sample of Monte Carlo events that gives the SM prediction for the distribution of events. Since we discovered above, that the \atlas{} $\gamma\gamma$ Monte Carlo sample gives a distribution of events that matches data well, we will compare these two samples to asses how well our SM prediction matches data. In doing so, we encounter a few problems.
 
-First, it appears that the procedure which should correct for pileup in the detector simulation procedure has not functioned as intended
+First, it appears that the procedure which should correct for pileup in the detector simulation procedure has not functioned as intended. During detector simulation, the events produced for this thesis are assigned only a very limited range of values for the number of interactions per bunch crossing. Pileup reweighting produces a weight for each event so that its distribution in a Monte Carlo dataset mathches the distribution found in data.
+
+Since this appears to be a technical glitch, we will substitute a reweighting in the number of reconstructed primary vertices---vertices considered to originate directly from interactions between protons---in each event. The distribution of numbers of primary vertices in the present MC data set is compared to the one found in the \atlas{} MC set in figure~\ref{pvnnone}.
+
+\begin{figure}[htp]
+\begin{minipage}[b]{.69\textwidth}
+\begin{infilsf} \tiny
+\input{figures/pvnnone}
+\end{infilsf}
+\end{minipage}
+\begin{minipage}[b]{.3\textwidth}
+\caption{The distribution of the number of reconstructed primary vertices in the \atlas{} $\gamma\gamma$ MC set and in the CalcHEP MC set produced for this thesis, normalised to the same number of events.}\label{pvnnone}
+\end{minipage}
+\end{figure}
+
+[Uncertainty...] [Also, effect on Mgg...?]
+
+The second issue we encounter
+
+
 
 
 . The \atlas{} Monte Carlo set, which we found above reproduces the distribution of events in data well, also includes the process described by the box diagram, shown in fig.~\ref{hiorder}. So to compare the MC set from chapter~\ref{ch.mc} with the \atlas{} MC set, and with data, we must know the contribution from the box diagram. 
