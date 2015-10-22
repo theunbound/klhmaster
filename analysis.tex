@@ -48,9 +48,44 @@ These distributions are now very close to being identical. We correct the remain
 
 Finally, the CalcHEP sample only included events produced by the tree level process, whereas the \atlas{} sample also includes the contribution from the box diagram shown in fig.~\ref{hiorder}. So, to meaningfully compare the two, we must know the contribution from the box diagram.
 
-[something something, a plot, something something, extrapolate by fit. Reference to function.]
+\begin{figure}[htp]
+\begin{minipage}[b]{.69\textwidth}
+\begin{infilsf} \tiny
+\input{figures/ggcomp}
+\end{infilsf}
+\end{minipage}
+\begin{minipage}[b]{.3\textwidth}
+\caption{Comparing the \atlas{} distribution with mine. I have slightly fewer, but it'll be covered by the background.}\label{ggcomp}
+\end{minipage}
+\end{figure}
+
+[something something, fig.~\ref{boxmgg} runs out of statistics at 1\,000 GeV, something something, extrapolate by fit. Reference to function.]
+
+\begin{figure}[htp]
+\begin{minipage}[b]{.69\textwidth}
+\begin{infilsf} \tiny
+\input{figures/boxmgg}
+\end{infilsf}
+\end{minipage}
+\begin{minipage}[b]{.3\textwidth}
+\caption{The distribution of invariant masses in the \atlas{} box diagram data set.}\label{boxmgg}
+\end{minipage}
+\end{figure}
 
 
+
+[data background has same shape. Fit both. $\chi^2$ fit with probability \~$10^{-5}$, I think.]
+
+\begin{figure}[htp]
+\begin{minipage}[b]{.69\textwidth}
+\begin{infilsf} \tiny
+\input{figures/bckfit}
+\end{infilsf}
+\end{minipage}
+\begin{minipage}[b]{.3\textwidth}
+\caption{Extrapolating the truncated backgrounds by fitting a function.}\label{pvnnone}
+\end{minipage}
+\end{figure}
 
 
 . The \atlas{} Monte Carlo set, which we found above reproduces the distribution of events in data well, also includes the process described by the box diagram, shown in fig.~\ref{hiorder}. So to compare the MC set from chapter~\ref{ch.mc} with the \atlas{} MC set, and with data, we must know the contribution from the box diagram. 
