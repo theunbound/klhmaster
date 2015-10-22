@@ -124,20 +124,25 @@ Here, the [gammajet set, I think we'll kick this to the appendix. Just don't for
 
 We note that the relative contribution from the $Z\rightarrow ee$ process is essentially negligible. It contains no events at all that pass the selection criteria, with an invariant mass above 300 GeV, which is well below where we expect to see an effect from the contact interaction. Thus, we will neglect this contribution going forward.
 
-
-
-...which describes the data quite well.
-
-Subjecting those samples to the same background estimation process as the data sample underwent above, we obtain a prediction for the background events in the signal region, which are not removed by the data driven method. Combining this prediction with the estimated background, we obtain a distribution which represents the estimated difference between the data sample and the pure Monte Carlo sample also found in chapter~\ref{ch.mc}. Figure~\ref{tobck} compares these distributions.
+It is our assertion, then, that the signal processes in data are reproduced by the \atlas{} Monte Carlo data sets with $\gamma\gamma$ and $\gamma$jet final states. To test this assertion, we combine these data sets, and process them in the same way as we did to the data sample above. That is, we use the ABCD method to estimate the proportion of events in this data set that are identified as background events. We may then compare the MC signal distribution with the signal distribution found in data by subtracting from it the background distribution estimated in Monte Carlo and adding in stead the background distribution estimated in data. Figure~\ref{atlasmc} shows the result.
 
 \begin{figure}[htp]
-\begin{minipage}[b]{.69\textwidth}
-\centering (a very impressive plot)
-\end{minipage}\hfill\begin{minipage}[b]{.3\textwidth}
-\caption{A very informative caption.
-\label{tobck}}
+\begin{minipage}[b]{\textwidth}
+\begin{infilsf} \tiny
+\input{figures/atlasmc}
+\end{infilsf}
+\end{minipage}
+
+\begin{minipage}[b]{\textwidth}
+\caption{The distribution of invariant masses produced by combining the \atlas{} that best describe the signal processes, from which is subtracted the background contribution found by applying the ABCD method to this set, and added the background contribution estimated in data above. }\label{atlasmc}
 \end{minipage}
 \end{figure}
+
+The plots in this figure have several features worth remarking upon. First, as should also be visible in fig.~\ref{mclist}, the MC sets for the $\gamma$jet processes have relatively poor statistics, which leads to high weights and thus large errors, especially in the invariant mass range below 200 GeV. This is exacerbated by the ABCD method, which results in the very large errors in some bins. Second, both the distribution of background events estimated in data and the $\gamma\gamma$ MC set have almost no events with invariant mass larger than 1\,000 GeV, which is the reason for the sharp drop at around that value. Unlike the first issue, this lack of statistics affects the most important part of the invariant mass range for estimating $\Lambda$, and so we will be forced to attempt to extrapolate the shape of the distribution in this region.
+
+With these caveats, however, the distribution of Monte Carlo events matches the distribution of events in data quite well.
+
+
 
 
 
