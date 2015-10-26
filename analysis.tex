@@ -1,12 +1,12 @@
 \chapter{Analysis}\label{ch.an}
 
-Recalling from [somewhere] that we may express the number of predicted events in a given bin in the $M_{\gamma\gamma}$ as a second order polynomial in $\Lambda^4$, our aim here will be, first, to determine, for each bin, the coefficients of this polynomial. Second, using a maximum likelihood fit, to determine a most likely value of $\Lambda$, and a confidence interval on that value.
+Recalling from chapter \ref{ch.theory} that we may express the number of predicted events in a given bin in the $M_{\gamma\gamma}$ as a second order polynomial in $\Lambda^4$, our aim here will be, first, to determine, for each bin, the coefficients of this polynomial. Second, using a maximum likelihood fit, to determine a most likely value of $\Lambda$, and a confidence interval on that value.
 
 \section{Corrections to Monte Carlo samples}
 
 In chapter~\ref{ch.mc}, we produced, among others, a sample of Monte Carlo events that gives the SM prediction for the distribution of events. Since we discovered above, that the \atlas{} $\gamma\gamma$ Monte Carlo sample gives a distribution of events that matches data well, we will compare these two samples to asses how well our SM prediction matches data. In doing so, we encounter a few problems.
 
-First, it appears that the procedure which should correct for pileup in the detector simulation procedure has not functioned as intended. During detector simulation, the events produced for this thesis are assigned only a very limited range of values for the number of interactions per bunch crossing. Ordinarily, the pileup correction procedure expects a distribution of events per bunch crossing that covers the same range as found in data, and simply reweights each event, so that the shape of the distribution in MC is altered to resesmble the one found in data. Since the distribution of numbers of interaction per bunch crossing available, the distribution found in data can not be recovered in MC.
+First, it appears that the procedure which should correct for pileup in the detector simulation procedure has not functioned as intended. During detector simulation, the events produced for this thesis are assigned only a very limited range of values for the number of interactions per bunch crossing. Ordinarily, the pileup correction procedure expects a distribution of events per bunch crossing that covers the same range as found in data, and simply reweights each event, so that the shape of the distribution in MC is altered to resemble the one found in data. Since the distribution of numbers of interaction per bunch crossing available, the distribution found in data can not be recovered in MC.
 
 Since this appears to be a technical glitch, we will substitute a reweighting in the number of reconstructed primary vertices---vertices considered to originate directly from interactions between protons---in each event. The distribution of numbers of primary vertices in the present MC data set is compared to the one found in the \atlas{} MC set in figure~\ref{pvnnone}.
 
@@ -111,22 +111,24 @@ The results of fitting these functions simultaneously is shown in figure~\ref{si
 \caption{The functions fitted to each of the CalcHEP distributions with different $\Lambda$ values of 0.75 TeV (yellow), 1.00 TeV (red) and $\infty$ (the SM, green). The fit is carried out in the range $150 \le M_{\gamma\gamma} \le 3\,000$ TeV.}\label{simfit}
 \end{figure}
 
-The fit estimates the parameters to be:\allowdisplaybreaks
+The fit estimates the parameters to be, for the SM curve:\allowdisplaybreaks
 \begin{align*}
-p_1                      & \quad = &  7.80556\,10^{-6}   \quad & \pm    3.13184\,10^{-7} \\
-p_2                      & \quad = &      6.96084   \quad & \pm    0.135114    \\
-p_3                      & \quad = &      6.89429   \quad & \pm    0.018134    \\
-p_4                      & \quad = &    -0.553642   \quad & \pm    0.00340326  \\
-p_5                      & \quad = &     0.013996   \quad & \pm    0.00216626  \\
-p_6                      & \quad = &      2540.87   \quad & \pm    61.1552     \\
-p_7                      & \quad = &      476.819   \quad & \pm    96.2365     \\
-p_8                      & \quad = &     -11.6121   \quad & \pm    0.567273    \\
-p_9                      & \quad = &     0.125789   \quad & \pm    0.0905248   \\
-p_{10}                     & \quad = &     0.193059   \quad & \pm    0.0284315   \\
-p_{11}                     & \quad = &      2199.72   \quad & \pm    60.9718     \\
-p_{12}                     & \quad = &      740.393   \quad & \pm    86.1043     \\
-p_{13}                     & \quad = &     -7.58818   \quad & \pm    0.749441    \\
-p_{14}                     & \quad = &    -0.389471   \quad & \pm    0.0800421   
+p_1                      & \quad = &  7.81\times10^{-6}   \quad & \pm    0.31\times10^{-6} \\
+p_2                      & \quad = &      6.96   \quad & \pm    0.14    \\
+p_3                      & \quad = &      6.894   \quad & \pm    0.018    \\
+p_4                      & \quad = &    -0.553   \quad & \pm    0.003  \\
+\intertext{For the $\Lambda = 1.00$ TeV curve:}
+p_5                      & \quad = &     0.014   \quad & \pm    0.002  \\
+p_6                      & \quad = &      2540   \quad & \pm    61     \\
+p_7                      & \quad = &      476   \quad & \pm    96     \\
+p_8                      & \quad = &     -11.6   \quad & \pm    0.6   \\
+p_9                      & \quad = &     0.12   \quad & \pm    0.09   \\
+\intertext{And for the $\Lambda=0.75$ TeV curve:}
+p_{10}                     & \quad = &     0.19   \quad & \pm    0.03   \\
+p_{11}                     & \quad = &      2199   \quad & \pm    61     \\
+p_{12}                     & \quad = &      740   \quad & \pm    86     \\
+p_{13}                     & \quad = &     -7.6   \quad & \pm    0.7    \\
+p_{14}                     & \quad = &    -0.39   \quad & \pm    0.08   
 \end{align*}
 
 The error bands in fig.~\ref{simfit} represent the 95\% confidence intervals on the functions, as calculated from the covariance matrix produced by the fitting procedure. This confidence interval represents the systematic uncertainty that arises from the uncertainty on the fit parameters.

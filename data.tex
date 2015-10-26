@@ -12,18 +12,20 @@ On each of the prospective photons in this dataset, we impose a series of select
 \item \textbf{kinematics cut:} Ensures that objects do not have $|\eta|$ greater than 2.37, which is the forward limit of the first layer of the EM calorimeter, or in the range between 1.37 and 1.52, which is the transition region between the barrel and endcap calorimeters. Also ensures $E_T$ greater than 50~GeV, which clears the turn--on curve\footnote{Since the trigger cuts on a hardware value which is correlated with, but not identical to, the reconstructed $E_T$, the reconstructed $E_T$ value of the lowest events that pass the trigger fall in a distribution around the trigger value. The rising curve at the beginning of the distribution is the turn--on curve.} of the \texttt{2g40\_loose} trigger.
 \item \textbf{N\_events cut:} Ensures that each event has at least two photons that pass the above criteria.
 \item \textbf{PV cut:} Ensures that a photon pair can be associated with a primary vertex---that is, there must be at least one primary vertex within 3$\sigma$ of the reconstructed $z$ coordinate of the common vertex of the photon pair---which, additionally, must have at least 3 tracks associated with it, and be within 3$\sigma$ of the beam spot in the $x$ and $y$ coordinates.
+\item \textbf{selected photons cut:} Rejects diphoton candidates where one or both participants were not selected in the previous cuts.
 
 \end{itemize}
 
 If more than one photon pair are selected in a single event, the pair with the highest $p_T$ leading photon is selected.
 
 \begin{figure}[htp]
-\begin{minipage}[b]{.69\textwidth}
+\begin{minipage}[t]{.69\textwidth}
 \begin{infilsf} \tiny
+\phantom{p}
 \input{figures/cutflow}
 \end{infilsf}
-\end{minipage}\hfill\begin{minipage}[b]{.3\textwidth}
-\caption{A cutflow diagram, showing how many objects remain in the dataset after each of the selection criteria are imposed. The final number of photons is (something I sould be able to dig up somewhere).
+\end{minipage}\hfill\begin{minipage}[t]{.3\textwidth}
+\caption{A cutflow diagram, showing how many objects remain in the dataset after each of the selection criteria are imposed.
 \label{cutflow}}
 \end{minipage}
 \end{figure}
@@ -104,9 +106,9 @@ Performing this process for each bin in $M_{\gamma\gamma}$, we obtain the distri
 
 The \atlas{} Collaboration has produced a large selection of Monte Carlo data sets from which we choose a selection to represent a Standard Model prediction.  These sets, like those that were created in chapter~\ref{ch.mc}, have been through a detector simulation step, so that detector response has been taken into account, and they are in the same format, and contain the same types of information, as the data sets produced by the \atlas{} detector. Thus, these sets can be subjected to the same event selection machinery as was developed for as the data above.
 
-The set we choose to represent $qq\rightarrow\gamma\gamma$ signal\footnote{See appendix \ref{ax.gg}} would ideally be precisely comparable to the SM prediction we produced with CalcHEP in chapter~\ref{ch.mc}, however no such set turns out to be available. The set that is available includes a number of background processes, such as [... I'll get back to you on that]. In order to directly compare the \atlas{} $\gamma\gamma$ set with the CalcHEP set, we implement, in addition to the event selection already defined, a filter to sort out, event by event, all those events that did not produce two photons on their hard process.
+The set we choose to represent $qq\rightarrow\gamma\gamma$ signal\footnote{See appendix \ref{ax.gg}} would ideally be precisely comparable to the SM prediction we produced with CalcHEP in chapter~\ref{ch.mc}, however no such set turns out to be available. The set that is available includes several processes that produce $\gamma$jet final states, which for our purposes are considered a background process. In order to directly compare the \atlas{} $\gamma\gamma$ set with the CalcHEP set, we implement, in addition to the event selection already defined, a filter to sort out, event by event, all those events that did not produce two photons in their hard process.
 
-To represent the background to the process under study, we examine a number of MC sets\footnote{See appendix \ref{ax.other}} for significant contributions that pass our selection criteria. Among these, the two which provide the most significant contribution within the signal region describe events with $\gamma-$jet final states, and event that feature a $Z\rightarrow ee$\footnote{See appendix \ref{ax.zee}} decay. These processes might produce false positives either by emitting hard photons through bremsstrahlung or by false identification of electrons as converted photons. The invariant mass distributions are plotted in figure~\ref{mclist}, along with the signal and estimated background distributions found above, and the distribution of events found in the \atlas{} $qq\rightarrow\gamma\gamma$ MC set, after selection criteria have been applied.
+To represent the background to the process under study, we examine a number of MC sets\footnote{See appendix \ref{ax.other}} for significant contributions that pass our selection criteria. Among these, the two which provide the most significant contribution within the signal region describe events with $\gamma$jet final states, and events that feature a $Z\rightarrow ee$\footnote{See appendix \ref{ax.zee}} decay. These processes might produce false positives either by emitting hard photons through bremsstrahlung or by false identification of electrons as converted photons. The invariant mass distributions are plotted in figure~\ref{mclist}, along with the signal and estimated background distributions found above, and the distribution of events found in the \atlas{} $qq\rightarrow\gamma\gamma$ MC set, after selection criteria have been applied.
 
 \begin{figure}[htp]
 \begin{minipage}[b]{.69\textwidth}
@@ -120,6 +122,20 @@ To represent the background to the process under study, we examine a number of M
 \end{figure}
 
 Here, the $\gamma$jet MC set has been composited from five different MC sets with successively higher minimum cuts on $p_T$\footnote{See appendix \ref{ax.gj}}. We combine them by picking those events from a given set in which both selected photons have reconstructed $p_T$ greater than 1.15 times the initial low cut for the set, and less than 1.15 times the initial low cut for the next set. We choose a cut above the initial value to be clear of any effects of the cut.
+
+\begin{table}[]
+\centering
+\arrayrulecolor{natgreen}
+\begin{tabular}[b]{cr!{\color{white}|}r!{\color{white}|}r!{\color{white}|}r}\hline
+&&\multicolumn{3}{c}{ \color{natgreen}{\bfseries $M_{\gamma\gamma}$ range [GeV]} } \\
+&&\multicolumn{1}{c!{\color{white}\vrule}}{\bfseries [100:1000)} & \multicolumn{1}{c!{\color{white}\vrule}}{\bfseries [1000:3000)} & \multicolumn{1}{c}{\bfseries [3000:5000)} \\ %\cline{3-5}
+& \textbf{0.75} & (13.1 ± 0.4) \% & (11.7 ± 0.5) \% & (31.9 ± 1.2) \% \\
+&\textbf{1.00} & (12.4 ± 1.0) \% & (8.1 ± 0.5) \% & (32.1 ± 1.7) \% \\
+\multirow{-3}{*}{\rotatebox[origin=c]{90}{\color{natgreen}{\bfseries $\Lambda$ [TeV]}}} &\textbf{$\infty$} & (12.0 ± 1.0) \% & (3.1 ± 0.6) \% & (56 ± 21) \%\\\hline
+\end{tabular}
+\caption{Caption}
+\label{tab:my_label}
+\end{table}
 
 We note that the relative contribution from the $Z\rightarrow ee$ process is essentially negligible. It contains no events at all that pass the selection criteria, with an invariant mass above 300 GeV, which is well below where we expect to see an effect from the contact interaction. Thus, we will neglect this contribution going forward.
 
