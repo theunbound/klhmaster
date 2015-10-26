@@ -75,7 +75,7 @@ Adding this to the CalcHEP sample, we get the distribution in fig.~\ref{ggcomp}.
 \end{minipage}
 \end{figure}
 
-As the data background and box diagram distributions have the same sort of shape, it is natural to combine them before attempting to extrapolate a shape. The function we fit to this distribution has the expression
+As the data background and box diagram distributions have the same sort of shape, it is natural to combine them before attempting to extrapolate a shape. The function we fit to this distribution has the expression, suggested by \cite{powlaw}
 \(f(x)=\vet{7.9\,10^{-5}}\left(\frac{1-x}{8000}\right)^{\vet{22.5506}}\left(\frac{x}{8000}\right)^{-\left[\vet{7.203553}\;\vet{-0.631809}\ln\frac{x}{8000}\right]},\)
 where the four underscored numbers are the fitted parameters. $x$ has been scaled by $8\,000^{-1}$ GeV$^{-1}$ in an attempt to achieve parameter values close to 1. The function is plotted along with the histogram it was fitted to in figure~\ref{bckfit}. This fit, and all further fits, were carried out using \textsc{root}s fitting procedures \cite{root}.
 
@@ -161,6 +161,21 @@ and attempt to find a value of $\Lambda$ that minimises this number.
 
 We can find a confidence interval around the most likely value by determining what the ratio of likelihoods, or difference of log--likelihoods, between the most likely value and the value that corresponds to the desired confidence level. The log ratio of the likelihood of a $\chi^2$ distribution at its mean to the likelihood of a $\chi^2$ distribution at the 95th percentile is 1.92 \cite{pdg}. We adopt this as the best estimate available for the 95\% confidence level for our distributions as well.
 
+As an example, figure~\ref{exllr} plots the negative log likelihood ratios associated with searching for the most likely value of $\Lambda$ given our dataset.
+
+\begin{figure}[htp]
+\begin{minipage}[b]{.69\textwidth}
+\begin{infilsf} \tiny
+\input{figures/exllr}
+\end{infilsf}
+\end{minipage}
+\begin{minipage}[b]{.3\textwidth}
+\caption{The negative log likelihood ratio for the profile likelihood scan over a range of values for $\Lambda^{-4}$. This likelihood scan does not include any uncertainties. The minimum negative likelihood corresponds to $\Lambda^{-4}=0.356$ TeV$^{-4}$, with a confidence interval of $-0.425 \le \Lambda^{-4} \le 0.916$ TeV$^{-4}$. The horisontal line indicates the log likelihood ratio at the 95\% confidence level.}\label{exllr}
+\end{minipage}
+\end{figure}
+
+This likelihood fit suggest that the most likely value of $\Lambda$ is 1.29 TeV, with a lower limit on the 95\% confidence interval of 1.02 TeV. That the confidence interval spans across zero indicates that the Standard Model case lies within the confidence interval.
+
 Additional uncertainties can be incorporated into the determination of the log--likelihood ratio by introducing nuisance parameters. Say that, in addition to the likelihood associated with the Poisson distribution of observed events $n_\text{data}$, the likelihood of a given expected event count $N_\text{exp}$ also depends on a second distribution $\mu$. Then, to find the likelihood at a step in $N_\text{exp}$, we must find the value of $\mu$ that minimises the total negative log--likelihood. This is known as the profile log likelihood. As is common with error distributions, $\mu$ is usually assumed to be a Gaussian distribution, an assumption that we will also make going forward.
 
 \subsection{Systematic uncertainties}
@@ -187,7 +202,6 @@ For the background sample, by far the dominant source of uncertainty is that ari
 \section{Setting a limit}
 Figure~\ref{resllr} shows the negative profile log likelihood values found scanning over values for $\Lambda^{-4}$ corresponding to $\Lambda=\pm760$ GeV.
 
-When they're ready]
 \begin{figure}[htp]
 \begin{minipage}[b]{.69\textwidth}
 \begin{infilsf} \tiny

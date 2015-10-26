@@ -123,21 +123,24 @@ To represent the background to the process under study, we examine a number of M
 
 Here, the $\gamma$jet MC set has been composited from five different MC sets with successively higher minimum cuts on $p_T$\footnote{See appendix \ref{ax.gj}}. We combine them by picking those events from a given set in which both selected photons have reconstructed $p_T$ greater than 1.15 times the initial low cut for the set, and less than 1.15 times the initial low cut for the next set. We choose a cut above the initial value to be clear of any effects of the cut.
 
-\begin{table}[]
-\centering
+\begin{table}[hbt]
+\centering\begin{infilsf}
 \arrayrulecolor{natgreen}
-\begin{tabular}[b]{cr!{\color{white}|}r!{\color{white}|}r!{\color{white}|}r}\hline
-&&\multicolumn{3}{c}{ \color{natgreen}{\bfseries $M_{\gamma\gamma}$ range [GeV]} } \\
-&&\multicolumn{1}{c!{\color{white}\vrule}}{\bfseries [100:1000)} & \multicolumn{1}{c!{\color{white}\vrule}}{\bfseries [1000:3000)} & \multicolumn{1}{c}{\bfseries [3000:5000)} \\ %\cline{3-5}
-& \textbf{0.75} & (13.1 ± 0.4) \% & (11.7 ± 0.5) \% & (31.9 ± 1.2) \% \\
-&\textbf{1.00} & (12.4 ± 1.0) \% & (8.1 ± 0.5) \% & (32.1 ± 1.7) \% \\
-\multirow{-3}{*}{\rotatebox[origin=c]{90}{\color{natgreen}{\bfseries $\Lambda$ [TeV]}}} &\textbf{$\infty$} & (12.0 ± 1.0) \% & (3.1 ± 0.6) \% & (56 ± 21) \%\\\hline
+\begin{tabular}[b]{lrl}\hline
+{\color{natgreen}\bfseries Dataset name & \multicolumn{2}{c}{\color{natgreen}\bfseries Measured/expected events}\\
+Data & 115915&\\
+Estimated background & 6760 &$\pm$ 260\\
+Pythia8\_AU2CTEQ6L1\_gammajet\_DP & 26700&$\pm$1610\\
+PowhegPythia8\_AU2CT10\_Zee & 472 &$\pm$ 50\\
+Pythia8\_AU2CTEQ6L1\_gammagamma\_2DP20 & 20480 &$\pm$ 210
+\\\hline
 \end{tabular}
-\caption{Caption}
-\label{tab:my_label}
+\end{infilsf}
+\caption{Table listing the number of measured or predicted event in each of the data sets included in the analysis.}
+\label{expected}
 \end{table}
 
-We note that the relative contribution from the $Z\rightarrow ee$ process is essentially negligible. It contains no events at all that pass the selection criteria, with an invariant mass above 300 GeV, which is well below where we expect to see an effect from the contact interaction. Thus, we will neglect this contribution going forward.
+We note in figure~\ref{mclist} and in table~\ref{expected} that the relative contribution from the $Z\rightarrow ee$ process is essentially negligible. It contains no events at all that pass the selection criteria, with an invariant mass above 300 GeV, which is well below where we expect to see an effect from the contact interaction. Thus, we will neglect this contribution going forward.
 
 It is our assertion, then, that the signal processes in data are reproduced by the \atlas{} Monte Carlo data sets with $\gamma\gamma$ and $\gamma$jet final states. To test this assertion, we combine these data sets, and process them in the same way as we did to the data sample above. That is, we use the ABCD method to estimate the proportion of events in this data set that are identified as background events. We may then compare the MC signal distribution with the signal distribution found in data by subtracting from it the background distribution estimated in Monte Carlo and adding in stead the background distribution estimated in data. Figure~\ref{atlasmc} shows the result.
 
