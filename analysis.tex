@@ -6,7 +6,7 @@ Recalling from [somewhere] that we may express the number of predicted events in
 
 In chapter~\ref{ch.mc}, we produced, among others, a sample of Monte Carlo events that gives the SM prediction for the distribution of events. Since we discovered above, that the \atlas{} $\gamma\gamma$ Monte Carlo sample gives a distribution of events that matches data well, we will compare these two samples to asses how well our SM prediction matches data. In doing so, we encounter a few problems.
 
-First, it appears that the procedure which should correct for pileup in the detector simulation procedure has not functioned as intended. During detector simulation, the events produced for this thesis are assigned only a very limited range of values for the number of interactions per bunch crossing. Pileup reweighting produces a weight for each event so that its distribution in a Monte Carlo dataset mathches the distribution found in data.
+First, it appears that the procedure which should correct for pileup in the detector simulation procedure has not functioned as intended. During detector simulation, the events produced for this thesis are assigned only a very limited range of values for the number of interactions per bunch crossing. Ordinarily, the pileup correction procedure expects a distribution of events per bunch crossing that covers the same range as found in data, and simply reweights each event, so that the shape of the distribution in MC is altered to resesmble the one found in data. Since the distribution of numbers of interaction per bunch crossing available, the distribution found in data can not be recovered in MC.
 
 Since this appears to be a technical glitch, we will substitute a reweighting in the number of reconstructed primary vertices---vertices considered to originate directly from interactions between protons---in each event. The distribution of numbers of primary vertices in the present MC data set is compared to the one found in the \atlas{} MC set in figure~\ref{pvnnone}.
 
@@ -77,7 +77,7 @@ Adding this to the CalcHEP sample, we get the distribution in fig.~\ref{ggcomp}.
 
 As the data background and box diagram distributions have the same sort of shape, it is natural to combine them before attempting to extrapolate a shape. The function we fit to this distribution has the expression
 \(f(x)=\vet{7.9\,10^{-5}}\left(\frac{1-x}{8000}\right)^{\vet{22.5506}}\left(\frac{x}{8000}\right)^{-\left[\vet{7.203553}\;\vet{-0.631809}\ln\frac{x}{8000}\right]},\)
-where the four underscored numbers are the fitted parameters. $x$ has been scaled by $8\,000^{-1}$ in an attempt to achieve parameter values close to 1. The function is plotted along with the histogram it was fitted to in figure~\ref{bckfit}. This fit, and all further fits, were carried out using \textsc{root}s fitting procedures \cite{root}.
+where the four underscored numbers are the fitted parameters. $x$ has been scaled by $8\,000^{-1}$ GeV$^{-1}$ in an attempt to achieve parameter values close to 1. The function is plotted along with the histogram it was fitted to in figure~\ref{bckfit}. This fit, and all further fits, were carried out using \textsc{root}s fitting procedures \cite{root}.
 
 \begin{figure}[htp]
 \begin{minipage}[b]{.69\textwidth}
@@ -86,7 +86,7 @@ where the four underscored numbers are the fitted parameters. $x$ has been scale
 \end{infilsf}
 \end{minipage}
 \begin{minipage}[b]{.3\textwidth}
-\caption{Extrapolating the truncated backgrounds by fitting a function.}\label{bckfit}
+\caption{Extrapolating the truncated backgrounds by fitting a function. The fit has $\chi^2$ / ndf = 237.2 / 74.}\label{bckfit}
 \end{minipage}
 \end{figure}
 
@@ -94,7 +94,7 @@ where the four underscored numbers are the fitted parameters. $x$ has been scale
 Now satisfied with our Monte Carlo samples, we turn toward extracting the coefficients to the polynomials that will allow us to vary $\Lambda$. As is evident from the plots of the distributions in figure~\ref{simfit}, the number of expected events in each bin is subject to relatively large statistical fluctuations. Since the coefficients for each polynomial is determined solely from these three points, the resulting quadratic function may look drastically different from bin to bin. One approach to reducing the statistical fluctuations is to simply combine sets of adjacent bins, rebinning, or to apply some form of smoothing procedure. Here however, we will attempt to fit a function to each distribution. In addition to smoothing out fluctuations between bins, using functions allows us to incorporate some additional knowledge about the relationship between these distributions into our extrapolation of their shape.
 
 Since we have assumed constructive interference between the new interaction and the Standard Model, we know that a distribution which has a contribution from the new interaction, at any strength, must have a number of expected events at least equal to the number of events expected in the Standard Model case at any point. Also, the Standard Model contributes equally in each distribution, thus the shape of each distribution must be the shape of the Standard Model contribution plus an additional contribution. We select for the shape of the Standard Model distribution the function
-\(f_\textit{SM}(x)=p_1\left(\frac{1-x}{8000}\right)^{p_2}\left(\frac{x}{8000}\right)^{-\left[p_3+p_4\ln\frac{x}{8000}}\right],\)
+\(f_\textit{SM}(x)=p_1\left(\frac{1-x}{8000}\right)^{p_2}\left(\frac{x}{8000}\right)^{-\left[p_3+p_4\ln\frac{x}{8000}\right]},\)
 the parameters of which must be shared among all three functions. This is the same type of expression as was used to fit the shape of the background distribution in the previous section.
 
 We describe the shape of the contribution from the new interaction with functions of the form
@@ -131,16 +131,27 @@ p_{14}                     & \quad = &    -0.389471   \quad & \pm    0.0800421
 
 The error bands in fig.~\ref{simfit} represent the 95\% confidence intervals on the functions, as calculated from the covariance matrix produced by the fitting procedure. This confidence interval represents the systematic uncertainty that arises from the uncertainty on the fit parameters.
 
-It is now a simple matter to determine the polynomial coefficients.
+It is now a simple matter to determine the polynomial coefficients, which are plotted in fig.~\ref{coef}.
+
+\begin{figure}[hbt]
+\begin{minipage}[b]{.69\textwidth}
+\begin{infilsf}\tiny
+\input{figures/coef}
+\end{infilsf}
+\end{minipage}\hfill
+\begin{minipage}[b]{.3\textwidth}
+\caption{From top to bottom, plots of the coefficients to the constant, linear and quadratic terms used to derive distributions of $M_{\gamma\gamma}$ at any $\Lambda$, with uncertainties.}\label{coef}
+\end{minipage}
+\end{figure}
 
 \section{Maximum likelihood fit}
 To determine the most likely value of $\Lambda$, we will use a maximum likelihood fit to attempt to find the value of $\Lambda$ that best fits the data.
 
-A full description of the maximum likelihood method is given in \cite{barlow} or \cite{pdg}. In brief, the probability of observing a number $n$ events, given an expected number $N_\text{exp}$, is given by Poisson statistics:
-\(p(n|N_\text{exp}=\frac{N_\text{exp}^n}{n!}e^{-N_\text{exp}}\label{pois}\)
-In our case, where the experiment has been carried out, $n$ will be fixed to the value in each bin. Meanwhile, we worked out a method for varying the number of expected events above. Thus, the most likely value of $\Lambda$ is the one that maximises equation \eqref{pois}. Taking the logarithm of eq.~\eqref{pois} yelds
-\(\ln[p(n|N_\text{exp})]=-\ln n!+n\ln N_\text{exp}-N\text{exp},\)
-where obviously the logarithm of $n!$ is a constant for any given bin. Taking the logarithm also allows us to write the likelihood of an ensemble of measured and expected event counts, such as we find in our histograms, as a sum. Finding the value of $\Lambda$ with the highest likelihood associated is now a simple matter of varying our prediction until we discover a maximum.
+A full description of the maximum likelihood method is given in \cite{barlow} or \cite{pdg}. In brief, the probability of observing a number $n_\text{data}$ events, given an expected number $N_\text{exp}$, is, for a single bin, given by Poisson statistics:
+\(p(n_\text{data}|N_\text{exp})=\frac{N_\text{exp}^{n_\text{data}}}{n_\text{data}!}e^{-N_\text{exp}}\label{pois}\)
+In our case, where the experiment has been carried out, $n_\text{data}$ will be fixed as the value in each bin. Meanwhile, we worked out a method for varying the number of expected events $N_\text{exp}$ as a function of $\Lambda$ above. Thus, the most likely value of $\Lambda$ is the one that maximises equation \eqref{pois}. Taking the logarithm of eq.~\eqref{pois} yelds
+\(\ln[p(n_\text{data}|N_\text{exp})]=-\ln n_\text{data}!+n_\text{data}\ln N_\text{exp}-N\text{exp},\)
+where obviously the logarithm of $n_\text{data}!$ is a constant for any given bin. Taking the logarithm also allows us to write the likelihood of an ensemble of measured and expected event counts, such as we find in our histograms, as a sum. Finding the value of $\Lambda$ with the highest likelihood associated is now a simple matter of varying our prediction until we discover a maximum.
 
 As a practical matter, since numerical algorithms for extremum finding are actually minimisers, we will write the likelihood as 
 \[-\ln p,\]
