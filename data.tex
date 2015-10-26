@@ -9,13 +9,13 @@ On each of the prospective photons in this dataset, we impose a series of select
 \begin{itemize}
 \item \textbf{otx and phoClean cut:} Object quality cuts, which cut out events too close to non-functioning or noisy detector elements, and events taken while the detector was in a non-optimal state.
 \item \textbf{ID cut:} Objects that did not pass photon identification, or do not satisfy the loose selection criteria after reconstruction, are eliminated.
-\item \textbf{kinematics cut:} Ensures that objects do not have $|\eta|$ greater than 2.37, which is the forward limit of the first layer of the EM calorimeter, or in the range between 1.37 and 1.52, which is the transition region between the barrel and endcap calorimeters. Also ensures $E_T$ greater than 50~GeV, which clears the turn--on curve of the \texttt{2g40\_loose} trigger.
+\item \textbf{kinematics cut:} Ensures that objects do not have $|\eta|$ greater than 2.37, which is the forward limit of the first layer of the EM calorimeter, or in the range between 1.37 and 1.52, which is the transition region between the barrel and endcap calorimeters. Also ensures $E_T$ greater than 50~GeV, which clears the turn--on curve\footnote{Since the trigger cuts on a hardware value which is correlated with, but not identical to, the reconstructed $E_T$, the reconstructed $E_T$ value of the lowest events that pass the trigger fall in a distribution around the trigger value. The rising curve at the beginning of the distribution is the turn--on curve.} of the \texttt{2g40\_loose} trigger.
 \item \textbf{N\_events cut:} Ensures that each event has at least two photons that pass the above criteria.
-\item \textbf{PV cut:} Ensures that a photon pair can be associated with a primary vertex---that is, the must be at least one primary vertex within 3$\sigma$ of the reconstructed $z$ coordinate of the common vertex of the photon pair---which, additionally, must have at least 3 tracks associated with it, and be within 3$\sigma$ of the beam spot in the $x$ and $y$ coordinates.
+\item \textbf{PV cut:} Ensures that a photon pair can be associated with a primary vertex---that is, there must be at least one primary vertex within 3$\sigma$ of the reconstructed $z$ coordinate of the common vertex of the photon pair---which, additionally, must have at least 3 tracks associated with it, and be within 3$\sigma$ of the beam spot in the $x$ and $y$ coordinates.
 
 \end{itemize}
 
-If more than one photon pair are selected in a single event, the pair with the most energetic leading, and if necessary, then most energetic subleadng, photon is selected.
+If more than one photon pair are selected in a single event, the pair with the highest $p_T$ leading photon is selected.
 
 \begin{figure}[htp]
 \begin{minipage}[b]{.69\textwidth}
@@ -33,7 +33,7 @@ The number of objects remaining at each step of the cut procedure is plotted in 
 What remains after these cuts have been applied is a purer sample of photons than we had before, however the sample will still contain a background of events that do not come from the processes that we wish to study. An estimate of this background is required.
 
 \section{Data driven background estimation}
-The background that remains in the signal sample after these criteria have been applied can be estimated in a number of ways. In chapter~\ref{ch.mc}, Monte Carlo samples that simulate several physical processes that act as background to diphoton events were [will be have been: WIP] presented. Here, however, we shall attempt to quantify the magnitude of the background by examining the data.
+The background that remains in the signal sample after these criteria have been applied can be estimated in a number of ways. Here, we shall attempt to quantify the magnitude of the background by examining the data. Background, in this context, means events where one or both photons were some other type of object misidentified by the detector as a photon. This might include electrons whose track was not properly reconstructed, jets or other neutral particles, such as the $\pi^0$. The ABCD method attempts to remove events that have a signature different from the signal in two selected variables.
 
 \subsection{The ABCD method}
 We assume that it is possible to extrapolate the shape of the distribution of background events that pollute the signal sample from the distribution of events that occur well away from the signal region. The \textsc{abcd} method assumes that the distribution of background events has the same shape in the signal region as it does in a control region. There will still be a scale difference between the two, which can be determined by examining a different control region.
@@ -59,9 +59,8 @@ Thus, the distribution in $x$ of background events in the A region, $A_{bck}$, i
 The signal distribution must then be given as
 \(A_{sig}=A-A_{bck}.\label{asig}\)
 
-As we are working with events with two photons, both of which give rise to independent backgrounds, this procedure must be repeated for the subleading photons as well. For the subleading photon candidate, we look at the sample of photon candidates that are the subleading partner of a selected photon in the signal, A, region of the distribution of leading photon candidates. Carrying out the ABCD procedure on the sample of subleading photons gives us $AA_{bck}$, an estimate of the number of selected photon pairs where the leading photon is in the A region and the subleading photon is a background event in the A region of the distribution of subleading photons with a partner in the A region (call this the AA region for short)\footnote{AAAAAAAAAAA!}. As above, the number of events in the signal--signal region must be given by
-\(A_{sig}A_{sig} = A_{sig}A-A_{sig}A_{bck}.\)
-Inserting \eqref{asig} into this gives
+As we are working with events with two photons, both of which give rise to independent backgrounds, this procedure must be repeated for the subleading photons as well. For the subleading photon candidate, we look at the sample of photon candidates that are the subleading partner of a selected photon in the signal, A, region of the distribution of leading photon candidates. Carrying out the ABCD procedure on the sample of subleading photons gives us $AA_{bck}$, an estimate of the number of selected photon pairs where the leading photon is in the A region and the subleading photon is a part of the background in the AA region.
+Using \eqref{asig}, we can now write the number of events in the signal--signal region as
 \(\begin{aligned}
 A_{sig}A_{sig} &=(A-A_{bck})A-(A-A_{bck})A_{bck}\\ &=AA-A_{bck}A-AA_{bck}+A_{bck}A_{bck}\\&=AA-[AA]_{bck}.
 \end{aligned}\)
@@ -73,9 +72,9 @@ the fraction of background events in the leading photon A sample. Thus, the tota
 \([AA]_{bck}=\frac{A_{bck}}{A}(AA)+AA_{bck}-\frac{A_{bck}}{A}(AA_{bck}),\)
 which we can interpret as the number of data points where the leading photon was a background plus the number of data points where the subleading photon was a background, subtracted the number of data points where both photons were background events, which would have been double counted.
 
-For the diphoton sample, we will use the `tight' selection criteria, which were described in chapter~\ref{ch.exp}, and the transverse isolation energy, $E_T^{\text{isol}}$, the energy deposited in the calorimeter in a cone with radius $R\le0.4$, but outside $R\le0.2$, where
+For the diphoton sample, the choice of the two discriminants are the `tight' selection criteria, which were described in chapter~\ref{ch.exp}, and the transverse isolation energy, $E_T^{\text{isol}}$, the energy deposited in the calorimeter in a cone with radius $R\le0.4$, but outside $R\le0.2$, where
 \[R=\sqrt{\Delta\phi^2+\Delta\theta^2}.\]
-The signal region is cut at $E_T^{\text{isol}}\le3$ GeV. We allow a crosstalk region of 2 GeV, which means the background region is defined with $5\text{ GeV}\le E_T^{\text{isol}}\le25\text{ GeV}$ [wait a minute...]. The distribution of $E_T^{\text{isol}}$ for leading photons and subleading photons in the `A' sample is given in figure~\ref{etiso}.
+The signal region is defined as $E_T^{\text{isol}}\le3$ GeV. Allowing a crosstalk region of 2 GeV, which means the background region is $5\text{ GeV}\le E_T^{\text{isol}}\le25\text{ GeV}$, produces the distribution of $E_T^{\text{isol}}$ for leading photons and subleading photons in the `A' sample is given in figure~\ref{etiso}. As the figure shows, the tight and loose selections are identical in the background region, whereas they diverge in the crosstalk region, which is the desired behaviour.
 
 \begin{figure}[htp]
 \begin{minipage}[b]{.69\textwidth}
@@ -83,7 +82,7 @@ The signal region is cut at $E_T^{\text{isol}}\le3$ GeV. We allow a crosstalk re
 \input{figures/etiso}
 \end{infilsf}
 \end{minipage}\hfill\begin{minipage}[b]{.3\textwidth}
-\caption{The transverse isolation energy $E_T^{\text{isol}}$ for the tight and non--tight photon selection of the leading photons, and for the set of subleading photons with partners in the `A' sample. The non--tight samples have been scaled so that the D region contains the same number of events as the B region. For both sets of samples, the shapes of the distributions match up [quantify?] after the scaling, which supports the assumption that the shape of the background distribution is the same in the signal region as well.
+\caption{The transverse isolation energy $E_T^{\text{isol}}$ for the tight and non--tight photon selection of the leading photons, and for the set of subleading photons with partners in the `A' sample. The non--tight samples have been scaled so that the D region contains the same number of events as the B region. For both sets of samples, the shapes of the distributions overlap after the scaling, which supports the assumption that the shape of the background distribution is the same in the signal region as well.
 \label{etiso}}
 \end{minipage}
 \end{figure}

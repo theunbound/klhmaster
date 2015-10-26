@@ -38,9 +38,9 @@ into sectors describing the electroweak part $\mathcal{L}_{\text{\emph{EW}}}$, t
 
 The electroweak Lagrangian can be expanded to read as follows:
 \[\mathcal{L}_\text{\emph{EW}}=-\ono4W^i_{\mu\nu}W_i^{\mu\nu}-\ono4B_{\mu\nu}B^{\mu\nu}+\sum_\psi\bar\psi\gamma^\mu \left(i\partial_\mu-{1\over2}g^\prime Y_\mathrm{W}B_\mu-{1\over2}g\sigma^a W^a_\mu\right)\psi,\]
-where $W^i_{\mu}$ and $B_{\mu}$ are the four ($i$ runs from 1 to 3) gauge fields of electroweak theory and $W^i_{\mu\nu}$ and $B_{\mu\nu}$ are their field strength tensors, the $\phi$ sum is over all left--handed fermionic (lepton and quark) fields, $\gamma_{\mu}$ is the Dirac matrices, $g$ and $g'$ are the coupling strengths of the theory, $Y_W$ is the weak hypercharge associated with the fermionic field and $\sigma_i$ are the Pauli matrices. The terms for right--handed fermions have been omitted.
+where $W^i_{\mu}$ and $B_{\mu}$ are the four ($i$ runs from 1 to 3) gauge fields of electroweak theory and $W^i_{\mu\nu}$ and $B_{\mu\nu}$ are their field strength tensors, the $\psi$ sum is over all left--handed fermionic (lepton and quark) fields, $\gamma_{\mu}$ is the Dirac matrices, $g$ and $g'$ are the coupling strengths of the theory, $Y_W$ is the weak hypercharge associated with the fermionic field and $\sigma_i$ are the Pauli matrices. The terms for right--handed fermions have been omitted for brevity.
 
-The physical $W^\pm_\mu$, $Z^0_\mu$ and $A_\mu$ fields, which manifest as the W and Z bosons and the photon, respectively, arise as mixtures of the gauge fields:
+The physical $W^\pm_\mu$, $Z^0_\mu$ and $A_\mu$ fields, which manifest as the W$^\pm$ and Z$^0$ bosons and the photon, respectively, arise as mixtures of the gauge fields:
 \(\begin{aligned}
 W_\mu^\pm&=\ono{\sqrt{2}} W^1_\mu\mp iW^2_\mu\\
 Z^0_\mu&=W^3_\mu\cos \theta_W-B_\mu\sin \theta_W\\
@@ -58,6 +58,12 @@ The first of these terms describes the propagation of the $A_\mu$ field from one
 implying that the photon propagator in momentum space is
 \(\Delta(k)=\ono{k^2-i\epsilon},\label{phoprop}\)
 assuming that momentum conservation is imposed. Here, the modification of the denominator by $i\epsilon$ is included to avoid the pole at $k=0$. This particular way of dealing with poles in the integration of the propagators is due to Richard Feynman, making this the Feynman propagator.
+
+Similarly, the action associated with the second term in eq.~\eqref{ewfmn} may be written as
+\(S_\textit{EW}=\cdots+ie\int_k (k_{+}-k_{-})\tilde A(k_A)\tilde W^{+}(k_{+})\tilde W^{-}(k_{-})\delta(k_A+k_{+}+k_{-}+\cdots,\label{tgc}\)
+where the integral is over all momenta, with measure $dk/(2\pi)^4$. The delta function ensures momentum conservation. We infer from this that an interaction exists between the $A_\mu$ and $W^\pm_\mu$ fields, weighted by a factor $ie$ and a factor whhich, due to momentum conservation, depends on all three participating momenta.
+
+Examining every term in the Lagrangian in this way, we may construct expressions that govern every process allowed by the Standard Model. Of note in relation to the search being carried out in this thesis, this list of processes does any couplings of the types $AAA$, $AAZ$, $AZZ$ or $ZZZ$. Such neutral triple gauge couplings would clearly be able to produce two--photon final states, which would affect the result of the present search. Whether such interactions exist is difficult to say, as no studies examining such interactions have come to the authors attention. Certainly, the LHC has not produced any. 
 
 Also due to Richard Feynman is the notion that the terms in the Lagrangian can be represented graphically.
 
@@ -77,7 +83,7 @@ We represent the photon propagator given in eq.~\eqref{phoprop} graphically as s
 \end{minipage}
 \end{figure}
 
-The second term in eq.~\eqref{ewfmn} describes an interaction between the photon and the $W$ bosons, the graphical representation of which is given in fig.~\ref{wwgam}.
+The second term, from eq.~\eqref{tgc}, describes an interaction between the photon and the $W$ bosons, the graphical representation of which is given in fig.~\ref{wwgam}. The associated factor has been simplified to omit depencences on the external momenta.
 
 \begin{figure}[htbp]
 \begin{minipage}[b]{.69\textwidth}\centering\footnotesize
@@ -99,11 +105,11 @@ The full propagators for the remaining fields require the introduction of the Hi
 where $v/\sqrt{2}$ is the vacuum expectation value of the Higgs field, given the correct Gauge transformation. From this, we identify the mass terms
 \(m_W=\frac{g^2v^2}{2},\qquad m_Z=m_W\cos\theta_W.\)
 
-Including the mass terms in the action for, say, a free Z boson and Fourier--transforming gives us
+Including the mass terms in the action for, say, a free Z$^0$ boson and Fourier--transforming gives us
 \[S_Z=?\int\frac{d^4k}{(2\pi)^4}\tilde Z_\mu(k)[k^2-m^2]\tilde Z\nu(-k) +\cdots,\]
-leading to the more general form of the Feynman propagator,
+leading to the bosonic Feynman propagator,
 \(\Delta(k)=\ono{k^2-m^2-i\epsilon},\)
-which is the factor associated with the remaining electroweak propagators, and the Higgs propagator, which are drawn as shown in figure~\ref{ewprops}, along with the gluon propagator produced by $\mathcal{L}_\textit{QCD}$, for completeness.
+which is the factor associated with the propagators for the remaining electroweak bosons, and the Higgs propagator, which are drawn as shown in figure~\ref{ewprops}, along with the gluon propagator produced by $\mathcal{L}_\textit{QCD}$, for completeness. As this is merely an overview, we do not include the associated factors. A complete listing can be found in \cite{allfrules}.
 
 \begin{figure}[hbtp]
 \begin{minipage}[b]{.69\textwidth}
@@ -207,10 +213,10 @@ To evaluate this diagram, we require the Feynman rule for the $f\bar f \rightarr
 \end{figure}
 
 The Feynman diagram in fig.~\ref{bornqq2gg} is then equivalent to
-\(\frac{e^2Q_q^2\gamma^\mu\gamma^\nu}{k^2-m^2-i\epsilon},\)
-where $k$ is the momentum of the internal quark propagator. This relates to the transition amplitude by integrating over all participating momenta, keeping in mind that momenta must be conserved across all propagators and in every vertex.
+\(e^2Q_q^2\gamma^\mu\gamma^\nu\frac{i(\cancel{k}+m)}{k^2-m^2-i\epsilon},\)
+where the faction is the quark propagator. This relates to the transition amplitude by integrating over all participating momenta, keeping in mind that momenta must be conserved across all propagators and in every vertex.
 
-The couplings introduced by the QCD and Higgs sectors are given in figure~\ref{othercoups}.
+The Feynman rules introduced by the QCD and Higgs sectors are indicated in figure~\ref{othercoups}.
 
 \begin{figure}[htbp]
 \centering\footnotesize
@@ -304,7 +310,7 @@ The rightmost diagram in fig.~\ref{hiorder} is one of the decay modes of the Hig
 
 The procedure outlined above, for constructing a collection of Feynman diagrams from a Lagrangian can be described in sufficient detail to be automated. For this thesis, we will use the tool LanHEP \cite{lanhep} for this purpose. This tool is chosen for its easy compatibility with the event generator which will be used in chapter~\ref{ch.mc}. Alternatives exist, such as FeynRules \cite{feynrules}.
 
-We will now extend the Standard Model to encompass an additional $qq\leftarrow\gamma\gamma$ process via the effective Lagrangian approach.
+We will now extend the Standard Model to encompass an additional $qq\rightarrow\gamma\gamma$ process via the effective Lagrangian approach.
 
 \section{The effective Lagrangian approach}
 
@@ -334,7 +340,7 @@ where $e$ is the elementary charge, $Q_q$ is the quark charge of quark $q$ and $
 $};
 \end{tikzpicture}
 }\end{center}
-\caption{An example of a Feynman rule as created by entering the new term from eq.~\eqref{rizzo} into LanHEP\cite{lanhep}.\label{rule}}
+\caption{The Feynman rule created by entering the new term from eq.~\eqref{rizzo} into LanHEP\cite{lanhep}. As we are assuming that Feynman diagrams always must conserve momentum and quantum numbers, several trivial $\delta$-functions have been omitted. \label{rule}}
 \end{figure}
 
 The effect of the new term is to introduce several Feynman rules of the type shown in fig.~\ref{rule}.
