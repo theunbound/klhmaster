@@ -161,7 +161,7 @@ and attempt to find a value of $\Lambda$ that minimises this number.
 
 We can find a confidence interval around the most likely value by determining what the ratio of likelihoods, or difference of log--likelihoods, between the most likely value and the value that corresponds to the desired confidence level. The log ratio of the likelihood of a $\chi^2$ distribution at its mean to the likelihood of a $\chi^2$ distribution at the 95th percentile is 1.92 \cite{pdg}. We adopt this as the best estimate available for the 95\% confidence level for our distributions as well.
 
-Additional uncertainties can be incorporated into the determination of the log--likelihood ratio by introducing nuisance parameters. Say that, in addition to the likelihood associated with the Poisson distribution of observed events $n_\text{data}$, the likelihood of a given expected event count $N_\text{exp}$ also depends on a second distribution $\mu$. Then, to find the likelihood at a step in $N_\text{exp}$, we must find the value of $\mu$ that minimises the total negative log--likelihood. As is common with error distributions, $\mu$ is usually assumed to be a Gaussian distribution, an assumption that we will also make going forward.
+Additional uncertainties can be incorporated into the determination of the log--likelihood ratio by introducing nuisance parameters. Say that, in addition to the likelihood associated with the Poisson distribution of observed events $n_\text{data}$, the likelihood of a given expected event count $N_\text{exp}$ also depends on a second distribution $\mu$. Then, to find the likelihood at a step in $N_\text{exp}$, we must find the value of $\mu$ that minimises the total negative log--likelihood. This is known as the profile log likelihood. As is common with error distributions, $\mu$ is usually assumed to be a Gaussian distribution, an assumption that we will also make going forward.
 
 \subsection{Systematic uncertainties}
 In the course of developing the MC sets used, we identified a number of systematic uncertainties that should be included at this point.
@@ -185,7 +185,7 @@ We will, in the absence of better information, assume that all systematic uncert
 For the background sample, by far the dominant source of uncertainty is that arising from limited statistics in the $\gamma$jet sample. As such
 
 \section{Setting a limit}
-[This section will contain at leat one plot of the ll ratio, a plot of the reconstructed mgg distribution overlaid on data, and the all important FINAL NUMBER!
+Figure~\ref{resllr} shows the negative profile log likelihood values found scanning over values for $\Lambda^{-4}$ corresponding to $\Lambda=\pm760$ GeV.
 
 When they're ready]
 \begin{figure}[htp]
@@ -195,6 +195,17 @@ When they're ready]
 \end{infilsf}
 \end{minipage}
 \begin{minipage}[b]{.3\textwidth}
-\caption{The negative log likelihood ratio for the profile likelihood scan over a range of values for $\Lambda^{-4}$. This likelihood scan does not include uncertainties on the background. The minimum negative likelihood corresponds to $\Lambda=814$ GeV, with a confidence interval of $763 \le \Lambda \le 900$ GeV.}\label{bckfit}
+\caption{The negative log likelihood ratio for the profile likelihood scan over a range of values for $\Lambda^{-4}$. This likelihood scan does not include uncertainties on the background. The minimum negative likelihood corresponds to $\Lambda=814$ GeV, with a confidence interval of $763 \le \Lambda \le 900$ GeV. The horisontal line indicates the log likelihood ratio at the 95\% confidence level.}\label{resllr}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[htp]
+\begin{minipage}[b]{.69\textwidth}
+\begin{infilsf} \tiny
+\input{figures/results}
+\end{infilsf}
+\end{minipage}
+\begin{minipage}[b]{.3\textwidth}
+\caption{The data distribution of $M_{\gamma\gamma}$ overlaid with the constructed distributions at the most likely value of $\Lambda$ and at the limits of the confidence level.}\label{result}
 \end{minipage}
 \end{figure}
