@@ -196,8 +196,8 @@ In addition, we include systematic uncertanties due to the following detector ef
 
 We will, in the absence of better information, assume that all systematic uncertainties are uncorrelated, and, unless otherwise noted, that individual uncertainties are completely correlated across all bins. These uncertainties will then be included in the log--likelihood fit by constructing a simple Gaussian distribution of appropriate width for each, and then combining them. In practice, this means adding together their standard deviations in quadrature. For the confidence interval on the fitted functions and the PDF uncertainty, the errors are arrived at by propagating the error associated with the initial functions through the process that determines the coefficients, and then the process that constructs the distribution for $\Lambda=0.76$ from those coefficients.
 
-[Depending on computer time]
-For the background sample, by far the dominant source of uncertainty is that arising from limited statistics in the $\gamma$jet sample. As such
+%[Depending on computer time]
+For the background sample, by far the dominant source of uncertainty is that arising from limited statistics in the $\gamma$jet sample. As such, we will use it as a first approximation of the total uncertainty. Even this, however 
 
 \section{Setting a limit}
 Figure~\ref{resllr} shows the negative profile log likelihood values found scanning over values for $\Lambda^{-4}$ corresponding to $\Lambda=\pm760$ GeV.
@@ -212,6 +212,10 @@ Figure~\ref{resllr} shows the negative profile log likelihood values found scann
 \caption{The negative log likelihood ratio for the profile likelihood scan over a range of values for $\Lambda^{-4}$. This likelihood scan does not include uncertainties on the background. The minimum negative likelihood corresponds to $\Lambda=814$ GeV, with a confidence interval of $763 \le \Lambda \le 900$ GeV. The horisontal line indicates the log likelihood ratio at the 95\% confidence level.}\label{resllr}
 \end{minipage}
 \end{figure}
+
+As figure~\ref{resllr} states, this result excludes the Standard Model. To achieve this result, we have neglected the considerable statistical uncertainty contributed by the $\gamma$jet sample, as is clear from table~\ref{expected}. This uncertainty can be accounted for by incorporating it as a second set of nuisance parameters associated with the background sample. This will require significantly more CPU time to compute than the result presented above.
+
+Figure~\ref{result} shows the $M_{\gamma\gamma}$ distribution associated with the most likely value of $\Lambda$, along with those associated with the limits on the confidence interval overlaid on the data distribution.
 
 \begin{figure}[htp]
 \begin{minipage}[b]{.69\textwidth}
