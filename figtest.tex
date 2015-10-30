@@ -3,25 +3,90 @@
 \begin{english}
 
 
-\begin{figure}
+% \begin{figure}
 
-\centering
-\begin{minipage}[b]{.69\textwidth}
-\begin{infilsf} \tiny 
-\input{figures/coef}
-\end{infilsf}
-\end{minipage}
-\hfill\begin{minipage}[b]{.3\textwidth}
-\caption{The figure here is the figure currently being tested for
-  proper appearence and size. Probably, it will be a \textsc{root}--generated
-  TikZ picture, since those are always the difficult ones. Yes?}
-\label{fig:my_label}
-\end{minipage}
+% \centering
+% \begin{minipage}[b]{.69\textwidth}
+% \begin{infilsf} \tiny 
+% \input{figures/coef}
+% \end{infilsf}
+% \end{minipage}
+% \hfill\begin{minipage}[b]{.3\textwidth}
+% \caption{The figure here is the figure currently being tested for
+%   proper appearence and size. Probably, it will be a \textsc{root}--generated
+%   TikZ picture, since those are always the difficult ones. Yes?}
+% \label{fig:my_label}
+% \end{minipage}
 
-\end{figure}
+% \end{figure}
 
-
-
+\centering {\footnotesize
+\begin{tikzpicture}
+\draw[decorate, decoration={snake, pre=lineto, pre length=5pt}] (0,0)
+-- +(1.5,0) node[right] {$Z / \gamma$};
+\draw[decorate, decoration={snake, pre=lineto, pre length=5pt}](0,0) -- +(240:1.5) node[left] {$W^{+}$};
+\draw[decorate, decoration={snake, pre=lineto, pre length=5pt}](0,0) -- +(120:1.5) node[left] {$W^{-}$};
+\end{tikzpicture}\hspace{2em}
+\begin{tikzpicture}
+\draw[decorate, decoration={snake, pre=lineto, pre length=5pt}] (0,0) -- +(1.5,0) node[right] {$Z/\gamma$};
+\draw[](0,0) -- node[midway,sloped] {\tikz\draw[-triangle 45] (0,0)--(-.1,0);} +(240:1.5) node[left] {$f$};
+\draw[](0,0) -- node[midway,sloped] {\tikz\draw[-triangle 45] (0,0)--(.1,0);} +(120:1.5) node[left] {$f$};
+\end{tikzpicture}\hspace{2em}
+\begin{tikzpicture}
+\draw[decorate, decoration={snake, pre=lineto, pre length=5pt}] (0,0) -- +(1.5,0) node[right] {$W^\pm$};
+\draw[](0,0) -- node[midway,sloped] {\tikz\draw[-triangle 45] (0,0)--(-.1,0);} +(240:1.5) node[above left] {$\nu,\ell$};
+\draw[](0,0) -- node[midway,sloped] {\tikz\draw[-triangle 45] (0,0)--(.1,0);} +(120:1.5) node[above left] {$\ell,\nu$};
+\draw (0,0) +(240:1.5) node[below left] {$u,d$} (0,0) +(120:1.5) node[below left] {$d,u$};
+\end{tikzpicture}\hspace{2em}
+\begin{tikzpicture}
+\draw[decorate, decoration={snake, pre=lineto, pre length=5pt}](0,0) -- (-1.5,1) node[left] {$W^{+}$};
+\draw[decorate, decoration={snake, pre=lineto, pre length=5pt}](0,0) -- (-1.5,-1) node[left] {$W^{-}$};
+\draw[decorate, decoration={snake, pre=lineto, pre length=5pt}](0,0) -- (1.5,1) node[right] {$B$};
+\draw[decorate, decoration={snake, pre=lineto, pre length=5pt}](0,0) -- (1.5,-1) node[right] {$B$};
+\end{tikzpicture}\hspace{2em}
+\draw[decorate, decoration={coil,amplitude=2pt, segment length=2.68pt, pre=lineto, pre length=5pt}] (0,0) -- +(1.5,0) node[right] {$g$};
+\draw[](0,0) -- node[midway,sloped] {\tikz\draw[-triangle 45] (0,0)--(-.1,0);} +(240:1.5) node[left] {$q$};
+\draw[](0,0) -- node[midway,sloped] {\tikz\draw[-triangle 45] (0,0)--(.1,0);} +(120:1.5) node[left] {$q$};
+\end{tikzpicture}\hspace{2em}
+\begin{tikzpicture}
+\draw[decorate, decoration={coil,amplitude=2pt, segment length=2.68pt, pre=lineto, pre length=5pt}] (0,0) -- +(1.5,0) node[right] {$g$};
+\draw[decorate, decoration={coil,amplitude=2pt, segment length=2.68pt, pre=lineto, pre length=5pt}](0,0) -- +(240:1.5) node[left] {$g$};
+\draw[decorate, decoration={coil,amplitude=2pt, segment length=2.68pt, pre=lineto, pre length=5pt}](0,0) -- +(120:1.5) node[left] {$g$};
+\end{tikzpicture}\hspace{2em}
+\begin{tikzpicture}
+\draw[decorate, decoration={coil,amplitude=2pt, segment length=2.68pt, pre=lineto, pre length=5pt}](0,0) -- (-1.5,1) node[left] {$g$};
+\draw[decorate, decoration={coil,amplitude=2pt, segment length=2.68pt, pre=lineto, pre length=5pt}](0,0) -- (-1.5,-1) node[left] {$g$};
+\draw[decorate, decoration={coil,amplitude=2pt, segment length=2.68pt, pre=lineto, pre length=5pt}](0,0) -- (1.5,1) node[right] {$g$};
+\draw[decorate, decoration={coil,amplitude=2pt, segment length=2.68pt, pre=lineto, pre length=5pt}](0,0) -- (1.5,-1) node[right] {$g$};
+\end{tikzpicture}\hspace{2em}
+\begin{tikzpicture}
+\draw[dashed] (0,0) -- +(1.5,0) node[right] {$h$};
+\draw[](0,0) -- node[midway,sloped] {\tikz\draw[-triangle 45] (0,0)--(-.1,0);} +(240:1.5) node[left] {$f$};
+\draw[](0,0) -- node[midway,sloped] {\tikz\draw[-triangle 45] (0,0)--(.1,0);} +(120:1.5) node[left] {$f$};
+\end{tikzpicture}\hspace{2em}
+\begin{tikzpicture}
+\draw[dashed] (0,0) -- +(1.5,0) node[right] {$h$};
+\draw[decorate, decoration={snake, pre=lineto, pre length=5pt}](0,0) -- +(240:1.5) node[left] {$Z^0$ / $W^\pm$};
+\draw[decorate, decoration={snake, pre=lineto, pre length=5pt}](0,0) -- +(120:1.5) node[left] {$Z^0$ / $W^\mp$};
+\end{tikzpicture}\hspace{2em}
+\begin{tikzpicture}
+\draw[dashed] (0,0) -- +(1.5,0) node[right] {$h$};
+\draw[dashed](0,0) -- +(240:1.5) node[left] {$h$};
+\draw[dashed](0,0) -- +(120:1.5) node[left] {$h$};
+\end{tikzpicture}\hspace{2em}
+\begin{tikzpicture}
+\draw[decorate, decoration={snake, pre=lineto, pre length=5pt}](0,0) -- (-1.5,1) node[left] {$Z^0$ / $W^\pm$};
+\draw[decorate, decoration={snake, pre=lineto, pre length=5pt}](0,0) -- (-1.5,-1) node[left] {$Z^0$ / $W^\pm$};
+\draw[dashed](0,0) -- (1.5,1) node[right] {$h$};
+\draw[dashed](0,0) -- (1.5,-1) node[right] {$h$};
+\end{tikzpicture}\hspace{2em}
+\begin{tikzpicture}
+\draw[dashed](0,0) -- (-1.5,1) node[left] {$h$};
+\draw[dashed](0,0) -- (-1.5,-1) node[left] {$h$};
+\draw[dashed](0,0) -- (1.5,1) node[right] {$h$};
+\draw[dashed](0,0) -- (1.5,-1) node[right] {$h$};
+\end{tikzpicture}\hspace{2em}
+}
 Something.
 
 \end{english}
