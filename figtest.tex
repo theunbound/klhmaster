@@ -22,34 +22,11 @@
 
 
 \centering {\footnotesize\begin{infilsf}
-\begin{tikzpicture} [>=triangle 45,scale=.8]
-\draw[>-] (1,1) node[below]{$q$} -- (2,1);
-\draw[decorate, decoration={coil,amplitude=2pt, segment length=2.68pt}] 
-    (-2,1) node[left]{$g$} -- (0,1) ;
-\draw[decorate, decoration={coil,amplitude=2pt, segment length=2.68pt}] 
-    (-2,-1) node[left]{$g$} -- (0,-1); 
-\draw[<-] (1,-1) node[above]{$\bar q$} -- (2,-1);
-\draw (0,1) -- (1,1);
-\draw (0,-1) -- (1,-1);
-\draw[-<] (0,1) -- (0,0);
-\draw (0,0) -- (0,-1);
-\draw[->] (2,1) -- (2,0);
-\draw (2,0) -- (2,-1);
-\draw[decorate, decoration={snake}] (2,1) -- (4,1) node[right]{$\gamma$};
-\draw[decorate, decoration={snake}] (2,-1) -- (4,-1) node[right]{$\gamma$};
-\end{tikzpicture}
-\end{footnotesize}\end{center}
-\end{minipage}\hfill
-\begin{minipage}[b]{.49\textwidth}
-\centering\footnotesize
-\begin{tikzpicture}[scale=.7]
-\draw[dashed] (0,0) node[left] {$h$} -- (2,0);
-\draw (2,0) -- node[midway,sloped] {\tikz\draw[-triangle 45] (0,0)--(.1,0);} (4,1) --
-    node[midway,sloped] {\tikz\draw[-triangle 45] (0,0)--(.1,0);} (4,-1) --
-    node[midway,sloped] {\tikz\draw[-triangle 45] (0,0)--(.1,0);} (2,0);
-\node at (3.3,0) {$f$};
-\draw[decorate, decoration={snake, pre=lineto, pre length=5pt}] (4,1) -- (6,1) node[right] {$\gamma$};
-\draw[decorate, decoration={snake, pre=lineto, pre length=5pt}] (4,-1) -- (6,-1) node[right] {$\gamma$};
+\begin{tikzpicture}
+\draw[decorate, decoration={snake, pre=lineto, pre length=5pt}] (0,0) -- +(1,0) node[right] {$\gamma$};
+\draw[](0,0) -- node[midway,sloped] {\tikz\draw[-triangle 45] (0,0)--(-.1,0);} +(240:1) node[left] {$f$};
+\draw[](0,0) -- node[midway,sloped] {\tikz\draw[-triangle 45] (0,0)--(.1,0);} +(120:1) node[left] {$f$};
+\node[right] at (2,0) {$=eQ_f\gamma^\mu$};
 \end{tikzpicture}
 \end{infilsf}
 }
