@@ -22,15 +22,19 @@
 
 
 \centering {\footnotesize\begin{infilsf}
-\begin{tikzpicture} [>=triangle 45]
-\draw[>-] (-1,1) -- (0,1);
-\draw[->] (0,1) -- (0,0);
-\draw[<-] (-1,-1) -- (0,-1) -- (0,0);
-\draw (-2,1) node[left] {$q$} -- (-1,1);
-\draw (-2,-1)  node[left] {$\bar q$} -- (-1,-1);
-\draw[snake=coil,segment aspect=0] (0,1) -- (2,1) node[right] {$\gamma$};
-\draw[snake=coil,segment aspect=0] (0,-1) -- (2,-1) node[right] {$\gamma$}; 
-\end{tikzpicture}\end{infilsf}
+\begin{tikzpicture}
+\draw (0,0) -- node[midway] {\tikz\draw[-triangle 45] (0,0) -- (.1,0);} node[midway,above] {$\ell$ / $\nu$ / $q$} (2,0);
+\end{tikzpicture}
+\vspace{1em}
+
+\begin{tikzpicture}
+\draw[dashed] (0,0) -- node[above] {$h$} (2,0);
+\end{tikzpicture}
+\hspace{5em}
+\begin{tikzpicture}
+\draw[decorate, decoration={coil,amplitude=2pt, segment length=2.68pt}] (0,0) -- node[above] {$g$} (2,0);
+\end{tikzpicture}
+\end{infilsf}
 }
 Something.
 
