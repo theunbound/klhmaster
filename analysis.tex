@@ -250,7 +250,8 @@ Figure~\ref{result} shows the $M_{\gamma\gamma}$ distribution associated with th
 \section{Addendum: additional results}
 As was noted above, the profile log likelihood fit which takes into account also the uncertainties on the background distribution was too computationally intensive to be completed in time for the initial publication of this thesis. Between then and the thesis defence, this result did become available, however, and is presented here.
 
-Due to its magnitude, the systematic uncertainty on the background sample will be given solely by the uncertainty that arises from limited statistics in the \atlas{} $\gamma$jet sample. The uncertainty on this sample was illustrated in figure~\ref{atlasmc}. Figure~\ref{mccompjet} shows the effect on the distributions shown in figure~\ref{ggcomp} of adding in the $\gamma$jet MC set.
+Due to its magnitude, the systematic uncertainty on the background sample will be given solely by the uncertainty that arises from limited statistics in the \atlas{} $\gamma$jet sample. The uncertainty on this sample was illustrated in figure~\ref{atlasmc}. Figure~\ref{mccompjet} shows the effect on the distributions shown in figure~\ref{ggcomp} of adding in the $\gamma$jet MC set. These distributions are compatible within their errors.
+
 
 \begin{figure}[htp]
 \begin{minipage}[b]{.69\textwidth}
@@ -263,3 +264,28 @@ Due to its magnitude, the systematic uncertainty on the background sample will b
 \end{minipage}
 \end{figure}
 
+Due to limitations of the minimiser used, this profile log likelihood fit has required a rebinning of the distributions used down to 50 bins. The 2 negative log likelihood scan is shown in figure~\ref{bckllr}, while the resulting most likely distribution and confidence interval are overlaid on the data distribution in figure~\ref{bckres}.
+
+\begin{figure}[htp]
+\begin{minipage}[b]{.69\textwidth}
+\begin{infilsf} \tiny
+\input{figures/backerllr}
+\end{infilsf}
+\end{minipage}
+\begin{minipage}[b]{.3\textwidth}
+\caption{The negative 2 log likelihood ratio for the profile likelihood scan over a range of values for $\Lambda^{-4}$. This likelihood scan includes uncertainties on the background, but uses a coarser binning than the previous result. The minimum negative likelihood occurs at $\Lambda^{-4}=1.49$ [GeV$^{-4}$], the lower bound of the confidence interval is at $\Lambda^{-4}=-1.89$, and the upper limit is at $\Lambda^{-4}=2.71$ [GeV$^{-4}$]. The horizontal line indicates the log likelihood ratio at the 95\% confidence level.}\label{bckllr}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[htp]
+\begin{minipage}[b]{.69\textwidth}\hfill
+\begin{infilsf} \tiny
+\input{figures/backerres}
+\end{infilsf}
+\end{minipage}
+\begin{minipage}[b]{.3\textwidth}
+\caption{The data distribution of $M_{\gamma\gamma}$ overlaid with the constructed distributions at the most likely value of $\Lambda$ and at the limits of the confidence level, in the fit which includes the uncertainty on the background distribution.}\label{bckres}
+\end{minipage}
+\end{figure}
+
+Unlike the previous result, this result, which includes all systematic uncertainties considered in the thesis, does not exclude the Standard Model. We find a lower limit on $\Lambda$, at the 95\% confidence level, of 779 GeV.
