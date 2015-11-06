@@ -7,7 +7,7 @@
 \usepackage{xunicode}
 \usepackage{xltxtra}
 \usepackage{polyglossia}
-\usepackage[sorting=none,hyperref=true]{biblatex}
+\usepackage[sorting=none,hyperref=true,backend=biber]{biblatex}
 \defaultfontfeatures{Mapping=tex-text}
 \setmainfont[   Path=fonts/xits/,
                 BoldFont={xits-bold.otf},
@@ -104,9 +104,11 @@
 \definecolor{kugray}{RGB}{102,102,102}
 \definecolor{kugray1}{RGB}{52,52,52}
 \definecolor{natgreen}{RGB}{70,116,60}
+%\definecolor{natgreen}{cmyk}{.65,0,1,.36}
 \definecolor{natgreen1}{HTML}{63875B}
 \definecolor{natgreen2}{HTML}{859B81}
 \definecolor{natcomp}{RGB}{134,69,76}
+%\definecolor{natcomp}{cmyk}{0,1,0,.36}
 \definecolor{natcomp1}{HTML}{9D696E}
 \definecolor{natcomp2}{HTML}{B39598}
 \definecolor{natlcomp}{HTML}{5d323d}
@@ -154,10 +156,40 @@
 \renewcommand{\labelitemi}{\color{natgreen}\ding{110}}
 \renewcommand{\labelitemii}{\color{natgreen}\textbullet}
 \setcounter{tocdepth}{2}
+\renewcommand{\abstractnamefont}{\small\sffamily\bfseries\color{natgreen}}
 
 \setlength{\arrayrulewidth}{2pt}
 
 \newsubfloat{figure}
+
+% Edits! environment
+\newlength{\splitrule}
+\setlength{\splitrule}{\textwidth}
+\addtolength{\splitrule}{\marginparsep}
+\addtolength{\splitrule}{2\marginparsep}
+\newlength{\madjust}
+\setlength{\madjust}{\marginparsep}
+\addtolength{\madjust}{\marginparsep}
+\newenvironment{edits}[1][]
+    {
+    
+    \marginpar{\phantom{.}
+    
+    \rule{\marginparwidth}{.2pt}
+    
+    \footnotesize\sffamily Big edits
+
+    #1}
+    \noindent\hspace{-\madjust}
+    \rule{\splitrule}{.2pt}
+    }{
+    
+    \marginpar{\phantom{.}
+    
+    \footnotesize\sffamily \raisebox{-1pt}{\rule{\marginparwidth}{.2pt}}}
+    \noindent\hspace{-\madjust}
+    \rule{\splitrule}{.2pt}
+}
 
 \begin{hyphenrules}{danish}
 \hyphenation{be-stem-mes}

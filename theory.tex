@@ -7,7 +7,7 @@ Since the new interaction will be introduced into the SM by the effective Lagran
 \section{The Lagrangian formulation of QFT}
 In classical mechanics \cite{goldstein}, the Lagrangian formulation describes the path taken by a system between a given initial and final state---a particle with an initial and a final position, say---by finding the path between these states that minimises the action $S$, which is defined as the integral along a given path over the Lagrangian $L$:
 \[S[q]=\int_\textrm{path}dtL[q,\dot{q}],\]
-where $q$ is a generalised coordinate. In this picture, the Lagrangian encapsulates the dynamics of the system. It is related to the Hamiltonian $H$ by
+where $q$ is a generalised coordinate and a dot indicates a time derivative. In this picture, the Lagrangian encapsulates the dynamics of the system. It is related to the Hamiltonian $H$ by
 \(L = p\dot q- H,\label{htol}\)
 where $p$ is momentum.
 
@@ -17,7 +17,7 @@ where $\hat H$ is the Hamiltonian of the system. Since the idea of a singular pa
 
 Through some notational gymnastics, which involve carving the path integral into an infinite number of time steps, each integrated over every possible configuration, and imposing some conditions on the Lagrangian, it can be shown \cite{srednicki} that the expression above can be written as
 \(A=\int\,\mathcal Dq\,\exp\left[i\int_t^{t^\prime}dt\,[p(t)\dot q(t)-H(p(t),q(t))]\right],\label{e.Dq}\)
-where the integral is over all paths with position $q$ at time $t$ and position $q\prime$ at time $t\prime$. We recognise the expression in the innermost integral from eq.~\eqref{htol}.
+where the functional integral written $\int\mathcal Dq$ is understood as the product of integrals over all paths with position $q$ at time $t$ and position $q\prime$ at time $t\prime$. We recognise the expression in the innermost integral from eq.~\eqref{htol}.
 
 For a local theory, it is possible to write the Lagrangian as a spatial integral over the Lagrangian density:
 \[L=\int \,d^3x\,\mathcal L.\]
@@ -28,17 +28,19 @@ which, unlike the previous expression for $S$, is manifestly Lorenz invariant, s
 Finally, to get the field theory aspect, replace the generalised coordinate $q$ with a field configuration ``coordinate'' $\phi(x)$, which depends on the Lorenz vector $x$. In short, \eqref{e.Dq} can then be written as
 \(A=\int\mathcal D\phi\, e^{iS[\phi]}.\label{e.Dphi}\)
 
-As was the case in classical mechanics, the behaviour of a theory is fully described by its Lagrangian (density), and several models can be combined by adding together their respective Lagrangians. So it is that the Standard Model is described by the SM Lagrangian $\mathcal L_{SM}$, which can be considered as a sum of several lesser Lagrangians that describe the separate sectors of the SM.
+As was the case in classical mechanics, the behaviour of a theory is fully described by its Lagrangian (density), and several models can be combined by adding together their respective Lagrangians. So it is that the Standard Model is described by the SM Lagrangian $\mathcal L_\textit{SM}$, which can be considered as a sum of several lesser Lagrangians that describe the separate sectors of the SM.
 
 \section{The Standard Model Lagrangian}
 
 The Standard Model Lagrangian can be divided into sectors in several ways, according to the needs of the author \cite{srednicki,wikism}. For this work, the sectors of the Standard Model shall be defined as follows,
-\[\mathcal{L}_{\text{\emph{SM}}}=\mathcal{L}_{\text{\emph{EW}}}+\mathcal{L}_{\text{\emph{QCD}}}+\mathcal{L}_{H},\]
-into sectors describing the electroweak part $\mathcal{L}_{\text{\emph{EW}}}$, the QuantumChromoDynamics part $\mathcal{L}_{\text{\emph{QCD}}}$ and the Higgs part $\mathcal{L}_{\text{\emph{H}}}$.
+\[\mathcal{L}_{\text{\emph{SM}}}=\mathcal{L}_{\text{\emph{EW}}}+\mathcal{L}_{\text{\emph{QCD}}}+\mathcal{L}_{H}.\]
+Thus, the SM has a sector which describes the electroweak part $\mathcal{L}_{\text{\emph{EW}}}$, one which describes the QuantumChromoDynamics part $\mathcal{L}_{\text{\emph{QCD}}}$ and one for the Higgs part $\mathcal{L}_{\text{\emph{H}}}$.
 
 The electroweak Lagrangian can be expanded to read as follows:
 \[\mathcal{L}_\text{\emph{EW}}=-\ono4W^i_{\mu\nu}W_i^{\mu\nu}-\ono4B_{\mu\nu}B^{\mu\nu}+\sum_\psi\bar\psi\gamma^\mu \left(i\partial_\mu-{1\over2}g^\prime Y_\mathrm{W}B_\mu-{1\over2}g\sigma^a W^a_\mu\right)\psi,\]
-where $W^i_{\mu}$ and $B_{\mu}$ are the four ($i$ runs from 1 to 3) gauge fields of electroweak theory and $W^i_{\mu\nu}$ and $B_{\mu\nu}$ are their field strength tensors, the $\psi$ sum is over all left--handed fermionic (lepton and quark) fields, $\gamma_{\mu}$ is the Dirac matrices, $g$ and $g'$ are the coupling strengths of the theory, $Y_W$ is the weak hypercharge associated with the fermionic field and $\sigma_i$ are the Pauli matrices. The terms for right--handed fermions have been omitted for brevity.
+where $W^i_{\mu}$ and $B_{\mu}$ are the four ($i$ runs from 1 to 3) gauge fields of electroweak theory and $W^i_{\mu\nu}$ and $B_{\mu\nu}$ are their field strength tensors, the $\psi$ sum is over all left--handed fermionic (lepton and quark) fields, $\gamma_{\mu}$ is the Dirac matrices, $g$ and $g'$ are the coupling strengths of the theory, $Y_W$ is the weak hypercharge associated with the fermionic field and $\sigma_i$ are the Pauli matrices. The terms for right--handed fermions,
+\[\mathcal L_\textit{EW, R}=\sum_{\psi_R}\bar\psi_R\gamma^\mu\left(i\partial_\mu-\half g'Y_W B_\mu\right)\psi_R,\]
+have been omitted for brevity.
 
 The physical $W^\pm_\mu$, $Z^0_\mu$ and $A_\mu$ fields, which manifest as the W$^\pm$ and Z$^0$ bosons and the photon, respectively, arise as mixtures of the gauge fields:
 \(\begin{aligned}
@@ -56,19 +58,19 @@ the electromagnetic field strength tensor, that come from just the first two ter
 The first of these terms describes the propagation of the $A_\mu$ field from one configuration to another, or, in more immediate terms, the propagation of photons through space. Fourier--transforming to momentum space allows us to write the action for this term as
 \(S_{\textit{EW}}=-\ono2\int\frac{d^4k}{(2\pi)^4}\tilde A_\mu(k)k^2\tilde A_\nu(-k)+\cdots,\)
 implying that the photon propagator in momentum space is
-\(\Delta(k)=\ono{k^2-i\epsilon},\label{phoprop}\)
-assuming that momentum conservation is imposed. Here, the modification of the denominator by $i\epsilon$ is included to avoid the pole at $k=0$. This particular way of dealing with poles in the integration of the propagators is due to Richard Feynman, making this the Feynman propagator.
+\(\Delta(k)=\ono{k^2-i\epsilon},\label{phopropeq}\)
+assuming that momentum conservation is imposed. Here, the modification of the denominator by $i\epsilon$ is included to avoid the pole at $k=0$. Tilde denotes the Fourier transform of a field. This particular way of dealing with poles in the integration of the propagators is due to Richard Feynman, making this the Feynman propagator.
 
 Similarly, the action associated with the second term in eq.~\eqref{ewfmn} may be written as
-\(S_\textit{EW}=\cdots+ie\int_k (k_{+}-k_{-})\tilde A(k_A)\tilde W^{+}(k_{+})\tilde W^{-}(k_{-})\delta(k_A+k_{+}+k_{-}+\cdots,\label{tgc}\)
-where the integral is over all momenta, with measure $dk/(2\pi)^4$. The delta function ensures momentum conservation. We infer from this that an interaction exists between the $A_\mu$ and $W^\pm_\mu$ fields, weighted by a factor $ie$ and a factor which, due to momentum conservation, depends on all three participating momenta.
+\(S_\textit{EW}=\cdots+ie\int_k (k_{+}-k_{-})\tilde A(k_A)\tilde W^{+}(k_{+})\tilde W^{-}(k_{-})\delta(k_A+k_{+}+k_{-})+\cdots,\label{tgc}\)
+where the integral is over all momenta, with measure $dk^4/(2\pi)^4$. The delta function ensures momentum conservation. We infer from this that an interaction exists between the $A_\mu$ and $W^\pm_\mu$ fields, weighted by a factor $ie$ and a factor which, due to momentum conservation, depends on all three participating momenta.
 
 Examining every term in the Lagrangian in this way, we may construct expressions that govern every process allowed by the Standard Model. Of note in relation to the search being carried out in this thesis, this list of processes does contain any vertices of the types $AAA$, $AAZ$, $AZZ$ or $ZZZ$. Some of these neutral triple gauge couplings would clearly be able to produce two--photon final states, which would affect the result of the present search. Whether processes with two--photon final states that arise from these vertices exist is difficult to say, as no studies examining such processes have come to the authors attention. Certainly, the LHC has not produced any. 
 
 \section{Feynman diagrams}
 Also due to Richard Feynman is the notion that the terms in the Lagrangian can be represented graphically.
 
-We represent the photon propagator given in eq.~\eqref{phoprop} graphically as shown in fig.~\ref{phoprop}.
+We represent the photon propagator given in eq.~\eqref{phopropeq} graphically as shown in fig.~\ref{phoprop}.
 
 \begin{figure}[hbtp]
 \begin{minipage}[c]{.69\textwidth}\centering\footnotesize
@@ -100,8 +102,8 @@ The second term, from eq.~\eqref{tgc}, describes an interaction between the phot
 \end{minipage}
 \end{figure}
 
-The full propagators for the remaining fields require the introduction of the Higgs Lagrangian, which gives the mass terms for those fields. The relevant terms from the Higgs Lagrangian, in terms of physical fields, as given in eq.~\eqref{tophys}, to get the terms
-\(\mathcal{L}_H=-\frac{g^2v^2}{4}W^{+\mu}W^{-}_\mu-\frac{g^2v^2}{8\cos\theta_W}Z^\mu Z_\mu,\)
+The full propagators for the remaining fields require the introduction of the Higgs Lagrangian, which gives the mass terms for those fields. The relevant terms from the Higgs Lagrangian, in terms of physical fields, as given in eq.~\eqref{tophys}, are
+\(\mathcal{L}_H=-\frac{g^2v^2}{4}W^{+\mu}W^{-}_\mu-\frac{g^2v^2}{8\cos\theta_W}Z^\mu Z_\mu+\cdots,\)
 where $v/\sqrt{2}$ is the vacuum expectation value of the Higgs field, given the correct Gauge transformation. From this, we identify the mass terms
 \(m_W=\frac{g^2v^2}{2},\qquad m_Z=m_W\cos\theta_W.\)
 
@@ -109,7 +111,7 @@ Including the mass terms in the action for, say, a free Z$^0$ boson and Fourier-
 \[S_Z=\int\frac{d^4k}{(2\pi)^4}\tilde Z_\mu(k)[k^2-m^2]\tilde Z\nu(-k)) +\cdots,\]
 leading to the bosonic Feynman propagator,
 \(\Delta(k)=\ono{k^2-m^2-i\epsilon},\)
-which is the factor associated with the propagators for the remaining electroweak bosons, and the Higgs propagator, which are drawn as shown in figure~\ref{ewprops}, along with the gluon propagator produced by $\mathcal{L}_\textit{QCD}$, for completeness. As this is merely an overview, we do not include the associated factors. A complete listing can be found in \cite{allfrules}.
+which is the factor associated with the propagators for the remaining electroweak bosons, and the Higgs propagator, which are drawn as shown in figure~\ref{ewprops}, along with the gluon propagator produced by $\mathcal{L}_\textit{QCD}$, for completeness. As this is merely an overview, we do not include the associated factors. A complete listing can be found in \cite{allfeynrules}.
 
 \begin{figure}[hbtp]
 \begin{minipage}[b]{.69\textwidth}
@@ -139,7 +141,7 @@ which is the factor associated with the propagators for the remaining electrowea
 
 In fig.~\ref{ewprops}, the notion that antiparticles are time--reversed particles is introduced, as indicated by the direction of the arrows.
 
-The remainder of $\mathcal{L}_\textit{EW}$ gives rise to couplings of the types shown in fig.~\ref{restew}. For brevety, we do not show a complete listing of Feynman rules, only a condensed overview of possible vertices. For a complete listing, see eg. \cite{allfeynrules}. The couplings introduced by the QCD and Higgs sectors are given in figure~\ref{othercoups}.
+The remainder of $\mathcal{L}_\textit{EW}$ gives rise to couplings of the types shown in fig.~\ref{restew}. For brevity, we do not show a complete listing of Feynman rules, only a condensed overview of possible vertices. For a complete listing, see eg. \cite{allfeynrules}. The couplings introduced by the QCD and Higgs sectors are given in figure~\ref{othercoups}.
 
 \begin{figure}[hbtp]\centering {\footnotesize
 \begin{tikzpicture}
@@ -214,7 +216,7 @@ To evaluate this diagram, we require the Feynman rule for the $f\bar f \rightarr
 
 The Feynman diagram in fig.~\ref{bornqq2gg} is then equivalent to
 \(e^2Q_q^2\gamma^\mu\gamma^\nu\frac{i(\cancel{k}+m)}{k^2-m^2-i\epsilon},\)
-where the faction is the quark propagator. This relates to the transition amplitude by integrating over all participating momenta, keeping in mind that momenta must be conserved across all propagators and in every vertex.
+where the faction is the quark propagator. This relates to the action by integrating over all participating momenta, keeping in mind that momenta must be conserved across all propagators and in every vertex.
 
 The Feynman rules introduced by the QCD and Higgs sectors are indicated in figure~\ref{othercoups}.
 
@@ -306,7 +308,7 @@ With these couplings in the mix, we can additionally construct the diagrams with
 
 Both these diagrams introduce a new complication, in that the internal loops contain a momentum which is not fixed by momentum conservation in the vertices to external momenta. Thus, the momentum integration on this diagram will diverge. There exist well defined procedures for renormalising the contributions from these loop level diagrams, however, as this requires the development of next--to--leading order methods, we will consider them beyond our scope. We will in any case not be calculating contributions from higher than leading order diagrams directly.
 
-The rightmost diagram in fig.~\ref{hiorder} is one of the decay modes of the Higgs boson. As such, the invariant mass of the resulting photon pair will tend to distribute itself around the Higgs boson mass. In fact, this process was one of the main areas of focus in the recent search for the Higgs boson. This distribution of invarant masses, we will see in the following, is quite different from the signature of the event that are the subject of the present search. Thus, the contribution from this diagram will not figure in the analysis to follow.
+The rightmost diagram in fig.~\ref{hiorder} is one of the decay modes of the Higgs boson. As such, the invariant masses of the resulting photon pair will tend to distribute itself around the Higgs boson mass. In fact, this process was one of the main areas of focus in the recent search for the Higgs boson. This distribution of invariant masses, we will see in the following, is quite different from the signature of the event that are the subject of the present search. Thus, the contribution from this diagram will not figure in the analysis to follow.
 
 The procedure outlined above, for constructing a collection of Feynman diagrams from a Lagrangian can be described in sufficient detail to be automated. For this thesis, we will use the tool LanHEP \cite{lanhep} for this purpose. This tool is chosen for its easy compatibility with the event generator which will be used in chapter~\ref{ch.mc}. Alternatives exist, such as FeynRules \cite{feynrules}.
 
@@ -324,7 +326,7 @@ We can only do this if the mass scale $\Lambda$ is significantly higher than the
 
 From this assumed plethora of possible higher order terms, we choose to consider a specific term, which describes the $q\bar q\rightarrow\gamma\gamma$ contact interaction which is the focus of this thesis. This term takes the form \cite{rizzo}
 \(\mathcal L_n = \frac{2ie^2}{\Lambda^4}Q_q^2F^{\mu\sigma}F^\nu_\sigma\overline{q}\gamma_\mu\partial_\nu q,\label{rizzo}\)
-where $e$ is the elementary charge, $Q_q$ is the quark charge of quark $q$ and $\Lambda$, as discussed, is the associated mass scale. $n$ is for ``new''. The power of $\Lambda$ is chosen to give the correct mass dimension of the term: in natural units,\footnote{Where $\hbar = c = 1$.} the action is unitless. The Lagrangian is integrated over 4 lengths to give the action, which means it must have a length dimension of $-4$ itself. Finally, in natural units, we can equate a unit of length with a unit of inverse mass\footnote{Because in natural units, \[[\text{length}]=[\text{length}]\frac{c}{\hbar}=[\text{length}]\frac{\left[\frac{\text{length}}{\text{time}}\right]}{\left[\frac{\text{length}^2\text{ mass}}{\text{time}}\right]}=\left[\frac{\text{length}^2\text{ time}}{\text{length}^2\text{ time}\text{ mass}}\right]=[\text{mass}]^{-1}. \]}, which means that the Lagrangian must have mass dimension 4. The factors $F^{\mu\sigma}F^\nu_\sigma$ and $\overline{q}\gamma_\mu\partial_\nu q$ each contribute a mass dimension of 4, so the mass scale (which has dimension of mass) must get a power of $-4$.
+where $e$ is the elementary charge, $Q_q$ is the quark charge of quark $q$ and $\Lambda$, as discussed, is the associated mass scale. $n$ is for ``new''. The power of $\Lambda$ is chosen to give the correct mass dimension of the term: in natural units,\footnote{Where $\hbar = c = 1$.} the action is unitless. The Lagrangian is integrated over 4 lengths to give the action, which means it must have a length dimension of $-4$ itself. Finally, in natural units, we can equate a unit of length with a unit of inverse mass\footnote{Because in natural units, \[[\text{length}]=[\text{length}]\frac{c}{\hbar}=[\text{length}]\frac{\left[\frac{\text{length}}{\text{time}}\right]}{\left[\frac{\text{length}^2\text{ mass}}{\text{time}}\right]}=\left[\frac{\text{length}^2\text{ time}}{\text{length}^2\text{ time}\text{ mass}}\right]=[\text{mass}]^{-1}. \]}, which means that the Lagrangian must have mass dimension 4. The factors $F^{\mu\sigma}F^\nu_\sigma$ and $\overline{q}\gamma_\mu\partial_\nu q$ each contribute a mass dimension of 4, so the mass scale $\Lambda$ (which has dimension of mass) must get a power of $-4$.
 
 \begin{figure}[htp]\begin{center}
 {\footnotesize\begin{tikzpicture} [>=triangle 45]
@@ -379,12 +381,45 @@ One possible interpretation of this new four-point interaction is as a zero-rang
 \section{The cross section}
 Using the methods developed so far, we can calculate the transition amplitudes, and hence the probabilities, associated with a single processes. However, by long standing tradition, particle physics is interested in the cross section $\sigma$.
 
-The relationship between a probability and a cross section follows from considering the case where a single projectile is fired at a single target. We might at this point imagine an arrow and a bulls-eye or an electron and an atomic nucleus in a piece of gold film \cite{rutherford}. The probability of hitting the target is then the cross sectional area of the target divided by the cross sectional area $A$ of the space where the projectile might fly. Adding the possibility of a number, $N_P$, of projectiles being fired at a number, $N_T$, of different, non-overlapping targets, the number, $N$, of hits is calculated as
+The relationship between a probability and a cross section follows from considering the case where a single projectile is fired at a single target. We might at this point imagine an arrow and a bulls-eye or an electron and an atomic nucleus in a piece of gold film \cite{rutherford}. The probability of hitting the target is then the cross sectional area of the target $\sigma$ divided by the cross sectional area $A$ of the space where the projectile might fly. Adding the possibility of a number, $N_P$, of projectiles being fired at a number, $N_T$, of different, non-overlapping targets, the number, $N$, of hits is calculated as
 \[N=\frac{N_P N_T \sigma}{A}.\]
-If we apply this picture to a quantum mechanical system, we are mixing the kinematic probability for two particles coming close enough to interact with the dynamic probability of a particular interaction occurring. We can fix this by expressing the probability $\mathcal P$ as a function of the separation between the interacting particles, given by the impact parameter $\mathbf b$, a 2-D vector, and then integrating over all $\mathbf b$. Then, we can write
-\[\sigma=\int d^2b\,\mathcal P(\mathbf b)\propto\mathcal P(\text{in}\rightarrow\text{out})=\left|\braket{\phi\cdots\phi_\text{out}}{\phi\cdots\phi_\text{in}}\right|^2.\]
-In this way, we can calculate the cross section of some process from its transition amplitude.
+If we apply this picture to a quantum mechanical system, we are mixing the kinematic probability for two particles coming close enough to interact with the dynamic probability of a particular interaction occurring. We can fix this by expressing the probability $\mathcal P$ as a function of the separation between the interacting particles, given by the impact parameter $\mathbf b$, a 2D vector, and then integrating over all $\mathbf b$. Then, we can write
+\begin{edits}
+\[\sigma=\int d^2b\,\mathcal P(\mathbf b)\propto\mathcal P(\text{in}\rightarrow\text{out})=\left|A(\text{in}\rightarrow\text{out})\right|^2.\]
+The transition amplitude $A(\text{in}\rightarrow\text{out})$, in this context, is the transition amplitude, defined in eq.~\eqref{e.Dphi}, derived from the action for the process being studied. In this way, we can calculate the cross section of some process from its transition amplitude.
 
+\section{Parametrisation of the contact interaction}
+Since the new contact interaction has been introduced by adding a term to the SM Lagrangian, we may, due to eq.~\eqref{e.S}, write the transition amplitude for the $qq\rightarrow\gamma\gamma$ processes as
+\(A(qq\rightarrow\gamma\gamma)=\int\mathcal D\phi e^{i(S_\textit{SM}[\phi]+S_n[\phi])},\)
+where $S_\textit{SM}$ is the action associated with the Standard Model Lagrangian and $S_n$ is the action that arises from the new term $\mathcal L_n$. Through a series expansion, this can be written as
+\(A(qq\rightarrow\gamma\gamma)=\int\mathcal D\phi e^{iS_\textit{SM}}\left(1-iS_n+\frac{(-iS_n)^2}{2}+\cdots\right)=\int\mathcal D\phi e^{iS_\textit{SM}}+\int\mathcal D\phi N_n,\)
+where we defined
+\(N_n=\,e^{iS_\textit{SM}}\left(-iS_n+\frac{(-iS_n)^2}{2}+\cdots\right).\)
+Combining eqs.~\eqref{e.S} and~\eqref{rizzo}, we find that $N_n$ may be written as
+\begin{multline}
+N_n=e^{iS_\textit{SM}}\left(-i\int\frac{dk^4}{(2\pi)^4}\frac{2ie^2}{\Lambda^4}Q_q^2F^{\mu\sigma}F^\nu_\sigma\overline{q}\gamma_\mu\partial_\nu q\right.\\
++\left.\half\left[-i\int\frac{dk^4}{(2\pi)^4}\frac{2ie^2}{\Lambda^4}Q_q^2F^{\mu\sigma}F^\nu_\sigma\overline{q}\gamma_\mu\partial_\nu q\right]^2+\cdots\right),
+\end{multline}
+which is an expression proportional to $\Lambda^{-4}$.
+
+Making the proportionality explicit by defining
+\begin{align}
+\mathcal M_\textit{SM} &= \int\mathcal D\phi e^{iS_\textit{SM}}
+&\text{and}&&
+\ono{\Lambda^{4}}\mathcal M_n &= \int\mathcal D\phi N_n,
+\end{align}
+we may write the transition probability
+\(\begin{split}
+\mathcal P(qq\rightarrow\gamma\gamma) &=|A(qq\rightarrow\gamma\gamma)|^2\\
+&=\left|\mathcal M_\textit{SM}+\ono{\Lambda^4}\mathcal M_n\right|^2\\
+&=\mathcal M_\textit{SM}^2+\frac{2}{\Lambda^4}\text{Re}[\mathcal M_\textit{SM}\mathcal M_n]+\ono{\Lambda^8}\mathcal M_n^2.
+\end{split}\)
+This is a second order polynomial in $\Lambda^{-4}$,
+\(\mathcal P(qq\rightarrow\gamma\gamma)=a+b\ono{\Lambda^4}+c\left(\ono{\Lambda^4}\right)^2.\label{param}\)
+
+In the following, we shall develop a procedure for determining the cross section of the $qq\rightarrow\gamma\gamma$ process for given values of $\Lambda$. As we just saw, however, the $\Lambda$ dependence of the cross section is given by the polynomial in equation~\eqref{param}. Thus, if we have the cross section at three values of $\Lambda$, we can determine the value of the coefficients $a$, $b$ and $c$, and with those, we may calculate the cross section for the process at any value of $\Lambda$. Determining the coefficients by that route, we need not even concern ourselves with the content of those coefficients, although it remains clear that the $a$ coefficient is identical to the Standard Model cross section for the process.
+
+\end{edits}
 \section{Considering protons \label{sec.pdfth}}
 In the processes described so far, the starting point has been the interaction of a quark and an antiquark. And while being able to single out such a process experimentally would certainly be nice, single quarks sadly do not occur in nature. Because quarks are colour charged particles, they are subject a phenomenon known as colour confinement, which requires that colour charge always occur in bundles which are colour neutral when viewed from the outside. For our purposes, protons are an abundant, stable and easy--to--handle colour--neutral bundle of quarks and gluons, which we use in collisions in place of the naked quarks that would have been optimal for the present analysis.
 
@@ -429,7 +464,11 @@ Figure~\ref{interf} presents a distribution in invariant mass of events produced
 \end{minipage}
 \end{figure}
 
-As should be evident from this figure, a sample of events produced when assuming constructive interference contains more events at every point than a sample produced if assuming destructive interference at the same value for $\Lambda$. Thus, attempting to approximate a distribution with destructive interference by a distribution with constructive interference will naturally lead us to a distribution with a lower $\Lambda$ than the original distribution, while attempting to approximate a distribution with constructive interference by a distribution with destructive interference will lead us to a distribution with a larger $\Lambda$. Since we will attempt to find the lower limit on $\Lambda$, the conservative assumption is the one that leads us to guess too high. Therefore, we will move forward assuming that the new term interferes constructively with the Standard Model.
+\begin{edits}
+As should be evident from this figure, a sample of events produced when assuming constructive interference contains more events at every point than a sample produced if assuming destructive interference at the same value for $\Lambda$. 
+Recalling eq.~\eqref{param}, this difference in behaviour is reproduced by changing the sign of the linear, $b$, coefficient. Thus, a parametrisation carried out on the basis of a distribution that assumes either kind of interference can still recreate distributions that exhibit the behaviour of the other type of interference, simply by reversing the sign of $b$. Thus, we loose no information by considering only constructive interference in the following.
+%Thus, attempting to approximate a distribution with destructive interference by a distribution with constructive interference will naturally lead us to a distribution with a lower $\Lambda$ than the original distribution, while attempting to approximate a distribution with constructive interference by a distribution with destructive interference will lead us to a distribution with a larger $\Lambda$. Since we will attempt to find the lower limit on $\Lambda$, the conservative assumption is the one that leads us to guess too high. Therefore, we will move forward assuming that the new term interferes constructively with the Standard Model.
+\end{edits}
 
 
 

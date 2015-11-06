@@ -25,12 +25,12 @@ If more than one photon pair are selected in a single event, the pair with the h
 \input{figures/cutflow}
 \end{infilsf}
 \end{minipage}\hfill\begin{minipage}[t]{.3\textwidth}
-\caption{A cutflow diagram, showing how many objects remain in the dataset after each of the selection criteria are imposed.
+\caption{A cutflow diagram, showing how many photon pairs remain in the dataset after each of the selection criteria are imposed.
 \label{cutflow}}
 \end{minipage}
 \end{figure}
 
-The number of objects remaining at each step of the cut procedure is plotted in figure~\ref{cutflow}
+The number of photon pairs remaining at each step of the cut procedure is plotted in figure~\ref{cutflow}
 
 What remains after these cuts have been applied is a purer sample of photons than we had before, however the sample will still contain a background of events that do not come from the processes that we wish to study. An estimate of this background is required.
 
@@ -38,11 +38,11 @@ What remains after these cuts have been applied is a purer sample of photons tha
 The background that remains in the signal sample after these criteria have been applied can be estimated in a number of ways. Here, we shall attempt to quantify the magnitude of the background by examining the data. Background, in this context, means events where one or both photons were some other type of object misidentified by the detector as a photon. This might include electrons whose track was not properly reconstructed, jets or other neutral particles, such as the $\pi^0$. The ABCD method attempts to remove events that have a signature different from the signal in two selected variables.
 
 \subsection{The ABCD method}
-We assume that it is possible to extrapolate the shape of the distribution of background events that pollute the signal sample from the distribution of events that occur well away from the signal region. The \textsc{abcd} method assumes that the distribution of background events has the same shape in the signal region as it does in a control region. There will still be a scale difference between the two, which can be determined by examining a different control region.
+We assume that it is possible to extrapolate the shape of the distribution of background events that pollute the signal sample from the distribution of events that occur well away from the signal region. The ABCD method assumes that the distribution of background events has the same shape in the signal region as it does in a control region. There will still be a scale difference between the two, which can be determined by examining a different control region.
 
 \begin{figure}[hbp]
   \includegraphics[width=\textwidth]{figures/sideband}
-  \caption{Illustrating the two--step ABCD method, adapted from \cite{fdirect} using the `tight' selection criteria and the isolation energy: the full set of diphotons (the L-L sample) is split into four groups---A, B, C and D---according to the discriminating variables for the leading photon. Signal photons are now confined to the A region. The events in the C region can be used to estimate the shape, and the B and D region can be used to estimate the magnitude of the distribution of background events in the signal region. The procedure is then repeated for the subleading partner photons of the events in the A region. This gives an estimate of the distibution of background events in the combined signal (AA) region.}\label{abcd}
+  \caption{Illustrating the two--step ABCD method, adapted from \cite{fdirect} using the `tight' selection criteria and the isolation energy: the full set of diphotons (the L-L sample) is split into four groups---A, B, C and D---according to the discriminating variables for the leading photon. Signal photons are now confined to the A region. The events in the C region can be used to estimate the shape, and the B and D region can be used to estimate the magnitude of the distribution of background events in the signal region. The procedure is then repeated for the subleading partner photons of the events in the A region. This gives an estimate of the distribution of background events in the combined signal (Aa) region.}\label{abcd}
 \end{figure}
 
 This is also known as the two--dimensional sideband method \cite{cmsabcd}. The following description may be aided by the illustration in figure~\ref{abcd}.
@@ -61,17 +61,17 @@ Thus, the distribution in $x$ of background events in the A region, $A_{bck}$, i
 The signal distribution must then be given as
 \(A_{sig}=A-A_{bck}.\label{asig}\)
 
-As we are working with events with two photons, both of which give rise to independent backgrounds, this procedure must be repeated for the subleading photons as well. For the subleading photon candidate, we look at the sample of photon candidates that are the subleading partner of a selected photon in the signal, A, region of the distribution of leading photon candidates. Carrying out the ABCD procedure on the sample of subleading photons gives us $AA_{bck}$, an estimate of the number of selected photon pairs where the leading photon is in the A region and the subleading photon is a part of the background in the AA region.
+As we are working with events with two photons, both of which give rise to independent backgrounds, this procedure must be repeated for the subleading photons as well. For the subleading photon candidate, we look at the sample of photon candidates that are the subleading partner of a selected photon in the signal, A, region of the distribution of leading photon candidates. Carrying out the ABCD procedure on the sample of subleading photons gives us $Aa_{bck}$, an estimate of the number of selected photon pairs where the leading photon is in the A region and the subleading photon is a part of the background in the Aa region.
 Using \eqref{asig}, we can now write the number of events in the signal--signal region as
 \(\begin{aligned}
-A_{sig}A_{sig} &=(A-A_{bck})A-(A-A_{bck})A_{bck}\\ &=AA-A_{bck}A-AA_{bck}+A_{bck}A_{bck}\\&=AA-[AA]_{bck}.
+A_{sig}a_{sig} &=(A-A_{bck})a-(A-A_{bck})a_{bck}\\ &=Aa-A_{bck}a-Aa_{bck}+A_{bck}a_{bck}\\&=Aa-[Aa]_{bck}.
 \end{aligned}\)
-$AA$ is the number of events in the AA region, which is readily available. Of the terms that contribute to the total background $[AA]_{bkc}$, $AA_{bck}$, the total number of background subleading photons in the AA region, is determined by taking
-\(AA_{bck}=AC\frac{AB}{AD},\)
-analogous to how $A_{bck}$ sample was found in eq.~\eqref{abckfind}. We find $A_{bck}A$, the total number background leading photons in the AA region, and $A_{bck}A_{bck}$, the number of photon pairs in the AA region where both members are background photons, by multiplying $AA$ and $AA_{bck}$ by
+$Aa$ is the number of events in the Aa region, which is readily available. Of the terms that contribute to the total background $[Aa]_{bkc}$, $Aa_{bck}$, the total number of background subleading photons in the Aa region, is determined by taking
+\(Aa_{bck}=Ac\frac{Ab}{Ad},\)
+analogous to how $A_{bck}$ sample was found in eq.~\eqref{abckfind}. We find $A_{bck}A$, the total number background leading photons in the Aa region, and $A_{bck}a_{bck}$, the number of photon pairs in the Aa region where both members are background photons, by multiplying $Aa$ and $Aa_{bck}$ by
 \(f_{bck}=\frac{A_{bck}}{A},\)
 the fraction of background events in the leading photon A sample. Thus, the total estimated background in the AA region is given by
-\([AA]_{bck}=\frac{A_{bck}}{A}(AA)+AA_{bck}-\frac{A_{bck}}{A}(AA_{bck}),\)
+\([Aa]_{bck}=\frac{A_{bck}}{A}(Aa)+Aa_{bck}-\frac{A_{bck}}{A}(Aa_{bck}),\)
 which we can interpret as the number of data points where the leading photon was a background plus the number of data points where the subleading photon was a background, subtracted the number of data points where both photons were background events, which would have been double counted.
 
 For the diphoton sample, the choice of the two discriminants are the `tight' selection criteria, which were described in chapter~\ref{ch.exp}, and the transverse isolation energy, $E_T^{\text{isol}}$, the energy deposited in the calorimeter in a cone with radius $R\le0.4$, but outside $R\le0.2$, where
@@ -89,7 +89,7 @@ The signal region is defined as $E_T^{\text{isol}}\le3$ GeV. Allowing a crosstal
 \end{minipage}
 \end{figure}
 
-Performing this process for each bin in $M_{\gamma\gamma}$, we obtain the distribution of background events shown in figure~\ref{mggbck}. Note, though, that the plots of $E_T^{\text{isol}}$ above showed the combined distribution for all $M_{\gamma\gamma}$ bins combined.
+Performing this process for each bin in $M_{\gamma\gamma}$, we obtain the distribution of background events shown in figure~\ref{mggbck}. Note, though, that the plots of $E_T^{\text{isol}}$ in fig.~\ref{etiso} shows the distribution for all $M_{\gamma\gamma}$ bins combined.
 
 \begin{figure}[htp]
 \begin{minipage}[b]{.69\textwidth}
@@ -129,7 +129,7 @@ Here, the $\gamma$jet MC set has been composited from five different MC sets wit
 \begin{tabular}[b]{lrl}\hline
 {\color{natgreen}\bfseries Dataset name & \multicolumn{2}{c}{\color{natgreen}\bfseries Measured/expected events}\\
 Data & 115915&\\
-Estimated background & 6760 &$\pm$ 260\\
+Estimated background & 67640 &$\pm$ 260\\
 Pythia8\_AU2CTEQ6L1\_gammajet\_DP & 26700&$\pm$1610\\
 PowhegPythia8\_AU2CT10\_Zee & 472 &$\pm$ 50\\
 Pythia8\_AU2CTEQ6L1\_gammagamma\_2DP20 & 20480 &$\pm$ 210
@@ -142,7 +142,9 @@ Pythia8\_AU2CTEQ6L1\_gammagamma\_2DP20 & 20480 &$\pm$ 210
 
 We note in figure~\ref{mclist} and in table~\ref{expected} that the relative contribution from the $Z\rightarrow ee$ process is essentially negligible. It contains no events at all that pass the selection criteria, with an invariant mass above 300 GeV, which is well below where we expect to see an effect from the contact interaction. Thus, we will neglect this contribution going forward.
 
-It is our assertion, then, that the signal processes in data are reproduced by the \atlas{} Monte Carlo data sets with $\gamma\gamma$ and $\gamma$jet final states. To test this assertion, we combine these data sets, and process them in the same way as we did to the data sample above. That is, we use the ABCD method to estimate the proportion of events in this data set that are identified as background events. We may then compare the MC signal distribution with the signal distribution found in data by subtracting from it the background distribution estimated in Monte Carlo and adding in stead the background distribution estimated in data. Figure~\ref{atlasmc} shows the result.
+It is our assertion, then, that the observed distribution in data is reproduced by the \atlas{} Monte Carlo data sets with $\gamma\gamma$ and $\gamma$jet final states. To test this assertion, we combine these data sets, and process them in the same way as we did to the data sample above. That is, we use the ABCD method to estimate the proportion of events in this data set that are identified as background events. We may then compare the MC signal distribution ($mc$) with the signal distribution found in data by subtracting from it the background distribution estimated in Monte Carlo ($mc_{ABCD}$) and adding in stead the background distribution estimated in data ($data_{ABCD}$):
+\[mc_\text{comb}=mc-mc_{ABCD}+data_{ABCD}\]
+Figure~\ref{atlasmc} shows the result.
 
 \begin{figure}[htp]
 \begin{minipage}[b]{\textwidth}
@@ -152,11 +154,11 @@ It is our assertion, then, that the signal processes in data are reproduced by t
 \end{minipage}
 
 \begin{minipage}[b]{\textwidth}
-\caption{The distribution of invariant masses produced by combining the \atlas{} that best describe the signal processes, from which is subtracted the background contribution found by applying the ABCD method to this set, and added the background contribution estimated in data above. }\label{atlasmc}
+\caption{The distribution of invariant masses produced by combining the \atlas{} MC sets that best describe the signal processes, from which is subtracted the background contribution found by applying the ABCD method to this set, and to which is added the background contribution estimated in data above. }\label{atlasmc}
 \end{minipage}
 \end{figure}
 
-The plots in this figure have several features worth remarking upon. First, as should also be visible in fig.~\ref{mclist}, the MC sets for the $\gamma$jet processes have relatively poor statistics, which leads to high event weights and thus large errors, especially in the invariant mass range below 200 GeV. This is exacerbated by the ABCD method, which results in the very large errors in some bins. The use of the ABCD method to subtract a background--like part of the distribution of MC events has also resluted in some bins of this distribution having negative content, which is the reason why the combined distribution drops below the estimated background in a few bins around the peak. Second, both the distribution of background events estimated in data and the $\gamma\gamma$ MC set have almost no events with invariant mass larger than 1\,000 GeV, which is the reason for the sharp drop at around that value. Unlike the first issue, this lack of statistics affects the most important part of the invariant mass range for estimating $\Lambda$, and so we will be forced to attempt to extrapolate the shape of the distribution in this region.
+The plots in this figure have several features worth remarking upon. First, as should also be visible in fig.~\ref{mclist}, the MC sets for the $\gamma$jet processes have relatively poor statistics, which leads to high event weights and thus large errors, especially in the invariant mass range below 200 GeV. This is exacerbated by the ABCD method, which results in the very large errors in some bins. The use of the ABCD method to subtract a background--like part of the distribution of MC events has also resulted in some bins of this distribution having negative content, which is why the combined distribution drops below the estimated background in a few bins around the peak. Second, both the distribution of background events estimated in data and the $\gamma\gamma$ MC set have almost no events with invariant mass larger than 1\,000 GeV, which is the reason for the sharp drop at around that value. Unlike the first issue, this lack of statistics affects the most important part of the invariant mass range for estimating $\Lambda$, and so we will be forced to attempt to extrapolate the shape of the distribution in this region.
 
 With these caveats, however, the distribution of Monte Carlo events matches the distribution of events in data quite well.
 
