@@ -4,7 +4,7 @@ Recalling from chapter \ref{ch.theory} that we may express the number of predict
 
 \section{Corrections to Monte Carlo samples}
 
-In chapters~\ref{ch.mc} and~\ref{ch.ex}, we produced, among others, a sample of Monte Carlo events that gives the SM prediction for the distribution of events. Since we discovered above, that the \atlas{} $\gamma\gamma$ Monte Carlo sample gives a distribution of events that matches data well, we will compare these two samples to asses how well our SM prediction matches data. In doing so, we encounter a few problems.
+In chapters~\ref{ch.mc} and~\ref{ch.exp}, we produced, among others, a sample of Monte Carlo events that gives the SM prediction for the distribution of events. Since we discovered above, that the \atlas{} $\gamma\gamma$ Monte Carlo sample gives a distribution of events that matches data well, we will compare these two samples to asses how well our SM prediction matches data. In doing so, we encounter a few problems.
 
 First, it appears that the procedure which should correct for pileup in the detector simulation procedure has not functioned as intended. During detector simulation, the events produced for this thesis are assigned only a very limited range of values for the number of interactions per bunch crossing. Ordinarily, the pileup correction procedure expects a distribution of events per bunch crossing that covers the same range as found in data, and simply reweights each event, so that the shape of the distribution in MC is altered to resemble the one found in data. Since the distribution of numbers of interaction per bunch crossing available, the distribution found in data can not be recovered in MC.
 
@@ -64,7 +64,7 @@ Finally, the CalcHEP sample only included events produced by the tree level proc
 \end{minipage}
 \end{figure}
 
-Adding this to the CalcHEP sample, we get the distribution in fig.~\ref{ggcomp}. As should be evident, there is still a deficit in the CalcHEP sample. The box diagram contribution added to the CalcHEP sample was produced by a different generator than was used to generate the \atlas{} $\gamma\gamma$ sample, which was not necessarily configured with the same parameters as was used for the present sample, or the \altas{} sample could contain effects from interference between the diagrams which simply adding together samples does not capture. In any case, to be comparable to data, both MC sets must be combined with the $\gamma$jet sample. The two combined samples will be consistent within their errors.
+Adding this to the CalcHEP sample, we get the distribution in fig.~\ref{ggcomp}. As should be evident, there is still a deficit in the CalcHEP sample. The box diagram contribution added to the CalcHEP sample was produced by a different generator than was used to generate the \atlas{} $\gamma\gamma$ sample, which was not necessarily configured with the same parameters as was used for the present sample, or the \atlas{} sample could contain effects from interference between the diagrams which simply adding together samples does not capture. In any case, to be comparable to data, both MC sets must be combined with the $\gamma$jet sample. The two combined samples will be consistent within their errors.
 
 \begin{figure}[htp]
 \begin{minipage}[b]{.69\textwidth}
@@ -98,9 +98,7 @@ Now satisfied with our Monte Carlo samples, we turn toward extracting the coeffi
 Since we have assumed constructive interference between the new interaction and the Standard Model, we know that a distribution which has a contribution from the new interaction, at any strength, must have a number of expected events at least equal to the number of events expected in the Standard Model case at any point. Also, the Standard Model contributes equally in each distribution, thus the shape of each distribution must be the shape of the Standard Model contribution plus an additional contribution. We select for the shape of the Standard Model distribution the function
 \(f_\textit{SM}(x)=p_1\left(\frac{1-x}{8000}\right)^{p_2}\left(\frac{x}{8000}\right)^{-\left[p_3+p_4\ln\frac{x}{8000}\right]},\)
 the parameters of which must be shared among all three functions. This is the same type of expression as was used to fit the shape of the background distribution in the previous section. The additional contribution from the contact interaction does not follow this shape of distribution.
-\begin{edit}
 To describe the shape of the additional contribution, we select, among all possible functional dependencies, an expression with a small number of parameters, which once fitted to the distribution, describes the shape well, with a good $\chi^2$.
-\end{edit}
 
 We describe the shape of the contribution from the new interaction with functions of the form
 \(f_{\Lambda=1.00/0.75}(x)=f_\textit{SM}(x)+p_{5/10}\exp\left[-\half\left(\frac{x-p_{6/11}}{p_{7/12}}\right)^2\right]+\exp\left[p_{8/13}\frac{x}{8000}-p_{9/14}\right],\)
