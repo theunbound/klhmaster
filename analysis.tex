@@ -1,6 +1,6 @@
 \chapter{Analysis}\label{ch.an}
 
-Recalling from chapter \ref{ch.theory} that we may express the number of predicted events in a given bin in the $M_{\gamma\gamma}$ as a second order polynomial in $\Lambda^4$, our aim here will be, first, to determine, for each bin, the coefficients of this polynomial. Second, using a maximum likelihood fit, to determine a most likely value of $\Lambda$, and a confidence interval on that value.
+Recalling from chapter \ref{ch.theory} that we may express the number of predicted events in a given bin in the $M_{\gamma\gamma}$ as a second order polynomial in $\Lambda^{-4}$ with coefficients $a$, $b$ and $c$, our aim here will be, first, to determine, for each bin, the coefficients of this polynomial. Second, using a maximum likelihood fit, to determine a most likely value of $\Lambda$, and a confidence interval on that value.
 
 \section{Corrections to Monte Carlo samples}
 
@@ -147,7 +147,7 @@ It is now a simple matter to determine the polynomial coefficients, which are pl
 \end{infilsf}
 \end{minipage}\hfill
 \begin{minipage}[b]{.3\textwidth}
-\caption{From top to bottom, plots of the coefficients to the constant, linear and quadratic terms used to derive distributions of $M_{\gamma\gamma}$ at any $\Lambda$, defined in chapter~\ref{ch.theory}, with uncertainties.}\label{coef}
+\caption{From top to bottom, plots of the coefficients to the constant, linear and quadratic terms used to derive distributions of $M_{\gamma\gamma}$ at any $\Lambda$, defined in eq.~\eqref{param}, with uncertainties.}\label{coef}
 \end{minipage}
 \end{figure}
 
@@ -164,7 +164,11 @@ As a practical matter, since numerical algorithms for extremum finding are actua
 \[-\ln p,\]
 and attempt to find a value of $\Lambda$ that minimises this number. 
 
-We can find a confidence interval around the most likely value by determining what the ratio of likelihoods, or difference of log likelihoods, between the most likely value and the value that corresponds to the desired confidence level. The log ratio of the likelihood of a $\chi^2$ distribution at its mean to its likelihood at the 95th percentile is 3.84 \cite{pdg}. We adopt this as the best estimate available for the 95\% confidence level for twice the negative log likelihood ratio for our distributions as well. The factor two arises from taking the logarithm of $\chi^2$.
+We can find a confidence interval around the most likely value by determining what the ratio of likelihoods, or difference of log likelihoods, between the most likely value and the value that corresponds to the desired confidence level,
+\(-LLR=\frac{\ln p}{\ln p_\text{max}}=n_\text{data}(\ln N-\ln N_\text{max})+\ln N_\text{max}-\ln N,\)
+writing $-LLR$ for the negative log likelihood ratio, and dropping the labels on $N_\text{exp}$ for legibility.
+
+The log ratio of the likelihood of a $\chi^2$ distribution at its mean to its likelihood at the 95th percentile is 3.84 \cite{pdg}. We adopt this as the best estimate available for the 95\% confidence level for twice the negative log likelihood ratio for our distributions as well. The factor two arises from taking the logarithm of $\chi^2$.
 
 As an example, figure~\ref{exllr} plots the negative log likelihood ratios associated with searching for the most likely value of $\Lambda$ given our dataset.
 
@@ -186,7 +190,9 @@ Additional uncertainties can be incorporated into the determination of the log l
 \(p(n_\text{data}|N_\text{exp},\mu)=p(n_\text{data}|N_\text{exp}+\mu)p(\mu)\)
 Then, to find the likelihood at a step in $N_\text{exp}$, we must find the value of $\mu$ that minimises the total negative log likelihood. We assign separate $\hat\mu$ distributions for each bin in a histogram. Thus, for a histogram with bins $i$, the negative log likelihood is given by
 \(-LL=\sum_i\ln n_i!-n_i\ln(N_i+\mu_i)+(N_i+\mu_i)-\ln p_i(\mu_i),\)
-where, for each bin $i$, $\mu_i$ is selected to minimise this expression. This is known as the profile log likelihood. As is common with error distributions, $\hat\mu$ is usually assumed to be a Gaussian distribution, an assumption that we will also make in the following.
+where, for each bin $i$, $\mu_i$ is selected to minimise this expression. This is known as the profile log likelihood. The negative log likelihood ratio will then be between the value of this expression at a given $N_\text{exp}$ and the value with the $N_\text{exp}$ that minimises this expression.
+
+As is common with error distributions, $\hat\mu$ is usually assumed to be a Gaussian distribution, an assumption that we will also make in the following.
 \end{edits}
 
 \subsection{Systematic uncertainties}
@@ -238,5 +244,21 @@ Figure~\ref{result} shows the $M_{\gamma\gamma}$ distribution associated with th
 \end{minipage}
 \begin{minipage}[b]{.3\textwidth}
 \caption{The data distribution of $M_{\gamma\gamma}$ overlaid with the constructed distributions at the most likely value of $\Lambda$ and at the limits of the confidence level.}\label{result}
+\end{minipage}
+\end{figure}
+
+\section{Addendum: additional results}
+As was noted above, the profile log likelihood fit which takes into account also the uncertainties on the background distribution was too computationally intensive to be completed in time for the initial publication of this thesis. Between then and the thesis defence, this result did become available, however, and is presented here.
+
+Due to its magnitude, the systematic uncertainty on the background sample will be given solely by the uncertainty that arises from limited statistics in the \atlas{} $\gamma$jet sample. The uncertainty on this sample was illustrated in figure~\ref{atlasmc}. Figure~\ref{mccompjet} shows the effect on the distributions shown in figure~\ref{ggcomp} of adding in the $\gamma$jet MC set.
+
+\begin{figure}[htp]
+\begin{minipage}[b]{.69\textwidth}
+\begin{infilsf} \tiny
+\input{figures/mccomp-wjet}
+\end{infilsf}
+\end{minipage}
+\begin{minipage}[b]{.3\textwidth}
+\caption{Comparing the \atlas{} distribution with the one produced by CalcHEP, combined with a distribution for the box diagram contribution. The \atlas{} $\gamma$jet MC set has here been added to both distributions.}\label{mccompjet}
 \end{minipage}
 \end{figure}
