@@ -171,24 +171,24 @@
 \setlength{\madjust}{\marginparsep}
 \addtolength{\madjust}{\marginparsep}
 \newenvironment{edits}[1][]
-    {
-    
-    \marginpar{\phantom{.}
-    
-    \rule{\marginparwidth}{.2pt}
-    
-    \footnotesize\sffamily Big edits
-
-    #1}
-    \noindent\hspace{-\madjust}
-    \rule{\splitrule}{.2pt}
-    }{
-    
-    \marginpar{\phantom{.}
-    
-    \footnotesize\sffamily \raisebox{-1pt}{\rule{\marginparwidth}{.2pt}}}
-    \noindent\hspace{-\madjust}
-    \rule{\splitrule}{.2pt}
+    {%
+%    
+%    \marginpar{\phantom{.}
+%    
+%    \rule{\marginparwidth}{.2pt}
+%    
+%    \footnotesize\sffamily Big edits
+%
+%    #1}
+%    \noindent\hspace{-\madjust}
+%    \rule{\splitrule}{.2pt}
+    }{%
+%    
+%    \marginpar{\phantom{.}
+%    
+%    \footnotesize\sffamily \raisebox{-1pt}{\rule{\marginparwidth}{.2pt}}}
+%    \noindent\hspace{-\madjust}
+%    \rule{\splitrule}{.2pt}
 }
 
 \begin{hyphenrules}{danish}
