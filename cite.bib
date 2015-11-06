@@ -1,14 +1,14 @@
 @misc{cernbro,
-  author =	 "CERN",
+  author =	 "\textsc{Cern}",
   title =	 "The {LHC} Guide",
-  howpublished = "CERN website",
+  howpublished = "\textsc{Cern} website",
   url =
                   "http://cds.cern.ch/record/1165534/files/CERN-Brochure-2009-003-Eng.pdf"
 }
 
 @webpage{atlasweb,
-    author      = "{ATLAS Collaboration}",
-    title       = "{ATLAS} website",
+    author      = "{\textsc{Atlas} Collaboration}",
+    title       = "{\textsc{Atlas}} website",
     url         = "atlas.ch"
 }
 
@@ -26,14 +26,14 @@
 
 @mastersthesis{egede,
     author      = "Egede, Ulrik",
-    title       = "The search for a standard model {H}iggs at the {LHC} and electron identification using transition radiation in the {ATLAS} tracker",
+    title       = "The search for a standard model {H}iggs at the {LHC} and electron identification using transition radiation in the {\textsc{atlas}} tracker",
     year        = "1997",
     school      = "Lund Univerity",
     url         = "http://www.hep.lu.se/atlas/thesis/egede/thesis.html"
 }
 
 @webpage{root,
-    author      = "CERN",
+    author      = "\textsc{Cern}",
     title       = "ROOT website",
     url         = "root.cern.ch"
 }
@@ -54,9 +54,9 @@
 }
 
 @article{fdirect,
-    title       = {First evidence of direct diphoton production in pp collisions at $\sqrt{s} = 7$ TeV in {ATLAS}},
+    title       = {First evidence of direct diphoton production in pp collisions at $\sqrt{s} = 7$ TeV in {\textsc{atlas}}},
     author      = {Aurousseau, M. and Berger, N. and Erdmann, J. and Escalier, M. and Fanti, M. and Kado, M. and Lafaye, R. and Laplace, S. and Roos, L. and Yuan, L.},
-    journal     = {{ATLAS} note},
+    journal     = {{\textsc{Atlas}} note},
     year        = {2010},
 }
 
@@ -193,7 +193,7 @@ mechanics. For college instructors and students.},
     author      = "Srednicki, Mark",
     title       = "Quantum Field Theory",
     year        = "2010",
-    edition     = "Fourth",
+    edition     = "Fourth edition",
     publisher   = "Cambridge University Press"
 }
 
@@ -247,6 +247,14 @@ mechanics. For college instructors and students.},
   publisher={Pearson Prentice Hall}
 }
 
+@book{barlow,
+  title={Statistics: A guide to the use of statistical methods in the physical sciences},
+  author={Barlow, R. J.},
+  isbn={0471922951},
+  year={1989},
+  publisher={Wiley}
+}
+
 @webpage{wikism,
   author    = {Wikipedia},
   title     = {Standard Model},
@@ -261,10 +269,31 @@ mechanics. For college instructors and students.},
   lastchecked={26 February 2014}
 }
 
+@article{pdg,
+  author={A B Balantekin and Particle Data Group},
+  title={Review of Particle Physics},
+  journal={Journal of Physics G: Nuclear and Particle Physics},
+  volume={33},
+  year={2006},
+}
+
+@unpublished{egtwiki,
+    author      = {\Atlas{} Collaboration} ,
+    title       = "\Atlas{} e/gamma twiki page",
+    url         = "https://twiki.cern.ch/twiki/bin/view/AtlasProtected/ElectronGamma"
+}
+
 @unpublished{armbjorn,
     author      = "Armbjørn, Jan and Petersen, Jens Lyng",
     title       = "Quantum Field Theory",
     year        = "1999",
+    note        = "Lecture notes, University of Copenhagen"
+}
+
+@unpublished{peter,
+    author      = "Peter Hansen",
+    title       = "Particle detectors and accelerators",
+    year        = "2015",
     note        = "Lecture notes, University of Copenhagen"
 }
 
@@ -289,15 +318,15 @@ mechanics. For college instructors and students.},
 }
 
 @article{detectorpaper,
-  author="{ATLAS Collaboration}",
-  title={The {ATLAS} Experiment at the {CERN} {L}arge {H}adron {C}ollider},
+  author="{\textsc{Atlas} Collaboration}",
+  title={The {\textsc{atlas}} Experiment at the {\textsc{cern}} {L}arge {H}adron {C}ollider},
   journal={Journal of Instrumentation},
   volume={3},
   number={08},
   pages={S08003},
   url={http://stacks.iop.org/1748-0221/3/i=08/a=S08003},
   year={2008},
-  abstract={The ATLAS detector as installed in its experimental cavern at point 1 at CERN is described in this paper. A brief overview of the expected performance of the detector when the Large Hadron Collider begins operation is also presented.}
+  abstract={The \textsc{atlas} detector as installed in its experimental cavern at point 1 at \textsc{cern} is described in this paper. A brief overview of the expected performance of the detector when the Large Hadron Collider begins operation is also presented.}
 }
 
 @article{madgraph5,
@@ -406,9 +435,9 @@ keywords = "Distributed software development "
 
 
 @webpage{publiclumi,
-  author =	 "{ATLAS Collaboration}",
+  author =	 "{\textsc{Atlas} Collaboration}",
   title =	 "Luminosity Public Results",
-  howpublished = "ATLAS Twiki",
+  howpublished = "\textsc{Atlas} Twiki",
   url =          "https://twiki.cern.ch/twiki/bin/view/AtlasPublic/LuminosityPublicResults"
 }
 
@@ -419,24 +448,32 @@ keywords = "Distributed software development "
 }
 
 @webpage{cernexps,
-  author        = "{CERN}",
-  howpublished  = "{CERN} website",
-  title         = "Experiments | {CERN}",
+  author        = "{\textsc{Cern}}",
+  howpublished  = "{\textsc{Cern}} website",
+  title         = "Experiments | {\textsc{cern}}",
   url           = "http://home.web.cern.ch/about/experiments"
 }
 
-@techreport{phorec,
+@techreport{phorec_old,
       author        = "Abreu, H and Brelier, B and Dao, V and Delmastro, M and
                        Fanti, M and Hartert, J and Marchiori, G and Koffas, T and
                        Marchand, JF and Martin, F and Perez Reale, V and Tackmann,
                        K and Trinh, N and Wang, H and Wielers, M and Wu, SL and
                        Yuan, L",
-      title         = "Expected photon performance in the {ATLAS} experiment",
+      title         = "Expected photon performance in the {\textsc{atlas}} experiment",
       institution   = "CERN",
       address       = "Geneva",
       number        = "ATL-COM-PHYS-2010-240",
       month         = "May",
       year          = "2010",
+}
+
+@Booklet{phorec,
+    author         = "{\Atlas{} Collaboration}",
+    title          = "{Expected photon performance in the \atlas{} experiment}",
+    howpublished   = "{ATL-PHYS-PUB-2011-007}",
+    url            = "http://cdsweb.cern.ch/record/1345329",
+    year           = "2011",
 }
 
 @inbook{atlascluster:sw,
@@ -457,5 +494,70 @@ keywords = "Distributed software development "
       year          = "2008",
       reportNumber  = "ATL-LARG-PUB-2008-002",
       url           = "https://cds.cern.ch/record/1099735",
+}
+
+@techreport{pileuprew,
+      author        = "Buttinger, William",
+      title         = "{Using Event Weights to account for differences in
+                       Instantaneous Luminosity and Trigger Prescale in Monte
+                       Carlo and Data}",
+      institution   = "CERN",
+      address       = "Geneva",
+      number        = "ATL-COM-SOFT-2015-119",
+      month         = "May",
+      year          = "2015",
+      reportNumber  = "ATL-COM-SOFT-2015-119",
+      url           = "https://cds.cern.ch/record/2014726",
+}
+
+@article{ecalib,
+      author         = "{\textsc{Atlas} Collaboration}",
+      title          = "{Electron and photon energy calibration with the \textsc{atlas}
+                        detector using LHC Run 1 data}",
+      collaboration  = "ATLAS",
+      journal        = "Eur. Phys. J.",
+      volume         = "C74",
+      year           = "2014",
+      number         = "10",
+      pages          = "3071",
+      doi            = "10.1140/epjc/s10052-014-3071-4",
+      eprint         = "1407.5063",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ex",
+      reportNumber   = "CERN-PH-EP-2014-153",
+      SLACcitation   = "%%CITATION = ARXIV:1407.5063;%%"
+}
+
+@article{allfeynrules,
+      author         = "Romao, Jorge C. and Silva, Joao P.",
+      title          = "{A resource for signs and Feynman diagrams of the
+                        Standard Model}",
+      journal        = "Int. J. Mod. Phys.",
+      volume         = "A27",
+      year           = "2012",
+      pages          = "1230025",
+      doi            = "10.1142/S0217751X12300256",
+      eprint         = "1209.6213",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ph",
+      SLACcitation   = "%%CITATION = ARXIV:1209.6213;%%"
+}
+
+
+@article{powlaw,
+      author         = "Aaltonen, T. and others",
+      title          = "{Search for new particles decaying into dijets in
+                        proton-antiproton collisions at s**(1/2) = 1.96-TeV}",
+      collaboration  = "CDF",
+      journal        = "Phys. Rev.",
+      volume         = "D79",
+      year           = "2009",
+      pages          = "112002",
+      doi            = "10.1103/PhysRevD.79.112002",
+      eprint         = "0812.4036",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ex",
+      reportNumber   = "FERMILAB-PUB-08-572-E",
+      SLACcitation   = "%%CITATION = ARXIV:0812.4036;%%"
 }
 

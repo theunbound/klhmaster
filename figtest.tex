@@ -3,22 +3,39 @@
 \begin{english}
 
 
-\begin{figure}
+% \begin{figure}
 
-\centering
-\begin{minipage}[b]{.69\textwidth}
-\begin{infilsf} \tiny 
-\input{figures/mrst}
+% \centering
+% \begin{minipage}[b]{.69\textwidth}
+% \begin{infilsf} \tiny 
+% \input{figures/coef}
+% \end{infilsf}
+% \end{minipage}
+% \hfill\begin{minipage}[b]{.3\textwidth}
+% \caption{The figure here is the figure currently being tested for
+%   proper appearence and size. Probably, it will be a \textsc{root}--generated
+%   TikZ picture, since those are always the difficult ones. Yes?}
+% \label{fig:my_label}
+% \end{minipage}
+
+% \end{figure}
+
+
+\centering {\footnotesize\begin{infilsf}
+\begin{tikzpicture} [>=triangle 45]
+\draw[>-] (-1,.5) -- (0,0);
+\draw[<-] (-1,-.5) -- (0,0);
+\draw (-2,1) node[left] {$q$} -- (-1,.5);
+\draw (-2,-1)  node[left] {$\bar q$} -- (-1,-.5);
+\draw[snake=coil,segment aspect=0,line before snake=3mm] (0,0) -- (2,1) node[right] {$\gamma$};
+\draw[snake=coil,segment aspect=0,line before snake=3mm] (0,0) -- (2,-1) node[right] {$\gamma$}; 
+\node at (3,0) [right] {\footnotesize$=2\dfrac{Q^2 e{}^2}{\Lambda^4} 
+%\delta_{p q} \big(p_2^\rho p_3^\rho p_4^\sigma g^{\mu \nu} \gamma_{a b}^\sigma -p_2^\mu p_3^\nu p_4^\rho \gamma_{a b}^\rho -p_2^\rho p_3^\rho p_4^\mu \gamma_{a b}^\nu +p_2^\mu p_3^\rho p_4^\rho \gamma_{a b}^\nu $};
+%\node at (2.3,-.6) [right] {$+p_2^\rho p_3^\sigma p_4^\rho g^{\mu \nu} \gamma_{a b}^\sigma -p_2^\nu p_3^\rho p_4^\mu \gamma_{a b}^\rho -p_2^\rho p_3^\nu p_4^\rho \gamma_{a b}^\mu +p_2^\nu p_3^\rho p_4^\rho \gamma_{a b}^\mu \big)
+$};
+\end{tikzpicture}
 \end{infilsf}
-\end{minipage}
-\hfill\begin{minipage}[b]{.3\textwidth}
-\caption{The figure here is the figure currently being tested for
-  proper appearence and size. Probably, it will be a ROOT-generated
-  TikZ picture, since those are always the difficult ones. Yes?}
-\label{fig:my_label}
-\end{minipage}
-\end{figure}
-
+}
 Something.
 
 \end{english}

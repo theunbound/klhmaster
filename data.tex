@@ -1,4 +1,4 @@
-\chapter{Data preparation}
+\chapter{Data preparation \label{ch.data}}
 
 For the present analysis, we will use events that passed the \texttt{2g40\_loose} level--1 trigger, which requires that the EM calorimeter reports two energetic regions with at least 40~GeV of transverse energy that pass the loose selection criteria, described previously in chapter~\ref{ch.exp}.
 
@@ -9,38 +9,40 @@ On each of the prospective photons in this dataset, we impose a series of select
 \begin{itemize}
 \item \textbf{otx and phoClean cut:} Object quality cuts, which cut out events too close to non-functioning or noisy detector elements, and events taken while the detector was in a non-optimal state.
 \item \textbf{ID cut:} Objects that did not pass photon identification, or do not satisfy the loose selection criteria after reconstruction, are eliminated.
-\item \textbf{kinematics cut:} Ensures that objects do not have $|\eta|$ greater than 2.37, which is the forward limit of the first layer of the EM calorimeter, or in the range between 1.37 and 1.52, which is the transition region between the barrel and endcap calorimeters. Also ensures $E_T$ greater than 50~GeV, which clears the turn--on curve of the \texttt{2g40\_loose} trigger.
+\item \textbf{kinematics cut:} Ensures that objects do not have $|\eta|$ greater than 2.37, which is the forward limit of the first layer of the EM calorimeter, or in the range between 1.37 and 1.52, which is the transition region between the barrel and endcap calorimeters. Also ensures $E_T$ greater than 50~GeV, which clears the turn--on curve\footnote{Since the trigger cuts on a hardware value which is correlated with, but not identical to, the reconstructed $E_T$, the reconstructed $E_T$ value of the lowest events that pass the trigger fall in a distribution around the trigger value. The rising curve at the beginning of the distribution is the turn--on curve.} of the \texttt{2g40\_loose} trigger.
 \item \textbf{N\_events cut:} Ensures that each event has at least two photons that pass the above criteria.
-\item \textbf{PV cut:} Ensures that a photon pair can be associated with a primary vertex---that is, the must be at least one primary vertex within 3$\sigma$ of the reconstructed $z$ coordinate of the common vertex of the photon pair---which, additionally, must have at least 3 tracks associated with it, and be within 3$\sigma$ of the beam spot in the $x$ and $y$ coordinates.
+\item \textbf{PV cut:} Ensures that a photon pair can be associated with a primary vertex---that is, there must be at least one primary vertex within 3$\sigma$ of the reconstructed $z$ coordinate of the common vertex of the photon pair---which, additionally, must have at least 3 tracks associated with it, and be within 3$\sigma$ of the beam spot in the $x$ and $y$ coordinates.
+\item \textbf{selected photons cut:} Rejects diphoton candidates where one or both participants were not selected in the previous cuts.
 
 \end{itemize}
 
-If more than one photon pair are selected in a single event, the pair with the most energetic leading, and if necessary, then most energetic subleadng, photon is selected.
+If more than one photon pair are selected in a single event, the pair with the highest $p_T$ leading photon is selected.
 
 \begin{figure}[htp]
-\begin{minipage}[b]{.69\textwidth}
+\begin{minipage}[t]{.69\textwidth}
 \begin{infilsf} \tiny
+\phantom{p}
 \input{figures/cutflow}
 \end{infilsf}
-\end{minipage}\hfill\begin{minipage}[b]{.3\textwidth}
-\caption{A cutflow diagram, showing how many objects remain in the dataset after each of the selection criteria are imposed. The final number of photons is (something I sould be able to dig up somewhere).
+\end{minipage}\hfill\begin{minipage}[t]{.3\textwidth}
+\caption{A cutflow diagram, showing how many photon pairs remain in the dataset after each of the selection criteria are imposed.
 \label{cutflow}}
 \end{minipage}
 \end{figure}
 
-The number of objects remaining at each step of the cut procedure is plotted in figure~\ref{cutflow}
+The number of photon pairs remaining at each step of the cut procedure is plotted in figure~\ref{cutflow}
 
 What remains after these cuts have been applied is a purer sample of photons than we had before, however the sample will still contain a background of events that do not come from the processes that we wish to study. An estimate of this background is required.
 
 \section{Data driven background estimation}
-The background that remains in the signal sample after these criteria have been applied can be estimated in a number of ways. In chapter~\ref{ch.mc}, Monte Carlo samples that simulate several physical processes that act as background to diphoton events were [will be have been: WIP] presented. Here, however, we shall attempt to quantify the magnitude of the background by examining the data.
+The background that remains in the signal sample after these criteria have been applied can be estimated in a number of ways. Here, we shall attempt to quantify the magnitude of the background by examining the data. Background, in this context, means events where one or both photons were some other type of object misidentified by the detector as a photon. This might include electrons whose track was not properly reconstructed, jets or other neutral particles, such as the $\pi^0$. The ABCD method attempts to remove events that have a signature different from the signal in two selected variables.
 
 \subsection{The ABCD method}
-We assume that it is possible to extrapolate the shape of the distribution of background events that pollute the signal sample from the distribution of events that occur well away from the signal region. The \textsc{abcd} method assumes that the distribution of background events has the same shape in the signal region as it does in a control region. There will still be a scale difference between the two, which can be determined by examining a different control region.
+We assume that it is possible to extrapolate the shape of the distribution of background events that pollute the signal sample from the distribution of events that occur well away from the signal region. The ABCD method assumes that the distribution of background events has the same shape in the signal region as it does in a control region. There will still be a scale difference between the two, which can be determined by examining a different control region.
 
 \begin{figure}[hbp]
   \includegraphics[width=\textwidth]{figures/sideband}
-  \caption{Illustrating the two--step ABCD method, adapted from \cite{fdirect} using the `tight' selection criteria and the isolation energy: the full set of diphotons (the L-L sample) is split into four groups---A, B, C and D---according to the discriminating variables for the leading photon. Signal photons are now confined to the A region. The events in the C region can be used to estimate the shape, and the B and D region can be used to estimate the magnitude of the distribution of background events in the signal region. The procedure is then repeated for the subleading partner photons of the events in the A region. This gives an estimate of the distibution of background events in the combined signal (AA) region.}\label{abcd}
+  \caption{Illustrating the two--step ABCD method, adapted from \cite{fdirect} using the `tight' selection criteria and the isolation energy: the full set of diphotons (the L-L sample) is split into four groups---A, B, C and D---according to the discriminating variables for the leading photon. Signal photons are now confined to the A region. The events in the C region can be used to estimate the shape, and the B and D region can be used to estimate the magnitude of the distribution of background events in the signal region. The procedure is then repeated for the subleading partner photons of the events in the A region. This gives an estimate of the distribution of background events in the combined signal (Aa) region.}\label{abcd}
 \end{figure}
 
 This is also known as the two--dimensional sideband method \cite{cmsabcd}. The following description may be aided by the illustration in figure~\ref{abcd}.
@@ -59,23 +61,22 @@ Thus, the distribution in $x$ of background events in the A region, $A_{bck}$, i
 The signal distribution must then be given as
 \(A_{sig}=A-A_{bck}.\label{asig}\)
 
-As we are working with events with two photons, both of which give rise to independent backgrounds, this procedure must be repeated for the subleading photons as well. For the subleading photon candidate, we look at the sample of photon candidates that are the subleading partner of a selected photon in the signal, A, region of the distribution of leading photon candidates. Carrying out the ABCD procedure on the sample of subleading photons gives us $AA_{bck}$, an estimate of the number of selected photon pairs where the leading photon is in the A region and the subleading photon is a background event in the A region of the distribution of subleading photons with a partner in the A region (call this the AA region for short)\footnote{AAAAAAAAAAA!}. As above, the number of events in the signal--signal region must be given by
-\(A_{sig}A_{sig} = A_{sig}A-A_{sig}A_{bck}.\)
-Inserting \eqref{asig} into this gives
+As we are working with events with two photons, both of which give rise to independent backgrounds, this procedure must be repeated for the subleading photons as well. For the subleading photon candidate, we look at the sample of photon candidates that are the subleading partner of a selected photon in the signal, A, region of the distribution of leading photon candidates. Carrying out the ABCD procedure on the sample of subleading photons gives us $Aa_{bck}$, an estimate of the number of selected photon pairs where the leading photon is in the A region and the subleading photon is a part of the background in the Aa region.
+Using \eqref{asig}, we can now write the number of events in the signal--signal region as
 \(\begin{aligned}
-A_{sig}A_{sig} &=(A-A_{bck})A-(A-A_{bck})A_{bck}\\ &=AA-A_{bck}A-AA_{bck}+A_{bck}A_{bck}\\&=AA-[AA]_{bck}.
+A_{sig}a_{sig} &=(A-A_{bck})a-(A-A_{bck})a_{bck}\\ &=Aa-A_{bck}a-Aa_{bck}+A_{bck}a_{bck}\\&=Aa-[Aa]_{bck}.
 \end{aligned}\)
-$AA$ is the number of events in the AA region, which is readily available. Of the terms that contribute to the total background $[AA]_{bkc}$, $AA_{bck}$, the total number of background subleading photons in the AA region, is determined by taking
-\(AA_{bck}=AC\frac{AB}{AD},\)
-analogous to how $A_{bck}$ sample was found in eq.~\eqref{abckfind}. We find $A_{bck}A$, the total number background leading photons in the AA region, and $A_{bck}A_{bck}$, the number of photon pairs in the AA region where both members are background photons, by multiplying $AA$ and $AA_{bck}$ by
+$Aa$ is the number of events in the Aa region, which is readily available. Of the terms that contribute to the total background $[Aa]_{bkc}$, $Aa_{bck}$, the total number of background subleading photons in the Aa region, is determined by taking
+\(Aa_{bck}=Ac\frac{Ab}{Ad},\)
+analogous to how $A_{bck}$ sample was found in eq.~\eqref{abckfind}. We find $A_{bck}A$, the total number background leading photons in the Aa region, and $A_{bck}a_{bck}$, the number of photon pairs in the Aa region where both members are background photons, by multiplying $Aa$ and $Aa_{bck}$ by
 \(f_{bck}=\frac{A_{bck}}{A},\)
 the fraction of background events in the leading photon A sample. Thus, the total estimated background in the AA region is given by
-\([AA]_{bck}=\frac{A_{bck}}{A}(AA)+AA_{bck}-\frac{A_{bck}}{A}(AA_{bck}),\)
+\([Aa]_{bck}=\frac{A_{bck}}{A}(Aa)+Aa_{bck}-\frac{A_{bck}}{A}(Aa_{bck}),\)
 which we can interpret as the number of data points where the leading photon was a background plus the number of data points where the subleading photon was a background, subtracted the number of data points where both photons were background events, which would have been double counted.
 
-For the diphoton sample, we will use the `tight' selection criteria, which were described in chapter~\ref{ch.exp}, and the transverse isolation energy, $E_T^{\text{isol}}$, the energy deposited in the calorimeter in a cone with radius $R\le0.4$, but outside $R\le0.2$, where
+For the diphoton sample, the choice of the two discriminants are the `tight' selection criteria, which were described in chapter~\ref{ch.exp}, and the transverse isolation energy, $E_T^{\text{isol}}$, the energy deposited in the calorimeter in a cone with radius $R\le0.4$, but outside $R\le0.2$, where
 \[R=\sqrt{\Delta\phi^2+\Delta\theta^2}.\]
-The signal region is cut at $E_T^{\text{isol}}\le3$ GeV. We allow a crosstalk region of 2 GeV, which means the background region is defined with $5\text{ GeV}\le E_T^{\text{isol}}\le25\text{ GeV}$ [wait a minute...]. The distribution of $E_T^{\text{isol}}$ for leading photons and subleading photons in the `A' sample is given in figure~\ref{etiso}.
+The signal region is defined as $E_T^{\text{isol}}\le3$ GeV. Allowing a crosstalk region of 2 GeV, which means the background region is $5\text{ GeV}\le E_T^{\text{isol}}\le25\text{ GeV}$, produces the distribution of $E_T^{\text{isol}}$ for leading photons and subleading photons in the `A' sample is given in figure~\ref{etiso}. As the figure shows, the tight and loose selections are identical in the background region, whereas they diverge in the crosstalk region, which is the desired behaviour.
 
 \begin{figure}[htp]
 \begin{minipage}[b]{.69\textwidth}
@@ -83,17 +84,17 @@ The signal region is cut at $E_T^{\text{isol}}\le3$ GeV. We allow a crosstalk re
 \input{figures/etiso}
 \end{infilsf}
 \end{minipage}\hfill\begin{minipage}[b]{.3\textwidth}
-\caption{The transverse isolation energy $E_T^{\text{isol}}$ for the tight and non--tight photon selection of the leading photons, and for the set of subleading photons with partners in the `A' sample. The non--tight samples have been scaled so that the D region contains the same number of events as the B region. For both sets of samples, the shapes of the distributions match up [quantify?] after the scaling, which supports the assumption that the shape of the background distribution is the same in the signal region as well.
+\caption{The transverse isolation energy $E_T^{\text{isol}}$ for the tight and non--tight photon selection of the leading photons, and for the set of subleading photons with partners in the `A' sample. The non--tight samples have been scaled so that the D region contains the same number of events as the B region. For both sets of samples, the shapes of the distributions overlap after the scaling, which supports the assumption that the shape of the background distribution is the same in the signal region as well.
 \label{etiso}}
 \end{minipage}
 \end{figure}
 
-Performing this process for each bin in $M_{\gamma\gamma}$, we obtain the distribution of background events shown in figure~\ref{mggbck}. Note, though, that the plots of $E_T^{\text{isol}}$ above showed the combined distribution for all $M_{\gamma\gamma}$ bins combined.
+Performing this process for each bin in $M_{\gamma\gamma}$, we obtain the distribution of background events shown in figure~\ref{mggbck}. Note, though, that the plots of $E_T^{\text{isol}}$ in fig.~\ref{etiso} shows the distribution for all $M_{\gamma\gamma}$ bins combined.
 
 \begin{figure}[htp]
 \begin{minipage}[b]{.69\textwidth}
 \begin{infilsf} \tiny 
-\input{figures/bck}
+\input{figures/estbck}
 \end{infilsf}
 \end{minipage}\hfill\begin{minipage}[b]{.3\textwidth}
 \caption{The distribution of background events in $M_{\gamma\gamma}$ estimated from data with the ABCD method, along with the distribution of diphoton events given by the data.
@@ -102,37 +103,66 @@ Performing this process for each bin in $M_{\gamma\gamma}$, we obtain the distri
 \end{figure}
 
 \section{Comparison to SM MC}
-[Herfra er alting work in progress]
 
-The \atlas{} collaboration has produced a variety of Monte Carlo event sets that describe processes which might produce events that pass the selection cuts. Among a larger selection of candidate sets, the four [three? two!? one\textinterrobang\textinterrobang] used to produce figure~\ref{mclist} were found to yield the greatest contribution after the selection criteria used for the data were applied to them\footnote{[Something, something, list of full names, maybe appendix on contributions from sets?]}. The greatest contribution comes from the MC set that describes the Standard Model $pp\,\rightarrow\,\gamma\gamma$ process. The remaining MC sets describe processes with $\gamma$--jet or single--$\gamma$ final states, and  $Z\,\rightarrow\,ee$ decays as the most significant among processes with $ee$ final states. These processes might produce false positives either by emitting hard photons through bremsstrahlung or by false identification of electrons as converted photons.
+The \atlas{} Collaboration has produced a large selection of Monte Carlo data sets from which we choose a selection to represent a Standard Model prediction.  These sets, like those that were created in chapter~\ref{ch.mc}, have been through a detector simulation step, so that detector response has been taken into account, and they are in the same format, and contain the same types of information, as the data sets produced by the \atlas{} detector. Thus, these sets can be subjected to the same event selection machinery as was developed for as the data above.
+
+The set we choose to represent $qq\rightarrow\gamma\gamma$ signal\footnote{See appendix \ref{ax.gg}} would ideally be precisely comparable to the SM prediction we produced with CalcHEP in chapter~\ref{ch.mc}, however no such set turns out to be available. The set that is available includes several processes that produce $\gamma$jet final states, which for our purposes are considered a background process. In order to directly compare the \atlas{} $\gamma\gamma$ set with the CalcHEP set, we implement, in addition to the event selection already defined, a filter to sort out, event by event, all those events that did not produce two photons in their hard process.
+
+To represent the background to the process under study, we examine a number of MC sets\footnote{See appendix \ref{ax.other}} for significant contributions that pass our selection criteria. Among these, the two which provide the most significant contribution within the signal region describe events with $\gamma$jet final states, and events that feature a $Z\rightarrow ee$\footnote{See appendix \ref{ax.zee}} decay. These processes might produce false positives either by emitting hard photons through bremsstrahlung or by false identification of electrons as converted photons. The invariant mass distributions are plotted in figure~\ref{mclist}, along with the signal and estimated background distributions found above, and the distribution of events found in the \atlas{} $qq\rightarrow\gamma\gamma$ MC set, after selection criteria have been applied.
 
 \begin{figure}[htp]
 \begin{minipage}[b]{.69\textwidth}
 \begin{infilsf} \tiny
-\input{figures/mclist}
+\input{figures/mcsamps}
 \end{infilsf}
 \end{minipage}
 \begin{minipage}[b]{.3\textwidth}
-\caption{The invariant mass distribution of diphoton events from the \atlas{} Monte Carlo event sets that pass all selection criteria, along with the contribution from each included Monte Carlo set. All distributions have been normalised to the luminosity of the data sample.}
-\label{mclist}
+\caption{The distribution of invariant masses of events that pass the selection criteria, found in \atlas{} MC sets that describe the SM signal process, and selected processes that might contribute to the background. These are compared with the distribution of events found in data, and their estimated background.}\label{mclist}
 \end{minipage}
 \end{figure}
 
+Here, the $\gamma$jet MC set has been composited from five different MC sets with successively higher minimum cuts on $p_T$\footnote{See appendix \ref{ax.gj}}. We combine them by picking those events from a given set in which both selected photons have reconstructed $p_T$ greater than 1.15 times the initial low cut for the set, and less than 1.15 times the initial low cut for the next set. We choose a cut above the initial value to be clear of any effects of the cut.
 
-a set of monte carlo events that simulate the diphoton events that the standard model predicts will be produced in \atlas{}. These samples are chosen from a larger selection of MC samples as the only ones that provide a non--negligible contribution.
+\begin{table}[hbt]
+\centering\begin{infilsf}
+\arrayrulecolor{natgreen}
+\begin{tabular}[b]{lrl}\hline
+{\color{natgreen}\bfseries Dataset name & \multicolumn{2}{c}{\color{natgreen}\bfseries Measured/expected events}\\
+Data & 115915&\\
+Estimated background & 67640 &$\pm$ 260\\
+Pythia8\_AU2CTEQ6L1\_gammajet\_DP & 26700&$\pm$1610\\
+PowhegPythia8\_AU2CT10\_Zee & 472 &$\pm$ 50\\
+Pythia8\_AU2CTEQ6L1\_gammagamma\_2DP20 & 20480 &$\pm$ 210
+\\\hline
+\end{tabular}
+\end{infilsf}
+\caption{Table listing the number of measured or predicted event in each of the data sets included in the analysis.}
+\label{expected}
+\end{table}
 
-...which describes the data quite well.
+We note in figure~\ref{mclist} and in table~\ref{expected} that the relative contribution from the $Z\rightarrow ee$ process is essentially negligible. It contains no events at all that pass the selection criteria, with an invariant mass above 300 GeV, which is well below where we expect to see an effect from the contact interaction. Thus, we will neglect this contribution going forward.
 
-Subjecting those samples to the same background estimation process as the data sample underwent above, we obtain a prediction for the background events in the signal region, which are not removed by the data driven method. Combining this prediction with the estimated background, we obtain a distribution which represents the estimated difference between the data sample and the pure Monte Carlo sample also found in chapter~\ref{ch.mc}. Figure~\ref{tobck} compares these distributions.
+It is our assertion, then, that the observed distribution in data is reproduced by the \atlas{} Monte Carlo data sets with $\gamma\gamma$ and $\gamma$jet final states. To test this assertion, we combine these data sets, and process them in the same way as we did to the data sample above. That is, we use the ABCD method to estimate the proportion of events in this data set that are identified as background events. We may then compare the MC signal distribution ($mc$) with the signal distribution found in data by subtracting from it the background distribution estimated in Monte Carlo ($mc_{ABCD}$) and adding in stead the background distribution estimated in data ($data_{ABCD}$):
+\[mc_\text{comb}=mc-mc_{ABCD}+data_{ABCD}\]
+Figure~\ref{atlasmc} shows the result.
 
 \begin{figure}[htp]
-\begin{minipage}[b]{.69\textwidth}
-\centering (a very impressive plot)
-\end{minipage}\hfill\begin{minipage}[b]{.3\textwidth}
-\caption{A very informative caption.
-\label{tobck}}
+\begin{minipage}[b]{\textwidth}
+\begin{infilsf} \tiny
+\input{figures/atlasmc}
+\end{infilsf}
+\end{minipage}
+
+\begin{minipage}[b]{\textwidth}
+\caption{The distribution of invariant masses produced by combining the \atlas{} MC sets that best describe the signal processes, from which is subtracted the background contribution found by applying the ABCD method to this set, and to which is added the background contribution estimated in data above. }\label{atlasmc}
 \end{minipage}
 \end{figure}
+
+The plots in this figure have several features worth remarking upon. First, as should also be visible in fig.~\ref{mclist}, the MC sets for the $\gamma$jet processes have relatively poor statistics, which leads to high event weights and thus large errors, especially in the invariant mass range below 200 GeV. This is exacerbated by the ABCD method, which results in the very large errors in some bins. The use of the ABCD method to subtract a background--like part of the distribution of MC events has also resulted in some bins of this distribution having negative content, which is why the combined distribution drops below the estimated background in a few bins around the peak. Second, both the distribution of background events estimated in data and the $\gamma\gamma$ MC set have almost no events with invariant mass larger than 1\,000 GeV, which is the reason for the sharp drop at around that value. Unlike the first issue, this lack of statistics affects the most important part of the invariant mass range for estimating $\Lambda$, and so we will be forced to attempt to extrapolate the shape of the distribution in this region.
+
+With these caveats, however, the distribution of Monte Carlo events matches the distribution of events in data quite well.
+
+
 
 
 

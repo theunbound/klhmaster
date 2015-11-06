@@ -1,0 +1,242 @@
+\chapter{Analysis}\label{ch.an}
+
+Recalling from chapter \ref{ch.theory} that we may express the number of predicted events in a given bin in the $M_{\gamma\gamma}$ as a second order polynomial in $\Lambda^4$, our aim here will be, first, to determine, for each bin, the coefficients of this polynomial. Second, using a maximum likelihood fit, to determine a most likely value of $\Lambda$, and a confidence interval on that value.
+
+\section{Corrections to Monte Carlo samples}
+
+In chapters~\ref{ch.mc} and~\ref{ch.ex}, we produced, among others, a sample of Monte Carlo events that gives the SM prediction for the distribution of events. Since we discovered above, that the \atlas{} $\gamma\gamma$ Monte Carlo sample gives a distribution of events that matches data well, we will compare these two samples to asses how well our SM prediction matches data. In doing so, we encounter a few problems.
+
+First, it appears that the procedure which should correct for pileup in the detector simulation procedure has not functioned as intended. During detector simulation, the events produced for this thesis are assigned only a very limited range of values for the number of interactions per bunch crossing. Ordinarily, the pileup correction procedure expects a distribution of events per bunch crossing that covers the same range as found in data, and simply reweights each event, so that the shape of the distribution in MC is altered to resemble the one found in data. Since the distribution of numbers of interaction per bunch crossing available, the distribution found in data can not be recovered in MC.
+
+Since this appears to be a technical glitch, we will substitute a reweighting in the number of reconstructed primary vertices---vertices considered to originate directly from interactions between protons---in each event. The distribution of numbers of primary vertices in the present MC data set is compared to the one found in the \atlas{} MC set in figure~\ref{pvnnone}.
+
+\begin{figure}[htp]
+\begin{minipage}[b]{.69\textwidth}
+\begin{infilsf} \tiny
+\input{figures/pvnnone}
+\end{infilsf}
+\end{minipage}
+\begin{minipage}[b]{.3\textwidth}
+\caption{The distribution of the number of reconstructed primary vertices in the \atlas{} $\gamma\gamma$ MC set and in the CalcHEP MC set produced for this thesis, normalised to the same number of events.}\label{pvnnone}
+\end{minipage}
+\end{figure}
+
+
+The second issue we encounter is in the distribution of $E_T^\text{iso}$, which is much broader in the CalcHEP MC set than in the \atlas{} one, as illustrated in figure~\ref{etpv}. Assuming that the distribution in the CalcHEP sample is just the one in the \atlas{} sample, but broadened and shifted slightly, we develop a mapping function to reverse that effect: 
+\(E_{T,\text{mapped}}^\text{iso}=\frac{E_T^\text{iso}}{4.574}-0.020\text{ [GeV].}\)
+The result of applying this function is shown in fig.~\ref{etmap}.
+
+\begin{figure}[htp]
+\begin{minipage}[b]{.49\textwidth}
+\begin{infilsf} \tiny 
+\input{figures/etpv}
+\end{infilsf}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{.49\textwidth}
+\begin{infilsf} \tiny 
+\input{figures/etmap}
+\end{infilsf}
+\end{minipage}
+\begin{minipage}[b]{.49\textwidth}
+\subcaption{Before application of mapping function.\label{etpv}}
+\end{minipage}\hfill
+\begin{minipage}[b]{.49\textwidth}
+\subcaption{After application of mapping function.\label{etmap}}
+\end{minipage}
+\caption{The distribution of $E_T^\text{iso}$ in the \atlas{} MC set compared with the distribution in the CalcHEP MC set. In \subcaptionref{etmap}, a mapping function which applies a scale and offset to the values for the CalcHEP MC has been applied.}
+\end{figure}
+
+These distributions are now very close to being identical. We correct the remaining discrepancy by reweighting the CalcHEP sample.
+
+The weights found above are assigned to the Monte Carlo samples on an event--by--event basis. These weights will of course carry an uncertainty, which can be derived by simple error propagation from the uncertainties of the histograms used to define them. As these weights are assigned event--by--event, we can track the magnitude of uncertainty assigned to each bin of $M_{\gamma\gamma}$ by taking the root square sum of the errors on the weights of each event placed in that bin. This error must then be included in the systematic uncertainties on the analysis.
+
+Finally, the CalcHEP sample only included events produced by the tree level process, whereas the \atlas{} sample also includes the contribution from the box diagram shown in fig.~\ref{hiorder}. So, to meaningfully compare the two, we must know the contribution from the box diagram. This, we glean from another \atlas{} MC sample\footnote{See appendix \ref{ax.ggb}}, which provides a $M_{\gamma\gamma}$ distribution illustrated in fig.~\ref{boxmgg}. As with the estimated background, this distribution has insufficient statistics to accurately represent the shape of the distribution in the interesting region above 1\,000 GeV, forcing us to extrapolate the shape of this distribution as well.
+
+\begin{figure}[htp]
+\begin{minipage}[b]{.69\textwidth}
+\begin{infilsf} \tiny
+\input{figures/boxmgg}
+\end{infilsf}
+\end{minipage}
+\begin{minipage}[b]{.3\textwidth}
+\caption{The distribution of invariant masses in the \atlas{} box diagram data set.}\label{boxmgg}
+\end{minipage}
+\end{figure}
+
+Adding this to the CalcHEP sample, we get the distribution in fig.~\ref{ggcomp}. As should be evident, there is still a deficit in the CalcHEP sample. The box diagram contribution added to the CalcHEP sample was produced by a different generator than was used to generate the \atlas{} $\gamma\gamma$ sample, which was not necessarily configured with the same parameters as was used for the present sample, or the \altas{} sample could contain effects from interference between the diagrams which simply adding together samples does not capture. In any case, to be comparable to data, both MC sets must be combined with the $\gamma$jet sample. The two combined samples will be consistent within their errors.
+
+\begin{figure}[htp]
+\begin{minipage}[b]{.69\textwidth}
+\begin{infilsf} \tiny
+\input{figures/ggcomp}
+\end{infilsf}
+\end{minipage}
+\begin{minipage}[b]{.3\textwidth}
+\caption{Comparing the \atlas{} distribution with the one produced by CalcHEP, combined with a distribution for the box diagram contribution.}\label{ggcomp}
+\end{minipage}
+\end{figure}
+
+As the estimated data background (see fig.~\ref{atlasmc}) and box diagram (see fig.~\ref{boxmgg}) distributions have the same sort of shape, it is natural to combine them before attempting to extrapolate a shape. The function we fit to this distribution has the expression, suggested by \cite{powlaw}
+\(f(x)=\vet{7.9\,10^{-5}}\left(\frac{1-x}{8000}\right)^{\vet{22.5506}}\left(\frac{x}{8000}\right)^{-\left[\vet{7.203553}\;\vet{-0.631809}\ln\frac{x}{8000}\right]},\)
+where the four underscored numbers are the fitted parameters. $x$ has been scaled by $8\,000^{-1}$ GeV$^{-1}$ in an attempt to achieve parameter values close to 1. The function is plotted along with the histogram it was fitted to in figure~\ref{bckfit}. This fit, and all further fits, were carried out using \textsc{root}s fitting procedures \cite{root}.
+
+\begin{figure}[htp]
+\begin{minipage}[b]{.69\textwidth}
+\begin{infilsf} \tiny
+\input{figures/bckfit}
+\end{infilsf}
+\end{minipage}
+\begin{minipage}[b]{.3\textwidth}
+\caption{Extrapolating the truncated backgrounds by fitting a function. The fit has $\chi^2$ / ndf = 237.2 / 74.}\label{bckfit}
+\end{minipage}
+\end{figure}
+
+\section{The polynomial coefficients}
+Now satisfied with our Monte Carlo samples, we turn toward extracting the coefficients to the polynomials that will allow us to vary $\Lambda$. As is evident from the plots of the distributions in figure~\ref{simfit}, the number of expected events in each bin is subject to relatively large statistical fluctuations. Since the coefficients for each polynomial is determined solely from these three points, the resulting quadratic function may look drastically different from bin to bin. One approach to reducing the statistical fluctuations is to simply combine sets of adjacent bins, rebinning, or to apply some form of smoothing procedure. Here, however, we will attempt to fit a function to each distribution. In addition to smoothing out fluctuations between bins, fitting functions allows us to incorporate some additional knowledge about the relationship between these distributions into our extrapolation of their shape.
+
+Since we have assumed constructive interference between the new interaction and the Standard Model, we know that a distribution which has a contribution from the new interaction, at any strength, must have a number of expected events at least equal to the number of events expected in the Standard Model case at any point. Also, the Standard Model contributes equally in each distribution, thus the shape of each distribution must be the shape of the Standard Model contribution plus an additional contribution. We select for the shape of the Standard Model distribution the function
+\(f_\textit{SM}(x)=p_1\left(\frac{1-x}{8000}\right)^{p_2}\left(\frac{x}{8000}\right)^{-\left[p_3+p_4\ln\frac{x}{8000}\right]},\)
+the parameters of which must be shared among all three functions. This is the same type of expression as was used to fit the shape of the background distribution in the previous section. The additional contribution from the contact interaction does not follow this shape of distribution.
+\begin{edit}
+To describe the shape of the additional contribution, we select, among all possible functional dependencies, an expression with a small number of parameters, which once fitted to the distribution, describes the shape well, with a good $\chi^2$.
+\end{edit}
+
+We describe the shape of the contribution from the new interaction with functions of the form
+\(f_{\Lambda=1.00/0.75}(x)=f_\textit{SM}(x)+p_{5/10}\exp\left[-\half\left(\frac{x-p_{6/11}}{p_{7/12}}\right)^2\right]+\exp\left[p_{8/13}\frac{x}{8000}-p_{9/14}\right],\)
+where we have attempted to indicate the parameter numbers belonging to the function describing the contribution at $\Lambda=1.00$ TeV resp. 0.75 TeV with two indexes separated by a slash. This is effectively a Gaussian plus an exponential. We fit the distributions in the range above 150 GeV, which clears the effects of the minimum $p_T$ cuts, and below 3\,000 GeV, where the SM sample runs out of statistics.
+
+The results of fitting these functions simultaneously is shown in figure~\ref{simfit}.
+
+
+\begin{figure}[hbt]
+\begin{infilsf}\tiny
+\input{figures/simfit}
+\end{infilsf}
+\caption{The functions fitted to each of the CalcHEP distributions with different $\Lambda$ values of 0.75 TeV (yellow), 1.00 TeV (red) and $\infty$ (the SM, green). The fit is carried out in the range $150 \le M_{\gamma\gamma} \le 3\,000$ TeV. The fit has $\chi^2$ / Ndf = 938.8 / 814.}\label{simfit}
+\end{figure}
+
+The fit estimates the parameters to be, for the SM curve:\allowdisplaybreaks
+\begin{align*}
+p_1                      & \quad = &  7.81\times10^{-6}   \quad & \pm    0.31\times10^{-6} \\
+p_2                      & \quad = &      6.96   \quad & \pm    0.14    \\
+p_3                      & \quad = &      6.894   \quad & \pm    0.018    \\
+p_4                      & \quad = &    -0.553   \quad & \pm    0.003  \\
+\intertext{For the $\Lambda = 1.00$ TeV curve:}
+p_5                      & \quad = &     0.014   \quad & \pm    0.002  \\
+p_6                      & \quad = &      2540   \quad & \pm    61     \\
+p_7                      & \quad = &      476   \quad & \pm    96     \\
+p_8                      & \quad = &     -11.6   \quad & \pm    0.6   \\
+p_9                      & \quad = &     0.12   \quad & \pm    0.09   \\
+\intertext{And for the $\Lambda=0.75$ TeV curve:}
+p_{10}                     & \quad = &     0.19   \quad & \pm    0.03   \\
+p_{11}                     & \quad = &      2199   \quad & \pm    61     \\
+p_{12}                     & \quad = &      740   \quad & \pm    86     \\
+p_{13}                     & \quad = &     -7.6   \quad & \pm    0.7    \\
+p_{14}                     & \quad = &    -0.39   \quad & \pm    0.08   
+\end{align*}
+
+The error bands in fig.~\ref{simfit} represent the 95\% confidence intervals on the functions, as calculated from the covariance matrix produced by the fitting procedure. This confidence interval represents the systematic uncertainty that arises from the uncertainty on the fit parameters.
+
+It is now a simple matter to determine the polynomial coefficients, which are plotted in fig.~\ref{coef}.
+
+\begin{figure}[hbt]
+\begin{minipage}[b]{.69\textwidth}
+\begin{infilsf}\tiny
+\input{figures/coef}
+\end{infilsf}
+\end{minipage}\hfill
+\begin{minipage}[b]{.3\textwidth}
+\caption{From top to bottom, plots of the coefficients to the constant, linear and quadratic terms used to derive distributions of $M_{\gamma\gamma}$ at any $\Lambda$, defined in chapter~\ref{ch.theory}, with uncertainties.}\label{coef}
+\end{minipage}
+\end{figure}
+
+\section{Maximum likelihood fit}
+To determine the most likely value of $\Lambda$, we will use a maximum likelihood fit to attempt to find the value of $\Lambda$ that best fits the data.
+
+A full description of the maximum likelihood method is given in \cite{barlow} or \cite{pdg}. In brief, the probability of observing a number $n_\text{data}$ events, given an expected number $N_\text{exp}$, is, for a single bin, given by Poisson statistics:
+\(p(n_\text{data}|N_\text{exp})=\frac{N_\text{exp}^{n_\text{data}}}{n_\text{data}!}e^{-N_\text{exp}}\label{pois}\)
+In our case, where the experiment has been carried out, $n_\text{data}$ will be fixed as the value in each bin. Meanwhile, we worked out a method for varying the number of expected events $N_\text{exp}$ as a function of $\Lambda$ above. Thus, the most likely value of $\Lambda$ is the one that maximises equation \eqref{pois}. Taking the logarithm of eq.~\eqref{pois} yields
+\(\ln[p(n_\text{data}|N_\text{exp})]=-\ln n_\text{data}!+n_\text{data}\ln N_\text{exp}-N_\text{exp},\)
+where obviously the logarithm of $n_\text{data}!$ is a constant for any given bin. Taking the logarithm also allows us to write the likelihood of an ensemble of measured and expected event counts, such as we find in our histograms, as a sum. Finding the value of $\Lambda$ with the highest likelihood associated is now a simple matter of varying our prediction until we discover a maximum.
+
+As a practical matter, since numerical algorithms for extremum finding are actually minimisers, we will write the negative likelihood,
+\[-\ln p,\]
+and attempt to find a value of $\Lambda$ that minimises this number. 
+
+We can find a confidence interval around the most likely value by determining what the ratio of likelihoods, or difference of log likelihoods, between the most likely value and the value that corresponds to the desired confidence level. The log ratio of the likelihood of a $\chi^2$ distribution at its mean to its likelihood at the 95th percentile is 3.84 \cite{pdg}. We adopt this as the best estimate available for the 95\% confidence level for twice the negative log likelihood ratio for our distributions as well. The factor two arises from taking the logarithm of $\chi^2$.
+
+As an example, figure~\ref{exllr} plots the negative log likelihood ratios associated with searching for the most likely value of $\Lambda$ given our dataset.
+
+\begin{figure}[htp]
+\begin{minipage}[b]{.69\textwidth}
+\begin{infilsf} \tiny
+\input{figures/exllr}
+\end{infilsf}
+\end{minipage}
+\begin{minipage}[b]{.3\textwidth}
+\caption{The negative log likelihood ratio times 2, for the likelihood scan over a range of values for $\Lambda^{-4}$. This likelihood scan does not include any uncertainties. The minimum negative likelihood corresponds to $\Lambda^{-4}=0.356$ TeV$^{-4}$, with a confidence interval of $-0.425 \le \Lambda^{-4} \le 0.916$ TeV$^{-4}$. The horizontal line indicates the log likelihood ratio at the 95\% confidence level.}\label{exllr}
+\end{minipage}
+\end{figure}
+
+This likelihood fit suggest that the most likely value of $\Lambda$ is 1.29 TeV, with a lower limit on the 95\% confidence interval of 1.02 TeV. That the confidence interval for $\Lambda^{-4}$ spans across zero indicates that the Standard Model case lies within the confidence interval.
+
+\begin{edits}
+Additional uncertainties can be incorporated into the determination of the log likelihood ratio by introducing nuisance parameters. Say that, in addition to the likelihood associated with the Poisson distribution of observed events $n_\text{data}$, the likelihood of a given expected event count $N_\text{exp}$ also depends on a second distribution $\hat\mu$. For a single bin, we modify the number of expected events by a number $\mu$ drawn from the $\hat\mu$ distribution, and modify the overall likelihood by the likelihood for drawing that $\mu$:
+\(p(n_\text{data}|N_\text{exp},\mu)=p(n_\text{data}|N_\text{exp}+\mu)p(\mu)\)
+Then, to find the likelihood at a step in $N_\text{exp}$, we must find the value of $\mu$ that minimises the total negative log likelihood. We assign separate $\hat\mu$ distributions for each bin in a histogram. Thus, for a histogram with bins $i$, the negative log likelihood is given by
+\(-LL=\sum_i\ln n_i!-n_i\ln(N_i+\mu_i)+(N_i+\mu_i)-\ln p_i(\mu_i),\)
+where, for each bin $i$, $\mu_i$ is selected to minimise this expression. This is known as the profile log likelihood. As is common with error distributions, $\hat\mu$ is usually assumed to be a Gaussian distribution, an assumption that we will also make in the following.
+\end{edits}
+
+\subsection{Systematic uncertainties}
+In the course of developing the MC sets used, we identified a number of systematic uncertainties that should be included at this point.
+
+We will, in the absence of better information, assume that all systematic uncertainties are uncorrelated, and, unless otherwise noted, that individual uncertainties are completely correlated across all bins. These uncertainties will then be included as nuisance parameters in the log likelihood fit, by constructing a simple Gaussian distribution of appropriate width about $n_\text{data}$ for each systematic in each bin, and then combining them. In practice, this means adding together their standard deviations in quadrature.
+
+To summarise, the systematic uncertainties were:
+\begin{itemize}
+\item Choice of PDF: Table \ref{mrsttab} summarises the uncertainties determined due to our choice of PDF. Since we have identified separate errors for each $\Lambda$ sample, we will apply this effect to the appropriate $M_{\gamma\gamma}$ function before determining the errors on the coefficient functions. Thus, this effect of this systematic uncertainty is included in the error on the coefficient functions illustrated in fig.~\ref{coef}.
+\item Reweighting: By taking the root--square--sum of the error on the weight assigned to each event in a bin in $M_{\gamma\gamma}$, we were able to ascertain the systematic uncertainty due to the reweighting procedures above bin--by--bin for each $\Lambda$ sample.
+\item Confidence interval on $M_{\gamma\gamma}$ shape functions: Potentially, these could be evaluated separately for each value of $\Lambda$.% At high $\Lambda^{-1}$, the errors on the linear and quadratic coefficients, which, as visible in fig.~\ref{coef}, remain significant at larger values of $M_{\gamma\gamma}$, contribute more to the uncertainty on the derived distribution.
+\item Choice of event generator: We have attempted to minimise the effect of generator choice by actively tuning CalcHEP to produce distributions of events similar to pythia. A systematic error of 9.18\% on the overall event count is included to account for the deviation of the MadGraph sample.
+\end{itemize}
+In addition, we include systematic uncertainties due to the following detector effects:
+\begin{itemize}
+\item Photon identification: 1.5\%
+\item Uncertainty on luminosity: 2.8\%
+\end{itemize}
+
+The systematic uncertainties which were determined for each $\Lambda$ distribution individually, namely the confidence interval on the fitted functions, the PDF uncertainty and the uncertainty due to the reweighting procedure, were applied as systematic errors to the functions fitted to the distributions in figure~\ref{simfit}, and converted to systematic errors on the coefficient functions, plotted in fig.~\ref{coef}, through standard error propagation. Potentially, the resulting errors on the $M_{\gamma\gamma}$ distributions constructed from these coefficient functions could be determined for each $\Lambda$ individually, however, this proves too cumbersome to implement. In stead, we take as a conservative estimate the uncertainty associated with a function constructed for $\Lambda^{-4}=3.0$ TeV$^{-4}$, which is the upper limit on values of $\Lambda^{-4}$ searched by the minimiser. When determining errors associated with a distribution of invariant mass constructed from the parametrisation at a given value of $\Lambda$, the uncertainty associated with the $b$ and $c$ coefficient functions will enter into the uncertainty on the constructed distribution proportionally to $\Lambda^{-4}$ and $(\Lambda^{-4})^2$, respectively. Thus, we expect the distribution constructed for large values of $\Lambda$ to have larger uncertainties associated with them, and choose the errors associated with the highest value of $\Lambda^{-4}$ searched as the conservative estimate for this error. This uncertainty is evaluated for each bin in $M_{\gamma\gamma}$. The uncertainties thus arrived at are combined with the overall uncertainties from the choice of event generator and detector effects, and applied as nuisance parameters in the log likelihood fit. Since these uncertainties include effects that are not assumed to be correlated between bins, the uncertainties on each bin are treated as separate nuisance parameters. The histograms being fitted in the next section contain 90 bins, meaning that the fit takes into account 90 nuisance parameters.
+
+%[Depending on computer time]
+For the background sample, by far the dominant source of uncertainty is that arising from limited statistics in the $\gamma$jet sample. As such, we will use it as a first approximation of the total uncertainty.
+
+\section{Setting a limit}
+Figure~\ref{resllr} shows the negative profile log likelihood values found scanning over values for $\Lambda^{-4}$ corresponding to $\Lambda=\pm760$ GeV.
+
+\begin{figure}[htp]
+\begin{minipage}[b]{.69\textwidth}
+\begin{infilsf} \tiny
+\input{figures/resllr}
+\end{infilsf}
+\end{minipage}
+\begin{minipage}[b]{.3\textwidth}
+\caption{The negative 2 log likelihood ratio for the profile likelihood scan over a range of values for $\Lambda^{-4}$. This likelihood scan does not include uncertainties on the background. The minimum negative likelihood corresponds to $\Lambda=814$ GeV, with a confidence interval of $763 \le \Lambda \le 900$ GeV. The horizontal line indicates the log likelihood ratio at the 95\% confidence level.}\label{resllr}
+\end{minipage}
+\end{figure}
+
+As figure~\ref{resllr} states, this result excludes the Standard Model. To achieve this result, we have neglected the considerable statistical uncertainty contributed by the $\gamma$jet sample, as is clear from table~\ref{expected}. This uncertainty can be accounted for by incorporating it as a second set of nuisance parameters associated with the background sample. This will require significantly more CPU time to compute than the result presented above.
+
+Figure~\ref{result} shows the $M_{\gamma\gamma}$ distribution associated with the most likely value of $\Lambda$, along with those associated with the limits on the confidence interval overlaid on the data distribution.
+
+\begin{figure}[htp]
+\begin{minipage}[b]{.69\textwidth}
+\begin{infilsf} \tiny
+\input{figures/results}
+\end{infilsf}
+\end{minipage}
+\begin{minipage}[b]{.3\textwidth}
+\caption{The data distribution of $M_{\gamma\gamma}$ overlaid with the constructed distributions at the most likely value of $\Lambda$ and at the limits of the confidence level.}\label{result}
+\end{minipage}
+\end{figure}
